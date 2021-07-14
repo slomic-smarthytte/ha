@@ -1,0 +1,10 @@
+- platform: group
+  name: Screens 1. etg
+  entities:
+    - cover.fibaro_roller_shutter_kjokken_1_level
+    - cover.fibaro_roller_shutter_stue_1_level
+- platform: group
+  name: Screens 2. etg
+  entities:
+    - cover.fibaro_roller_shutter_soverom_3_level
+    - cover.fibaro_roller_shutter_stue_2_level

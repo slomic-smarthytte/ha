@@ -1,0 +1,224 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_lys",
+    "data": {
+        "config": {
+            "title": "Lys",
+            "views": [
+                {
+                    "icon": "mdi:home-floor-1",
+                    "panel": true,
+                    "path": "1-etg",
+                    "title": "1. etg",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "label": "Bad",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_bad_1_level",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "entity": "switch.fibaro_switch_bad_1_switch",
+                                            "name": "Speil"
+                                        },
+                                        {
+                                            "label": "Kj\u00f8kken",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_kjokken_1_level",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_kjokkenbenk_1_level",
+                                            "name": "Benk"
+                                        },
+                                        {
+                                            "label": "Stue",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_stue_1_level",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_spisebord_1_level",
+                                            "name": "Spisebord"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_lightstrip_sofa_stue_1",
+                                            "name": "Sofa"
+                                        },
+                                        {
+                                            "label": "Soverom",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_soverom_1_level",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "label": "Gang",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_gang_1_level",
+                                            "name": "Tak"
+                                        }
+                                    ],
+                                    "show_header_toggle": true,
+                                    "title": "Lys 1. Etg",
+                                    "icon": "mdi:lightbulb-on",
+                                    "type": "entities",
+                                    "state_color": true
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                },
+                {
+                    "title": "2. etg",
+                    "path": "2-etg",
+                    "icon": "mdi:home-floor-2",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "label": "Bad",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_bad_2_level",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "entity": "switch.fibaro_switch_bad_2_switch",
+                                            "name": "Speil"
+                                        },
+                                        {
+                                            "label": "Stue",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_stue_2_level",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_play_stue_2_1",
+                                            "name": "Vegg 1"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_play_stue_2_2",
+                                            "name": "Vegg 2"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_go_stue_2",
+                                            "name": "Hylle"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_lightstrip_sofa_stue_2",
+                                            "name": "Sofa"
+                                        },
+                                        {
+                                            "entity": "light.juletre_stue_2",
+                                            "name": "Juletre"
+                                        },
+                                        {
+                                            "label": "Soverom",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_soverom_2_level",
+                                            "name": "Soverom 2 tak"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_soverom_3_level",
+                                            "name": "Soverom 3 tak"
+                                        },
+                                        {
+                                            "label": "Gang",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_gang_2_level",
+                                            "name": "Tak"
+                                        }
+                                    ],
+                                    "show_header_toggle": true,
+                                    "title": "Lys 2. Etg",
+                                    "icon": "mdi:lightbulb-on",
+                                    "type": "entities",
+                                    "state_color": true
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                },
+                {
+                    "title": "Felles",
+                    "path": "felles",
+                    "panel": true,
+                    "icon": "mdi:stairs-box",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "label": "Utend\u00f8rs",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.stolpe_ute",
+                                            "name": "Julebelysning stolpe"
+                                        },
+                                        {
+                                            "entity": "light.tak_ute",
+                                            "name": "Julebelysning tak"
+                                        },
+                                        {
+                                            "label": "Bod",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "switch.fibaro_switch_bod_1_switch",
+                                            "name": "Tak"
+                                        },
+                                        {
+                                            "label": "Trapp",
+                                            "type": "section"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_trapp_1_level",
+                                            "name": "Trappelys"
+                                        }
+                                    ],
+                                    "show_header_toggle": true,
+                                    "title": "Lys felles",
+                                    "type": "entities",
+                                    "icon": "mdi:lightbulb-on",
+                                    "state_color": true
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

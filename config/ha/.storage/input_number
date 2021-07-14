@@ -1,0 +1,138 @@
+{
+    "version": 1,
+    "key": "input_number",
+    "data": {
+        "items": [
+            {
+                "icon": "mdi:battery-alert",
+                "id": "notify_when_battery_level_below",
+                "max": 100.0,
+                "min": 0.0,
+                "mode": "slider",
+                "name": "Battery level treshold",
+                "step": 10.0,
+                "unit_of_measurement": "%"
+            },
+            {
+                "min": 1.0,
+                "max": 3.0,
+                "name": "Prepare routines days before arrival",
+                "unit_of_measurement": "day(s)",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "days_before_arrival",
+                "icon": "mdi:calendar-clock"
+            },
+            {
+                "min": 18.0,
+                "max": 28.0,
+                "name": "Arrival temperature Gang 1",
+                "icon": "mdi:temperature-celsius",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "arrival_temperature_gang_1",
+                "unit_of_measurement": "C"
+            },
+            {
+                "min": 18.0,
+                "max": 28.0,
+                "name": "Arrival temperature Bad 1",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "arrival_temperature_gang_1_2",
+                "icon": "mdi:temperature-celsius",
+                "unit_of_measurement": "C"
+            },
+            {
+                "min": 18.0,
+                "max": 28.0,
+                "name": "Arrival temperature Bad 2",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "arrival_temperature_bad_2",
+                "icon": "mdi:temperature-celsius",
+                "unit_of_measurement": "C"
+            },
+            {
+                "min": 18.0,
+                "max": 28.0,
+                "name": "Departure temperature Gang 1",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "departure_temperature_gang_1",
+                "icon": "mdi:temperature-celsius"
+            },
+            {
+                "min": 18.0,
+                "max": 28.0,
+                "name": "Departure temperature Bad 1",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "departure_temperature_bad_1",
+                "icon": "mdi:temperature-celsius"
+            },
+            {
+                "min": 18.0,
+                "max": 28.0,
+                "name": "Departure temperature Bad 2",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "departure_temperature_bad_2",
+                "icon": "mdi:temperature-celsius"
+            },
+            {
+                "min": 15.0,
+                "max": 25.0,
+                "name": "Soverom 2 temp daytime",
+                "icon": "mdi:temperature-celsius",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "soverom_2_temperature_daytime"
+            },
+            {
+                "min": 15.0,
+                "max": 25.0,
+                "name": "Soverom 2 temp night",
+                "icon": "mdi:temperature-celsius",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "soverom_2_temp_night"
+            },
+            {
+                "min": 15.0,
+                "max": 25.0,
+                "name": "Soverom 3 temp daytime",
+                "icon": "mdi:temperature-celsius",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "soverom_3_temp_daytime"
+            },
+            {
+                "min": 15.0,
+                "max": 25.0,
+                "name": "Soverom 3 temp night",
+                "icon": "mdi:temperature-celsius",
+                "unit_of_measurement": "C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "soverom_3_temp_night"
+            },
+            {
+                "min": 0.0,
+                "max": 20.0,
+                "name": "Bod temp",
+                "unit_of_measurement": "C",
+                "mode": "slider",
+                "step": 1.0,
+                "id": "bod_temp",
+                "icon": "mdi:temperature-celsius"
+            }
+        ]
+    }
+}

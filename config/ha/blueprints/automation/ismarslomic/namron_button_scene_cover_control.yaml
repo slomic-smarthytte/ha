@@ -1,0 +1,106 @@
+blueprint:
+  name: Cover control with Namron 8 button Wall Switch
+  description: Control covers triggered by zwavejs Central Scene events from Namron 8 button Wall Switch
+  domain: automation
+
+  input:
+    cover_entity:
+      name: Cover entity
+      description: The cover entity to control
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: cover
+
+    device_node_id:
+      name: Namron node id
+      description: The node id of the Namron device
+      selector:
+        number:
+          min: 1
+          max: 999
+          mode: box
+
+    open_button_id:
+      name: Open cover button
+      description: The button id for opening the cover
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 8
+          mode: slider
+
+    close_button_id:
+      name: Close cover button
+      description: The button id for closing the cover
+      default: 2
+      selector:
+        number:
+          min: 1
+          max: 8
+          mode: slider
+
+    stop_button_id:
+      name: Stop cover button
+      description: The button id for stoping the cover. Use 0 if NA
+      default: 3
+      selector:
+        number:
+          min: 0
+          max: 8
+          mode: slider
+
+mode: single
+
+variables:
+  open_button_id: !input open_button_id
+  open_button_id_string: "00{{open_button_id}}"
+
+  close_button_id: !input close_button_id
+  close_button_id_string: "00{{close_button_id}}"
+
+  stop_button_id: !input stop_button_id
+  stop_button_id_string: "00{{stop_button_id}}"
+
+trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      node_id: !input device_node_id
+      command_class_name: Central Scene
+
+# We only add conditions so the automation is not marked as triggered even if no action has been done
+condition:
+  condition: or
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.event.data.property_key_name == open_button_id_string }}"
+    - condition: template
+      value_template: "{{ trigger.event.data.property_key_name == close_button_id_string }}"
+    - condition: template
+      value_template: "{{ trigger.event.data.property_key_name == stop_button_id_string }}"
+
+action:
+  - choose:
+      - conditions: #if
+          - condition: template
+            value_template: "{{ trigger.event.data.property_key_name == open_button_id_string }}"
+        sequence: #then
+          - service: cover.open_cover
+            target: !input cover_entity
+
+      - conditions: #if
+          - condition: template
+            value_template: "{{ trigger.event.data.property_key_name == close_button_id_string }}"
+        sequence: #then
+          - service: cover.close_cover
+            target: !input cover_entity
+
+      - conditions: #if
+          - condition: template
+            value_template: "{{ trigger.event.data.property_key_name == stop_button_id_string }}"
+        sequence: #then
+          - service: cover.stop_cover
+            target: !input cover_entity

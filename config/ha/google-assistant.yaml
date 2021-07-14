@@ -1,0 +1,5 @@
+  project_id: !secret google_assistant_project_id
+  service_account: !include google-service-account.json
+  report_state: true
+  expose_by_default: true
+  secure_devices_pin: !secret google_assistant_secure_devices_pin

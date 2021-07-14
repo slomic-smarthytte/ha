@@ -1,0 +1,751 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_solskjerming",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Screens",
+                    "path": "screens",
+                    "icon": "mdi:window-shutter",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "cover.screens_1_etg",
+                                            "name": "1. etg"
+                                        },
+                                        {
+                                            "entity": "cover.screens_2_etg",
+                                            "name": "2. etg"
+                                        },
+                                        {
+                                            "entity": "automation.automatic_screens_kjokken",
+                                            "name": "Automatisk kontroll Kj\u00f8kken",
+                                            "secondary_info": "last-triggered"
+                                        },
+                                        {
+                                            "entity": "automation.screen_control_based_on_luminance_sun_and_wind_soverom_3",
+                                            "name": "Automatisk kontroll Soverom 3",
+                                            "secondary_info": "last-triggered"
+                                        },
+                                        {
+                                            "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_1",
+                                            "name": "Automatisk kontroll Stue 1",
+                                            "secondary_info": "last-triggered"
+                                        },
+                                        {
+                                            "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_2",
+                                            "name": "Automatisk kontroll Stue 2",
+                                            "secondary_info": "last-triggered"
+                                        }
+                                    ],
+                                    "title": "\u00c5pne / Lukke",
+                                    "type": "entities"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "color_thresholds": [
+                                                {
+                                                    "color": "#00ff00",
+                                                    "value": 1
+                                                },
+                                                {
+                                                    "color": "#ff9933",
+                                                    "value": 11
+                                                },
+                                                {
+                                                    "color": "#ff0000",
+                                                    "value": 20
+                                                }
+                                            ],
+                                            "color_thresholds_transition": "hard",
+                                            "decimals": 0,
+                                            "icon": "mdi:weather-windy",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zweather_velocity",
+                                                    "name": "Vindhastighet",
+                                                    "state_adaptive_color": true
+                                                }
+                                            ],
+                                            "font_size": 75,
+                                            "show": {
+                                                "fill": false,
+                                                "graph": false
+                                            },
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "color_thresholds": [
+                                                {
+                                                    "color": "#0000ff",
+                                                    "value": 1
+                                                },
+                                                {
+                                                    "color": "#00ff00",
+                                                    "value": 18
+                                                },
+                                                {
+                                                    "color": "#ff0000",
+                                                    "value": 25
+                                                }
+                                            ],
+                                            "color_thresholds_transition": "hard",
+                                            "decimals": 0,
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zweather_temperature",
+                                                    "name": "Temperatur",
+                                                    "state_adaptive_color": true
+                                                }
+                                            ],
+                                            "font_size": 75,
+                                            "show": {
+                                                "fill": false,
+                                                "graph": false
+                                            },
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "title": "V\u00e6r utend\u00f8rs",
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "cards": [
+                                                {
+                                                    "cards": [
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 200
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 600
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_stue_1_1_luminance",
+                                                                    "name": "Kj\u00f8kken 1",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        },
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 200
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 600
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_stue_1_2_luminance",
+                                                                    "name": "Stue 1",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        }
+                                                    ],
+                                                    "type": "horizontal-stack"
+                                                },
+                                                {
+                                                    "cards": [
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#0000ff",
+                                                                    "value": 1
+                                                                },
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 18
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 25
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_stue_1_1_temperature",
+                                                                    "name": "Kj\u00f8kken 1",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        },
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#0000ff",
+                                                                    "value": 1
+                                                                },
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 18
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 25
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_stue_1_2_temperature",
+                                                                    "name": "Stue 1",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        }
+                                                    ],
+                                                    "type": "horizontal-stack"
+                                                },
+                                                {
+                                                    "entities": [
+                                                        {
+                                                            "buttons_position": "right",
+                                                            "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                                                            "name": "Kj\u00f8kken 1",
+                                                            "title_position": "top"
+                                                        },
+                                                        {
+                                                            "buttons_position": "right",
+                                                            "entity": "cover.fibaro_roller_shutter_stue_1_level",
+                                                            "name": "Stue 1",
+                                                            "title_position": "top"
+                                                        }
+                                                    ],
+                                                    "title": "Screens 1.etg",
+                                                    "type": "custom:shutter-card"
+                                                }
+                                            ],
+                                            "title": "1. etg",
+                                            "type": "vertical-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "cards": [
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 200
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 600
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
+                                                                    "name": "Soverom 3",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        },
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 200
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 600
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_stue_2_luminance",
+                                                                    "name": "Stue 2",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        }
+                                                    ],
+                                                    "type": "horizontal-stack"
+                                                },
+                                                {
+                                                    "cards": [
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#0000ff",
+                                                                    "value": 1
+                                                                },
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 18
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 25
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
+                                                                    "name": "Soverom 3",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        },
+                                                        {
+                                                            "color_thresholds": [
+                                                                {
+                                                                    "color": "#0000ff",
+                                                                    "value": 1
+                                                                },
+                                                                {
+                                                                    "color": "#00ff00",
+                                                                    "value": 18
+                                                                },
+                                                                {
+                                                                    "color": "#ff0000",
+                                                                    "value": 25
+                                                                }
+                                                            ],
+                                                            "color_thresholds_transition": "hard",
+                                                            "decimals": 0,
+                                                            "entities": [
+                                                                {
+                                                                    "entity": "sensor.fibaro_multisensor_stue_2_temperature",
+                                                                    "name": "Stue 2",
+                                                                    "state_adaptive_color": true
+                                                                }
+                                                            ],
+                                                            "font_size": 75,
+                                                            "show": {
+                                                                "fill": false,
+                                                                "graph": false
+                                                            },
+                                                            "type": "custom:mini-graph-card"
+                                                        }
+                                                    ],
+                                                    "type": "horizontal-stack"
+                                                },
+                                                {
+                                                    "entities": [
+                                                        {
+                                                            "buttons_position": "right",
+                                                            "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                                                            "name": "Soverom 3",
+                                                            "title_position": "top"
+                                                        },
+                                                        {
+                                                            "buttons_position": "right",
+                                                            "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                                                            "name": "Stue 2",
+                                                            "title_position": "top"
+                                                        }
+                                                    ],
+                                                    "title": "Screens 2.etg",
+                                                    "type": "custom:shutter-card"
+                                                }
+                                            ],
+                                            "title": "2. etg",
+                                            "type": "vertical-stack"
+                                        }
+                                    ],
+                                    "title": "Innend\u00f8rs",
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "type": "grid",
+                                    "columns": 1,
+                                    "cards": [
+                                        {
+                                            "type": "grid",
+                                            "title": "Kj\u00f8kken",
+                                            "columns": 1,
+                                            "square": false,
+                                            "cards": [
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "color_thresholds": [
+                                                        {
+                                                            "color": "#00ff00",
+                                                            "value": 200
+                                                        },
+                                                        {
+                                                            "color": "#ff0000",
+                                                            "value": 600
+                                                        }
+                                                    ],
+                                                    "color_thresholds_transition": "hard",
+                                                    "decimals": 0,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.fibaro_multisensor_stue_1_1_luminance",
+                                                            "name": "Kj\u00f8kken 1",
+                                                            "state_adaptive_color": true
+                                                        }
+                                                    ],
+                                                    "font_size": 75,
+                                                    "show": {
+                                                        "fill": false,
+                                                        "graph": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "history-graph",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_kjokken_1_level"
+                                                        }
+                                                    ],
+                                                    "hours_to_show": 24,
+                                                    "refresh_interval": 0
+                                                },
+                                                {
+                                                    "type": "entities",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                                                            "secondary_info": "position",
+                                                            "icon": "hass:blinds-open"
+                                                        }
+                                                    ],
+                                                    "show_header_toggle": false,
+                                                    "state_color": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "grid",
+                                            "title": "Stue 1",
+                                            "columns": 1,
+                                            "square": false,
+                                            "cards": [
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "color_thresholds": [
+                                                        {
+                                                            "color": "#00ff00",
+                                                            "value": 200
+                                                        },
+                                                        {
+                                                            "color": "#ff0000",
+                                                            "value": 600
+                                                        }
+                                                    ],
+                                                    "color_thresholds_transition": "hard",
+                                                    "decimals": 0,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.fibaro_multisensor_stue_1_2_luminance",
+                                                            "name": "Stue 1",
+                                                            "state_adaptive_color": true
+                                                        }
+                                                    ],
+                                                    "font_size": 75,
+                                                    "show": {
+                                                        "fill": false,
+                                                        "graph": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "history-graph",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_stue_1_level"
+                                                        }
+                                                    ],
+                                                    "hours_to_show": 24,
+                                                    "refresh_interval": 0
+                                                },
+                                                {
+                                                    "type": "entities",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_stue_1_level",
+                                                            "secondary_info": "position",
+                                                            "icon": "hass:blinds-open"
+                                                        }
+                                                    ],
+                                                    "show_header_toggle": false,
+                                                    "state_color": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "grid",
+                                            "title": "Soverom 3",
+                                            "columns": 1,
+                                            "square": false,
+                                            "cards": [
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "color_thresholds": [
+                                                        {
+                                                            "color": "#00ff00",
+                                                            "value": 200
+                                                        },
+                                                        {
+                                                            "color": "#ff0000",
+                                                            "value": 600
+                                                        }
+                                                    ],
+                                                    "color_thresholds_transition": "hard",
+                                                    "decimals": 0,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
+                                                            "name": "Soverom 3",
+                                                            "state_adaptive_color": true
+                                                        }
+                                                    ],
+                                                    "font_size": 75,
+                                                    "show": {
+                                                        "fill": false,
+                                                        "graph": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "history-graph",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_soverom_3_level"
+                                                        }
+                                                    ],
+                                                    "hours_to_show": 24,
+                                                    "refresh_interval": 0
+                                                },
+                                                {
+                                                    "type": "entities",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                                                            "secondary_info": "position",
+                                                            "icon": "hass:blinds-open"
+                                                        }
+                                                    ],
+                                                    "show_header_toggle": false,
+                                                    "state_color": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "grid",
+                                            "title": "Stue 2",
+                                            "columns": 1,
+                                            "square": false,
+                                            "cards": [
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "color_thresholds": [
+                                                        {
+                                                            "color": "#00ff00",
+                                                            "value": 200
+                                                        },
+                                                        {
+                                                            "color": "#ff0000",
+                                                            "value": 600
+                                                        }
+                                                    ],
+                                                    "color_thresholds_transition": "hard",
+                                                    "decimals": 0,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.fibaro_multisensor_stue_2_luminance",
+                                                            "name": "Stue 2",
+                                                            "state_adaptive_color": true
+                                                        }
+                                                    ],
+                                                    "font_size": 75,
+                                                    "show": {
+                                                        "fill": false,
+                                                        "graph": false
+                                                    }
+                                                },
+                                                {
+                                                    "type": "history-graph",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_stue_2_level"
+                                                        }
+                                                    ],
+                                                    "hours_to_show": 24,
+                                                    "refresh_interval": 0
+                                                },
+                                                {
+                                                    "type": "entities",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                                                            "secondary_info": "position",
+                                                            "icon": "hass:blinds-open"
+                                                        }
+                                                    ],
+                                                    "show_header_toggle": false,
+                                                    "state_color": true
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "square": false
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                },
+                {
+                    "title": "test",
+                    "path": "test",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:swipe-card",
+                            "cards": [
+                                {
+                                    "type": "entity",
+                                    "entity": "light.fibaro_dimmer_bad_1_level",
+                                    "name": "Bad 1 - Tak"
+                                },
+                                {
+                                    "type": "entity",
+                                    "entity": "switch.fibaro_switch_bad_1_switch",
+                                    "name": "Bad 1 - Speil"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "grid",
+                            "title": "Kj\u00f8kken",
+                            "columns": 1,
+                            "square": false,
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "cover.fibaro_roller_shutter_kjokken_1_level"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0
+                                },
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                                            "secondary_info": "position",
+                                            "icon": "hass:blinds-open"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "state_color": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "grid",
+                            "title": "Stue",
+                            "columns": 1,
+                            "square": false,
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "cover.fibaro_roller_shutter_stue_2_level"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0
+                                },
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                                            "secondary_info": "position",
+                                            "icon": "hass:blinds-open"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "state_color": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "title": "Solskjerming"
+        }
+    }
+}

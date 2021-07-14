@@ -1,0 +1,942 @@
+- id: '1577742546100'
+  alias: Trapp / Gang 1 / Gang 2 - slå på alle lys
+  description: Slå på alle lys i Trapp / Gang 1 / Gang 2 ved bevegelse
+  trigger:
+  - entity_id: binary_sensor.fibaro_multisensor_gang_2_motion_detected
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.fibaro_multisensor_gang_1_motion_detected
+    platform: state
+    to: 'on'
+    from: 'off'
+  condition:
+  - above: '-1'
+    below: '10'
+    condition: numeric_state
+    entity_id: sensor.fibaro_multisensor_gang_2_luminance
+  - condition: or
+    conditions:
+    - above: '-1'
+      below: '10'
+      condition: numeric_state
+      entity_id: sensor.fibaro_multisensor_gang_1_luminance
+  action:
+  - data:
+      brightness_pct: 50
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    service: light.turn_on
+  - data:
+      brightness_pct: 2
+    entity_id: light.fibaro_dimmer_gang_1_level
+    service: light.turn_on
+  - data:
+      brightness_pct: 2
+    entity_id: light.fibaro_dimmer_gang_2_level
+    service: light.turn_on
+  mode: single
+- id: '1577742934848'
+  alias: Trapp / Gang 1 / Gang 2 - slå av alle lys
+  description: Slå av alle lys på Trapp / Gang 1 / Gang 2 etter 5 minutter uten bevegelse
+  trigger:
+  - entity_id: binary_sensor.fibaro_multisensor_gang_2_motion_detected
+    for: 0:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  - entity_id: binary_sensor.fibaro_multisensor_gang_1_motion_detected
+    for: 0:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - entity_id: light.fibaro_dimmer_trapp_1_level
+    service: light.turn_off
+  - entity_id: light.fibaro_dimmer_gang_1_level
+    service: light.turn_off
+  - entity_id: light.fibaro_dimmer_gang_2_level
+    service: light.turn_off
+  mode: single
+- id: '1577908294007'
+  alias: Bod 1 - slå av lys
+  description: Slå av lys i Bod 1 etter 5 minutter når døren er lukket
+  trigger:
+  - entity_id: binary_sensor.fibaro_door_sensor_bod_1_door_open
+    for: 0:05:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - entity_id: switch.fibaro_switch_bod_1_switch
+    service: switch.turn_off
+  mode: single
+- id: '1577908458997'
+  alias: Bod 1 - slå på lys
+  description: Slå på lys i Bod 1 ved åpning av dør
+  trigger:
+  - entity_id: binary_sensor.fibaro_door_sensor_bod_1_door_open
+    platform: state
+    to: 'on'
+    from: 'off'
+  condition: []
+  action:
+  - entity_id: switch.fibaro_switch_bod_1_switch
+    service: switch.turn_on
+  mode: single
+- id: '1588362336653'
+  alias: Notify Zwave network start
+  description: ''
+  trigger:
+  - event_data: {}
+    event_type: zwave.network_start
+    platform: event
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      message: Zwave network started at {{now()}}
+      title: Zwave network started
+    service: persistent_notification.create
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: '*Zwave network `started` at:*
+
+              `<!date^{{now() | as_timestamp | int}}^{date_pretty} {time_secs}|*{{now()}}>`'
+            type: mrkdwn
+          type: section
+      message: Zwave network started
+      target: '#ha-zwave-state-alerts'
+    service: notify.slack
+  - data_template:
+      datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+    entity_id: input_datetime.zwave_network_started
+    service: input_datetime.set_datetime
+- id: '1588362504512'
+  alias: Notify Zwave network ready
+  description: ''
+  trigger:
+  - event_data: {}
+    event_type: zwave.network_ready
+    platform: event
+  condition: []
+  action:
+  - data_template:
+      message: Zwave network ready at {{now()}}
+      title: Zwave network ready
+    service: persistent_notification.create
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: '{% set networkReady = now() | as_timestamp | int %}  *Zwave network
+              `ready` at:*
+
+              `<!date^{{networkReady}}^{date_pretty} {time_secs}|*{{networkReady}}>`'
+            type: mrkdwn
+          - text: '{% set networkReady = now() | as_timestamp | int %}  {% set networkStarted
+              = state_attr(''input_datetime.zwave_network_started'', ''timestamp'')
+              | int %}  {% set duration = (networkReady - networkStarted) | timestamp_custom("%Mm
+              %Ss")  %}  *Duration between `started` and `ready`:*
+
+              `{{duration}}`'
+            type: mrkdwn
+          type: section
+      message: Zwave network ready
+      target: '#ha-zwave-state-alerts'
+    service: notify.slack
+- id: '1589571796649'
+  alias: Flic1 button clicked
+  description: Triggered when Flic1 button is clicked once
+  trigger:
+  - event_data:
+      button_name: Flic - Trappelys
+      click_type: click
+    event_type: flic
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    service: light.toggle
+  mode: single
+- id: '1590019049080'
+  alias: Trapp / Gang 1 / Gang 2 toggle lys
+  description: Toggle (av/på) lys i Trapp, Gang 1 og Gang 2
+  trigger:
+  - event_data:
+      button_name: Flic - Trappelys
+      click_type: click
+    event_type: flic
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    service: light.toggle
+  - data: {}
+    entity_id: light.fibaro_dimmer_gang_1_level
+    service: light.toggle
+  - data: {}
+    entity_id: light.fibaro_dimmer_gang_2_level
+    service: light.toggle
+- id: '1591596016568'
+  alias: Daily snapshot of Balkong to file
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (state_attr(''input_datetime.camera_snapshot_morning'',
+      ''timestamp'') | int | timestamp_custom(''%H:%M'', False)) }}'
+  condition: []
+  action:
+  - data:
+      filename: /camera-snapshots/balkong_{{ now().strftime("%Y%m%d-%H") }}.jpg
+    entity_id: camera.aarlo_balkong
+    service: aarlo.camera_request_snapshot_to_file
+  mode: single
+- id: '1591610865477'
+  alias: Notify camera motion detected hovedinngang
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.aarlo_motion_hovedinngang
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Motion at Hovedinngang detected {{now()}}
+      title: Motion detected at Hovedinngang
+    service: persistent_notification.create
+- id: '1591611173779'
+  alias: Notify camera motion detected balkong
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.aarlo_motion_balkong
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Motion at Balkong detected {{now()}}
+      title: Motion detected at Balkong
+    service: persistent_notification.create
+- id: '1593340157858'
+  alias: Internet speed
+  description: Test internet speed
+  trigger: []
+  condition: []
+  action:
+  - service: speedtestdotnet.speedtest
+- id: '1593458285924'
+  alias: Daily snapshot of Balkong to Slack
+  description: ''
+  trigger:
+  - event_data: {}
+    event_type: aarlo_snapshot_ready
+    platform: event
+  condition: []
+  action:
+  - data_template:
+      data:
+        file:
+          path: '{{trigger.event.data.file}}'
+      message: <!date^{{trigger.event.time_fired|as_timestamp|int}}^Taken {date_pretty}
+        {time}|Daily snapshot>
+      target: '#daily-snapshot'
+    service: notify.slack
+  mode: single
+- id: '1593475381693'
+  alias: Notify HA started
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: '*HA `started` at:*
+
+              `<!date^{{now() | as_timestamp | int}}^{date_pretty} {time_secs}|*{{now()}}>`'
+            type: mrkdwn
+          type: section
+      message: HA started
+      target: '#ha-zwave-state-alerts'
+    service: notify.slack
+- id: '1593475437816'
+  alias: Notify HA shutdown
+  description: ''
+  trigger:
+  - event: shutdown
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: '*HA `shutdown` at:*
+
+              `<!date^{{now() | as_timestamp | int}}^{date_pretty} {time_secs}|*{{now()}}>`'
+            type: mrkdwn
+          type: section
+      message: HA shutdown
+      target: '#ha-zwave-state-alerts'
+    service: notify.slack
+- id: '1593630036498'
+  alias: Notify if battery level below treshold
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (state_attr(''input_datetime.check_battery_levels_morning'',
+      ''timestamp'') | int | timestamp_custom(''%H:%M'', False)) }}'
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (state_attr(''input_datetime.check_battery_levels_evening'',
+      ''timestamp'') | int | timestamp_custom(''%H:%M'', False)) }}'
+  condition: []
+  action:
+  - data: {}
+    service: script.zwave_battery_check
+- id: '1600534558058'
+  alias: Velkommen tilbake melding
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: device_tracker.ismars_iphone
+    zone: zone.home
+    event: enter
+  - platform: state
+    entity_id: binary_sensor.fibaro_multisensor_gang_1_motion
+    to: 'on'
+    from: 'off'
+  condition: []
+  action:
+  - variables:
+      guests: "{% if state_attr('sensor.booking_status', 'guests') != None %}\n  {{\
+        \ state_attr('sensor.booking_status', 'guests') }}\n{% else %}\n  \"\"\n{%endif%}"
+      tempInside: '{{states(''sensor.fibaro_multisensor_gang_1_temperature'') | round(0)}}'
+      temoOutside: '{{states(''sensor.zweather_temperature'') | round(0)}}'
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.8
+    entity_id: media_player.sonos_one_stue_1
+  - service: tts.google_translate_say
+    entity_id: media_player.sonos_one_stue_1
+    data:
+      message: Velkommen {{guests}}. Temperatur inne er {{tempInside}} grader og ute
+        {{temoOutside}} grader
+      language: 'no'
+  mode: single
+- id: '1600906458094'
+  alias: Slå på alle lys og musikk ved ankomst
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: device_tracker.ismars_iphone
+    to: home
+  condition:
+  - condition: template
+    value_template: '{{ (states(''sensor.booking_days_to_next_check_in'')|int) ==
+      0 }}'
+  - condition: state
+    entity_id: input_boolean.checked_in
+    state: 'off'
+  action:
+  - type: turn_on
+    device_id: 2ab09eda7ce54b38a26c7c5101cc4419
+    entity_id: light.philips_hue_lightstrip_sofa_stue_1
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 6f1ae281dc7445d38b9a2c20bee6911b
+    entity_id: light.philips_hue_lightstrip_sofa_stue_2
+    domain: light
+  - type: turn_on
+    device_id: 7d18052f9a17739ef7ae3838a290f082
+    entity_id: light.fibaro_dimmer_gang_1_level
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: c40464ff561a5c7587e849b53d40a1da
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: cf3d864eef49a7d014fbb0bd1d3ef7b1
+    entity_id: light.fibaro_dimmer_kjokkenbenk_1_level
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: 2e1dad971261a75edb850e45481ff187
+    entity_id: light.fibaro_dimmer_stue_1_level
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: b6d56745c07baeacb0c7a9ce76babdb7
+    entity_id: light.fibaro_dimmer_spisebord_1_level
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: 81d38c570a19d0bce7a223dd6f9691e1
+    entity_id: light.fibaro_dimmer_soverom_2_level
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: 25608b7854c8e8b7f3a8ab51ed8c5c55
+    entity_id: light.fibaro_dimmer_soverom_3_level
+    domain: light
+    brightness_pct: 100
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.checked_in
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.2
+    target:
+      entity_id: media_player.sonos_one_stue_1
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.2
+    target:
+      entity_id: media_player.sonos_one_stue_2
+  - service: media_player.play_media
+    data:
+      media_content_id: https://open.spotify.com/playlist/37i9dQZEVXbJvfa0Yxg7E7?si=32MCJP5xQQOz0D2lxpbCAw
+      media_content_type: music
+    target:
+      entity_id: media_player.sonos_one_stue_2
+  - service: media_player.play_media
+    data:
+      media_content_id: https://open.spotify.com/playlist/37i9dQZEVXbJvfa0Yxg7E7?si=32MCJP5xQQOz0D2lxpbCAw
+      media_content_type: music
+    target:
+      entity_id: media_player.sonos_one_stue_1
+  mode: single
+- id: '1601162978165'
+  alias: Juster opp temperatur før ankomst
+  description: Dagen før ankomst - juster opp temperatur på gulv bad og gang
+  trigger:
+  - platform: time
+    at: input_datetime.check_next_arrival
+  condition:
+  - condition: template
+    value_template: '{{ (states(''sensor.booking_days_to_next_check_in'')|int) ==
+      (states(''input_number.prepare_routines_days_before_arrival'')|int) }}'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.heatit_thermostat_gang_1_mode
+        state: 'off'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        entity_id: climate.heatit_thermostat_gang_1_mode
+    default: []
+  - service: climate.set_temperature
+    data:
+      temperature: '{{states(''input_number.arrival_temperature_gang_1'') | float}}'
+    entity_id: climate.heatit_thermostat_gang_1_mode
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.heatit_thermostat_bad_1_mode
+        state: 'off'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        entity_id: climate.heatit_thermostat_bad_1_mode
+    default: []
+  - service: climate.set_temperature
+    data:
+      temperature: '{{states(''input_number.arrival_temperature_bad_1'') | float}}'
+    entity_id: climate.heatit_thermostat_bad_1_mode
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.heatit_thermostat_bad_2_mode
+        state: 'off'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        entity_id: climate.heatit_thermostat_bad_2_mode
+    default: []
+  - service: climate.set_temperature
+    data:
+      temperature: '{{states(''input_number.arrival_temperature_bad_2'') | float}}'
+    entity_id: climate.heatit_thermostat_bad_2_mode
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.fibaro_wall_plug_bod_1_switch
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.fibaro_wall_plug_soverom_2_switch
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.fibaro_wall_plug_soverom_3_switch
+  - service: notify.mobile_app_ismars_iphone
+    data:
+      title: Temperatur justert opp
+      message: Temperaturen er justert opp til {{states('input_number.arrival_temperature_gang_1')
+        | int}} grader i gangen, {{states('input_number.arrival_temperature_bad_1')
+        | int}} grader på bad 1.etg og til {{states('input_number.arrival_temperature_bad_2')
+        | int}} grader på bad 2.etg
+      data:
+        subtitle: Velkommen i morgen!
+        url: /lovelace-varme/gulv
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: Temperaturen er justert opp til `{{states('input_number.arrival_temperature_gang_1')
+              | int}}` grader i gangen, `{{states('input_number.arrival_temperature_bad_1')
+              | int}}` grader på bad 1.etg og til `{{states('input_number.arrival_temperature_bad_2')
+              | int}}` grader på bad 2.etg
+            type: mrkdwn
+          type: section
+      message: Temperatur justert opp
+      target: '#ankomst-avreise'
+    service: notify.slack
+  mode: single
+- id: '1601163876427'
+  alias: Juster ned temperatur på avreisedato
+  description: På avreisedagen - juster ned temperatur på gulv bad og gang
+  trigger:
+  - platform: time
+    at: input_datetime.check_next_departure
+  condition:
+  - condition: state
+    entity_id: sensor.booking_days_to_next_check_out
+    state: '0'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.heatit_thermostat_gang_1_mode
+        state: 'off'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        entity_id: climate.heatit_thermostat_gang_1_mode
+    default: []
+  - service: climate.set_temperature
+    data:
+      temperature: '{{states(''input_number.departure_temperature_gang_1'') | float}}'
+    entity_id: climate.heatit_thermostat_gang_1_mode
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.heatit_thermostat_bad_1_mode
+        state: 'off'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        entity_id: climate.heatit_thermostat_bad_1_mode
+    default: []
+  - service: climate.set_temperature
+    data:
+      temperature: '{{states(''input_number.departure_temperature_bad_1'') | float}}'
+    entity_id: climate.heatit_thermostat_bad_1_mode
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: climate.heatit_thermostat_bad_2_mode
+        state: 'off'
+      sequence:
+      - service: climate.turn_on
+        data: {}
+        entity_id: climate.heatit_thermostat_bad_2_mode
+    default: []
+  - service: climate.set_temperature
+    data:
+      temperature: '{{states(''input_number.departure_temperature_bad_2'') | float}}'
+    entity_id: climate.heatit_thermostat_bad_2_mode
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.fibaro_wall_plug_bod_1_switch
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.fibaro_wall_plug_soverom_2_switch
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.fibaro_wall_plug_soverom_3_switch
+  - service: notify.mobile_app_ismars_iphone
+    data:
+      title: Temperatur justert ned
+      message: Temperaturen er justert ned til {{states('input_number.departure_temperature_gang_1')
+        | int}} grader i gangen, {{states('input_number.departure_temperature_bad_1')
+        | int}} grader på bad 1.etg og til {{states('input_number.departure_temperature_bad_2')
+        | int}} grader på bad 2.etg
+      data:
+        subtitle: God tur hjem i dag!
+        url: /lovelace-varme/gulv
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: Temperaturen er justert ned til `{{states('input_number.departure_temperature_gang_1')
+              | int}}` grader i gangen, `{{states('input_number.departure_temperature_bad_1')
+              | int}}` grader på bad 1.etg og til `{{states('input_number.departure_temperature_bad_2')
+              | int}}` grader på bad 2.etg
+            type: mrkdwn
+          type: section
+      message: Temperatur justert ned
+      target: '#ankomst-avreise'
+    service: notify.slack
+  mode: single
+- id: '1601328648862'
+  alias: Tag NFC kort 1 is scanned
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: feb72f1f-4353-4b5a-9290-acd7660b7662
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.fibaro_dimmer_stue_1_level
+  mode: single
+- id: '1605222948828'
+  alias: Morgenyoga
+  description: Demp lyset og spill yoga-musikk på Sonos Stue 2
+  trigger: []
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: spotify:playlist:37i9dQZF1DWYMTWCt2y4ZJ
+      media_content_type: music
+    entity_id: media_player.sonos_one_stue_2
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.2
+    entity_id: media_player.sonos_one_stue_2
+  mode: single
+- id: '1606843250405'
+  alias: 'Tag NFC klistemerke #1 is scanned'
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 2967256b-0aff-420c-9955-91cf0797c8f8
+  condition: []
+  action:
+  - service: notify.mobile_app_ismars_iphone
+    data:
+      message: velkommen til hytta
+  mode: single
+- id: '1606994165712'
+  alias: Sett checked in til false
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.booking_days_to_next_check_in
+    to: '0'
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.checked_in
+  mode: single
+- id: '1607804710644'
+  alias: Notify when new HA release
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.updater
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_ismars_iphone
+    data:
+      message: Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version')
+        }} is available.
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: Home Assistant `{{ state_attr('binary_sensor.updater', 'newest_version')
+              }}` is available.
+            type: mrkdwn
+          type: section
+      message: Version {{ state_attr('binary_sensor.updater', 'newest_version') }}
+        available
+      target: '#ha-releases'
+    service: notify.slack
+  mode: single
+- id: '1609102387739'
+  alias: Bad 1 - lys på dagtid
+  description: ''
+  use_blueprint:
+    path: ismarslomic/motion_light.yaml
+    input:
+      light_brightness: '100'
+      motion_entity: binary_sensor.aeotec_multisensor_bad_1_sensor
+      light_target: light.fibaro_dimmer_bad_1_level
+      switch_target: switch.fibaro_switch_bad_1_switch
+      time_limit_before: input_datetime.daytime_end
+      time_limit_after: input_datetime.daytime_start
+- id: '1609107313760'
+  alias: Bad 2 - lys på dagtid
+  description: ''
+  use_blueprint:
+    path: ismarslomic/motion_light.yaml
+    input:
+      light_brightness: '100'
+      motion_entity: binary_sensor.aeotec_multisensor_bad_2_sensor
+      light_target: light.fibaro_dimmer_bad_2_level
+      switch_target: switch.fibaro_switch_bad_2_switch
+      time_limit_before: input_datetime.daytime_end
+      time_limit_after: input_datetime.daytime_start
+- id: '1609108818606'
+  alias: Bad 1 - lys på kveldstid
+  description: ''
+  use_blueprint:
+    path: ismarslomic/motion_light.yaml
+    input:
+      light_brightness: '100'
+      switch_target: switch.fibaro_switch_bad_1_switch
+      time_limit_before: input_datetime.daytime_start
+      time_limit_after: input_datetime.daytime_end
+      motion_entity: binary_sensor.aeotec_multisensor_bad_1_sensor
+- id: '1609108904265'
+  alias: Bad 2 - lys på kveldstid
+  description: ''
+  use_blueprint:
+    path: ismarslomic/motion_light.yaml
+    input:
+      light_brightness: '100'
+      motion_entity: binary_sensor.aeotec_multisensor_bad_2_sensor
+      switch_target: switch.fibaro_switch_bad_2_switch
+      time_limit_before: input_datetime.daytime_start
+      time_limit_after: input_datetime.daytime_end
+- id: '1609178857031'
+  alias: Bad 1 - slå av alle lys
+  description: ''
+  use_blueprint:
+    path: ismarslomic/light_off_no_motion.yaml
+    input:
+      motion_entity: binary_sensor.aeotec_multisensor_bad_1_sensor
+      no_motion_wait: 5
+      light_target:
+        entity_id:
+        - light.fibaro_dimmer_bad_1_level
+      switch_target:
+        entity_id:
+        - switch.fibaro_switch_bad_1_switch
+- id: '1609184298781'
+  alias: Bad 2 - slå av alle lys
+  description: ''
+  use_blueprint:
+    path: ismarslomic/light_off_no_motion.yaml
+    input:
+      motion_entity: binary_sensor.aeotec_multisensor_bad_2_sensor
+      no_motion_wait: 5
+      light_target:
+        entity_id:
+        - light.fibaro_dimmer_bad_2_level
+      switch_target:
+        entity_id:
+        - switch.fibaro_switch_bad_2_switch
+- id: '1609270525175'
+  alias: Soverom 1 - Slå av lys
+  description: Slå av lys på Soverom 1 hvis ingen bevegelse
+  use_blueprint:
+    path: ismarslomic/light_off_no_motion.yaml
+    input:
+      motion_entity: binary_sensor.fibaro_multisensor_soverom_1_motion_detected
+      no_motion_wait: 20
+      light_target:
+        entity_id:
+        - light.fibaro_dimmer_soverom_1_level
+- id: '1609271626312'
+  alias: Soverom 2 - Slå av lys
+  description: Slå av lys på Soverom 2 hvis ingen bevegelse
+  use_blueprint:
+    path: ismarslomic/light_off_no_motion.yaml
+    input:
+      motion_entity: binary_sensor.fibaro_multisensor_soverom_2_motion_detected
+      no_motion_wait: 20
+      light_target:
+        entity_id:
+        - light.fibaro_dimmer_soverom_2_level
+- id: '1609271651731'
+  alias: Soverom 3 - Slå av lys
+  description: Slå av lys på Soverom 3 hvis ingen bevegelse
+  use_blueprint:
+    path: ismarslomic/light_off_no_motion.yaml
+    input:
+      motion_entity: binary_sensor.fibaro_multisensor_soverom_3_motion_detected
+      no_motion_wait: 20
+      light_target:
+        entity_id:
+        - light.fibaro_dimmer_soverom_3_level
+- id: '1610667360590'
+  alias: Soverom 2 - varmestyring
+  description: ''
+  use_blueprint:
+    path: ismarslomic/heat_control.yaml
+    input:
+      climate_entity: switch.fibaro_wall_plug_soverom_2_switch
+      temp_sensor: sensor.fibaro_multisensor_soverom_2_temperature
+      target_temp_daytime: input_number.soverom_2_temp_daytime
+      target_temp_night: input_number.soverom_2_temp_night
+- id: '1610667518549'
+  alias: Soverom 3 - varmestyring
+  description: ''
+  use_blueprint:
+    path: ismarslomic/heat_control.yaml
+    input:
+      climate_entity: switch.fibaro_wall_plug_soverom_3_switch
+      temp_sensor: sensor.fibaro_multisensor_soverom_3_temperature
+      target_temp_daytime: input_number.soverom_3_temp_daytime
+      target_temp_night: input_number.soverom_3_temp_night
+- id: '1611231361935'
+  alias: Bod 1 - Varmestyring
+  description: ''
+  use_blueprint:
+    path: ismarslomic/heat_control.yaml
+    input:
+      climate_entity: switch.fibaro_wall_plug_bod_1_switch
+      temp_sensor: sensor.fibaro_door_sensor_bod_1_temperature
+      target_temp_daytime: input_number.bod_temp
+      target_temp_night: input_number.bod_temp
+- id: '1614335432882'
+  alias: Screen control with Namron buttons - Kjøkken 1
+  description: Control (open, close and stop) screen with use of Namron wall buttons
+    at Kjøkken 1
+  use_blueprint:
+    path: ismarslomic/namron_button_scene_cover_control.yaml
+    input:
+      device_node_id: 82
+      stop_button_id: 7
+      cover_entity:
+        entity_id: cover.fibaro_roller_shutter_kjokken_1_level
+- id: '1614336621463'
+  alias: Screen control with Namron buttons - Stue 1
+  description: Control (open, close and stop) screen with use of Namron wall buttons
+    at Stue 1
+  use_blueprint:
+    path: ismarslomic/namron_button_scene_cover_control.yaml
+    input:
+      device_node_id: 82
+      stop_button_id: 8
+      cover_entity:
+        entity_id: cover.fibaro_roller_shutter_stue_1_level
+      open_button_id: 3
+      close_button_id: 4
+- id: '1614337096780'
+  alias: Screen control with Namron buttons - 1 floor
+  description: Control (open, close and stop) screen with use of Namron wall buttons
+    at 1 floor
+  use_blueprint:
+    path: ismarslomic/namron_button_scene_cover_control.yaml
+    input:
+      device_node_id: 82
+      stop_button_id: 0
+      open_button_id: 5
+      close_button_id: 6
+      cover_entity:
+        entity_id: cover.screens_1_etg
+- id: '1614346773743'
+  alias: Screen control with Namron buttons - Stue 2
+  description: Control (open, close and stop) screen with use of Namron wall buttons
+    at Stue 2
+  use_blueprint:
+    path: ismarslomic/namron_button_scene_cover_control.yaml
+    input:
+      device_node_id: 83
+      stop_button_id: 8
+      open_button_id: 3
+      close_button_id: 4
+      cover_entity:
+        entity_id: cover.fibaro_roller_shutter_stue_2_level
+- id: '1614346804232'
+  alias: Screen control with Namron buttons - Soverom 3
+  description: Control (open, close and stop) screen with use of Namron wall buttons
+    at Soverom 3
+  use_blueprint:
+    path: ismarslomic/namron_button_scene_cover_control.yaml
+    input:
+      device_node_id: 83
+      stop_button_id: 7
+      open_button_id: 1
+      close_button_id: 2
+      cover_entity:
+        entity_id: cover.fibaro_roller_shutter_soverom_3_level
+- id: '1614346862966'
+  alias: Screen control with Namron buttons - 2 floor
+  description: Control (open, close and stop) screen with use of Namron wall buttons
+    at 2 floor
+  use_blueprint:
+    path: ismarslomic/namron_button_scene_cover_control.yaml
+    input:
+      device_node_id: 83
+      stop_button_id: 0
+      open_button_id: 5
+      close_button_id: 6
+      cover_entity:
+        entity_id: cover.screens_2_etg
+- id: '1618092673221'
+  alias: Screen control based on luminance, sun and wind - Kjøkken 1
+  description: Automatic control (open/close) of the screen based on luminance, sun
+    and wind speed
+  use_blueprint:
+    path: ismarslomic/automatic_cover_control.yaml
+    input:
+      wind_open_threshold: '49'
+      cover_entity: cover.fibaro_roller_shutter_kjokken_1_level
+      luminance_entity: sensor.fibaro_multisensor_stue_1_1_luminance
+      wind_entity: sensor.wind_speed_last_5_measurements
+      sun_elevation_threshold: 5
+      luminance_close_threshold: 600
+- id: '1618100388672'
+  alias: Screen control based on luminance, sun and wind - Stue 2
+  description: Automatic control (open/close) of the screen based on luminance, sun
+    and wind speed
+  use_blueprint:
+    path: ismarslomic/automatic_cover_control.yaml
+    input:
+      wind_open_threshold: '49'
+      cover_entity: cover.fibaro_roller_shutter_stue_2_level
+      luminance_entity: sensor.fibaro_multisensor_stue_2_luminance
+      wind_entity: sensor.wind_speed_last_5_measurements
+      sun_elevation_threshold: 5
+      luminance_close_threshold: 600
+- id: '1618100446299'
+  alias: Screen control based on luminance, sun and wind - Soverom 3
+  description: Automatic control (open/close) of the screen based on luminance, sun
+    and wind speed
+  use_blueprint:
+    path: ismarslomic/automatic_cover_control.yaml
+    input:
+      wind_open_threshold: '49'
+      cover_entity: cover.fibaro_roller_shutter_soverom_3_level
+      luminance_entity: sensor.fibaro_multisensor_soverom_3_luminance
+      wind_entity: sensor.wind_speed_last_5_measurements
+      door_window_entity: binary_sensor.sensative_window_sensor_soverom_3_window_open
+      sun_elevation_threshold: 5
+      luminance_close_threshold: 600
+- id: '1618100598496'
+  alias: Screen control based on luminance, sun and wind - Stue 1
+  description: Automatic control (open/close) of the screen based on luminance, sun
+    and wind speed
+  use_blueprint:
+    path: ismarslomic/automatic_cover_control.yaml
+    input:
+      wind_open_threshold: '49'
+      cover_entity: cover.fibaro_roller_shutter_stue_1_level
+      luminance_entity: sensor.fibaro_multisensor_stue_1_2_luminance
+      wind_entity: sensor.wind_speed_last_5_measurements
+      door_window_entity: binary_sensor.sensative_door_sensor_stue_1_door_open
+      sun_elevation_threshold: 5
+      luminance_close_threshold: 600

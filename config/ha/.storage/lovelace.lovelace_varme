@@ -1,0 +1,185 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_varme",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Gulv",
+                    "path": "gulv",
+                    "icon": "mdi:floor-plan",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "climate.heatit_thermostat_gang_1_mode",
+                            "name": "Gang 1 gulv",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "climate.heatit_thermostat_bad_2_mode",
+                            "name": "Bad 2 gulv",
+                            "theme": "Backend-selected",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "climate.heatit_thermostat_bad_1_mode",
+                            "name": "Bad 1 Gulv",
+                            "type": "thermostat"
+                        }
+                    ]
+                },
+                {
+                    "title": "Panel",
+                    "path": "panel",
+                    "icon": "mdi:radiator",
+                    "panel": false,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_wall_plug_bod_1_electric_consumed_kwh"
+                                                }
+                                            ],
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 0,
+                                            "title": "Forbruk",
+                                            "type": "history-graph"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_wall_plug_bod_1_power"
+                                                }
+                                            ],
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 0,
+                                            "title": "Power",
+                                            "type": "history-graph"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "entity": "switch.fibaro_wall_plug_bod_1_switch",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:radiator",
+                                    "icon_height": "104px",
+                                    "name": "Bod 1 Panelovn",
+                                    "show_icon": true,
+                                    "show_name": true,
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_wall_plug_soverom_2_electric_consumed_kwh"
+                                                }
+                                            ],
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 0,
+                                            "title": "Forbruk",
+                                            "type": "history-graph"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_wall_plug_soverom_2_power"
+                                                }
+                                            ],
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 0,
+                                            "title": "Power",
+                                            "type": "history-graph"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "entity": "switch.fibaro_wall_plug_soverom_2_switch",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:radiator",
+                                    "icon_height": "104px",
+                                    "name": "Soverom 2 Panelovn",
+                                    "show_icon": true,
+                                    "show_name": true,
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_wall_plug_soverom_3_electric_consumed_kwh"
+                                                }
+                                            ],
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 0,
+                                            "title": "Forbruk",
+                                            "type": "history-graph"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_wall_plug_soverom_3_power"
+                                                }
+                                            ],
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 0,
+                                            "title": "Power",
+                                            "type": "history-graph"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "entity": "switch.fibaro_wall_plug_soverom_3_switch",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:radiator",
+                                    "icon_height": "104px",
+                                    "name": "Soverom 3 Panelovn",
+                                    "show_icon": true,
+                                    "show_name": true,
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                }
+            ],
+            "title": "Varme"
+        }
+    }
+}

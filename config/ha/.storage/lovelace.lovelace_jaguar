@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_jaguar",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Home",
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.leiebil_sommer_device_tracker"
+                                },
+                                {
+                                    "entity": "lock.leiebil_sommer_doors"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_alarm"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_battery"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_ev_battery"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_info"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_range"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_service_info"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_status"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_tyres"
+                                },
+                                {
+                                    "entity": "sensor.leiebil_sommer_windows"
+                                }
+                            ],
+                            "title": "I-Pace - leiebil sommer 2021",
+                            "show_header_toggle": false
+                        }
+                    ]
+                }
+            ],
+            "title": "Vehicle info"
+        }
+    }
+}

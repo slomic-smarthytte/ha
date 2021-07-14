@@ -1,0 +1,217 @@
+{
+    "version": 1,
+    "key": "lovelace.admin_kontroll",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Varslinger",
+                    "path": "varslinger",
+                    "icon": "mdi:bell",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.battery_level_treshold"
+                                },
+                                {
+                                    "entity": "input_datetime.check_battery_levels_morning"
+                                },
+                                {
+                                    "entity": "input_datetime.check_battery_levels_evening"
+                                }
+                            ],
+                            "title": "Notify when battery level below",
+                            "type": "entities"
+                        }
+                    ]
+                },
+                {
+                    "title": "Snapshots",
+                    "path": "snapshots",
+                    "icon": "mdi:camera-plus",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_datetime.camera_snapshot_morning",
+                                    "name": "Morning"
+                                },
+                                {
+                                    "entity": "input_datetime.camera_snapshot_evening",
+                                    "name": "Evening"
+                                }
+                            ],
+                            "title": "Schedule daily snapshot",
+                            "type": "entities"
+                        }
+                    ]
+                },
+                {
+                    "title": "Arrival and Departure",
+                    "path": "arrival-departure",
+                    "icon": "mdi:calendar",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_datetime.check_next_arrival"
+                                        },
+                                        {
+                                            "entity": "input_number.prepare_routines_days_before_arrival"
+                                        },
+                                        {
+                                            "entity": "input_number.arrival_temperature_bad_1"
+                                        },
+                                        {
+                                            "entity": "input_number.arrival_temperature_bad_2"
+                                        },
+                                        {
+                                            "entity": "input_number.arrival_temperature_gang_1"
+                                        }
+                                    ],
+                                    "type": "entities",
+                                    "title": "Run routines before arrival"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_datetime.check_next_departure"
+                                        },
+                                        {
+                                            "entity": "input_number.departure_temperature_bad_1"
+                                        },
+                                        {
+                                            "entity": "input_number.departure_temperature_bad_2"
+                                        },
+                                        {
+                                            "entity": "input_number.departure_temperature_gang_1"
+                                        }
+                                    ],
+                                    "type": "entities",
+                                    "title": "Run routines at departure"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Temperature",
+                    "path": "temperature",
+                    "icon": "mdi:home-thermometer-outline",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_number.soverom_2_temp_daytime"
+                                        },
+                                        {
+                                            "entity": "input_number.soverom_3_temp_daytime"
+                                        }
+                                    ],
+                                    "type": "entities",
+                                    "title": "Temperature daytime"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_number.soverom_2_temp_night"
+                                        },
+                                        {
+                                            "entity": "input_number.soverom_3_temp_night"
+                                        }
+                                    ],
+                                    "type": "entities",
+                                    "title": "Temperature night"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_number.bod_temp"
+                                        }
+                                    ],
+                                    "type": "entities",
+                                    "title": "Temperature bod"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "HA Release",
+                    "path": "ha-release",
+                    "panel": false,
+                    "icon": "mdi:home-assistant",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entity",
+                            "name": "Latest release",
+                            "entity": "binary_sensor.updater",
+                            "attribute": "newest_version",
+                            "icon": "mdi:home-assistant"
+                        },
+                        {
+                            "type": "entity",
+                            "entity": "binary_sensor.updater",
+                            "name": "New release",
+                            "icon": "mdi:home-assistant"
+                        }
+                    ]
+                },
+                {
+                    "title": "Str\u00f8m bryter",
+                    "path": "strom-bryter",
+                    "icon": "mdi:power",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.smartmirror_monitor_gang_1"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "Smartspeil"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.fibaro_wall_plug_stue_2_ice_router_switch",
+                                    "name": "Ice Router"
+                                },
+                                {
+                                    "entity": "switch.fibaro_wall_plug_stue_2_arlo_router_switch",
+                                    "name": "Arlo Router"
+                                },
+                                {
+                                    "entity": "switch.fibaro_wall_plug_gang_1_asus_router_switch",
+                                    "name": "Asus router node"
+                                },
+                                {
+                                    "entity": "switch.fibaro_wall_plug_stue_2_asus_router_switch",
+                                    "name": "Asus router"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "Str\u00f8mbryter"
+                        }
+                    ]
+                }
+            ],
+            "title": "Admin kontroll"
+        }
+    }
+}

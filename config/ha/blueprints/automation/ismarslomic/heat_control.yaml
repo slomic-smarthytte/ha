@@ -1,0 +1,75 @@
+blueprint:
+  name: Heat control
+  description: Turn the heat on/off based on presence and temperature
+  domain: automation
+  input:
+    climate_entity:
+      name: Climate switch
+      description: The climate switch to turn/off.
+      selector:
+        entity:
+          domain: switch
+    temp_sensor:
+      name: Temperature Sensor
+      description: Temperature Sensor to check.
+      selector:
+        entity:
+          domain: sensor
+          device_class: temperature
+    target_temp_daytime:
+      name: Target temperature daytime
+      description: If the heating turns on, it heats to this target temperature at daytime.
+      selector:
+        entity:
+          domain: input_number
+    target_temp_night:
+      name: Target temperature night
+      description: If the heating turns on, it heats to this target temperature at night.
+      selector:
+        entity:
+          domain: input_number
+
+mode: single
+
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
+  - platform: time_pattern
+    minutes: /10
+
+# Run only when people are at cabin based on Calendar booking status
+condition:
+  - condition: state
+    entity_id: sensor.booking_status
+    state: Running
+
+action:
+  - choose:
+      # IF daytime
+      - conditions:
+          - condition: time
+            after: input_datetime.daytime_start
+            before: input_datetime.daytime_end
+          - condition: numeric_state
+            entity_id: !input temp_sensor
+            below: !input target_temp_daytime
+        sequence:
+          - service: switch.turn_on
+            entity_id: !input climate_entity
+      # ELIF night
+      - conditions:
+          - condition: time
+            after: input_datetime.daytime_end
+            before: input_datetime.daytime_start
+          - condition: numeric_state
+            entity_id: !input temp_sensor
+            below: !input target_temp_night
+        sequence:
+          - service: switch.turn_on
+            entity_id: !input climate_entity
+    # ELSE night
+    default:
+      - service: switch.turn_off
+        entity_id: !input climate_entity

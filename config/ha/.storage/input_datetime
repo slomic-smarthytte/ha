@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "key": "input_datetime",
+    "data": {
+        "items": [
+            {
+                "has_date": false,
+                "has_time": true,
+                "icon": "mdi:clock",
+                "id": "camera_snapshot_morning",
+                "name": "Camera snapshot morning"
+            },
+            {
+                "has_date": false,
+                "has_time": true,
+                "icon": "mdi:clock",
+                "id": "camera_snapshot_evening",
+                "name": "Camera snapshot evening"
+            },
+            {
+                "has_date": false,
+                "has_time": true,
+                "icon": "mdi:clock",
+                "id": "check_battery_levels_morning",
+                "name": "Check battery levels morning"
+            },
+            {
+                "has_date": false,
+                "has_time": true,
+                "icon": "mdi:clock",
+                "id": "check_battery_level_evening",
+                "name": "Check battery levels evening"
+            },
+            {
+                "has_date": true,
+                "has_time": true,
+                "icon": "mdi:clock",
+                "id": "zwave_network_started",
+                "name": "Zwave network started"
+            },
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "Check next arrival",
+                "id": "check_next_arrival",
+                "icon": "mdi:clock"
+            },
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "Check next departure",
+                "id": "prepare_routines_at_departure",
+                "icon": "mdi:clock"
+            },
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "Daytime start",
+                "icon": "mdi:clock",
+                "id": "bathroom_daytime_start"
+            },
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "Daytime end",
+                "icon": "mdi:clock",
+                "id": "daytime_end"
+            }
+        ]
+    }
+}

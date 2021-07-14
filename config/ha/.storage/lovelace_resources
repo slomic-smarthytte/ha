@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "id": "3ee0d7fc93264ea2beccec70e1e30bd6",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-hass-aarlo/hass-aarlo.js"
+            },
+            {
+                "id": "688b0bbdd4e14fa28a01e998dedc86c6",
+                "type": "module",
+                "url": "/local/aarlo-glance.js"
+            },
+            {
+                "id": "9e16e6d5866e4d75ba95e73597628dec",
+                "type": "module",
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js"
+            },
+            {
+                "id": "db6c4c4ce80d4c4196c487009d5c7961",
+                "type": "module",
+                "url": "/hacsfiles/battery-state-card/battery-state-card.js"
+            },
+            {
+                "id": "36e06d1aa02e4693ba68b4d74abdc6a2",
+                "type": "module",
+                "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js"
+            },
+            {
+                "url": "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js",
+                "type": "module",
+                "id": "98f23316ccd5406ca0f12e21668c2d73"
+            },
+            {
+                "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
+                "type": "module",
+                "id": "78137f379c9040e79dbc7b30493898db"
+            },
+            {
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866230",
+                "type": "module",
+                "id": "312c8155ec4d439ca5108de267be648f"
+            },
+            {
+                "url": "/hacsfiles/decluttering-card/decluttering-card.js",
+                "type": "module",
+                "id": "0ac9afb1367e4d17a00a28cf83068124"
+            }
+        ]
+    }
+}

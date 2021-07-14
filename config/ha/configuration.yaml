@@ -1,0 +1,39 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  name: Slomic Smart Hytte
+  latitude: !secret home_assistant_latitude
+  longitude: !secret home_assistant_longitude
+  elevation: 600
+  time_zone: Europe/Oslo
+  unit_system: metric
+  external_url: !secret home_assistant_external_url
+  internal_url: !secret home_assistant_internal_url
+  customize: !include customize.yaml
+  allowlist_external_dirs:
+    - /camera-snapshots
+
+automation: !include automations.yaml
+aarlo: !include aarlo.yaml
+cover: !include groups_cover.yaml
+google_assistant: !include google-assistant.yaml
+google: !include google-calendar-clientId.yaml
+group: !include groups.yaml
+influxdb: !include influxdb.yaml
+notify: !include notify.yaml
+recorder: !include recorder.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+sensor: !include sensor.yaml
+shell_command: !include shell_command.yaml
+spotify: !include spotify.yaml
+switch: !include switch.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# HACS Arlo integration - Camera
+camera:
+  - platform: aarlo

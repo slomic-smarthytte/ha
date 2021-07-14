@@ -1,0 +1,185 @@
+{
+    "version": 1,
+    "key": "lovelace.core_controls",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "2. etg",
+                    "path": "main",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "sensor.time"
+                                        },
+                                        {
+                                            "type": "grid",
+                                            "cards": [
+                                                {
+                                                    "type": "button",
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "scene.turn_on",
+                                                        "service_data": {},
+                                                        "target": {
+                                                            "entity_id": "scene.movie_time"
+                                                        }
+                                                    },
+                                                    "show_state": false,
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "icon": "mdi:filmstrip",
+                                                    "name": "Movie time",
+                                                    "icon_height": "50px"
+                                                },
+                                                {
+                                                    "type": "button",
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "scene.turn_on",
+                                                        "service_data": {},
+                                                        "target": {
+                                                            "entity_id": "scene.all_lights_off"
+                                                        }
+                                                    },
+                                                    "show_state": false,
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "name": "All lights off",
+                                                    "icon": "mdi:lightbulb-off",
+                                                    "icon_height": "50px"
+                                                }
+                                            ],
+                                            "columns": 2,
+                                            "square": false
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "grid",
+                                            "cards": [
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "color_thresholds": [
+                                                        {
+                                                            "color": "#0000ff",
+                                                            "value": 1
+                                                        },
+                                                        {
+                                                            "color": "#00ff00",
+                                                            "value": 18
+                                                        },
+                                                        {
+                                                            "color": "#ff0000",
+                                                            "value": 25
+                                                        }
+                                                    ],
+                                                    "color_thresholds_transition": "hard",
+                                                    "decimals": 0,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.zweather_temperature",
+                                                            "name": "Ute",
+                                                            "state_adaptive_color": true
+                                                        }
+                                                    ],
+                                                    "font_size": 150,
+                                                    "show": {
+                                                        "fill": true,
+                                                        "graph": true,
+                                                        "icon_adaptive_color": true
+                                                    }
+                                                },
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "color_thresholds": [
+                                                        {
+                                                            "color": "#00ff00",
+                                                            "value": 1
+                                                        },
+                                                        {
+                                                            "color": "#ff9933",
+                                                            "value": 38
+                                                        },
+                                                        {
+                                                            "color": "#ff0000",
+                                                            "value": 74
+                                                        }
+                                                    ],
+                                                    "color_thresholds_transition": "hard",
+                                                    "decimals": 0,
+                                                    "icon": "mdi:weather-windy",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.zweather_velocity_kmh",
+                                                            "name": "Vindhastighet",
+                                                            "state_adaptive_color": true
+                                                        }
+                                                    ],
+                                                    "font_size": 150,
+                                                    "show": {
+                                                        "fill": true,
+                                                        "graph": true,
+                                                        "icon_adaptive_color": true
+                                                    }
+                                                },
+                                                {
+                                                    "type": "weather-forecast",
+                                                    "entity": "weather.hy",
+                                                    "secondary_info_attribute": "wind_speed",
+                                                    "show_forecast": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:shutter-card",
+                                            "entities": [
+                                                {
+                                                    "buttons_position": "right",
+                                                    "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                                                    "name": "Soverom",
+                                                    "title_position": "bottom"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "custom:shutter-card",
+                                            "entities": [
+                                                {
+                                                    "buttons_position": "right",
+                                                    "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                                                    "name": "Stue",
+                                                    "title_position": "bottom"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

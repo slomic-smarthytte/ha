@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "key": "lovelace.smart_speil",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Home",
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "custom:mini-graph-card",
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 30
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 65
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.smartmirror_rpi_temperature_gang_1",
+                                            "name": "Rpi temperature",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": true,
+                                        "graph": true
+                                    }
+                                },
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "switch.smartmirror_monitor_gang_1",
+                                            "name": "Monitor"
+                                        },
+                                        {
+                                            "entity": "switch.smartmirror_mm_gang_1",
+                                            "name": "Magic mirror"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "shell_command.smartmirror_rpi_reboot",
+                                        "service_data": {},
+                                        "target": {}
+                                    },
+                                    "name": "Reboot Rpi",
+                                    "icon": "mdi:restart",
+                                    "icon_height": "60px"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "shell_command.smartmirror_rpi_shutdown",
+                                        "service_data": {},
+                                        "target": {}
+                                    },
+                                    "name": "Shutdown Rpi",
+                                    "icon": "mdi:power",
+                                    "icon_height": "60px"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "title": "Smart mirror"
+        }
+    }
+}

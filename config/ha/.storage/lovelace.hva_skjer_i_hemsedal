@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "key": "lovelace.hva_skjer_i_hemsedal",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Hemsedal kallender",
+                    "path": "hemsedal-kallender",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://www.hemsedal.com/no/Kalender/",
+                            "aspect_ratio": "100%",
+                            "title": "Hemsedal kallender"
+                        }
+                    ]
+                },
+                {
+                    "title": "Turforslag",
+                    "path": "turforslag",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://ut.no/utforsker/stedsnavn/630842/hemsedal/turforslag",
+                            "aspect_ratio": "50%",
+                            "title": "Turforslag (ut.no)"
+                        }
+                    ]
+                },
+                {
+                    "title": "Aktiviteter",
+                    "path": "aktiviteter",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://www.hemsedal.com/no/Events/",
+                            "aspect_ratio": "100%",
+                            "title": "Aktiviteter i Hemsedal"
+                        }
+                    ]
+                },
+                {
+                    "title": "Hemsedal.com",
+                    "path": "hemsedalcom",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://www.hemsedal.com/",
+                            "aspect_ratio": "100%"
+                        }
+                    ]
+                }
+            ],
+            "title": "Hva skjer i Hemsedal?"
+        }
+    }
+}

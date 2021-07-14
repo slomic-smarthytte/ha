@@ -1,0 +1,13 @@
+# A * ensures that everything will be ignored.
+*
+
+# You can whitelist files/folders with !, these will not be ignored.
+!.gitignore
+!config
+!config/**
+!camera-snapshots
+!camera-snapshots/**
+!data
+!data/**
+!docker-compose.yml
+!README.md

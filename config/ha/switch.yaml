@@ -1,0 +1,46 @@
+# HACS Arlo Integration
+- platform: aarlo
+  siren: True
+  all_sirens: True
+  snapshot: True
+  siren_volume: 10
+  siren_duration: 10
+
+- platform: template
+  switches:
+    flood_stop_gang_1:
+      unique_id: switch.flood_stop_gang_1
+      friendly_name: Flood Stop - Hovedkran Gang 1
+      value_template: "{{ is_state('switch.fibaro_smart_implant_gang_1_output_1', 'off') }}"
+      turn_on:
+        service: switch.turn_off
+        target:
+          entity_id: switch.fibaro_smart_implant_gang_1_output_1
+      turn_off:
+        service: switch.turn_on
+        target:
+          entity_id: switch.fibaro_smart_implant_gang_1_output_1
+      icon_template: >-
+        {% if is_state('switch.fibaro_smart_implant_gang_1_output_1', 'off') %}
+          mdi:water
+        {% else %}
+          mdi:water-off
+        {% endif %}
+
+- platform: command_line
+  switches:
+    smartmirror_monitor_gang_1:
+      command_on: !secret smartmirror_monitor_on
+      command_off: !secret smartmirror_monitor_off
+      command_state: !secret smartmirror_monitor_status
+      value_template: '{{ value == "0" }}'
+      friendly_name: SmartMirror Monitor - Gang 1
+
+- platform: command_line
+  switches:
+    smartmirror_mm_gang_1:
+      command_on: !secret smartmirror_pm2_mm_start
+      command_off: !secret smartmirror_pm2_mm_stop
+      command_state:  !secret smartmirror_pm2_mm_status
+      value_template: '{{ value == "0" }}'
+      friendly_name: SmartMirror MagicMirror - Gang 1

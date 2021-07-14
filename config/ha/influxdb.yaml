@@ -1,0 +1,114 @@
+  api_version: 2
+  ssl: false
+  host: localhost
+  port: 8086
+  token: !secret influxdb_token
+  organization: !secret influxdb_organization
+  bucket: home_assistant
+  max_retries: 3
+  tags:
+    source: home-assistant
+  include:
+    entities:
+      # Bad 1
+      - sensor.aeotec_multisensor_bad_1_temperature
+      - sensor.heatit_thermostat_bad_1_temperature
+      - climate.heatit_thermostat_bad_1_mode
+      - sensor.aeotec_multisensor_bad_1_battery_level
+      - sensor.aeotec_multisensor_bad_1_luminance
+      - sensor.aeotec_multisensor_bad_1_ultraviolet
+      - sensor.aeotec_multisensor_bad_1_relative_humidity
+      # Bad 2
+      - sensor.aeotec_multisensor_bad_2_temperature
+      - sensor.heatit_thermostat_bad_2_temperature
+      - climate.heatit_thermostat_bad_2_mode
+      - sensor.aeotec_multisensor_bad_2_battery_level
+      - sensor.aeotec_multisensor_bad_2_luminance
+      - sensor.aeotec_multisensor_bad_2_ultraviolet
+      - sensor.aeotec_multisensor_bad_2_relative_humidity
+      # Bod 1
+      - sensor.fibaro_door_sensor_bod_1_temperature
+      - sensor.fibaro_wall_plug_bod_1_energy
+      - sensor.fibaro_wall_plug_bod_1_power
+      - switch.fibaro_wall_plug_bod_1_switch
+      - sensor.fibaro_door_sensor_bod_1_battery_level 
+      - sensor.id_lock_bod_1_battery_level 
+      - binary_sensor.doors_bod
+      # Gang 1
+      - climate.heatit_thermostat_gang_1_mode
+      - sensor.heatit_thermostat_gang_1_temperature
+      - sensor.sensative_window_sensor_gang_1_battery_level
+      - sensor.fibaro_multisensor_gang_1_temperature
+      - sensor.fibaro_multisensor_gang_1_battery_level
+      - sensor.fibaro_multisensor_gang_1_luminance
+      - sensor.fibaro_multisensor_gang_1_seismic_intensity 
+      - binary_sensor.doors_hovedinngang
+      - sensor.aarlo_battery_level_hovedinngang
+      # Gang 2
+      - sensor.fibaro_multisensor_gang_2_temperature
+      - sensor.fibaro_multisensor_gang_2_battery_level
+      - sensor.fibaro_multisensor_gang_2_luminance
+      - sensor.fibaro_multisensor_gang_2_seismic_intensity
+      - sensor.sensative_window_sensor_gang_2_battery_level 
+      - binary_sensor.windows_gang_2
+      # Soverom 1
+      - sensor.sensative_window_sensor_soverom_1_battery_level
+      - sensor.fibaro_multisensor_soverom_1_temperature 
+      - sensor.fibaro_multisensor_soverom_1_battery_level
+      - sensor.fibaro_multisensor_soverom_1_luminance
+      - sensor.fibaro_multisensor_soverom_1_seismic_intensity
+      - sensor.sensative_window_sensor_soverom_1_battery_level     
+      - binary_sensor.windows_soverom_1
+      # Soverom 2
+      - sensor.fibaro_multisensor_soverom_2_temperature
+      - sensor.fibaro_wall_plug_soverom_2_energy
+      - sensor.fibaro_wall_plug_soverom_2_power
+      - switch.fibaro_wall_plug_soverom_2_switch
+      - sensor.fibaro_multisensor_soverom_2_battery_level
+      - sensor.fibaro_multisensor_soverom_2_luminance
+      - sensor.fibaro_multisensor_soverom_2_seismic_intensity
+      - sensor.sensative_window_sensor_soverom_2_battery_level
+      - binary_sensor.windows_soverom_2
+      # Soverom 3
+      - sensor.fibaro_multisensor_soverom_3_temperature
+      - sensor.fibaro_wall_plug_soverom_3_energy
+      - sensor.fibaro_wall_plug_soverom_3_power
+      - switch.fibaro_wall_plug_soverom_3_switch
+      - sensor.fibaro_multisensor_soverom_3_battery_level
+      - sensor.fibaro_multisensor_soverom_3_luminance
+      - sensor.fibaro_multisensor_soverom_3_seismic_intensity
+      - sensor.sensative_window_sensor_soverom_3_battery_level
+      - binary_sensor.windows_soverom_3
+      # Stue 1_1
+      - sensor.fibaro_multisensor_stue_1_1_temperature
+      - sensor.fibaro_multisensor_stue_1_1_battery_level
+      - sensor.fibaro_multisensor_stue_1_1_luminance
+      - sensor.fibaro_multisensor_stue_1_1_seismic_intensity
+      - sensor.sensative_window_sensor_stue_1_battery_level
+      - binary_sensor.doors_balkong
+      - sensor.aarlo_battery_level_stue_1
+      # Stue 1_2 
+      - sensor.fibaro_multisensor_stue_1_2_temperature
+      - sensor.fibaro_multisensor_stue_1_2_battery_level
+      - sensor.fibaro_multisensor_stue_1_2_luminance
+      - sensor.fibaro_multisensor_stue_1_2_seismic_intensity
+      # Stue 2
+      - sensor.fibaro_multisensor_stue_2_temperature
+      - sensor.fibaro_multisensor_stue_2_battery_level
+      - sensor.fibaro_multisensor_stue_2_luminance
+      - sensor.fibaro_multisensor_stue_2_seismic_intensity
+      - sensor.airthings_wave_plus_stue_2_rel_atm_pressure
+      - sensor.airthings_wave_plus_stue_2_co2
+      - sensor.airthings_wave_plus_stue_2_humidity
+      - sensor.airthings_wave_plus_stue_2_radon_1day_avg
+      - sensor.airthings_wave_plus_stue_2_radon_longterm_avg
+      - sensor.airthings_wave_plus_stue_2_temperature
+      - sensor.airthings_wave_plus_stue_2_voc
+      # Balkong
+      - sensor.aarlo_battery_level_balkong
+      # Hovedinngang
+      - sensor.id_lock_hovedinngang_battery_level
+      # Weather - Met.no integration
+      - weather.hy
+      # Wind speed
+      - sensor.zweather_velocity

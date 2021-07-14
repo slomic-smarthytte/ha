@@ -1,0 +1,17 @@
+# A * ensures that everything will be ignored.
+*
+
+# You can whitelist files/folders with !, these will not be ignored.
+!.HA_VERSION
+!*.yaml
+!.gitignore
+!*.md
+!*.xml
+!.storage
+!.storage/**
+!blueprints
+!blueprints/**
+
+secrets.yaml
+google.token
+google-service-account.json

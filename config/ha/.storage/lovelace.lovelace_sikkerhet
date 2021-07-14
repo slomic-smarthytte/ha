@@ -1,0 +1,141 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_sikkerhet",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Overv\u00e5kning",
+                    "path": "overvakning",
+                    "icon": "mdi:cctv",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "camera.aarlo_balkong",
+                            "image_click": "play",
+                            "name": "Balkong",
+                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+                            "top_date": true,
+                            "top_status": true,
+                            "top_title": true,
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entity": "camera.aarlo_hovedinngang",
+                            "image_click": "play",
+                            "name": "Hovedinngang",
+                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+                            "top_date": true,
+                            "top_status": true,
+                            "top_title": true,
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entity": "camera.aarlo_stue_1",
+                            "image_click": "play",
+                            "name": "Stue 1",
+                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+                            "top_date": true,
+                            "top_status": true,
+                            "top_title": true,
+                            "type": "custom:aarlo-glance"
+                        }
+                    ]
+                },
+                {
+                    "title": "Vinduer & d\u00f8rer",
+                    "path": "vinduer--og-dorer",
+                    "icon": "mdi:door",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.sensative_door_sensor_stue_1_door_open",
+                                            "name": "Balkongd\u00f8r"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.sensative_door_sensor_gang_1_door_open",
+                                            "name": "Hovedd\u00f8r"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.fibaro_door_sensor_bod_1_door_open",
+                                            "name": "Bodd\u00f8r"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.sensative_window_sensor_soverom_1_window_open",
+                                            "name": "Vindu soverom 1"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.sensative_window_sensor_soverom_2_window_open",
+                                            "name": "Vindu soverom 2"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open",
+                                            "name": "Vindu soverom 3"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.sensative_window_sensor_gang_2_window_open",
+                                            "name": "Vindu gang 2"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entity": "lock.id_lock_bod_1_locked",
+                            "hold_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Bod 1",
+                            "show_icon": true,
+                            "show_name": true,
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "type": "button"
+                        },
+                        {
+                            "entity": "lock.id_lock_hovedinngang_locked",
+                            "hold_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Hovedinngang",
+                            "show_icon": true,
+                            "show_name": true,
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "type": "button"
+                        }
+                    ]
+                },
+                {
+                    "title": "Vann",
+                    "path": "vann",
+                    "icon": "mdi:water",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.flood_stop_gang_1",
+                                    "secondary_info": "last-changed",
+                                    "name": "Hovedkran"
+                                }
+                            ],
+                            "state_color": true,
+                            "title": "Flood Stop - vannlekasjesikring"
+                        }
+                    ]
+                }
+            ],
+            "title": "Sikkerhet"
+        }
+    }
+}

@@ -1,0 +1,165 @@
+# HACS Arlo integration
+- platform: aarlo
+  monitored_conditions:
+    - total_cameras
+    - last_capture
+    - recent_activity
+    - captured_today
+    - battery_level
+    - signal_strength
+
+# Enables Date & Time as sensor, useful for automation
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+
+# Airthing Wave Plus HACS integration
+# Auto discovery (when mac field is empty) does not work, you must first find
+# mac address Airthings Wave device by using Bluetooth Scanner mob app for Android
+# See https://community.home-assistant.io/t/air-quality-monitor-radon-meter-airthings-wave-plus/102836/13
+- platform: airthings_wave
+  mac: !secret airthings_wave_mac
+  scan_interval: 600 # in seconds (10 minutes)
+
+# Booking template sensor basing the state on calendar.booking
+- platform: template
+  sensors:
+    booking_status:
+      friendly_name_template: >-
+        {% if is_state('calendar.booking', 'on') %}
+          Current booking
+        {% else %}
+          Next booking
+        {% endif %}
+      value_template: >-
+        {% if state_attr('calendar.booking', 'start_time') == None %}
+        None scheduled
+        {% elif is_state('calendar.booking', 'on') %}
+        Running
+        {% else %}
+        Scheduled
+        {% endif %}
+      icon_template: >-
+        {% if state_attr('calendar.booking', 'start_time') == None %}
+          mdi:calendar-blank
+        {% elif is_state('calendar.booking', 'on') %}
+          mdi:calendar-account
+        {% else %}
+          mdi:calendar-clock
+        {% endif %}
+      attribute_templates:
+        check_in_date: >-
+          {% if state_attr('calendar.booking', 'start_time') != None %}
+            {{ strptime(state_attr('calendar.booking', 'start_time'),'%Y-%m-%d %H:%M:%S') }}
+          {% else %}
+            None
+          {% endif %}
+        check_in_day_of_the_year: >-
+          {% if state_attr('calendar.booking', 'start_time') != None %}
+            {{ strptime(state_attr('calendar.booking', 'start_time'),'%Y-%m-%d %H:%M:%S').strftime('%j') | int }}
+          {% else %}
+            None
+          {% endif %}
+        check_out_date: >-
+          {% if state_attr('calendar.booking', 'end_time') != None %}
+            {{ strptime(state_attr('calendar.booking', 'end_time'),'%Y-%m-%d %H:%M:%S') }}
+          {% else %}
+            None
+          {% endif %}
+        check_out_day_of_the_year: >-
+          {% if state_attr('calendar.booking', 'end_time') != None %}
+            {{ strptime(state_attr('calendar.booking', 'end_time'),'%Y-%m-%d %H:%M:%S').strftime('%j') | int }}
+          {% else %}
+            None
+          {% endif %}
+        guests: >-
+          {% if state_attr('calendar.booking', 'message') != None %}
+            {{ state_attr('calendar.booking', 'message') }}
+          {% else %}
+            None
+          {% endif %}
+
+# if check_in_day_of_the_year == None or sensor.date == 'unknown' => unknown (returned as String)
+# if check_in_day_of_the_year >= today => check_in_day_of_the_year - today
+# otherwise unknown (returned as String)
+- platform: template
+  sensors:
+    booking_days_to_next_check_in:
+      friendly_name_template: Days to next check in
+      value_template: >-
+        {% set checkInDayOfTheYear = state_attr('sensor.booking_status', 'check_in_day_of_the_year') %}
+        {% set dateToday = states('sensor.date') %}
+
+        {% if checkInDayOfTheYear == None or dateToday == 'unknown' %}
+          unknown
+        {% else %}
+          {% set dateTodayInDayOfTheYear = strptime(dateToday, '%Y-%m-%d').strftime('%j') %}
+          {% set diff = checkInDayOfTheYear | int - dateTodayInDayOfTheYear | int %}
+          {% if diff >= 0 %}
+            {{ diff }}
+          {% else %}
+            unknown
+          {% endif %}
+        {% endif %}
+      icon_template: mdi:calendar-import
+
+# if check_out_day_of_the_year == None or sensor.date == 'unknown' => unknown (returned as String)
+# if check_out_day_of_the_year >= today => check_out_day_of_the_year - today
+# otherwise unknown (returned as String)
+- platform: template
+  sensors:
+    booking_days_to_next_check_out:
+      friendly_name_template: Days to next check out
+      value_template: >-
+        {% set checkOutDayOfTheYear = state_attr('sensor.booking_status', 'check_out_day_of_the_year') %}
+        {% set dateToday = states('sensor.date') %}
+
+        {% if checkOutDayOfTheYear == None or dateToday == 'unknown' %}
+          unknown
+        {% else %}
+          {% set dateTodayInDayOfTheYear = strptime(dateToday, '%Y-%m-%d').strftime('%j') %}
+          {% set diff = checkOutDayOfTheYear | int - dateTodayInDayOfTheYear | int %}
+          {% if diff >= 0 %}
+            {{ diff }}
+          {% else %}
+            unknown
+          {% endif %}
+        {% endif %}
+      icon_template: mdi:calendar-export
+
+# Sensor that converts ZWeather wind velocity from m/s to km/h
+- platform: template
+  sensors:
+    zweather_velocity_kmh:
+      value_template: "{{ (states('sensor.zweather_velocity')|float * 3.6) }}"
+      friendly_name: 'Wind'
+      icon_template: mdi:weather-windy
+      unit_of_measurement: 'km/h'
+
+# Sensor for history statistics of wind speed
+- platform: statistics
+  name: Wind speed last 5 measurements
+  entity_id: sensor.zweather_velocity_kmh
+  sampling_size: 5
+
+# Sensors of sun attributes (so we can make historical graphs)
+- platform: template
+  sensors:
+    sun_elevation:
+      value_template: "{{ state_attr('sun.sun', 'elevation') | float }}"
+      friendly_name: 'Sun elevation'
+      icon_template: mdi:weather-sunset
+      unit_of_measurement: '°'
+    sun_azimuth:
+      value_template: "{{ state_attr('sun.sun', 'azimuth') | float }}"
+      friendly_name: 'Sun azimuth'
+      icon_template: mdi:weather-sunset
+      unit_of_measurement: '°'
+
+- platform: command_line
+  name: SmartMirror Rpi Temperature - Gang 1
+  command: !secret smartmirror_rpi_temperature
+  unit_of_measurement: "°C"
+  value_template: "{{ value }}"
+  scan_interval: 60 # 1 min

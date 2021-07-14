@@ -1,0 +1,2 @@
+smartmirror_rpi_reboot: !secret smartmirror_rpi_reboot
+smartmirror_rpi_shutdown: !secret smartmirror_rpi_shutdown

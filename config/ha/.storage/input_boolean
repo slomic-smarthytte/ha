@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "key": "input_boolean",
+    "data": {
+        "items": [
+            {
+                "name": "Checked in",
+                "id": "checked_in",
+                "icon": "mdi:calendar-check"
+            }
+        ]
+    }
+}

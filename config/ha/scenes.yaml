@@ -1,0 +1,167 @@
+- id: '1616190002065'
+  name: Movie time
+  entities:
+    light.fibaro_dimmer_stue_2_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.philips_hue_go_stue_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      color_temp: 367
+      effect: none
+      friendly_name: Hue Go
+      supported_features: 63
+      state: 'on'
+    light.philips_hue_lightstrip_sofa_stue_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      color_temp: 367
+      effect: none
+      friendly_name: Hue Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.philips_hue_play_stue_2_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      color_temp: 367
+      effect: none
+      friendly_name: Hue Play
+      supported_features: 63
+      state: 'on'
+    light.philips_hue_play_stue_2_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 114
+      color_temp: 367
+      effect: none
+      friendly_name: Hue Play
+      supported_features: 63
+      state: 'on'
+    light.fibaro_dimmer_gang_2_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+  icon: mdi:filmstrip
+- id: '1616194391396'
+  name: All lights off
+  entities:
+    light.fibaro_dimmer_bad_1_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_bad_2_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_gang_1_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_gang_2_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_kjokken_1_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_kjokkenbenk_1_level:
+      friendly_name: Kjøkkenbenk
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_soverom_1_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_soverom_2_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_soverom_3_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_spisebord_1_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_stue_1_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_stue_2_level:
+      friendly_name: Tak
+      supported_features: 33
+      state: 'off'
+    light.fibaro_dimmer_trapp_1_level:
+      friendly_name: Trapp
+      supported_features: 33
+      state: 'off'
+    switch.fibaro_switch_bad_1_switch:
+      friendly_name: Speil
+      state: 'off'
+    switch.fibaro_switch_bad_2_switch:
+      friendly_name: Speil
+      state: 'off'
+    light.philips_hue_go_stue_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue Go
+      supported_features: 63
+      state: 'off'
+    light.philips_hue_lightstrip_sofa_stue_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue Lightstrip
+      supported_features: 63
+      state: 'off'
+    light.philips_hue_lightstrip_sofa_stue_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue Lightstrip
+      supported_features: 63
+      state: 'off'
+    light.philips_hue_play_stue_2_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue Play
+      supported_features: 63
+      state: 'off'
+    light.philips_hue_play_stue_2_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Hue Play
+      supported_features: 63
+      state: 'off'
+  icon: mdi:lightbulb-off

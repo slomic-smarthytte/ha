@@ -1,0 +1,80 @@
+blueprint:
+  name: Bathroom motion activated light
+  description: Turn on a light when motion is detected in bathroom.
+  domain: automation
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+    light_target:
+      name: Light Dimmer (optional)
+      description: Top light
+      default:
+      selector:
+        entity:
+          domain: light
+    light_brightness:
+      name: Light Brightness (optional if Light Dimmer not chosen)
+      description: Brightness of the Light Dimmer
+      default: 100
+      selector:
+        number:
+          min: 1
+          max: 100
+          unit_of_measurement: percent
+    switch_target:
+      name: Light Switch
+      description: Mirror Light
+      selector:
+        entity:
+          domain: switch
+    time_limit_before:
+      name: Only run before time
+      description: Automation will only run when time is earlier than this input_datetime
+        value.
+      selector:
+        entity:
+          domain: input_datetime
+    time_limit_after:
+      name: Only run after time
+      description: Automation will only run when time is later than this input_datetime
+        value.
+      selector:
+        entity:
+          domain: input_datetime
+
+mode: single
+
+variables:
+  light_target: !input light_target
+
+trigger:
+  platform: state
+  entity_id: !input motion_entity
+  from: "off"
+  to: "on"
+
+condition:
+  - condition: time
+    after: !input time_limit_after
+    before: !input time_limit_before
+
+action:
+  # if-then-else script notation. This notation is needed since we want to switch dimmer light
+  # before switch light when both defined in automation
+  - choose:
+      - conditions: #if
+          - condition: template
+            value_template: '{{ light_target == none }}'
+        sequence: #then
+          - service: switch.turn_on
+            entity_id: !input switch_target
+  # else
+  - service: light.turn_on
+    entity_id: !input light_target
+    data:
+      brightness_pct: !input light_brightness
+  - service: switch.turn_on
+    entity_id: !input switch_target

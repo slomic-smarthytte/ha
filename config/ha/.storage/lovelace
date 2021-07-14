@@ -1,0 +1,1400 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "background": "center / cover no-repeat url(\"/local/hytta-elva.jpeg\") fixed",
+            "title": "Tilstandsoversikt",
+            "views": [
+                {
+                    "icon": "mdi:home-automation",
+                    "panel": false,
+                    "title": "Status",
+                    "path": "status",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/kjokken-1.jpeg",
+                                "show_state": true,
+                                "title": "Kj\u00f8kken",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_kjokken_1_level",
+                                    "name": "Kj\u00f8kken"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_kjokkenbenk_1_level",
+                                    "name": "Kj\u00f8kkenbenk"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_spisebord_1_level",
+                                    "name": "Spisebord"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_stue_1_1_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/stue-1.jpeg",
+                                "show_state": true,
+                                "title": "Stue 1",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_stue_1_level",
+                                    "name": "Stue"
+                                },
+                                {
+                                    "entity": "light.philips_hue_lightstrip_sofa_stue_1",
+                                    "name": "Sofa"
+                                },
+                                {
+                                    "entity": "binary_sensor.doors_balkong",
+                                    "name": "Balkongd\u00f8r"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_stue_1_2_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/bad-1.jpeg",
+                                "show_state": true,
+                                "title": "Bad 1",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_bad_1_level",
+                                    "name": "Tak"
+                                },
+                                {
+                                    "entity": "switch.fibaro_switch_bad_1_switch",
+                                    "name": "Speil"
+                                },
+                                {
+                                    "entity": "binary_sensor.aeotec_multisensor_bad_1_sensor",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/bad-2.jpeg",
+                                "show_state": true,
+                                "title": "Bad 2",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_bad_2_level",
+                                    "name": "Tak"
+                                },
+                                {
+                                    "entity": "switch.fibaro_switch_bad_2_switch",
+                                    "name": "Speil"
+                                },
+                                {
+                                    "entity": "binary_sensor.aeotec_multisensor_bad_2_sensor",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/gang-1.jpeg",
+                                "show_state": true,
+                                "title": "Gang 1",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_gang_1_level",
+                                    "name": "Tak"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_gang_1_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/gang-2.jpeg",
+                                "show_state": true,
+                                "title": "Gang 2",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_gang_2_level",
+                                    "name": "Tak"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_gang_2_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                },
+                                {
+                                    "entity": "binary_sensor.windows_gang_2",
+                                    "name": "Vindu"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/trapp-1.jpeg",
+                                "show_state": true,
+                                "title": "Trapp",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_trapp_1_level",
+                                    "name": "Trappelys"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/soverom-1.jpeg",
+                                "show_state": true,
+                                "title": "Soverom 1",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_soverom_1_level",
+                                    "name": "Trappelys"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_soverom_1_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                },
+                                {
+                                    "entity": "binary_sensor.windows_soverom_1",
+                                    "name": "Vindu"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/soverom-2.jpeg",
+                                "show_state": true,
+                                "title": "Soverom 2",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_soverom_2_level",
+                                    "name": "Taklys"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_soverom_2_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                },
+                                {
+                                    "entity": "binary_sensor.windows_soverom_2",
+                                    "name": "Vindu"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/soverom-3.jpeg",
+                                "show_state": true,
+                                "title": "Soverom 3",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_soverom_3_level",
+                                    "name": "Taklys"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_soverom_3_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                },
+                                {
+                                    "entity": "binary_sensor.windows_soverom_3",
+                                    "name": "Vindu"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "aspect_ratio": "0%",
+                                "image": "local/stue-2.jpeg",
+                                "show_state": true,
+                                "title": "Stue 2",
+                                "type": "picture-glance"
+                            },
+                            "entities": [
+                                {
+                                    "entity": "light.fibaro_dimmer_stue_2_level",
+                                    "name": "Stue"
+                                },
+                                {
+                                    "entity": "light.philips_hue_lightstrip_sofa_stue_2",
+                                    "name": "Sofa"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_stue_2_motion_detected",
+                                    "icon": "mdi:motion-sensor",
+                                    "name": "Bevegelse"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:home-thermometer",
+                    "path": "temperatur",
+                    "title": "Temperature",
+                    "layout": {},
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_door_sensor_bod_1_temperature",
+                                            "name": "Bod",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.aeotec_multisensor_bad_1_temperature",
+                                            "name": "Bad 1.etg (Aeotec)",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_gang_1_temperature",
+                                            "name": "Gang 1.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_soverom_1_temperature",
+                                            "name": "Soverom 1.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_stue_1_1_temperature",
+                                            "name": "Kj\u00f8kken",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_stue_1_2_temperature",
+                                            "name": "Stue 1.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 30
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 65
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.smartmirror_rpi_temperature_gang_1",
+                                            "name": "SmartMirror Rpi",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.aeotec_multisensor_bad_2_temperature",
+                                            "name": "Bad 2.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_gang_2_temperature",
+                                            "name": "Gang 2.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_soverom_2_temperature",
+                                            "name": "Soverom barn 2.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
+                                            "name": "Soverom voksen 2.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fibaro_multisensor_stue_2_temperature",
+                                            "name": "Stue 2.etg",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "weather.ullsak_hourly",
+                                            "name": " "
+                                        }
+                                    ],
+                                    "title": "V\u00e6r ute (Met)",
+                                    "type": "entities"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zweather_temperature",
+                                            "name": "Ute (Sensor)",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "type": "custom:sun-card",
+                                    "showAzimuth": true,
+                                    "showElevation": true
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#0000ff",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 18
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 25
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.yr_temperature",
+                                            "name": "Ute (Yr)",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "show": {
+                                        "fill": false,
+                                        "graph": false
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#ff9933",
+                                            "value": 38
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 74
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "icon": "mdi:weather-windy",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zweather_velocity_kmh",
+                                            "name": "Vindhastighet",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": true
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#ff9933",
+                                            "value": 11
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 20
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "icon": "mdi:weather-windy",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zweather_velocity",
+                                            "name": "Vindhastighet",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": true
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#ff9933",
+                                            "value": 38
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 74
+                                        }
+                                    ],
+                                    "color_thresholds_transition": "hard",
+                                    "decimals": 0,
+                                    "icon": "mdi:weather-windy",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.wind_speed_last_5_measurements",
+                                            "name": "Vindhastighet gj.snitt",
+                                            "state_adaptive_color": true
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "show": {
+                                        "fill": true
+                                    },
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#00ff00",
+                                    "value": 799
+                                },
+                                {
+                                    "color": "#ffa500",
+                                    "value": 800
+                                },
+                                {
+                                    "color": "#ff0000",
+                                    "value": 1000
+                                }
+                            ],
+                            "color_thresholds_transition": "hard",
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.airthings_wave_plus_stue_2_co2",
+                                    "name": "C02",
+                                    "show_fill": false,
+                                    "state_adaptive_color": true
+                                }
+                            ],
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "icon": "mdi:molecule-co2",
+                            "points_per_hour": 12,
+                            "show": {
+                                "icon_adaptive_color": true,
+                                "labels": true,
+                                "name_adaptive_color": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#00ff00",
+                                    "value": 1500
+                                },
+                                {
+                                    "color": "#ffa500",
+                                    "value": 1501
+                                },
+                                {
+                                    "color": "#ff0000",
+                                    "value": 2000
+                                }
+                            ],
+                            "color_thresholds_transition": "hard",
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.airthings_wave_plus_stue_2_rel_atm_pressure",
+                                    "name": "Trykk",
+                                    "show_fill": false,
+                                    "state_adaptive_color": true
+                                }
+                            ],
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "points_per_hour": 12,
+                            "show": {
+                                "icon_adaptive_color": true,
+                                "labels": true,
+                                "name_adaptive_color": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#ff0000",
+                                    "value": 1
+                                },
+                                {
+                                    "color": "#ffa500",
+                                    "value": 25
+                                },
+                                {
+                                    "color": "#00ff00",
+                                    "value": 30
+                                },
+                                {
+                                    "color": "#ffa500",
+                                    "value": 60
+                                },
+                                {
+                                    "color": "#ff0000",
+                                    "value": 70
+                                }
+                            ],
+                            "color_thresholds_transition": "hard",
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.airthings_wave_plus_stue_2_humidity",
+                                    "name": "Fuktighet",
+                                    "show_fill": false,
+                                    "state_adaptive_color": true
+                                }
+                            ],
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "points_per_hour": 12,
+                            "show": {
+                                "icon_adaptive_color": true,
+                                "labels": true,
+                                "name_adaptive_color": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#00ff00",
+                                    "value": 1
+                                },
+                                {
+                                    "color": "#ffa500",
+                                    "value": 250
+                                },
+                                {
+                                    "color": "#ff0000",
+                                    "value": 2000
+                                }
+                            ],
+                            "color_thresholds_transition": "hard",
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.airthings_wave_plus_stue_2_voc",
+                                    "name": "TVOC",
+                                    "show_fill": false,
+                                    "state_adaptive_color": true
+                                }
+                            ],
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "points_per_hour": 12,
+                            "show": {
+                                "icon_adaptive_color": true,
+                                "labels": true,
+                                "name_adaptive_color": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#00ff00",
+                                    "value": 1
+                                },
+                                {
+                                    "color": "#ffa500",
+                                    "value": 100
+                                },
+                                {
+                                    "color": "#ff0000",
+                                    "value": 150
+                                }
+                            ],
+                            "color_thresholds_transition": "hard",
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.airthings_wave_plus_stue_2_radon_1day_avg",
+                                    "name": "Radeon",
+                                    "show_fill": false,
+                                    "state_adaptive_color": true
+                                }
+                            ],
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "points_per_hour": 12,
+                            "show": {
+                                "icon_adaptive_color": true,
+                                "labels": true,
+                                "name_adaptive_color": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "animate": true,
+                            "color_thresholds": [
+                                {
+                                    "color": "#0000ff",
+                                    "value": 1
+                                },
+                                {
+                                    "color": "#00ff00",
+                                    "value": 18
+                                },
+                                {
+                                    "color": "#ff0000",
+                                    "value": 25
+                                }
+                            ],
+                            "color_thresholds_transition": "hard",
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.airthings_wave_plus_stue_2_temperature",
+                                    "name": "Temperatur",
+                                    "show_fill": false,
+                                    "state_adaptive_color": true
+                                }
+                            ],
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "points_per_hour": 12,
+                            "show": {
+                                "icon_adaptive_color": true,
+                                "labels": true,
+                                "name_adaptive_color": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        }
+                    ],
+                    "icon": "mdi:weather-windy",
+                    "path": "air-quality",
+                    "title": "Air quality"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "weather.hy",
+                            "name": "V\u00e6ret (daily - MET)",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entity": "weather.ullsak_hourly",
+                            "name": "V\u00e6ret (hourly - MET)",
+                            "type": "weather-forecast",
+                            "show_forecast": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.zweather_velocity",
+                                    "name": "Wind speed",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.zweather_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.zweather_humidity",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.zweather_barometric_pressure"
+                                },
+                                {
+                                    "entity": "sensor.zweather_dew_point"
+                                },
+                                {
+                                    "entity": "sensor.zweather_electric_produced_kwh"
+                                },
+                                {
+                                    "entity": "sensor.zweather_electric_produced_pulse_count"
+                                },
+                                {
+                                    "entity": "sensor.zweather_luminance"
+                                },
+                                {
+                                    "entity": "sensor.zweather_battery_level",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.zweather_sensor"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Slomic V\u00e6rstasjon",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:weather-partly-cloudy",
+                    "path": "weather",
+                    "title": "Weather"
+                },
+                {
+                    "icon": "mdi:flash",
+                    "path": "electricity",
+                    "title": "Electricity",
+                    "panel": false,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "detail": 0,
+                            "entity": "sensor.power_slomic_smarthytte",
+                            "graph": "line",
+                            "icon": "mdi:flash",
+                            "name": "Str\u00f8mforbruk n\u00e5",
+                            "type": "sensor"
+                        },
+                        {
+                            "detail": 0,
+                            "entity": "sensor.average_power_slomic_smarthytte",
+                            "graph": "line",
+                            "icon": "mdi:flash",
+                            "name": "Snittforbruk i dag",
+                            "type": "sensor"
+                        },
+                        {
+                            "entity": "sensor.electricity_price_slomic_smarthytte",
+                            "graph": "line",
+                            "name": "Str\u00f8mpris",
+                            "type": "sensor"
+                        },
+                        {
+                            "detail": 1,
+                            "entity": "sensor.accumulated_cost_slomic_smarthytte",
+                            "name": "Kostnad i dag",
+                            "type": "sensor",
+                            "hours_to_show": 1,
+                            "icon": "mdi:currency-usd"
+                        }
+                    ]
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:speedometer",
+                                    "icon_height": "49px",
+                                    "name": "Run internet speed test",
+                                    "show_icon": true,
+                                    "show_name": true,
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "speedtestdotnet.speedtest"
+                                    },
+                                    "type": "button"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#ffa500",
+                                            "value": 2
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 7
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.speedtest_download"
+                                    ],
+                                    "hours_to_show": 24,
+                                    "name": "Download",
+                                    "points_per_hour": 2,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#ffa500",
+                                            "value": 2
+                                        },
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 7
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.speedtest_upload"
+                                    ],
+                                    "hours_to_show": 24,
+                                    "name": "Upload",
+                                    "points_per_hour": 2,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#ffa500",
+                                            "value": 59
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 129
+                                        }
+                                    ],
+                                    "entities": [
+                                        "sensor.speedtest_ping"
+                                    ],
+                                    "hours_to_show": 24,
+                                    "name": "Ping",
+                                    "points_per_hour": 2,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:speedometer",
+                    "path": "internet-speed",
+                    "title": "Internet speed"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "bulk_rename": [
+                                {
+                                    "from": "Battery Level"
+                                }
+                            ],
+                            "collapse": [
+                                {
+                                    "icon": "mdi:battery",
+                                    "min": 99,
+                                    "name": "Devices (min: {min}%, count: {count})"
+                                }
+                            ],
+                            "color_gradient": [
+                                "#ff0000",
+                                "#ffff00",
+                                "#00ff00"
+                            ],
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "name": "entity_id",
+                                        "value": "fibaro_multisensor_*_battery_level"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "binary_sensor.*_low_battery_level"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "sensative_*_battery_level"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "automation*"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "input_datetime*"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "sensor.*_battery_state"
+                                    },
+                                    {
+                                        "name": "entity_id",
+                                        "value": "sensor.*_batteritilstand"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "name": "entity_id",
+                                        "value": "*_battery_level*"
+                                    }
+                                ]
+                            },
+                            "secondary_info": "last_updated",
+                            "sort_by_level": "asc",
+                            "tap_action": {
+                                "action": "more-info"
+                            },
+                            "title": "Other Battery Devices",
+                            "type": "custom:battery-state-card"
+                        }
+                    ],
+                    "icon": "mdi:battery",
+                    "path": "batteristatus",
+                    "title": "Batteristatus"
+                }
+            ]
+        }
+    }
+}

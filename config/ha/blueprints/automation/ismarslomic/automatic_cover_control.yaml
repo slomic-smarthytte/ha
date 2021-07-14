@@ -1,0 +1,158 @@
+blueprint:
+  name: Automatic covers control
+  description: Automatically control covers triggered by sun location, luminance intensity and wind speed
+  domain: automation
+
+  input:
+    cover_entity:
+      name: Cover entity
+      description: The cover entity to control open/close
+      selector:
+        entity:
+          domain: cover
+
+    luminance_entity:
+      name: Luminance entity
+      description: The luminance entity to trigger cover close
+      selector:
+        entity:
+          domain: sensor
+          device_class: illuminance
+
+    luminance_close_threshold:
+      name: Luminance intensitiy
+      description: The luminance intensity threshold to trigger cover close
+      default: 700
+      selector:
+        number:
+          min: 200
+          max: 1200
+          step: 100
+          unit_of_measurement: "lux"
+          mode: slider
+
+    door_window_entity:
+      name: Door/window sensor (optional)
+      description: The door or window sensor to check before cover open/close
+      default:
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: door
+
+    wind_entity:
+      name: Wind sensor
+      description: The wind sensor to use before closing and for opening if speed too high
+      selector:
+        entity:
+          domain: sensor
+
+    wind_open_threshold:
+      name: Wind speed (km/h)
+      description: The wind speed threshold to check before closing cover or to trigger opening
+      default: "49"
+      selector:
+        select:
+          options:
+            - "28"
+            - "38"
+            - "49"
+            - "61"
+            - "74"
+
+    sun_elevation_threshold:
+      name: Sun elevation
+      description: The sun elevation (angle between the sun and the horizon) to trigger opening of covers
+      default: 20
+      selector:
+        number:
+          min: 0
+          max: 40
+          step: 1
+          unit_of_measurement: "°"
+          mode: slider
+
+    notify_slack_channel:
+      name: Slack channel
+      description: The Slack channel to notify when controlling
+      default: "screens-control"
+      selector:
+        text:
+
+mode: single
+
+variables:
+  door_window_entity: !input door_window_entity
+  cover_entity: !input cover_entity
+  wind_entity: !input wind_entity
+  wind_open_threshold: !input wind_open_threshold
+  luminance_entity: !input luminance_entity
+  luminance_close_threshold: !input luminance_close_threshold
+  sun_elevation_threshold: !input sun_elevation_threshold
+
+  is_door_window_closed: '{{ (door_window_entity == none) or (is_state(door_window_entity, "off")) }}'
+  is_cover_closed: '{{ is_state(cover_entity, "closed") }}'
+  is_wind_above_threshold: '{{ states(wind_entity) | int >= wind_open_threshold | int }}'
+  is_luminance_above_threshold: '{{ states(luminance_entity) | int >= luminance_close_threshold | int }}'
+  is_sun_elevation_below_threshold: '{{ state_attr("sun.sun", "elevation") | int < sun_elevation_threshold | int }}'
+
+trigger:
+  - platform: numeric_state
+    entity_id: !input luminance_entity
+    above: !input luminance_close_threshold
+  - platform: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: !input sun_elevation_threshold
+  - platform: numeric_state
+    entity_id: !input wind_entity
+    above: !input wind_open_threshold
+
+action:
+  - choose:
+      # Conditions for closing the cover
+      - conditions:
+        - condition: template
+          value_template: "{{ not is_cover_closed and is_door_window_closed and not is_wind_above_threshold and is_luminance_above_threshold }}"
+        sequence:
+          - service: cover.close_cover
+            entity_id: !input cover_entity
+          - service: notify.slack
+            data:
+              message: 'Closing cover {{ state_attr(cover_entity, "friendly_name") }}'
+              target: !input notify_slack_channel
+              data:
+                blocks_template:
+                  - fields:
+                      - text: >-
+                          Closing cover `{{ state_attr(cover_entity, 'friendly_name') }}`.
+                          Luminance: `{{ states(luminance_entity) | int }}`,
+                          Cover closed: `{{ is_cover_closed }}`,
+                          Wind speed: `{{ states(wind_entity) | int }}`,
+                          Door/Window closed: `{{ is_door_window_closed }}`,
+                          Sun elevation below threshold: `{{ is_sun_elevation_below_threshold }}`
+                        type: mrkdwn
+                    type: section
+      # Conditions for opening the cover
+      - conditions:
+          - condition: template
+            value_template: "{{ (is_cover_closed and is_door_window_closed) and (is_wind_above_threshold or is_sun_elevation_below_threshold) }}"
+        sequence:
+          - service: cover.open_cover
+            entity_id: !input cover_entity
+          - service: notify.slack
+            data:
+              message: 'Opening cover {{ state_attr(cover_entity, "friendly_name") }}'
+              target: !input notify_slack_channel
+              data:
+                blocks_template:
+                  - fields:
+                      - text: >-
+                          Opening cover `{{ state_attr(cover_entity, 'friendly_name') }}`.
+                          Luminance: `{{ states(luminance_entity) | int }}`,
+                          Cover closed: `{{ is_cover_closed }}`,
+                          Wind speed: `{{ states(wind_entity) | int }}`,
+                          Door/Window closed: `{{ is_door_window_closed }}`,
+                          Sun elevation below threshold: `{{ is_sun_elevation_below_threshold }}`
+                        type: mrkdwn
+                    type: section
