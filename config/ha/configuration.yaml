@@ -8,11 +8,14 @@ homeassistant:
   elevation: 600
   time_zone: Europe/Oslo
   unit_system: metric
+  currency: NOK
   external_url: !secret home_assistant_external_url
   internal_url: !secret home_assistant_internal_url
   customize: !include customize.yaml
   allowlist_external_dirs:
     - /camera-snapshots
+  media_dirs:
+    camera: "/camera-snapshots"
 
 automation: !include automations.yaml
 aarlo: !include aarlo.yaml

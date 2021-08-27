@@ -556,7 +556,9 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "grid",
+                            "columns": 1,
+                            "square": false
                         },
                         {
                             "cards": [
@@ -716,7 +718,9 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "grid",
+                            "columns": 1,
+                            "square": false
                         },
                         {
                             "cards": [
@@ -888,7 +892,9 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "grid",
+                            "columns": 1,
+                            "square": false
                         }
                     ]
                 },
