@@ -8,12 +8,16 @@ homeassistant:
   elevation: 600
   time_zone: Europe/Oslo
   unit_system: metric
+  currency: NOK
   external_url: !secret home_assistant_external_url
   internal_url: !secret home_assistant_internal_url
   customize: !include customize.yaml
   allowlist_external_dirs:
     - /camera-snapshots
+  media_dirs:
+    camera: "/camera-snapshots"
 
+alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include automations.yaml
 aarlo: !include aarlo.yaml
 cover: !include groups_cover.yaml
@@ -21,14 +25,17 @@ google_assistant: !include google-assistant.yaml
 google: !include google-calendar-clientId.yaml
 group: !include groups.yaml
 influxdb: !include influxdb.yaml
+nest: !include nest.yaml
 notify: !include notify.yaml
 recorder: !include recorder.yaml
+rest: !include rest_sensor.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensor.yaml
 shell_command: !include shell_command.yaml
 spotify: !include spotify.yaml
 switch: !include switch.yaml
+template: !include template.yaml
 
 # Text to speech
 tts:
@@ -37,3 +44,8 @@ tts:
 # HACS Arlo integration - Camera
 camera:
   - platform: aarlo
+
+# Frontend modules
+frontend:
+  extra_module_url:
+    - /hacsfiles/lovelace-card-mod/card-mod.js

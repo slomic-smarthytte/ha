@@ -1,0 +1,7 @@
+- platform: aarlo
+  away_mode_name: armed # Arlo mode to use when setting alarm to Armed Away. Default value is armed which maps to Arlo's default Armed mode.
+  disarmed_mode_name: disarmed #  Arlo mode to use when setting alarm to Disarmed. Default value is disarmed which maps to Arlo's default Disarmed mode.
+  home_mode_name: disarmed # Arlo mode to use when setting alarm to Armed Home. Default value home
+  night_mode_name: night # Arlo mode to use when setting alarm to Armed Night. Default value night.
+  trigger_time: 30 # determines how long, in seconds, the triggered alarm will sound
+  alarm_volume: 8 # determine how loud, from 1 to 8, the triggered alarm will sound

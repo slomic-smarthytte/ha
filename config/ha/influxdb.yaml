@@ -106,9 +106,20 @@
       - sensor.airthings_wave_plus_stue_2_voc
       # Balkong
       - sensor.aarlo_battery_level_balkong
+      - sensor.aarlo_battery_level_balkong_2
       # Hovedinngang
       - sensor.id_lock_hovedinngang_battery_level
       # Weather - Met.no integration
       - weather.hy
-      # Wind speed
+      # Zweather - Værstasjon
+      - sensor.zweather_temperature
       - sensor.zweather_velocity
+      - sensor.zweather_battery_level
+      - sensor.zweather_humidity
+      - sensor.zweather_barometric_pressure
+      # Slomic Jaguar
+      - sensor.slomic_jag_odometer
+      - sensor.slomic_jag_tyres_front_left_pressure
+      - sensor.slomic_jag_tyres_front_right_pressure
+      - sensor.slomic_jag_tyres_rear_left_pressure
+      - sensor.slomic_jag_tyres_rear_right_pressure

@@ -1,51 +1,345 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_jaguar",
     "data": {
         "config": {
             "views": [
                 {
                     "title": "Home",
+                    "type": "sidebar",
+                    "icon": "mdi:car-electric",
+                    "badges": [],
                     "cards": [
                         {
-                            "type": "entities",
+                            "type": "picture-elements",
+                            "title": "The Jag status",
+                            "image": "/local/jaguar.png",
+                            "style": "#root > hui-image {\n  display: block;\n  width: 80%;\n  top: 50px;\n  padding: 0px 0px 30px 0px;\n  margin: auto;\n}\n\nha-card {\n  --battery-state-color: {%set batteryLevel = states('sensor.slomic_jag_battery') | int(0)%}{%if batteryLevel <= 30%}var(--error-color, 'red'){%elif batteryLevel < 80%}var(--warning-color, 'orange'){%else%}var(--success-color, 'green'){%endif%};\n  --service-info-state-color: {%set serviceInfo = states('sensor.slomic_jag_service_info')%}{%if serviceInfo != \"Ok\"%}var(--warning-color, 'orange'){%else%}var(--success-color, 'green'){%endif%};\n  --doors-state-color: {%set doorsState = states('lock.slomic_jag_doors')%}{%if doorsState != \"locked\"%}var(--warning-color, 'orange'){%else%}var(--success-color, 'green'){%endif%};\n  --windows-state-color: {%set windowsState = states('sensor.slomic_jag_windows')%}{%if windowsState != \"Closed\"%}var(--warning-color, 'orange'){%else%}var(--success-color, 'green'){%endif%};\n  --alarm-state-color: {%set alarmState = states('sensor.slomic_jag_alarm')%}{%if alarmState != \"Armed\"%}var(--warning-color, 'orange'){%else%}var(--success-color, 'green'){%endif%};\n  --tyres-state-color: {%set tyresState = states('sensor.slomic_jag_tyres')%}{%if tyresState != \"Ok\"%}var(--warning-color, 'orange'){%else%}var(--success-color, 'green'){%endif%};\n  --charging-state-color: {%set chargingState = states('sensor.slomic_jag_ev_battery')%}{%if chargingState == 'Charging'%}var(--warning-color, 'orange'){%elif chargingState == 'Fullycharged'%}var(--success-color, 'green'){%else%}white{%endif%};\n}\n",
+                            "elements": [
+                                {
+                                    "type": "state-icon",
+                                    "entity": "lock.slomic_jag_doors",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "hold_action": {
+                                        "action": "more_info"
+                                    },
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--doors-state-color, red)",
+                                        "left": "10%",
+                                        "top": "6%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "lock.slomic_jag_doors",
+                                    "style": {
+                                        "color": "var(--doors-state-color, red)",
+                                        "left": "10%",
+                                        "top": "15%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_windows",
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--windows-state-color, red)",
+                                        "left": "30%",
+                                        "top": "6%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_windows",
+                                    "style": {
+                                        "color": "var(--windows-state-color, red)",
+                                        "left": "30%",
+                                        "top": "15%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_alarm",
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--alarm-state-color, red)",
+                                        "left": "50%",
+                                        "top": "6%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_alarm",
+                                    "style": {
+                                        "color": "var(--alarm-state-color, red)",
+                                        "left": "50%",
+                                        "top": "15%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_tyres",
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--tyres-state-color, red)",
+                                        "left": "70%",
+                                        "top": "6%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_tyres",
+                                    "style": {
+                                        "color": "var(--tyres-state-color, red)",
+                                        "left": "70%",
+                                        "top": "15%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_service_info",
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--service-info-state-color, red)",
+                                        "left": "90%",
+                                        "top": "6%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_service_info",
+                                    "style": {
+                                        "color": "var(--service-info-state-color, red)",
+                                        "left": "90%",
+                                        "top": "15%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_battery",
+                                    "state_color": false,
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--battery-state-color, red)",
+                                        "left": "10%",
+                                        "top": "86%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_battery",
+                                    "style": {
+                                        "color": "var(--battery-state-color, red)",
+                                        "left": "10%",
+                                        "top": "95%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "style": {
+                                        "--paper-item-icon-color": "var(--charging-state-color, white)",
+                                        "left": "30%",
+                                        "top": "86%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "style": {
+                                        "color": "var(--charging-state-color, white)",
+                                        "left": "30%",
+                                        "top": "95%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_range",
+                                    "style": {
+                                        "color": "white",
+                                        "left": "50%",
+                                        "top": "86%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_range",
+                                    "style": {
+                                        "color": "white",
+                                        "left": "50%",
+                                        "top": "95%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "style": {
+                                        "color": "white",
+                                        "left": "70%",
+                                        "top": "86%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "attribute": "Minutes To Full Charge",
+                                    "suffix": " min",
+                                    "style": {
+                                        "color": "white",
+                                        "left": "70%",
+                                        "top": "95%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_last_trip",
+                                    "style": {
+                                        "icon": "white",
+                                        "left": "90%",
+                                        "top": "86%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_last_trip",
+                                    "style": {
+                                        "color": "white",
+                                        "left": "90%",
+                                        "top": "95%"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "entity": "sensor.slomic_jag_info",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "jlrincontrol.update_health_status",
+                                        "service_data": {
+                                            "entity_id": "sensor.slomic_jag_info"
+                                        }
+                                    },
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "style": {
+                                        "icon": "white",
+                                        "left": "10%",
+                                        "top": "36%"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.slomic_jag_info",
+                                    "attribute": "Last Contacted Age",
+                                    "style": {
+                                        "color": "white",
+                                        "left": "10%",
+                                        "top": "45%"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "glance",
                             "entities": [
                                 {
-                                    "entity": "device_tracker.leiebil_sommer_device_tracker"
+                                    "entity": "sensor.jaguar_software_release_version",
+                                    "name": "Latest SW Version",
+                                    "icon": "mdi:code-tags"
                                 },
                                 {
-                                    "entity": "lock.leiebil_sommer_doors"
+                                    "entity": "sensor.jaguar_wireless_software_release_version",
+                                    "name": "Latest Wireless SW Version",
+                                    "icon": "mdi:code-tags"
                                 },
                                 {
-                                    "entity": "sensor.leiebil_sommer_alarm"
+                                    "entity": "sensor.template_slomic_jag_software_tcu_hw_version",
+                                    "name": "TCU HW version"
                                 },
                                 {
-                                    "entity": "sensor.leiebil_sommer_battery"
+                                    "entity": "sensor.template_slomic_jag_software_tcu_sw_version_main",
+                                    "name": "TCU SW Version"
                                 },
                                 {
-                                    "entity": "sensor.leiebil_sommer_ev_battery"
-                                },
-                                {
-                                    "entity": "sensor.leiebil_sommer_info"
-                                },
-                                {
-                                    "entity": "sensor.leiebil_sommer_range"
-                                },
-                                {
-                                    "entity": "sensor.leiebil_sommer_service_info"
-                                },
-                                {
-                                    "entity": "sensor.leiebil_sommer_status"
-                                },
-                                {
-                                    "entity": "sensor.leiebil_sommer_tyres"
-                                },
-                                {
-                                    "entity": "sensor.leiebil_sommer_windows"
+                                    "entity": "sensor.template_slomic_jag_software_latest_complete_config_update"
                                 }
                             ],
-                            "title": "I-Pace - leiebil sommer 2021",
-                            "show_header_toggle": false
+                            "columns": 5,
+                            "show_icon": true,
+                            "state_color": false,
+                            "show_name": true,
+                            "title": "Software",
+                            "show_state": true,
+                            "view_layout": {
+                                "position": "main"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "jlrincontrol.start_preconditioning",
+                                "service_data": {
+                                    "entity_id": "sensor.slomic_jag_info",
+                                    "target_temp": 21
+                                },
+                                "target": {}
+                            },
+                            "entity": "sensor.slomic_jag_info",
+                            "icon": "mdi:fan",
+                            "name": "Start preconditioning",
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "jlrincontrol.stop_preconditioning",
+                                "service_data": {
+                                    "entity_id": "sensor.slomic_jag_info"
+                                },
+                                "target": {}
+                            },
+                            "entity": "sensor.slomic_jag_info",
+                            "icon": "mdi:fan-off",
+                            "name": "Stop preconditioning",
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "jlrincontrol.start_charging",
+                                "service_data": {
+                                    "entity_id": "sensor.slomic_jag_info"
+                                },
+                                "target": {}
+                            },
+                            "entity": "sensor.slomic_jag_info",
+                            "icon": "mdi:battery-charging",
+                            "name": "Start charging",
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "jlrincontrol.stop_charging",
+                                "service_data": {
+                                    "entity_id": "sensor.slomic_jag_info"
+                                },
+                                "target": {}
+                            },
+                            "entity": "sensor.slomic_jag_info",
+                            "icon": "mdi:battery-off",
+                            "name": "Stop charging",
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
                         }
                     ]
                 }

@@ -1,224 +1,687 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_lys",
     "data": {
         "config": {
-            "title": "Lys",
+            "button_card_templates": {
+                "light_button": {
+                    "aspect_ratio": "4/3",
+                    "color_type": "icon",
+                    "hold_action": {
+                        "action": "more-info",
+                        "haptic": "selection"
+                    },
+                    "label": "[[[ var bri = entity.attributes.brightness && Math.round(entity.attributes.brightness / 2.55);  if\n  (entity.state === 'on') return (bri ? (bri+\"%\") : 'On'); else return \"Off\"; ]]]\n",
+                    "layout": "icon_label",
+                    "show_label": true,
+                    "show_name": true,
+                    "state": [
+                        {
+                            "styles": {
+                                "card": [
+                                    {
+                                        "border": "solid 1px var(--paper-item-icon-active-color)"
+                                    },
+                                    {
+                                        "box-shadow": "0px 0px 10px 3px var(--paper-item-icon-active-color)"
+                                    }
+                                ],
+                                "label": [
+                                    {
+                                        "color": "var(--paper-item-icon-active-color)"
+                                    }
+                                ]
+                            },
+                            "value": "on"
+                        },
+                        {
+                            "styles": {
+                                "card": [
+                                    {
+                                        "border": "solid 1px var(--primary-color)"
+                                    },
+                                    {
+                                        "box-shadow": "none"
+                                    }
+                                ]
+                            },
+                            "value": "off"
+                        },
+                        {
+                            "icon": "mdi:alert",
+                            "label": "Lost",
+                            "styles": {
+                                "card": [
+                                    {
+                                        "border": "solid 1px #7f7f7f"
+                                    },
+                                    {
+                                        "box-shadow": "none"
+                                    }
+                                ],
+                                "icon": [
+                                    {
+                                        "color": "#ff0000"
+                                    },
+                                    {
+                                        "opacity": 0.4
+                                    }
+                                ],
+                                "label": [
+                                    {
+                                        "color": "#7f7f7f"
+                                    }
+                                ],
+                                "name": [
+                                    {
+                                        "color": "#7f7f7f"
+                                    }
+                                ]
+                            },
+                            "value": "unavailable"
+                        }
+                    ],
+                    "styles": {
+                        "card": [
+                            {
+                                "border-radius": "10px"
+                            },
+                            {
+                                "padding": "6px 6px 6px 6px"
+                            },
+                            {
+                                "margin": "0% 0% 0% 0%"
+                            },
+                            {
+                                "--ha-card-background": "rgba(0, 0, 0, 0)"
+                            }
+                        ],
+                        "grid": [
+                            {
+                                "grid-template-areas": "\"i l l\" \"n n n\""
+                            },
+                            {
+                                "grid-template-rows": "33% auto"
+                            },
+                            {
+                                "grid-template-columns": "33% auto"
+                            }
+                        ],
+                        "icon": [
+                            {
+                                "width": "28px"
+                            },
+                            {
+                                "padding": "0px 0px 0px 0px"
+                            },
+                            {
+                                "color": "var(--button-card-light-color-no-temperature)"
+                            }
+                        ],
+                        "label": [
+                            {
+                                "font-size": "12px"
+                            },
+                            {
+                                "justify-self": "right"
+                            },
+                            {
+                                "padding": "0px 0px 0px 0px"
+                            },
+                            {
+                                "color": "var(--secondary-text-color)"
+                            }
+                        ],
+                        "name": [
+                            {
+                                "justify-self": "middle"
+                            },
+                            {
+                                "align-self": "end"
+                            },
+                            {
+                                "font-size": "14px"
+                            },
+                            {
+                                "padding": "0px 0px 0px 0px"
+                            },
+                            {
+                                "color": "var(--primary-text-color)"
+                            },
+                            {
+                                "white-space": "normal"
+                            }
+                        ]
+                    },
+                    "tap_action": {
+                        "action": "toggle"
+                    }
+                }
+            },
             "views": [
                 {
-                    "icon": "mdi:home-floor-1",
-                    "panel": true,
-                    "path": "1-etg",
-                    "title": "1. etg",
+                    "title": "Home",
                     "badges": [],
                     "cards": [
                         {
-                            "cards": [
+                            "entities": [
                                 {
-                                    "entities": [
-                                        {
-                                            "label": "Bad",
-                                            "type": "section"
-                                        },
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
                                         {
                                             "entity": "light.fibaro_dimmer_bad_1_level",
-                                            "name": "Tak"
+                                            "name": "Tak 1.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
                                         },
                                         {
                                             "entity": "switch.fibaro_switch_bad_1_switch",
-                                            "name": "Speil"
-                                        },
-                                        {
-                                            "label": "Kj\u00f8kken",
-                                            "type": "section"
-                                        },
-                                        {
-                                            "entity": "light.fibaro_dimmer_kjokken_1_level",
-                                            "name": "Tak"
-                                        },
-                                        {
-                                            "entity": "light.fibaro_dimmer_kjokkenbenk_1_level",
-                                            "name": "Benk"
-                                        },
-                                        {
-                                            "label": "Stue",
-                                            "type": "section"
-                                        },
-                                        {
-                                            "entity": "light.fibaro_dimmer_stue_1_level",
-                                            "name": "Tak"
-                                        },
-                                        {
-                                            "entity": "light.fibaro_dimmer_spisebord_1_level",
-                                            "name": "Spisebord"
-                                        },
-                                        {
-                                            "entity": "light.philips_hue_lightstrip_sofa_stue_1",
-                                            "name": "Sofa"
-                                        },
-                                        {
-                                            "label": "Soverom",
-                                            "type": "section"
-                                        },
-                                        {
-                                            "entity": "light.fibaro_dimmer_soverom_1_level",
-                                            "name": "Tak"
-                                        },
-                                        {
-                                            "label": "Gang",
-                                            "type": "section"
-                                        },
-                                        {
-                                            "entity": "light.fibaro_dimmer_gang_1_level",
-                                            "name": "Tak"
-                                        }
-                                    ],
-                                    "show_header_toggle": true,
-                                    "title": "Lys 1. Etg",
-                                    "icon": "mdi:lightbulb-on",
-                                    "type": "entities",
-                                    "state_color": true
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        }
-                    ]
-                },
-                {
-                    "title": "2. etg",
-                    "path": "2-etg",
-                    "icon": "mdi:home-floor-2",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "label": "Bad",
-                                            "type": "section"
+                                            "name": "Speil 1.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:mirror-rectangle",
+                                            "type": "custom:button-card"
                                         },
                                         {
                                             "entity": "light.fibaro_dimmer_bad_2_level",
-                                            "name": "Tak"
+                                            "name": "Tak 2.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
                                         },
                                         {
                                             "entity": "switch.fibaro_switch_bad_2_switch",
-                                            "name": "Speil"
+                                            "name": "Speil 2.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:mirror-rectangle",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-triggered"
+                                    },
+                                    "head": {
+                                        "label": "Light Settings",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "automation.bad_1_lys_pa_dagtid_2",
+                                            "name": "Bad 1 - lys p\u00e5 dagtid"
                                         },
                                         {
-                                            "label": "Stue",
-                                            "type": "section"
+                                            "entity": "automation.bad_1_lys_pa_kveldtid",
+                                            "name": "Bad 1 - lys p\u00e5 kveldstid"
                                         },
                                         {
-                                            "entity": "light.fibaro_dimmer_stue_2_level",
-                                            "name": "Tak"
+                                            "entity": "automation.bad_1_sla_av_alle_lys_ny",
+                                            "name": "Bad 1 - sl\u00e5 av alle lys"
                                         },
                                         {
-                                            "entity": "light.philips_hue_play_stue_2_1",
-                                            "name": "Vegg 1"
+                                            "entity": "automation.bad_2_lys_pa_dagtid",
+                                            "name": "Bad 2 - lys p\u00e5 dagtid"
                                         },
                                         {
-                                            "entity": "light.philips_hue_play_stue_2_2",
-                                            "name": "Vegg 2"
+                                            "entity": "automation.bad_2_lys_pa_kveldstid",
+                                            "name": "Bad 2 - lys p\u00e5 kveldstid"
                                         },
                                         {
-                                            "entity": "light.philips_hue_go_stue_2",
-                                            "name": "Hylle"
+                                            "entity": "automation.bad_2_sla_av_alle_lys_ny",
+                                            "name": "Bad 2 - sl\u00e5 av alle lys"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-changed"
+                                    },
+                                    "head": {
+                                        "label": "Sensors",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "binary_sensor.aeotec_multisensor_bad_1_sensor",
+                                            "name": "Bad 1 - motion"
                                         },
                                         {
-                                            "entity": "light.philips_hue_lightstrip_sofa_stue_2",
-                                            "name": "Sofa"
+                                            "entity": "binary_sensor.template_bad_1_is_showering",
+                                            "name": "Bad 1 - showering"
                                         },
                                         {
-                                            "entity": "light.juletre_stue_2",
-                                            "name": "Juletre"
+                                            "entity": "binary_sensor.aeotec_multisensor_bad_2_sensor",
+                                            "name": "Bad 2 - motion"
                                         },
                                         {
-                                            "label": "Soverom",
-                                            "type": "section"
+                                            "entity": "binary_sensor.template_bad_2_is_showering",
+                                            "name": "Bad 2 - showering"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Bad",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "light.fibaro_dimmer_stue_1_level",
+                                            "name": "Tak",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
                                         },
                                         {
-                                            "entity": "light.fibaro_dimmer_soverom_2_level",
-                                            "name": "Soverom 2 tak"
+                                            "entity": "light.fibaro_dimmer_spisebord_1_level",
+                                            "name": "Spisebord",
+                                            "template": "light_button",
+                                            "icon": "mdi:table-furniture",
+                                            "type": "custom:button-card"
                                         },
                                         {
-                                            "entity": "light.fibaro_dimmer_soverom_3_level",
-                                            "name": "Soverom 3 tak"
+                                            "entity": "light.philips_hue_lightstrip_sofa_stue_1",
+                                            "name": "Sofa",
+                                            "template": "light_button",
+                                            "icon": "mdi:sofa",
+                                            "type": "custom:button-card"
                                         },
                                         {
-                                            "label": "Gang",
-                                            "type": "section"
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Stue 1.etg",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "light.fibaro_dimmer_kjokken_1_level",
+                                            "name": "Tak",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_kjokkenbenk_1_level",
+                                            "name": "Benk",
+                                            "template": "light_button",
+                                            "icon": "mdi:table-furniture",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Kj\u00f8kken",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "light.fibaro_dimmer_gang_1_level",
+                                            "name": "1. etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
                                         },
                                         {
                                             "entity": "light.fibaro_dimmer_gang_2_level",
-                                            "name": "Tak"
-                                        }
-                                    ],
-                                    "show_header_toggle": true,
-                                    "title": "Lys 2. Etg",
-                                    "icon": "mdi:lightbulb-on",
-                                    "type": "entities",
-                                    "state_color": true
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        }
-                    ]
-                },
-                {
-                    "title": "Felles",
-                    "path": "felles",
-                    "panel": true,
-                    "icon": "mdi:stairs-box",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "label": "Utend\u00f8rs",
-                                            "type": "section"
-                                        },
-                                        {
-                                            "entity": "light.stolpe_ute",
-                                            "name": "Julebelysning stolpe"
-                                        },
-                                        {
-                                            "entity": "light.tak_ute",
-                                            "name": "Julebelysning tak"
-                                        },
-                                        {
-                                            "label": "Bod",
-                                            "type": "section"
-                                        },
-                                        {
-                                            "entity": "switch.fibaro_switch_bod_1_switch",
-                                            "name": "Tak"
-                                        },
-                                        {
-                                            "label": "Trapp",
-                                            "type": "section"
+                                            "name": "2. etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
                                         },
                                         {
                                             "entity": "light.fibaro_dimmer_trapp_1_level",
-                                            "name": "Trappelys"
+                                            "name": "Trapp",
+                                            "template": "light_button",
+                                            "icon": "mdi:stairs",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
                                         }
-                                    ],
-                                    "show_header_toggle": true,
-                                    "title": "Lys felles",
-                                    "type": "entities",
-                                    "icon": "mdi:lightbulb-on",
-                                    "state_color": true
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-triggered"
+                                    },
+                                    "head": {
+                                        "label": "Light Settings",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "automation.trapp_gang_1_gang_2_sla_av_alle_lys"
+                                        },
+                                        {
+                                            "entity": "automation.trapp_lys_pa_kveldstid"
+                                        },
+                                        {
+                                            "entity": "automation.trapp_gang_1_gang_2_sla_pa_alle_lys"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-changed"
+                                    },
+                                    "head": {
+                                        "label": "Motion sensors",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "binary_sensor.fibaro_multisensor_gang_1_motion_detected",
+                                            "name": "Gang 1 - motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.fibaro_multisensor_gang_2_motion_detected",
+                                            "name": "Gang 2 - motion"
+                                        }
+                                    ]
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "show_header_toggle": false,
+                            "title": "Gang & trapp",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "light.fibaro_dimmer_soverom_1_level",
+                                            "name": "#1 - 1.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_soverom_2_level",
+                                            "name": "#2 - 2.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.fibaro_dimmer_soverom_3_level",
+                                            "name": "#3 - 2.etg",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-triggered"
+                                    },
+                                    "head": {
+                                        "label": "Light Settings",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "automation.soverom_1_sla_av_lys"
+                                        },
+                                        {
+                                            "entity": "automation.soverom_2_sla_av_lys"
+                                        },
+                                        {
+                                            "entity": "automation.soverom_3_sla_av_lys_2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-changed"
+                                    },
+                                    "head": {
+                                        "label": "Motion sensors",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "binary_sensor.fibaro_multisensor_soverom_1_motion_detected",
+                                            "name": "Soverom 1 - motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.fibaro_multisensor_soverom_2_motion_detected",
+                                            "name": "Soverom 2 - motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.fibaro_multisensor_soverom_3_motion_detected",
+                                            "name": "Soverom 3 - motion"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Soverom",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "light.fibaro_dimmer_stue_2_level",
+                                            "name": "Tak",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_play_stue_2_1",
+                                            "name": "Vegg #1",
+                                            "template": "light_button",
+                                            "icon": "mdi:wall-sconce",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_play_stue_2_2",
+                                            "name": "Vegg #2",
+                                            "template": "light_button",
+                                            "icon": "mdi:wall-sconce",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_go_stue_2",
+                                            "name": "Hylle",
+                                            "template": "light_button",
+                                            "icon": "mdi:bookshelf",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_lightstrip_sofa_stue_2",
+                                            "name": "Sofa",
+                                            "template": "light_button",
+                                            "icon": "mdi:sofa",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Stue 2.etg",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "switch.fibaro_switch_bod_1_switch",
+                                            "name": "Bod",
+                                            "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.hue_lightstrip_outdoor_1",
+                                            "name": "Parkering",
+                                            "template": "light_button",
+                                            "icon": "mdi:garage-open",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.stolpe_ute",
+                                            "name": "Tak & stolpe",
+                                            "template": "light_button",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.tak_ute",
+                                            "name": "Vindu",
+                                            "template": "light_button",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false
+                                    },
+                                    "head": {
+                                        "label": "Light Settings",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "automation.bod_1_sla_av_lys",
+                                            "secondary_info": "last-triggered"
+                                        },
+                                        {
+                                            "entity": "automation.bod_1_sla_pa_lys",
+                                            "secondary_info": "last-triggered"
+                                        },
+                                        {
+                                            "entity": "switch.philips_hue_outdoor_motion_sensor_switch_parkering",
+                                            "name": "Enable motion sensor parkering"
+                                        },
+                                        {
+                                            "entity": "sensor.hue_outdoor_motion_sensor_1_light_level"
+                                        },
+                                        {
+                                            "entity": "automation.julelys_utendors_lys_pa_kveldstid",
+                                            "secondary_info": "last-triggered"
+                                        },
+                                        {
+                                            "entity": "automation.julelys_utendors_sla_av_lys_ved_leggetid",
+                                            "secondary_info": "last-triggered"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Utend\u00f8rs",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "entity": "light.juletre_stue_2",
+                                            "name": "Juletre",
+                                            "template": "light_button",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color_type": "blank-card",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Juletre",
+                            "type": "entities",
+                            "state_color": true
                         }
                     ]
                 }
-            ]
+            ],
+            "title": "Lys"
         }
     }
 }

@@ -189,20 +189,14 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.fibaro_wall_plug_stue_2_ice_router_switch",
-                                    "name": "Ice Router"
+                                    "entity": "switch.fibaro_wall_plug_arlo_stue_1_switch",
+                                    "name": "Arlo - Stue 1",
+                                    "icon": "mdi:camera"
                                 },
                                 {
-                                    "entity": "switch.fibaro_wall_plug_stue_2_arlo_router_switch",
-                                    "name": "Arlo Router"
-                                },
-                                {
-                                    "entity": "switch.fibaro_wall_plug_gang_1_asus_router_switch",
-                                    "name": "Asus router node"
-                                },
-                                {
-                                    "entity": "switch.fibaro_wall_plug_stue_2_asus_router_switch",
-                                    "name": "Asus router"
+                                    "entity": "switch.fibaro_wall_plug_asus_mesh_stue_1_switch",
+                                    "name": "Asus Mesh - Stue 1",
+                                    "icon": "mdi:router-network"
                                 }
                             ],
                             "type": "entities",

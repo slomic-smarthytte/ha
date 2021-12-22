@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -309,11 +310,23 @@
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_stue_2_level",
-                                    "name": "Stue"
+                                    "name": "Tak"
                                 },
                                 {
                                     "entity": "light.philips_hue_lightstrip_sofa_stue_2",
                                     "name": "Sofa"
+                                },
+                                {
+                                    "entity": "light.philips_hue_play_stue_2_1",
+                                    "name": "Vegg 1"
+                                },
+                                {
+                                    "entity": "light.philips_hue_play_stue_2_2",
+                                    "name": "Vegg 2"
+                                },
+                                {
+                                    "entity": "light.philips_hue_go_stue_2",
+                                    "name": "Hylle"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_multisensor_stue_2_motion_detected",
@@ -389,7 +402,7 @@
                                     "entities": [
                                         {
                                             "entity": "sensor.aeotec_multisensor_bad_1_temperature",
-                                            "name": "Bad 1.etg (Aeotec)",
+                                            "name": "Bad 1.etg",
                                             "state_adaptive_color": true
                                         }
                                     ],
@@ -556,7 +569,9 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "grid",
+                            "columns": 1,
+                            "square": false
                         },
                         {
                             "cards": [
@@ -716,7 +731,9 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "grid",
+                            "columns": 1,
+                            "square": false
                         },
                         {
                             "cards": [
@@ -888,7 +905,9 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "grid",
+                            "columns": 1,
+                            "square": false
                         }
                     ]
                 },
@@ -1172,9 +1191,6 @@
                                 {
                                     "entity": "sensor.zweather_battery_level",
                                     "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.zweather_sensor"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1216,12 +1232,27 @@
                             "type": "sensor"
                         },
                         {
+                            "decimals": 0,
+                            "entities": [
+                                {
+                                    "entity": "sensor.accumulated_cost_slomic_smarthytte",
+                                    "name": "Kostnad i dag",
+                                    "state_adaptive_color": false
+                                }
+                            ],
+                            "show": {
+                                "fill": false,
+                                "graph": true
+                            },
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
                             "detail": 1,
-                            "entity": "sensor.accumulated_cost_slomic_smarthytte",
-                            "name": "Kostnad i dag",
+                            "entity": "sensor.template_electricity_price_level_smarthytte",
+                            "name": "Prisniv\u00e5 n\u00e5",
                             "type": "sensor",
-                            "hours_to_show": 1,
-                            "icon": "mdi:currency-usd"
+                            "graph": "line",
+                            "hours_to_show": 24
                         }
                     ]
                 },

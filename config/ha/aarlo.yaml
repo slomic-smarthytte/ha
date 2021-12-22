@@ -1,6 +1,7 @@
  username: !secret aarlo_username
  password: !secret aarlo_password
- refresh_devices_every: 24
+ refresh_devices_every: 2
+ refresh_modes_every: 1
  stream_timeout: 120
  reconnect_every: 90
 

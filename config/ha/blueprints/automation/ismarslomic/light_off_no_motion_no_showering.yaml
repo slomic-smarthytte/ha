@@ -1,0 +1,99 @@
+blueprint:
+  name: Light off when no motion and none showering
+  description: Turn off lights when motion is cleared and none is showering.
+  domain: automation
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+    is_showering_entity:
+      name: Is showering
+      description: Binary entity (on/off) telling whether someone is showering or not.
+      selector:
+        entity:
+          domain: binary_sensor
+    light_target: # since it is not possible to define multiple domains for selector, we define two inputs
+      name: Light
+      description: optional
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: light
+    switch_target: # since it is not possible to define multiple domains for selector, we define two inputs
+      name: Light Switch
+      description: optional
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: switch
+    no_motion_wait:
+      name: Turn off wait time
+      description: Time to leave the light on after last motion is detected
+      default: 5
+      selector:
+        number:
+          min: 0
+          max: 30
+          step: 1
+          unit_of_measurement: "minutes"
+          mode: slider
+
+mode: single
+
+variables:
+  light_target: !input light_target
+  switch_target: !input switch_target
+
+trigger:
+  - platform: state
+    entity_id: !input motion_entity
+    from: "on"
+    to: "off"
+    for:
+      minutes: !input no_motion_wait
+  - platform: state
+    entity_id:  !input is_showering_entity
+    from: "on"
+    to: "off"
+
+condition:
+  alias: "No motion detected for past X minutes and none is showering"
+  condition: and
+  conditions:
+    - condition: state
+      alias: "No motion detected for pas X minutes"
+      entity_id: !input motion_entity
+      state: "off"
+      for:
+        minutes: !input no_motion_wait
+    - condition: state
+      alias: "None is showering"
+      entity_id: !input is_showering_entity
+      state: "off"
+
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: '{{ light_target != {} and switch_target == {} }}'
+        sequence:
+          - service: homeassistant.turn_off
+            target: !input light_target
+      - conditions:
+          - condition: template
+            value_template: '{{ light_target == {} and switch_target != {} }}'
+        sequence:
+          - service: homeassistant.turn_off
+            target: !input switch_target
+      - conditions:
+          - condition: template
+            value_template: '{{ light_target != {} and switch_target != {} }}'
+        sequence:
+          - service: homeassistant.turn_off
+            target: !input light_target
+          - service: homeassistant.turn_off
+            target: !input switch_target

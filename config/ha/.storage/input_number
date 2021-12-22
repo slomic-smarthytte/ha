@@ -24,7 +24,7 @@
                 "icon": "mdi:calendar-clock"
             },
             {
-                "min": 18.0,
+                "min": 15.0,
                 "max": 28.0,
                 "name": "Arrival temperature Gang 1",
                 "icon": "mdi:temperature-celsius",
@@ -34,7 +34,7 @@
                 "unit_of_measurement": "C"
             },
             {
-                "min": 18.0,
+                "min": 15.0,
                 "max": 28.0,
                 "name": "Arrival temperature Bad 1",
                 "step": 1.0,
@@ -44,7 +44,7 @@
                 "unit_of_measurement": "C"
             },
             {
-                "min": 18.0,
+                "min": 15.0,
                 "max": 28.0,
                 "name": "Arrival temperature Bad 2",
                 "step": 1.0,
@@ -54,7 +54,7 @@
                 "unit_of_measurement": "C"
             },
             {
-                "min": 18.0,
+                "min": 15.0,
                 "max": 28.0,
                 "name": "Departure temperature Gang 1",
                 "unit_of_measurement": "C",
@@ -64,7 +64,7 @@
                 "icon": "mdi:temperature-celsius"
             },
             {
-                "min": 18.0,
+                "min": 15.0,
                 "max": 28.0,
                 "name": "Departure temperature Bad 1",
                 "unit_of_measurement": "C",
@@ -74,7 +74,7 @@
                 "icon": "mdi:temperature-celsius"
             },
             {
-                "min": 18.0,
+                "min": 15.0,
                 "max": 28.0,
                 "name": "Departure temperature Bad 2",
                 "unit_of_measurement": "C",

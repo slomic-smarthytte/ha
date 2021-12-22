@@ -1,6 +1,6 @@
 blueprint:
-  name: Heat control
-  description: Turn the heat on/off based on presence and temperature
+  name: Heat switch control
+  description: Turn the switch for heat on/off based on the target temperature on daytime and night
   domain: automation
   input:
     climate_entity:
@@ -28,8 +28,33 @@ blueprint:
       selector:
         entity:
           domain: input_number
+    condition_price_level_daytime:
+      name: Accepted price level daytime
+      description: The accepted price level for turning heat on at daytime (1 = very cheap, 5 = very expensive).
+      default: 3
+      selector:
+        number:
+          min: 1
+          max: 5
+          mode: slider
+    condition_price_level_night:
+      name: Accepted price level night
+      description: The accepted price level for turning heat on at night (1 = very cheap, 5 = very expensive).
+      default: 3
+      selector:
+        number:
+          min: 1
+          max: 5
+          mode: slider
 
 mode: single
+
+variables:
+  condition_price_level_daytime: !input condition_price_level_daytime
+  condition_price_level_night: !input condition_price_level_night
+  electricity_price_level: '{{ states("sensor.template_electricity_price_level_smarthytte") | int(5) }}'
+  is_price_level_equal_or_below_daytime: '{{ electricity_price_level <= condition_price_level_daytime | int }}'
+  is_price_level_equal_or_below_night: '{{ electricity_price_level <= condition_price_level_night | int }}'
 
 trigger:
   - platform: homeassistant
@@ -38,12 +63,6 @@ trigger:
     event_type: automation_reloaded
   - platform: time_pattern
     minutes: /10
-
-# Run only when people are at cabin based on Calendar booking status
-condition:
-  - condition: state
-    entity_id: sensor.booking_status
-    state: Running
 
 action:
   - choose:
@@ -55,6 +74,8 @@ action:
           - condition: numeric_state
             entity_id: !input temp_sensor
             below: !input target_temp_daytime
+          - condition: template
+            value_template: "{{ is_price_level_equal_or_below_daytime }}"
         sequence:
           - service: switch.turn_on
             entity_id: !input climate_entity
@@ -66,10 +87,12 @@ action:
           - condition: numeric_state
             entity_id: !input temp_sensor
             below: !input target_temp_night
+          - condition: template
+            value_template: "{{ is_price_level_equal_or_below_night }}"
         sequence:
           - service: switch.turn_on
             entity_id: !input climate_entity
-    # ELSE night
+    # DEFAULT - turn off
     default:
       - service: switch.turn_off
         entity_id: !input climate_entity

@@ -6,6 +6,8 @@
             "views": [
                 {
                     "title": "Home",
+                    "type": "sidebar",
+                    "badges": [],
                     "cards": [
                         {
                             "type": "vertical-stack",
@@ -40,7 +42,12 @@
                                         "fill": true,
                                         "graph": true
                                     }
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
                                     "type": "entities",
                                     "entities": [
@@ -78,7 +85,10 @@
                                     "icon": "mdi:power",
                                     "icon_height": "60px"
                                 }
-                            ]
+                            ],
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
                         }
                     ]
                 }

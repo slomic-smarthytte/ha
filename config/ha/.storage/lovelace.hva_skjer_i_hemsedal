@@ -1,13 +1,45 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.hva_skjer_i_hemsedal",
     "data": {
         "config": {
             "views": [
                 {
+                    "title": "Skistar - v\u00e6r og bakker",
+                    "path": "skistar-var-og-bakker",
+                    "type": "panel",
+                    "icon": "mdi:weather-cloudy",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://www.skistar.com/no/vare-skisteder/hemsedal/vinter-i-hemsedal/var-og-bakker/",
+                            "aspect_ratio": "100%",
+                            "title": "V\u00e6r og bakker"
+                        }
+                    ]
+                },
+                {
+                    "title": "Skistar - Web cam",
+                    "path": "skistar-web-cam",
+                    "icon": "mdi:webcam",
+                    "type": "panel",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://www.skistar.com/no/vare-skisteder/hemsedal/vinter-i-hemsedal/var-og-bakker/webcams-hemsedal/",
+                            "aspect_ratio": "100%",
+                            "title": "Webcams"
+                        }
+                    ]
+                },
+                {
                     "title": "Hemsedal kallender",
                     "path": "hemsedal-kallender",
-                    "panel": true,
+                    "type": "panel",
+                    "icon": "mdi:calendar",
                     "badges": [],
                     "cards": [
                         {
@@ -21,7 +53,8 @@
                 {
                     "title": "Turforslag",
                     "path": "turforslag",
-                    "panel": true,
+                    "type": "panel",
+                    "icon": "mdi:walk",
                     "badges": [],
                     "cards": [
                         {

@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace_resources",
     "data": {
         "items": [
@@ -21,12 +22,12 @@
             {
                 "id": "db6c4c4ce80d4c4196c487009d5c7961",
                 "type": "module",
-                "url": "/hacsfiles/battery-state-card/battery-state-card.js"
+                "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682202"
             },
             {
                 "id": "36e06d1aa02e4693ba68b4d74abdc6a2",
                 "type": "module",
-                "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js"
+                "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js?hacstag=269011342130"
             },
             {
                 "url": "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js",
@@ -39,7 +40,7 @@
                 "id": "78137f379c9040e79dbc7b30493898db"
             },
             {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866230",
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866231",
                 "type": "module",
                 "id": "312c8155ec4d439ca5108de267be648f"
             },
@@ -47,6 +48,26 @@
                 "url": "/hacsfiles/decluttering-card/decluttering-card.js",
                 "type": "module",
                 "id": "0ac9afb1367e4d17a00a28cf83068124"
+            },
+            {
+                "url": "/hacsfiles/config-template-card/config-template-card.js?hacstag=172177543136",
+                "type": "module",
+                "id": "6fe25455d4d74d8192dc31259261385a"
+            },
+            {
+                "url": "/hacsfiles/lovelace-hui-element/hui-element.js?hacstag=24994205477482",
+                "type": "module",
+                "id": "c38738f7ca3d4f58b20ce6087baf398b"
+            },
+            {
+                "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325342",
+                "type": "module",
+                "id": "899d780c41e041f796a1be96cb6f569d"
+            },
+            {
+                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=15078199420012",
+                "type": "module",
+                "id": "13235d11a78e464ea039b8934c234881"
             }
         ]
     }

@@ -1,0 +1,226 @@
+- sensor:
+  # Booking template sensor basing the state on calendar.booking
+  - unique_id: booking_status # note that entity_id gots prefixed with template_ which can be removed in UI
+    state: >-
+      {% if state_attr('calendar.booking', 'start_time') == None %}
+      None scheduled
+      {% elif is_state('calendar.booking', 'on') %}
+      Running
+      {% else %}
+      Scheduled
+      {% endif %}
+    icon: >-
+      {% if state_attr('calendar.booking', 'start_time') == None %}
+        mdi:calendar-blank
+      {% elif is_state('calendar.booking', 'on') %}
+        mdi:calendar-account
+      {% else %}
+        mdi:calendar-clock
+      {% endif %}
+    attributes:
+      friendly_name: >-
+        {% if is_state('calendar.booking', 'on') %}
+          Current booking
+        {% else %}
+          Next booking
+        {% endif %}
+      check_in_date: >-
+        {% if state_attr('calendar.booking', 'start_time') != None %}
+          {{ strptime(state_attr('calendar.booking', 'start_time'),'%Y-%m-%d %H:%M:%S') }}
+        {% else %}
+          None
+        {% endif %}
+      check_in_day_of_the_year: >-
+        {% if state_attr('calendar.booking', 'start_time') != None %}
+          {{ strptime(state_attr('calendar.booking', 'start_time'),'%Y-%m-%d %H:%M:%S').strftime('%j') | int }}
+        {% else %}
+          None
+        {% endif %}
+      check_out_date: >-
+        {% if state_attr('calendar.booking', 'end_time') != None %}
+          {{ strptime(state_attr('calendar.booking', 'end_time'),'%Y-%m-%d %H:%M:%S') }}
+        {% else %}
+          None
+        {% endif %}
+      check_out_day_of_the_year: >-
+        {% if state_attr('calendar.booking', 'end_time') != None %}
+          {{ strptime(state_attr('calendar.booking', 'end_time'),'%Y-%m-%d %H:%M:%S').strftime('%j') | int }}
+        {% else %}
+          None
+        {% endif %}
+      guests: >-
+        {% if state_attr('calendar.booking', 'message') != None %}
+          {{ state_attr('calendar.booking', 'message') }}
+        {% else %}
+          None
+        {% endif %}
+
+    # if check_in_day_of_the_year == None or sensor.date == 'unknown' => unknown (returned as String)
+    # if check_in_day_of_the_year >= today => check_in_day_of_the_year - today
+    # otherwise unknown (returned as String)
+  - unique_id: booking_days_to_next_check_in
+    state: >-
+      {% set checkInDayOfTheYear = state_attr('sensor.booking_status', 'check_in_day_of_the_year') %}
+      {% set dateToday = states('sensor.date') %}
+
+      {% if checkInDayOfTheYear == None or dateToday == 'unknown' %}
+        unknown
+      {% else %}
+        {% set dateTodayInDayOfTheYear = strptime(dateToday, '%Y-%m-%d').strftime('%j') %}
+        {% set diff = checkInDayOfTheYear | int - dateTodayInDayOfTheYear | int %}
+        {% if diff >= 0 %}
+          {{ diff }}
+        {% else %}
+          unknown
+        {% endif %}
+      {% endif %}
+    icon: mdi:calendar-import
+    attributes:
+      friendly_name: "Days to next check in"
+
+    # if check_out_day_of_the_year == None or sensor.date == 'unknown' => unknown (returned as String)
+    # if check_out_day_of_the_year >= today => check_out_day_of_the_year - today
+    # otherwise unknown (returned as String)
+  - unique_id: booking_days_to_next_check_out
+    state: >-
+      {% set checkOutDayOfTheYear = state_attr('sensor.booking_status', 'check_out_day_of_the_year') %}
+      {% set dateToday = states('sensor.date') %}
+
+      {% if checkOutDayOfTheYear == None or dateToday == 'unknown' %}
+        unknown
+      {% else %}
+        {% set dateTodayInDayOfTheYear = strptime(dateToday, '%Y-%m-%d').strftime('%j') %}
+        {% set diff = checkOutDayOfTheYear | int - dateTodayInDayOfTheYear | int %}
+        {% if diff >= 0 %}
+          {{ diff }}
+        {% else %}
+          unknown
+        {% endif %}
+      {% endif %}
+    icon: mdi:calendar-export
+    attributes:
+      friendly_name: "Days to next check out"
+
+    # Sensor that converts ZWeather wind velocity from m/s to km/h
+  - unique_id: zweather_velocity_kmh
+    state: "{{ (states('sensor.zweather_velocity') | float(0) * 3.6) }}"
+    icon: mdi:weather-windy
+    unit_of_measurement: "km/h"
+    attributes:
+      friendly_name: "Wind"
+
+    # Sensors of sun attributes (so we can make historical graphs)
+  - unique_id: sun_elevation
+    state: "{{ state_attr('sun.sun', 'elevation') | float(0) }}"
+    icon: mdi:weather-sunset
+    unit_of_measurement: "°"
+    attributes:
+      friendly_name: "Sun elevation"
+
+  - unique_id: sun_azimuth
+    state: "{{ state_attr('sun.sun', 'azimuth') | float(0) }}"
+    icon: mdi:weather-sunset
+    unit_of_measurement: "°"
+    attributes:
+      friendly_name: "Sun azimuth"
+
+    # Sensor for Slomic Jaguar integration
+  - unique_id: slomic_jag_odometer
+    state: "{{ state_attr('sensor.slomic_jag_info', 'Odometer') | int(0) }}"
+    icon: mdi:counter
+    unit_of_measurement: "km"
+    attributes:
+      friendly_name: "Odometer"
+
+  - unique_id: slomic_jag_tyres_front_left_pressure
+    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Front Left Pressure (bar)') | float(0) }}"
+    icon: mdi:car-tire-alert
+    unit_of_measurement: "bar"
+    attributes:
+      friendly_name: "Front Left Pressure"
+
+  - unique_id: slomic_jag_tyres_front_right_pressure
+    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Front Right Pressure (bar)') | float(0) }}"
+    icon: mdi:car-tire-alert
+    unit_of_measurement: "bar"
+    attributes:
+      friendly_name: "Front Right Pressure"
+
+  - unique_id: slomic_jag_tyres_rear_left_pressure
+    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Rear Left Pressure (bar)') | float(0) }}"
+    icon: mdi:car-tire-alert
+    unit_of_measurement: "bar"
+    attributes:
+      friendly_name: "Rear Left Pressure"
+
+  - unique_id: slomic_jag_tyres_rear_right_pressure
+    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Rear Right Pressure (bar)') | float(0) }}"
+    icon: mdi:car-tire-alert
+    unit_of_measurement: "bar"
+    attributes:
+      friendly_name: "Rear Right Pressure"
+
+  - unique_id: slomic_jag_software_tcu_hw_version
+    state: "{{ state_attr('sensor.slomic_jag_all_info', 'status').tuStatusHwVersion }}"
+    icon: mdi:code-tags
+    attributes:
+      friendly_name: "TCU HW Version"
+
+  - unique_id: slomic_jag_software_tcu_sw_version_main
+    state: "{{ state_attr('sensor.slomic_jag_all_info', 'status').tuStatusSwVersionMain }}"
+    icon: mdi:code-tags
+    attributes:
+      friendly_name: "TCU SW Version Main"
+
+  - unique_id: slomic_jag_software_latest_complete_config_update
+    state: "{{ as_datetime(state_attr('sensor.slomic_jag_all_info', 'status').latestCompleteConfigUpdate) }}"
+    icon: mdi:calendar-refresh
+    attributes:
+      friendly_name: "Latest Complete Config Update"
+
+  # Sensor for Tibber integration
+  # Price level based on trailing price average (3 days for hourly values and 30 days for daily values)
+  - unique_id: electricity_price_level_smarthytte
+    icon: mdi:chart-timeline-variant
+    attributes:
+      friendly_name: "Electricity Price Level - Smarthytte"
+      price_level_text: >-
+        {% set priceLevel = state_attr('sensor.electricity_price_slomic_smarthytte', 'price_level') %}
+
+        {% if priceLevel == 'VERY_CHEAP' %}
+        Very cheap
+        {% elif priceLevel == 'CHEAP' %}
+        Cheap
+        {% elif priceLevel == 'NORMAL' %}
+        Normal
+        {% elif priceLevel == 'EXPENSIVE' %}
+        Expensive
+        {% elif priceLevel == 'VERY_EXPENSIVE' %}
+        Very expensive
+        {% endif %}
+    state: >-
+      {% set priceLevel = state_attr('sensor.electricity_price_slomic_smarthytte', 'price_level') %}
+
+      {% if priceLevel == 'VERY_CHEAP' %}
+        1
+      {% elif priceLevel == 'CHEAP' %}
+        2
+      {% elif priceLevel == 'NORMAL' %}
+        3
+      {% elif priceLevel == 'EXPENSIVE' %}
+        4
+      {% elif priceLevel == 'VERY_EXPENSIVE' %}
+        5
+      {% endif %}
+- binary_sensor:
+  # Binary sensors if someone is showering in bad 1 and bad 2
+  - unique_id: bad_1_is_showering
+    state: "{{ states('sensor.aeotec_multisensor_bad_1_relative_humidity') | int(0) >= 60 }}"
+    attributes:
+      friendly_name: "Showering at Bad 1"
+    icon: mdi:shower-head
+  - unique_id: bad_2_is_showering
+    state: "{{ states('sensor.aeotec_multisensor_bad_2_relative_humidity') | int(0) >= 60 }}"
+    attributes:
+      friendly_name: "Showering at Bad 2"
+    icon: mdi:shower-head
