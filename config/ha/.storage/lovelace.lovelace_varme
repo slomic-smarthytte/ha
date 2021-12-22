@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_varme",
     "data": {
         "config": {
@@ -29,7 +30,7 @@
                     ]
                 },
                 {
-                    "title": "Panel",
+                    "title": "Panelovn",
                     "path": "panel",
                     "icon": "mdi:radiator",
                     "type": "sidebar",
