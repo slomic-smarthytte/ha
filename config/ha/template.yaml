@@ -161,19 +161,40 @@
       friendly_name: "Rear Right Pressure"
 
   - unique_id: slomic_jag_software_tcu_hw_version
-    state: "{{ state_attr('sensor.slomic_jag_all_info', 'status').tuStatusHwVersion }}"
+    state: >-
+      {% set coreStatus = state_attr('sensor.slomic_jag_all_info', 'core status') %}
+
+      {% if coreStatus == None or coreStatus == 'unknown' %}
+        unknown
+      {% else %}
+        {{ coreStatus.tuStatusHwVersion }}
+      {% endif %}
     icon: mdi:code-tags
     attributes:
       friendly_name: "TCU HW Version"
 
   - unique_id: slomic_jag_software_tcu_sw_version_main
-    state: "{{ state_attr('sensor.slomic_jag_all_info', 'status').tuStatusSwVersionMain }}"
+    state: >-
+      {% set coreStatus = state_attr('sensor.slomic_jag_all_info', 'core status') %}
+
+      {% if coreStatus == None or coreStatus == 'unknown' %}
+        unknown
+      {% else %}
+        {{ coreStatus.tuStatusSwVersionMain }}
+      {% endif %}
     icon: mdi:code-tags
     attributes:
       friendly_name: "TCU SW Version Main"
 
   - unique_id: slomic_jag_software_latest_complete_config_update
-    state: "{{ as_datetime(state_attr('sensor.slomic_jag_all_info', 'status').latestCompleteConfigUpdate) }}"
+    state: >-
+      {% set coreStatus = state_attr('sensor.slomic_jag_all_info', 'core status') %}
+
+      {% if coreStatus == None or coreStatus == 'unknown' %}
+      unknown
+      {% else %}
+      {{ as_datetime(coreStatus.latestCompleteConfigUpdate) }}
+      {% endif %}
     icon: mdi:calendar-refresh
     attributes:
       friendly_name: "Latest Complete Config Update"

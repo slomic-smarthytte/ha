@@ -4,43 +4,45 @@ zwave_battery_check:
   - condition: template
     value_template: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
       \ | int(0) %}\n{% set ignored_entities = [\"sensor.zweather_battery_level\"\
-      ] %}\n{% set sensors = namespace(battery=[]) %}\n{% for s in states.sensor if\
-      \ s.entity_id not in ignored_entities and 'battery_level' in s.entity_id and\
-      \ (s.state | int(0)) < battery_level_treshold %}\n  {% set sensors.battery =\
-      \ sensors.battery + [ s ] %}\n{% endfor %}\n{{ sensors.battery | count > 0 }}"
+      , \"sensor.move_battery_level\"] %}\n{% set sensors = namespace(battery=[])\
+      \ %}\n{% for s in states.sensor if s.entity_id not in ignored_entities and 'battery_level'\
+      \ in s.entity_id and (s.state | int(0)) < battery_level_treshold %}\n  {% set\
+      \ sensors.battery = sensors.battery + [ s ] %}\n{% endfor %}\n{{ sensors.battery\
+      \ | count > 0 }}"
   - data_template:
       message: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
         \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_battery_level\"\
-        ] %} {% set sensors = namespace(battery=[]) %}  {% for s in states.sensor\
-        \ if s.entity_id not in ignored_entities and 'battery_level' in s.entity_id\
-        \ and (s.state | int(0)) < battery_level_treshold %}\n  {% set sensors.battery\
-        \ = sensors.battery + [ s ] %}\n{% endfor %} <ol>  {% for entity in sensors.battery\
-        \ %} <li>{{ entity.name }} ({{ entity.state }}%)</li> {% endfor %}  </ol>"
+        , \"sensor.move_battery_level\"] %} {% set sensors = namespace(battery=[])\
+        \ %}  {% for s in states.sensor if s.entity_id not in ignored_entities and\
+        \ 'battery_level' in s.entity_id and (s.state | int(0)) < battery_level_treshold\
+        \ %}\n  {% set sensors.battery = sensors.battery + [ s ] %}\n{% endfor %}\
+        \ <ol>  {% for entity in sensors.battery %} <li>{{ entity.name }} ({{ entity.state\
+        \ }}%)</li> {% endfor %}  </ol>"
       title: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
         \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_battery_level\"\
-        ] %} {% set sensors = namespace(battery=[]) %}  {% for s in states.sensor\
-        \ if s.entity_id not in ignored_entities and 'battery_level' in s.entity_id\
-        \ and (s.state | int(0)) < battery_level_treshold %}\n  {% set sensors.battery\
-        \ = sensors.battery + [ s ] %}\n{% endfor %} {{sensors.battery | count }}\
-        \ devices has battery level below {{battery_level_treshold}}%"
+        , \"sensor.move_battery_level\"] %} {% set sensors = namespace(battery=[])\
+        \ %}  {% for s in states.sensor if s.entity_id not in ignored_entities and\
+        \ 'battery_level' in s.entity_id and (s.state | int(0)) < battery_level_treshold\
+        \ %}\n  {% set sensors.battery = sensors.battery + [ s ] %}\n{% endfor %}\
+        \ {{sensors.battery | count }} devices has battery level below {{battery_level_treshold}}%"
     service: persistent_notification.create
   - data_template:
       data:
         blocks: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
           \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_battery_level\"\
-          ] %} {% set sensors = namespace(battery=[]) %} {% for s in states.sensor\
-          \ if s.entity_id not in ignored_entities and 'battery_level' in s.entity_id\
-          \ and (s.state | int(0)) < battery_level_treshold %}\n  {% set sensors.battery\
-          \ = sensors.battery + [ s ] %}\n{% endfor %} {%- set sensor_count = sensors.battery\
-          \ | count -%}  [\n  {\n    \"type\": \"section\",\n    \"text\": {\n   \
-          \   \"type\": \"mrkdwn\",\n      \"text\": \"`{{sensor_count}}` devices\
-          \ has battery level below `{{battery_level_treshold}}%`\"\n    }\n  },\n\
-          \  {% for sensor in sensors.battery %}\n  {\n    \"type\": \"divider\"\n\
-          \  },\n  {\n    \"type\": \"section\",\n    \"text\": {\n      \"type\"\
-          : \"mrkdwn\",\n      \"text\": \"*{{loop.index}}. {{sensor.name}}*\"\n \
-          \   },\n    \"fields\": [\n      {\n        \"type\": \"mrkdwn\",\n    \
-          \    \"text\": \"*Battery level:*\\n{{sensor.state}}%\"\n      }\n    ]\n\
-          \  },\n  {% endfor %}\n]"
+          , \"sensor.move_battery_level\"] %} {% set sensors = namespace(battery=[])\
+          \ %} {% for s in states.sensor if s.entity_id not in ignored_entities and\
+          \ 'battery_level' in s.entity_id and (s.state | int(0)) < battery_level_treshold\
+          \ %}\n  {% set sensors.battery = sensors.battery + [ s ] %}\n{% endfor %}\
+          \ {%- set sensor_count = sensors.battery | count -%}  [\n  {\n    \"type\"\
+          : \"section\",\n    \"text\": {\n      \"type\": \"mrkdwn\",\n      \"text\"\
+          : \"`{{sensor_count}}` devices has battery level below `{{battery_level_treshold}}%`\"\
+          \n    }\n  },\n  {% for sensor in sensors.battery %}\n  {\n    \"type\"\
+          : \"divider\"\n  },\n  {\n    \"type\": \"section\",\n    \"text\": {\n\
+          \      \"type\": \"mrkdwn\",\n      \"text\": \"*{{loop.index}}. {{sensor.name}}*\"\
+          \n    },\n    \"fields\": [\n      {\n        \"type\": \"mrkdwn\",\n  \
+          \      \"text\": \"*Battery level:*\\n{{sensor.state}}%\"\n      }\n   \
+          \ ]\n  },\n  {% endfor %}\n]"
       message: Battery level below treshold
       target: '#battery-level-alerts'
     service: notify.slack

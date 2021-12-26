@@ -133,8 +133,8 @@
                                     }
                                 },
                                 {
-                                    "type": "state-icon",
-                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "type": "icon",
+                                    "icon": "mdi:car-electric",
                                     "style": {
                                         "--paper-item-icon-color": "var(--charging-state-color, white)",
                                         "left": "30%",
@@ -143,7 +143,8 @@
                                 },
                                 {
                                     "type": "state-label",
-                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "entity": "sensor.slomic_jag_battery",
+                                    "attribute": "Charging State",
                                     "style": {
                                         "color": "var(--charging-state-color, white)",
                                         "left": "30%",
@@ -169,8 +170,8 @@
                                     }
                                 },
                                 {
-                                    "type": "state-icon",
-                                    "entity": "sensor.slomic_jag_ev_battery",
+                                    "type": "icon",
+                                    "icon": "mdi:car-electric",
                                     "style": {
                                         "color": "white",
                                         "left": "70%",
@@ -179,8 +180,8 @@
                                 },
                                 {
                                     "type": "state-label",
-                                    "entity": "sensor.slomic_jag_ev_battery",
-                                    "attribute": "Minutes To Full Charge",
+                                    "entity": "sensor.slomic_jag_battery",
+                                    "attribute": "Minutes to Full Charge",
                                     "suffix": " min",
                                     "style": {
                                         "color": "white",

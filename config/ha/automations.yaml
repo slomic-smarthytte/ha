@@ -777,7 +777,7 @@
       light_target:
         entity_id:
         - light.fibaro_dimmer_soverom_1_level
-      no_motion_wait: 10
+      no_motion_wait: 5
 - id: '1609271626312'
   alias: Soverom 2 - Slå av lys
   description: Slå av lys på Soverom 2 hvis ingen bevegelse
@@ -796,7 +796,7 @@
     path: ismarslomic/light_off_no_motion.yaml
     input:
       motion_entity: binary_sensor.fibaro_multisensor_soverom_3_motion_detected
-      no_motion_wait: 10
+      no_motion_wait: 5
       light_target:
         entity_id:
         - light.fibaro_dimmer_soverom_3_level
