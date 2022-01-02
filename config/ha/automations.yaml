@@ -60,7 +60,8 @@
     service: light.turn_off
   - entity_id: light.fibaro_dimmer_gang_2_level
     service: light.turn_off
-  mode: single
+  mode: queued
+  max: 10
 - id: '1577908294007'
   alias: Bod 1 - slå av lys
   description: Slå av lys i Bod 1 etter 5 minutter når døren er lukket

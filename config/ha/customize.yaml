@@ -1,7 +1,3 @@
-zwave.fibaro_multisensor_soverom_1:
-  is_failed: true
-zwave.fibaro_multisensor_soverom_1_dead:
-  is_failed: true
 switch.flood_stop_gang_1:
   friendly_name: Flood Stop - Gang 1
 switch.smartmirror_monitor_gang_1:

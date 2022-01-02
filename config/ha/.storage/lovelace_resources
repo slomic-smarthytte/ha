@@ -7,12 +7,7 @@
             {
                 "id": "3ee0d7fc93264ea2beccec70e1e30bd6",
                 "type": "module",
-                "url": "/hacsfiles/lovelace-hass-aarlo/hass-aarlo.js"
-            },
-            {
-                "id": "688b0bbdd4e14fa28a01e998dedc86c6",
-                "type": "module",
-                "url": "/local/aarlo-glance.js"
+                "url": "/hacsfiles/lovelace-hass-aarlo/hass-aarlo.js?hacstag=1972451790205"
             },
             {
                 "id": "9e16e6d5866e4d75ba95e73597628dec",

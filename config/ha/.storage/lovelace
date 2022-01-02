@@ -9,336 +9,409 @@
             "views": [
                 {
                     "icon": "mdi:home-automation",
-                    "panel": false,
                     "title": "Status",
                     "path": "status",
+                    "type": "custom:masonry-layout",
                     "badges": [],
                     "cards": [
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/kjokken-1.jpeg",
-                                "show_state": true,
-                                "title": "Kj\u00f8kken",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Kj\u00f8kken",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_kjokken_1_level",
-                                    "name": "Kj\u00f8kken"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
                                     "entity": "light.fibaro_dimmer_kjokkenbenk_1_level",
-                                    "name": "Kj\u00f8kkenbenk"
+                                    "attribute": " ",
+                                    "prefix": "Benk"
                                 },
                                 {
                                     "entity": "light.fibaro_dimmer_spisebord_1_level",
-                                    "name": "Spisebord"
+                                    "attribute": " ",
+                                    "prefix": "Bord"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_stue_1_1_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.fibaro_multisensor_stue_1_1_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_stue_1_1_motion_detected"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/kjokken-1.jpeg",
+                                "off": "local/kjokken-1-off.jpeg"
+                            },
+                            "entity": "group.kjokken_lights",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/stue-1.jpeg",
-                                "show_state": true,
-                                "title": "Stue 1",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Stue 1",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_stue_1_level",
-                                    "name": "Stue"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
                                     "entity": "light.philips_hue_lightstrip_sofa_stue_1",
-                                    "name": "Sofa"
+                                    "attribute": " ",
+                                    "prefix": "Sofa"
                                 },
                                 {
-                                    "entity": "binary_sensor.doors_balkong",
-                                    "name": "Balkongd\u00f8r"
+                                    "entity": "sensor.fibaro_multisensor_stue_1_2_temperature"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_stue_1_2_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "binary_sensor.fibaro_multisensor_stue_1_2_motion_detected"
+                                },
+                                {
+                                    "entity": "binary_sensor.sensative_door_sensor_stue_1_door_open"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/stue-1.jpeg",
+                                "off": "local/stue-1-off.jpeg"
+                            },
+                            "entity": "group.stue_1_lights",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/bad-1.jpeg",
-                                "show_state": true,
-                                "title": "Bad 1",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Bad 1",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_bad_1_level",
-                                    "name": "Tak"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
                                     "entity": "switch.fibaro_switch_bad_1_switch",
-                                    "name": "Speil"
+                                    "attribute": " ",
+                                    "prefix": "Speil"
                                 },
                                 {
-                                    "entity": "binary_sensor.aeotec_multisensor_bad_1_sensor",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.aeotec_multisensor_bad_1_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.aeotec_multisensor_bad_1_sensor"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/bad-1.jpeg",
+                                "off": "local/bad-1-off.jpeg"
+                            },
+                            "entity": "group.bad_1_lights",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/bad-2.jpeg",
-                                "show_state": true,
-                                "title": "Bad 2",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Bad 2",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_bad_2_level",
-                                    "name": "Tak"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
                                     "entity": "switch.fibaro_switch_bad_2_switch",
-                                    "name": "Speil"
+                                    "attribute": " ",
+                                    "prefix": "Speil"
                                 },
                                 {
-                                    "entity": "binary_sensor.aeotec_multisensor_bad_2_sensor",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.aeotec_multisensor_bad_2_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.aeotec_multisensor_bad_2_sensor"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/bad-2.jpeg",
+                                "off": "local/bad-2-off.jpeg"
+                            },
+                            "entity": "group.bad_2_lights",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/gang-1.jpeg",
-                                "show_state": true,
-                                "title": "Gang 1",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Gang 1",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_gang_1_level",
-                                    "name": "Tak"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_gang_1_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.fibaro_multisensor_gang_1_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_gang_1_motion_detected"
+                                },
+                                {
+                                    "entity": "binary_sensor.sensative_door_sensor_gang_1_door_open"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/gang-1.jpeg",
+                                "off": "local/gang-1-off.jpeg"
+                            },
+                            "entity": "light.fibaro_dimmer_gang_1_level",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/gang-2.jpeg",
-                                "show_state": true,
-                                "title": "Gang 2",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Gang 2",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_gang_2_level",
-                                    "name": "Tak"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_gang_2_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.fibaro_multisensor_gang_2_temperature"
                                 },
                                 {
-                                    "entity": "binary_sensor.windows_gang_2",
-                                    "name": "Vindu"
+                                    "entity": "binary_sensor.fibaro_multisensor_gang_2_motion_detected"
+                                },
+                                {
+                                    "entity": "binary_sensor.sensative_window_sensor_gang_2_window_open"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/gang-2.jpeg",
+                                "off": "local/gang-2-off.jpeg"
+                            },
+                            "entity": "light.fibaro_dimmer_gang_2_level",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/trapp-1.jpeg",
-                                "show_state": true,
-                                "title": "Trapp",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Trapp",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_trapp_1_level",
-                                    "name": "Trappelys"
+                                    "attribute": " ",
+                                    "prefix": "Trapp"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/trapp-1.jpeg",
+                                "off": "local/trapp-1-off.jpeg"
+                            },
+                            "entity": "light.fibaro_dimmer_trapp_1_level",
+                            "style": ".state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/soverom-1.jpeg",
-                                "show_state": true,
-                                "title": "Soverom 1",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Soverom 1",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_soverom_1_level",
-                                    "name": "Trappelys"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_soverom_1_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.fibaro_multisensor_soverom_1_temperature"
                                 },
                                 {
-                                    "entity": "binary_sensor.windows_soverom_1",
-                                    "name": "Vindu"
+                                    "entity": "binary_sensor.fibaro_multisensor_soverom_1_motion_detected"
+                                },
+                                {
+                                    "entity": "binary_sensor.sensative_window_sensor_soverom_1_window_open"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/soverom-1.jpeg",
+                                "off": "local/soverom-1-off.jpeg"
+                            },
+                            "entity": "light.fibaro_dimmer_soverom_1_level",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/soverom-2.jpeg",
-                                "show_state": true,
-                                "title": "Soverom 2",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Soverom 2",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
+                                    "entity": "switch.fibaro_wall_plug_soverom_2_switch",
+                                    "attribute": " ",
+                                    "prefix": "Ovn"
+                                },
+                                {
                                     "entity": "light.fibaro_dimmer_soverom_2_level",
-                                    "name": "Taklys"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_multisensor_soverom_2_temperature"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_multisensor_soverom_2_motion_detected",
-                                    "icon": "mdi:motion-sensor",
                                     "name": "Bevegelse"
                                 },
                                 {
-                                    "entity": "binary_sensor.windows_soverom_2",
+                                    "entity": "binary_sensor.sensative_window_sensor_soverom_2_window_open",
                                     "name": "Vindu"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/soverom-2.jpeg",
+                                "off": "local/soverom-2-off.jpeg"
+                            },
+                            "entity": "light.fibaro_dimmer_soverom_2_level",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/soverom-3.jpeg",
-                                "show_state": true,
-                                "title": "Soverom 3",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Soverom 3",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
+                                    "entity": "switch.fibaro_wall_plug_soverom_3_switch",
+                                    "attribute": " ",
+                                    "prefix": "Ovn"
+                                },
+                                {
                                     "entity": "light.fibaro_dimmer_soverom_3_level",
-                                    "name": "Taklys"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_soverom_3_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.fibaro_multisensor_soverom_3_temperature"
                                 },
                                 {
-                                    "entity": "binary_sensor.windows_soverom_3",
-                                    "name": "Vindu"
+                                    "entity": "binary_sensor.fibaro_multisensor_soverom_3_motion_detected"
+                                },
+                                {
+                                    "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/soverom-3.jpeg",
+                                "off": "local/soverom-3-off.jpeg"
+                            },
+                            "entity": "light.fibaro_dimmer_soverom_3_level",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         },
                         {
-                            "card": {
-                                "aspect_ratio": "0%",
-                                "image": "local/stue-2.jpeg",
-                                "show_state": true,
-                                "title": "Stue 2",
-                                "type": "picture-glance"
-                            },
+                            "aspect_ratio": "50%",
+                            "title": "Stue 2",
+                            "type": "picture-glance",
+                            "show_state": true,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_stue_2_level",
-                                    "name": "Tak"
+                                    "attribute": " ",
+                                    "prefix": "Tak"
                                 },
                                 {
                                     "entity": "light.philips_hue_lightstrip_sofa_stue_2",
-                                    "name": "Sofa"
+                                    "attribute": " ",
+                                    "prefix": "Sofa"
                                 },
                                 {
                                     "entity": "light.philips_hue_play_stue_2_1",
-                                    "name": "Vegg 1"
+                                    "attribute": " ",
+                                    "prefix": "Vegg 1"
                                 },
                                 {
                                     "entity": "light.philips_hue_play_stue_2_2",
-                                    "name": "Vegg 2"
+                                    "attribute": " ",
+                                    "prefix": "Vegg 2"
                                 },
                                 {
                                     "entity": "light.philips_hue_go_stue_2",
-                                    "name": "Hylle"
+                                    "attribute": " ",
+                                    "prefix": "Hylle"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_multisensor_stue_2_motion_detected",
-                                    "icon": "mdi:motion-sensor",
-                                    "name": "Bevegelse"
+                                    "entity": "sensor.fibaro_multisensor_stue_2_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_multisensor_stue_2_motion_detected"
                                 }
                             ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
+                            "state_image": {
+                                "on": "local/stue-2.jpeg",
+                                "off": "local/stue-2-off.jpeg"
+                            },
+                            "entity": "group.stue_2_lights",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
+                        },
+                        {
+                            "aspect_ratio": "50%",
+                            "title": "Bod",
+                            "type": "picture-glance",
+                            "show_state": true,
+                            "entities": [
+                                {
+                                    "entity": "switch.fibaro_wall_plug_bod_1_switch",
+                                    "attribute": " ",
+                                    "prefix": "Ovn"
+                                },
+                                {
+                                    "entity": "switch.fibaro_switch_bod_1_switch",
+                                    "attribute": " ",
+                                    "prefix": "Tak"
+                                },
+                                {
+                                    "entity": "sensor.fibaro_door_sensor_bod_1_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_door_sensor_bod_1_door_open"
+                                }
                             ],
-                            "type": "entity-filter"
+                            "state_image": {
+                                "on": "local/bod.jpeg",
+                                "off": "local/bod-off.jpeg"
+                            },
+                            "entity": "switch.fibaro_switch_bod_1_switch",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
+                        },
+                        {
+                            "aspect_ratio": "50%",
+                            "title": "Parkering",
+                            "type": "picture-glance",
+                            "show_state": true,
+                            "entities": [
+                                {
+                                    "entity": "light.hue_lightstrip_outdoor_1",
+                                    "attribute": " ",
+                                    "prefix": "Lys"
+                                },
+                                {
+                                    "entity": "sensor.hue_outdoor_motion_sensor_1_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.hue_outdoor_motion_sensor_1_motion"
+                                }
+                            ],
+                            "state_image": {
+                                "on": "local/parkering.jpeg",
+                                "off": "local/parkering-off.jpeg"
+                            },
+                            "entity": "light.hue_lightstrip_outdoor_1",
+                            "style": "div.row:nth-child(2) > div:nth-child(1) > ha-icon-button:nth-child(1){\n  color: #a9a9a9 !important;\n}\n.state-on{\n  color: rgb(253, 216, 53) !important;\n}\n"
                         }
                     ]
                 },

@@ -639,6 +639,24 @@
                                             "secondary_info": "last-triggered"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "padding": 0,
+                                    "group_config": {
+                                        "toggle": false,
+                                        "secondary_info": "last-changed"
+                                    },
+                                    "head": {
+                                        "label": "Sensors",
+                                        "type": "section"
+                                    },
+                                    "items": [
+                                        {
+                                            "entity": "binary_sensor.fibaro_door_sensor_bod_1_door_open",
+                                            "name": "Bod d\u00f8r"
+                                        }
+                                    ]
                                 }
                             ],
                             "show_header_toggle": false,

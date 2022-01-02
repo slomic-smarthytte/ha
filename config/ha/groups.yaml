@@ -1,0 +1,38 @@
+bad_1_lights:
+  name: Bad 1 lights
+  icon: mdi:lightbulb-multiple
+  entities:
+    - light.fibaro_dimmer_bad_1_level
+    - switch.fibaro_switch_bad_1_switch
+
+bad_2_lights:
+  name: Bad 2 lights
+  icon: mdi:lightbulb-multiple
+  entities:
+    - light.fibaro_dimmer_bad_2_level
+    - switch.fibaro_switch_bad_2_switch
+
+kjokken_lights:
+  name: Kjøkken lights
+  icon: mdi:lightbulb-multiple
+  entities:
+    - light.fibaro_dimmer_kjokken_1_level
+    - light.fibaro_dimmer_kjokkenbenk_1_level
+    - light.fibaro_dimmer_spisebord_1_level
+
+stue_1_lights:
+  name: Stue 1 lights
+  icon: mdi:lightbulb-multiple
+  entities:
+    - light.fibaro_dimmer_stue_1_level
+    - light.philips_hue_lightstrip_sofa_stue_1
+
+stue_2_lights:
+  name: Stue 2 lights
+  icon: mdi:lightbulb-multiple
+  entities:
+    - light.fibaro_dimmer_stue_2_level
+    - light.philips_hue_lightstrip_sofa_stue_2
+    - light.philips_hue_play_stue_2_1
+    - light.philips_hue_play_stue_2_2
+    - light.philips_hue_go_stue_2

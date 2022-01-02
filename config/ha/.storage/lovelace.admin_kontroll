@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.admin_kontroll",
     "data": {
         "config": {
@@ -201,6 +202,70 @@
                             ],
                             "type": "entities",
                             "title": "Str\u00f8mbryter"
+                        }
+                    ]
+                },
+                {
+                    "title": "Entities",
+                    "path": "entities",
+                    "icon": "mdi:devices",
+                    "type": "custom:grid-layout",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'temperature') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Temperature entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "1. {{ states|map(attribute='domain')|unique|list|join('\\n1. ') }}\n",
+                            "title": "All domains"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "1. {{ states|selectattr('state', 'eq', 'unavailable')|map(attribute='entity_id')|list|join('\\n1. ') }}\n",
+                            "title": "Unavailable entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'illuminance') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Illuminance entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'battery') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Battery entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'humidity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Humidity entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'pressure') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Pressure entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_seismic_intensity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Seismic intensity entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_ultraviolet') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Ultraviolet entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "1. {{ states|selectattr('attributes.device_class')|map(attribute='attributes.device_class')|unique|list|sort|join('\\n1. ') }}",
+                            "title": "Unique device classes"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'energy') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "title": "Energy entities"
                         }
                     ]
                 }
