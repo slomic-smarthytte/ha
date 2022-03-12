@@ -45,7 +45,10 @@
       command_on: !secret phm_motion_sensor_enable
       command_off: !secret phm_motion_sensor_disable
       command_state: !secret phm_motion_sensor_status
-      value_template: '{{ value_json.config.on }}'
+      value_template: >-
+        {% if value_json is defined and value_json.config and value_json.config.on is defined %}
+          {{ value_json.config.on }}
+        {% else %}
+          states('switch.philips_hue_outdoor_motion_sensor_switch_parkering')
+        {% endif %}
       friendly_name: Philips Hue Motion Sensor Switch
-
-

@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_solskjerming",
     "data": {
         "config": {
@@ -69,7 +70,7 @@
                                             "icon": "mdi:weather-windy",
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.zweather_velocity",
+                                                    "entity": "sensor.zweather_balkong_velocity",
                                                     "name": "Vindhastighet",
                                                     "state_adaptive_color": true
                                                 }
@@ -100,7 +101,7 @@
                                             "decimals": 0,
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.zweather_temperature",
+                                                    "entity": "sensor.zweather_balkong_temperature",
                                                     "name": "Temperatur",
                                                     "state_adaptive_color": true
                                                 }
@@ -137,7 +138,7 @@
                                                             "decimals": 0,
                                                             "entities": [
                                                                 {
-                                                                    "entity": "sensor.fibaro_multisensor_stue_1_1_luminance",
+                                                                    "entity": "sensor.fibaro_multisensor_kjokken_1_luminance",
                                                                     "name": "Kj\u00f8kken 1",
                                                                     "state_adaptive_color": true
                                                                 }
@@ -164,7 +165,7 @@
                                                             "decimals": 0,
                                                             "entities": [
                                                                 {
-                                                                    "entity": "sensor.fibaro_multisensor_stue_1_2_luminance",
+                                                                    "entity": "sensor.fibaro_multisensor_stue_1_luminance",
                                                                     "name": "Stue 1",
                                                                     "state_adaptive_color": true
                                                                 }
@@ -200,7 +201,7 @@
                                                             "decimals": 0,
                                                             "entities": [
                                                                 {
-                                                                    "entity": "sensor.fibaro_multisensor_stue_1_1_temperature",
+                                                                    "entity": "sensor.fibaro_multisensor_kjokken_1_temperature",
                                                                     "name": "Kj\u00f8kken 1",
                                                                     "state_adaptive_color": true
                                                                 }
@@ -231,7 +232,7 @@
                                                             "decimals": 0,
                                                             "entities": [
                                                                 {
-                                                                    "entity": "sensor.fibaro_multisensor_stue_1_2_temperature",
+                                                                    "entity": "sensor.fibaro_multisensor_stue_1_temperature",
                                                                     "name": "Stue 1",
                                                                     "state_adaptive_color": true
                                                                 }
@@ -448,7 +449,7 @@
                                                     "decimals": 0,
                                                     "entities": [
                                                         {
-                                                            "entity": "sensor.fibaro_multisensor_stue_1_1_luminance",
+                                                            "entity": "sensor.fibaro_multisensor_kjokken_1_luminance",
                                                             "name": "Kj\u00f8kken 1",
                                                             "state_adaptive_color": true
                                                         }
@@ -505,7 +506,7 @@
                                                     "decimals": 0,
                                                     "entities": [
                                                         {
-                                                            "entity": "sensor.fibaro_multisensor_stue_1_2_luminance",
+                                                            "entity": "sensor.fibaro_multisensor_stue_1_luminance",
                                                             "name": "Stue 1",
                                                             "state_adaptive_color": true
                                                         }

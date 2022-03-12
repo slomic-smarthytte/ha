@@ -589,18 +589,6 @@
                                             "template": "light_button",
                                             "icon": "mdi:garage-open",
                                             "type": "custom:button-card"
-                                        },
-                                        {
-                                            "entity": "light.stolpe_ute",
-                                            "name": "Tak & stolpe",
-                                            "template": "light_button",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "entity": "light.tak_ute",
-                                            "name": "Vindu",
-                                            "template": "light_button",
-                                            "type": "custom:button-card"
                                         }
                                     ]
                                 },
@@ -671,19 +659,54 @@
                                     "card_type": "horizontal-stack",
                                     "cards": [
                                         {
-                                            "entity": "light.juletre_stue_2",
-                                            "name": "Juletre",
+                                            "entity": "light.philips_hue_stue_2_taklys",
+                                            "name": "Taklys",
                                             "template": "light_button",
+                                            "icon": "mdi:ceiling-light",
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "color_type": "blank-card",
+                                            "entity": "light.philips_hue_stue_2_tak_spot_1",
+                                            "name": "Spot 1",
+                                            "template": "light_button",
+                                            "icon": "mdi:lightbulb-spot",
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "color_type": "blank-card",
+                                            "entity": "light.philips_hue_stue_2_tak_spot_2",
+                                            "name": "Spot 2",
+                                            "template": "light_button",
+                                            "icon": "mdi:lightbulb-spot",
                                             "type": "custom:button-card"
                                         },
+                                        {
+                                            "entity": "light.philips_hue_stue_2_tak_spot_3",
+                                            "name": "Spot 3",
+                                            "template": "light_button",
+                                            "icon": "mdi:lightbulb-spot",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "light.philips_hue_stue_2_tak_spot_4",
+                                            "name": "Spot 4",
+                                            "template": "light_button",
+                                            "icon": "mdi:lightbulb-spot",
+                                            "type": "custom:button-card"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Stue 2. etg - taklys",
+                            "type": "entities",
+                            "state_color": true
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "custom:hui-element",
+                                    "card_type": "horizontal-stack",
+                                    "cards": [
                                         {
                                             "color_type": "blank-card",
                                             "type": "custom:button-card"

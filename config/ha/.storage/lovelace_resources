@@ -12,12 +12,12 @@
             {
                 "id": "9e16e6d5866e4d75ba95e73597628dec",
                 "type": "module",
-                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js"
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110"
             },
             {
                 "id": "db6c4c4ce80d4c4196c487009d5c7961",
                 "type": "module",
-                "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682202"
+                "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211"
             },
             {
                 "id": "36e06d1aa02e4693ba68b4d74abdc6a2",
@@ -35,7 +35,7 @@
                 "id": "78137f379c9040e79dbc7b30493898db"
             },
             {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866231",
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
                 "type": "module",
                 "id": "312c8155ec4d439ca5108de267be648f"
             },
@@ -63,6 +63,16 @@
                 "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=15078199420012",
                 "type": "module",
                 "id": "13235d11a78e464ea039b8934c234881"
+            },
+            {
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841110",
+                "type": "module",
+                "id": "5420633922bb4bca8c4cb4841cb8648c"
+            },
+            {
+                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524312",
+                "type": "module",
+                "id": "1f95ad587d5e45dfba6f9d3bff778817"
             }
         ]
     }

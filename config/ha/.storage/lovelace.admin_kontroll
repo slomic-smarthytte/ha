@@ -159,16 +159,12 @@
                     "cards": [
                         {
                             "type": "entity",
-                            "name": "Latest release",
-                            "entity": "binary_sensor.updater",
-                            "attribute": "newest_version",
-                            "icon": "mdi:home-assistant"
+                            "entity": "sensor.ha_version"
                         },
                         {
                             "type": "entity",
-                            "entity": "binary_sensor.updater",
-                            "name": "New release",
-                            "icon": "mdi:home-assistant"
+                            "entity": "binary_sensor.ha_version_update_available",
+                            "state_color": true
                         }
                     ]
                 },
@@ -202,6 +198,22 @@
                             ],
                             "type": "entities",
                             "title": "Str\u00f8mbryter"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.restart_internet_router_automatically",
+                                    "icon": "mdi:restart"
+                                },
+                                {
+                                    "entity": "binary_sensor.internet_connection"
+                                },
+                                {
+                                    "entity": "automation.restart_internet_router_when_lost_connection"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "Automatikk"
                         }
                     ]
                 },
@@ -214,7 +226,7 @@
                     "cards": [
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'temperature') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'temperature') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Temperature entities"
                         },
                         {
@@ -229,32 +241,32 @@
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'illuminance') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'illuminance') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Illuminance entities"
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'battery') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'battery') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Battery entities"
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'humidity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'humidity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Humidity entities"
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'pressure') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'pressure') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Pressure entities"
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_seismic_intensity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_seismic_intensity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Seismic intensity entities"
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_ultraviolet') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_ultraviolet') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Ultraviolet entities"
                         },
                         {
@@ -264,8 +276,55 @@
                         },
                         {
                             "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'energy') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state.attributes.unit_of_measurement }}\n{%- endfor -%}",
+                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'energy') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
                             "title": "Energy entities"
+                        }
+                    ]
+                },
+                {
+                    "title": "Booking",
+                    "path": "booking",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "title": "Booking status",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.checked_in"
+                                },
+                                {
+                                    "entity": "sensor.booking_days_to_next_check_in"
+                                },
+                                {
+                                    "entity": "sensor.booking_days_to_next_check_out"
+                                },
+                                {
+                                    "entity": "sensor.booking_status"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "title": "Booking automatisering",
+                            "entities": [
+                                {
+                                    "entity": "automation.sla_pa_alle_lys_ved_ankomst",
+                                    "secondary_info": "last-triggered"
+                                },
+                                {
+                                    "entity": "automation.set_to_away_when_i_leave_home",
+                                    "secondary_info": "last-triggered"
+                                },
+                                {
+                                    "entity": "automation.juster_ned_temperatur_pa_avreisedato",
+                                    "secondary_info": "last-triggered"
+                                },
+                                {
+                                    "entity": "automation.gulvvarming_begge_bad_og_gang_sla_pa",
+                                    "secondary_info": "last-triggered"
+                                }
+                            ]
                         }
                     ]
                 }

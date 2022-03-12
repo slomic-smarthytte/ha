@@ -1,0 +1,5 @@
+- platform: ping
+  host: 8.8.8.8 # Google DNS
+  name: "Internet connection"
+  count: 3 # Number of packages to be sent
+  scan_interval: 30 # in seconds

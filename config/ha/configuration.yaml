@@ -20,11 +20,13 @@ homeassistant:
 alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include automations.yaml
 aarlo: !include aarlo.yaml
+binary_sensor: !include binary_sensor.yaml
 cover: !include groups_cover.yaml
 google_assistant: !include google-assistant.yaml
 google: !include google-calendar-clientId.yaml
 group: !include groups.yaml
 influxdb: !include influxdb.yaml
+light: !include groups_light.yaml
 nest: !include nest.yaml
 notify: !include notify.yaml
 recorder: !include recorder.yaml

@@ -178,7 +178,6 @@
       - 6f1ae281dc7445d38b9a2c20bee6911b
       - 89184a88ff6011eab80c3738fd4f1c33
       - 8c13d15cff6011ea8754c9776a360e4b
-      - 17f834b84191cdc2b36cdf63e00f8f18
   - service: aarlo.alarm_set_mode
     data:
       entity_id: alarm_control_panel.aarlo_slomic_smarthytte
@@ -310,7 +309,7 @@
       guests: "{% if state_attr('sensor.booking_status', 'guests') != None %}\n  {{\
         \ state_attr('sensor.booking_status', 'guests') }}\n{% else %}\n  \"\"\n{%endif%}"
       tempInside: '{{states(''sensor.fibaro_multisensor_gang_1_temperature'') | round(0)}}'
-      temoOutside: '{{states(''sensor.zweather_temperature'') | round(0)}}'
+      temoOutside: '{{states(''sensor.zweather_balkong_temperature'') | round(0)}}'
   - service: media_player.volume_set
     data:
       volume_level: 0.8
@@ -413,6 +412,7 @@
   - service: switch.turn_on
     target:
       entity_id: switch.flood_stop_gang_1
+    data: {}
   - service: aarlo.alarm_set_mode
     data:
       entity_id: alarm_control_panel.aarlo_slomic_smarthytte
@@ -420,34 +420,20 @@
   - service: automation.turn_off
     target:
       entity_id: automation.notify_when_motion_detected
+    data: {}
   - service: automation.turn_off
     target:
       entity_id: automation.set_to_away_when_i_leave_home
+    data: {}
   - type: turn_on
     device_id: c595c65ee63459cf122f605943a0e985
     entity_id: light.hue_lightstrip_outdoor_1
     domain: light
     brightness_pct: 30
-  - type: turn_on
-    device_id: 2c6a0900ac34d6225da4cee99e610ba7
-    entity_id: light.stolpe_ute
-    domain: light
-  - type: turn_on
-    device_id: 966b44a3f50b396e899332cd07091b8d
-    entity_id: light.tak_ute
-    domain: light
-  - type: turn_on
-    device_id: 17f834b84191cdc2b36cdf63e00f8f18
-    entity_id: light.juletre_stue_2
-    domain: light
   - service: switch.turn_on
     target:
       entity_id: switch.philips_hue_outdoor_motion_sensor_switch_parkering
-  - service: automation.turn_on
-    target:
-      entity_id:
-      - automation.julelys_utendors_lys_pa_kveldstid
-      - automation.julelys_utendors_sla_av_lys_ved_leggetid
+    data: {}
   mode: single
 - id: '1601162978165'
   alias: Juster opp temperatur før ankomst
@@ -670,25 +656,22 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.updater
+    entity_id: binary_sensor.ha_version_update_available
     from: 'off'
     to: 'on'
   condition: []
   action:
   - service: notify.mobile_app_ismars_iphone
     data:
-      message: Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version')
-        }} is available.
+      message: Home Assistant {{ states('sensor.ha_version') }} is available.
   - data:
       data:
         blocks_template:
         - fields:
-          - text: Home Assistant `{{ state_attr('binary_sensor.updater', 'newest_version')
-              }}` is available.
+          - text: Home Assistant `{{ states('sensor.ha_version') }}` is available.
             type: mrkdwn
           type: section
-      message: Version {{ state_attr('binary_sensor.updater', 'newest_version') }}
-        available
+      message: Version {{ states('sensor.ha_version') }} available
       target: '#ha-releases'
     service: notify.slack
   mode: single
@@ -919,8 +902,8 @@
     input:
       wind_open_threshold: '49'
       cover_entity: cover.fibaro_roller_shutter_kjokken_1_level
-      luminance_entity: sensor.fibaro_multisensor_stue_1_1_luminance
-      wind_entity: sensor.wind_speed_last_5_measurements
+      luminance_entity: sensor.fibaro_multisensor_kjokken_1_luminance
+      wind_entity: sensor.wind_speed_last_5_measurements_balkong
       sun_elevation_threshold: 5
       luminance_close_threshold: 600
 - id: '1618100388672'
@@ -933,7 +916,7 @@
       wind_open_threshold: '49'
       cover_entity: cover.fibaro_roller_shutter_stue_2_level
       luminance_entity: sensor.fibaro_multisensor_stue_2_luminance
-      wind_entity: sensor.wind_speed_last_5_measurements
+      wind_entity: sensor.wind_speed_last_5_measurements_balkong
       sun_elevation_threshold: 5
       luminance_close_threshold: 600
 - id: '1618100446299'
@@ -946,7 +929,7 @@
       wind_open_threshold: '49'
       cover_entity: cover.fibaro_roller_shutter_soverom_3_level
       luminance_entity: sensor.fibaro_multisensor_soverom_3_luminance
-      wind_entity: sensor.wind_speed_last_5_measurements
+      wind_entity: sensor.wind_speed_last_5_measurements_balkong
       door_window_entity: binary_sensor.sensative_window_sensor_soverom_3_window_open
       sun_elevation_threshold: 5
       luminance_close_threshold: 600
@@ -959,8 +942,8 @@
     input:
       wind_open_threshold: '49'
       cover_entity: cover.fibaro_roller_shutter_stue_1_level
-      luminance_entity: sensor.fibaro_multisensor_stue_1_2_luminance
-      wind_entity: sensor.wind_speed_last_5_measurements
+      luminance_entity: sensor.fibaro_multisensor_stue_1_luminance
+      wind_entity: sensor.wind_speed_last_5_measurements_balkong
       door_window_entity: binary_sensor.sensative_door_sensor_stue_1_door_open
       sun_elevation_threshold: 5
       luminance_close_threshold: 600
@@ -997,11 +980,11 @@
     from: 'off'
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.fibaro_multisensor_stue_1_1_motion_detected
+    entity_id: binary_sensor.fibaro_multisensor_kjokken_1_motion_detected
     from: 'off'
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.fibaro_multisensor_stue_1_2_motion_detected
+    entity_id: binary_sensor.fibaro_multisensor_stue_1_motion_detected
     from: 'off'
     to: 'on'
   - platform: state
@@ -1094,8 +1077,8 @@
       - f7d80198b2a44a02af3aa4867602208d
       - f0a87e8e0f804700b6187cba2e1e2351
       - 9cfbc187b1d24e0baeb69f71213acb89
-      - d182fc3f68fe4abab8d1782b052f45b7
       - 71ae8310d2144163a8d2687e1be780b8
+      entity_id: light.stue_2_lights
     data:
       brightness_step_pct: 100
   mode: single
@@ -1118,9 +1101,11 @@
       - f7d80198b2a44a02af3aa4867602208d
       - f0a87e8e0f804700b6187cba2e1e2351
       - 9cfbc187b1d24e0baeb69f71213acb89
-      - d182fc3f68fe4abab8d1782b052f45b7
       - 71ae8310d2144163a8d2687e1be780b8
       - 78d3354d0997432f834b201df1c1755f
+      entity_id:
+      - light.stue_2_philips_hue_lights
+    data: {}
   mode: single
 - id: '1631485205413'
   alias: Avreise fra hytta
@@ -1133,11 +1118,13 @@
   condition: []
   action:
   - service: automation.trigger
+    data: {}
     target:
       entity_id: automation.turn_all_lights_off
   - service: switch.turn_off
     target:
       entity_id: switch.flood_stop_gang_1
+    data: {}
   - service: aarlo.alarm_set_mode
     data:
       entity_id: alarm_control_panel.aarlo_slomic_smarthytte
@@ -1145,30 +1132,15 @@
   - service: automation.turn_on
     target:
       entity_id: automation.notify_when_motion_detected
+    data: {}
   - type: turn_off
     device_id: c595c65ee63459cf122f605943a0e985
     entity_id: light.hue_lightstrip_outdoor_1
     domain: light
-  - type: turn_off
-    device_id: 2c6a0900ac34d6225da4cee99e610ba7
-    entity_id: light.stolpe_ute
-    domain: light
-  - type: turn_off
-    device_id: 966b44a3f50b396e899332cd07091b8d
-    entity_id: light.tak_ute
-    domain: light
-  - type: turn_off
-    device_id: 17f834b84191cdc2b36cdf63e00f8f18
-    entity_id: light.juletre_stue_2
-    domain: light
   - service: switch.turn_off
     target:
       entity_id: switch.philips_hue_outdoor_motion_sensor_switch_parkering
-  - service: automation.turn_off
-    target:
-      entity_id:
-      - automation.julelys_utendors_lys_pa_kveldstid
-      - automation.julelys_utendors_sla_av_lys_ved_leggetid
+    data: {}
   - service: notify.mobile_app_ismars_iphone
     data:
       title: Avreise trigget
@@ -1178,6 +1150,7 @@
   - service: automation.trigger
     target:
       entity_id: automation.juster_ned_temperatur_pa_avreisedato
+    data: {}
   mode: single
 - id: '1634468960094'
   alias: 'Action: toggle avreise hytta automation'
@@ -1313,7 +1286,7 @@
     after: input_datetime.daytime_end
   action:
   - data:
-      brightness_pct: 15
+      brightness_pct: 25
     service: light.turn_on
     target:
       entity_id: light.fibaro_dimmer_trapp_1_level
@@ -1345,7 +1318,6 @@
     target:
       area_id:
       - 9cfbc187b1d24e0baeb69f71213acb89
-      - d182fc3f68fe4abab8d1782b052f45b7
       - 71ae8310d2144163a8d2687e1be780b8
       - 53a297b52bb4437299e775cc066c9180
       - a016923ac47c4a42a61741748a73eae6
@@ -1353,9 +1325,21 @@
       - 69be8e6d113148e78f8762216600966e
       - 321dae13b9034a70895673ce9325f926
       - f0a87e8e0f804700b6187cba2e1e2351
+      entity_id:
+      - light.philips_hue_stue_2_tak_spot_1
+      - light.philips_hue_stue_2_tak_spot_2
+      - light.philips_hue_stue_2_tak_spot_3
+      - light.philips_hue_stue_2_tak_spot_4
+      - light.philips_hue_stue_2_taklys
+      - light.philips_hue_play_stue_2_1
+      - light.philips_hue_play_stue_2_2
+      - light.philips_hue_go_stue_2
+      - light.philips_hue_lightstrip_sofa_stue_2
+    data: {}
   - service: media_player.turn_off
     target:
       entity_id: media_player.samsung_the_frame_55
+    data: {}
   - service: aarlo.alarm_set_mode
     data:
       entity_id: alarm_control_panel.aarlo_slomic_smarthytte
@@ -1376,4 +1360,48 @@
     data:
       entity_id: alarm_control_panel.aarlo_slomic_smarthytte
       mode: disarmed
+  mode: single
+- id: '1642548910915'
+  alias: Notify when new Asus ZenWiFi Firmware release
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.asus_zenwifi_xt8_firmware_version
+  condition: []
+  action:
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: Asus ZenWifi XT8 firmware version <https://www.asus.com/Networking-IoT-Servers/Whole-Home-Mesh-WiFi-System/ZenWiFi-WiFi-Systems/ASUS-ZenWiFi-AX-XT8/HelpDesk_BIOS/|{{states('sensor.asus_zenwifi_xt8_firmware_version')}}>
+              is available.
+            type: mrkdwn
+          type: section
+      message: Asus ZenWiFi firmware version {{states('sensor.asus_zenwifi_xt8_firmware_version')}}
+        available
+      target: '#asus-zenwifi-firmware'
+    service: notify.slack
+  mode: single
+- id: '1643660240258'
+  alias: Restart internet router when lost connection
+  description: Restarts internet router when lost connection for 10 minutes
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.internet_connection
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.restart_internet_router_automatically
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.internet_connection
+    state: 'off'
+  action:
+  - service: script.restart_internet_router
+    data: {}
   mode: single

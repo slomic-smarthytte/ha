@@ -102,8 +102,8 @@
       friendly_name: "Days to next check out"
 
     # Sensor that converts ZWeather wind velocity from m/s to km/h
-  - unique_id: zweather_velocity_kmh
-    state: "{{ (states('sensor.zweather_velocity') | float(0) * 3.6) }}"
+  - unique_id: zweather_balkong_velocity_kmh
+    state: "{{ (states('sensor.zweather_balkong_velocity') | float(0) * 3.6) }}"
     icon: mdi:weather-windy
     unit_of_measurement: "km/h"
     attributes:

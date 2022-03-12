@@ -1,0 +1,43 @@
+- platform: group
+  unique_id: kjokken_lights
+  name: Kjøkken lights
+  entities:
+    - light.fibaro_dimmer_kjokken_1_level
+    - light.fibaro_dimmer_kjokkenbenk_1_level
+    - light.fibaro_dimmer_spisebord_1_level
+
+- platform: group
+  unique_id: stue_1_lights
+  name: Stue 1 lights
+  entities:
+    - light.fibaro_dimmer_stue_1_level
+    - light.philips_hue_lightstrip_sofa_stue_1
+
+- platform: group
+  unique_id: stue_2_lights
+  name: Stue 2 lights
+  entities:
+    - light.fibaro_dimmer_stue_2_level
+    - light.philips_hue_lightstrip_sofa_stue_2
+    - light.philips_hue_play_stue_2_1
+    - light.philips_hue_play_stue_2_2
+    - light.philips_hue_go_stue_2
+    - light.philips_hue_stue_2_tak_spot_1
+    - light.philips_hue_stue_2_tak_spot_2
+    - light.philips_hue_stue_2_tak_spot_3
+    - light.philips_hue_stue_2_tak_spot_4
+    - light.philips_hue_stue_2_taklys
+
+- platform: group
+  unique_id: stue_2_philips_hue_lights
+  name: Stue 2 Philips Hue lights
+  entities:
+    - light.philips_hue_lightstrip_sofa_stue_2
+    - light.philips_hue_play_stue_2_1
+    - light.philips_hue_play_stue_2_2
+    - light.philips_hue_go_stue_2
+    - light.philips_hue_stue_2_tak_spot_1
+    - light.philips_hue_stue_2_tak_spot_2
+    - light.philips_hue_stue_2_tak_spot_3
+    - light.philips_hue_stue_2_tak_spot_4
+    - light.philips_hue_stue_2_taklys

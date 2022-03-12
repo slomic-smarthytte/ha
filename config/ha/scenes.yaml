@@ -1,117 +1,258 @@
 - id: '1616190002065'
   name: Movie time
   entities:
-    light.fibaro_dimmer_stue_2_level:
+    light.fibaro_dimmer_gang_2_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
-    light.philips_hue_go_stue_2:
+    light.philips_hue_stue_2_tak_spot_1:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
-      brightness: 114
-      color_temp: 367
-      effect: none
-      friendly_name: Hue Go
-      supported_features: 63
-      state: 'on'
-    light.philips_hue_lightstrip_sofa_stue_2:
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 1
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_tak_spot_2:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
-      brightness: 114
-      color_temp: 367
-      effect: none
-      friendly_name: Hue Lightstrip
-      supported_features: 63
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 2
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_tak_spot_3:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 66
+      hs_color:
+      - 217.579
+      - 74.51
+      rgb_color:
+      - 65
+      - 136
+      - 255
+      xy_color:
+      - 0.1581
+      - 0.1508
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 3
+      supported_features: 40
       state: 'on'
+    light.philips_hue_stue_2_tak_spot_4:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 66
+      hs_color:
+      - 159.208
+      - 39.608
+      rgb_color:
+      - 154
+      - 255
+      - 220
+      xy_color:
+      - 0.2359
+      - 0.3855
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 4
+      supported_features: 40
+      state: 'on'
+    light.philips_hue_stue_2_taklys:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 taklys
+      supported_features: 40
+      state: 'off'
     light.philips_hue_play_stue_2_1:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
-      brightness: 114
-      color_temp: 367
-      effect: none
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 142
+      hs_color:
+      - 181.644
+      - 57.255
+      rgb_color:
+      - 109
+      - 251
+      - 255
+      xy_color:
+      - 0.1868
+      - 0.3348
+      mode: normal
+      dynamics: none
       friendly_name: Hue Play
-      supported_features: 63
+      supported_features: 40
       state: 'on'
     light.philips_hue_play_stue_2_2:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
-      brightness: 114
-      color_temp: 367
-      effect: none
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 142
+      hs_color:
+      - 217.579
+      - 74.51
+      rgb_color:
+      - 65
+      - 136
+      - 255
+      xy_color:
+      - 0.1581
+      - 0.1508
+      mode: normal
+      dynamics: none
       friendly_name: Hue Play
-      supported_features: 63
+      supported_features: 40
       state: 'on'
-    light.fibaro_dimmer_gang_2_level:
-      friendly_name: Tak
-      supported_features: 33
-      state: 'off'
+    light.philips_hue_go_stue_2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 142
+      hs_color:
+      - 158.824
+      - 40
+      rgb_color:
+      - 153
+      - 255
+      - 219
+      xy_color:
+      - 0.2353
+      - 0.3868
+      mode: normal
+      dynamics: none
+      friendly_name: Hue Go
+      supported_features: 40
+      state: 'on'
+    light.philips_hue_lightstrip_sofa_stue_2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 142
+      hs_color:
+      - 151.034
+      - 56.863
+      rgb_color:
+      - 110
+      - 255
+      - 185
+      xy_color:
+      - 0.2072
+      - 0.4525
+      mode: normal
+      dynamics: none
+      friendly_name: Hue Lightstrip
+      supported_features: 40
+      state: 'on'
   icon: mdi:filmstrip
 - id: '1616194391396'
   name: All lights off
   entities:
     light.fibaro_dimmer_bad_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_bad_2_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_gang_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_gang_2_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_kjokken_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_kjokkenbenk_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Kjøkkenbenk
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_soverom_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_soverom_2_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_soverom_3_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_spisebord_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_stue_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Tak
-      supported_features: 33
-      state: 'off'
-    light.fibaro_dimmer_stue_2_level:
-      friendly_name: Tak
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.fibaro_dimmer_trapp_1_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Trapp
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     switch.fibaro_switch_bad_1_switch:
       friendly_name: Speil
@@ -122,46 +263,111 @@
     light.philips_hue_go_stue_2:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
       friendly_name: Hue Go
-      supported_features: 63
+      supported_features: 40
       state: 'off'
     light.philips_hue_lightstrip_sofa_stue_1:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
       friendly_name: Hue Lightstrip
-      supported_features: 63
+      supported_features: 40
       state: 'off'
     light.philips_hue_lightstrip_sofa_stue_2:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
       friendly_name: Hue Lightstrip
-      supported_features: 63
+      supported_features: 40
       state: 'off'
     light.philips_hue_play_stue_2_1:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
       friendly_name: Hue Play
-      supported_features: 63
+      supported_features: 40
       state: 'off'
     light.philips_hue_play_stue_2_2:
       min_mireds: 153
       max_mireds: 500
-      effect_list:
-      - colorloop
-      - random
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
       friendly_name: Hue Play
-      supported_features: 63
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_tak_spot_1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 1
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_tak_spot_2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 2
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_tak_spot_3:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 3
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_tak_spot_4:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 tak spot 4
+      supported_features: 40
+      state: 'off'
+    light.philips_hue_stue_2_taklys:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: Philips Hue - Stue 2 taklys
+      supported_features: 40
       state: 'off'
   icon: mdi:lightbulb-off

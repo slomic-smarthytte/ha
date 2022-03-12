@@ -3,7 +3,7 @@ zwave_battery_check:
   sequence:
   - condition: template
     value_template: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
-      \ | int(0) %}\n{% set ignored_entities = [\"sensor.zweather_battery_level\"\
+      \ | int(0) %}\n{% set ignored_entities = [\"sensor.zweather_balkong_battery_level\"\
       , \"sensor.move_battery_level\"] %}\n{% set sensors = namespace(battery=[])\
       \ %}\n{% for s in states.sensor if s.entity_id not in ignored_entities and 'battery_level'\
       \ in s.entity_id and (s.state | int(0)) < battery_level_treshold %}\n  {% set\
@@ -11,7 +11,7 @@ zwave_battery_check:
       \ | count > 0 }}"
   - data_template:
       message: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
-        \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_battery_level\"\
+        \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_balkong_battery_level\"\
         , \"sensor.move_battery_level\"] %} {% set sensors = namespace(battery=[])\
         \ %}  {% for s in states.sensor if s.entity_id not in ignored_entities and\
         \ 'battery_level' in s.entity_id and (s.state | int(0)) < battery_level_treshold\
@@ -19,7 +19,7 @@ zwave_battery_check:
         \ <ol>  {% for entity in sensors.battery %} <li>{{ entity.name }} ({{ entity.state\
         \ }}%)</li> {% endfor %}  </ol>"
       title: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
-        \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_battery_level\"\
+        \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_balkong_battery_level\"\
         , \"sensor.move_battery_level\"] %} {% set sensors = namespace(battery=[])\
         \ %}  {% for s in states.sensor if s.entity_id not in ignored_entities and\
         \ 'battery_level' in s.entity_id and (s.state | int(0)) < battery_level_treshold\
@@ -29,7 +29,7 @@ zwave_battery_check:
   - data_template:
       data:
         blocks: "{% set battery_level_treshold = states('input_number.battery_level_treshold')\
-          \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_battery_level\"\
+          \ | int(0) %} {% set ignored_entities = [\"sensor.zweather_balkong_battery_level\"\
           , \"sensor.move_battery_level\"] %} {% set sensors = namespace(battery=[])\
           \ %} {% for s in states.sensor if s.entity_id not in ignored_entities and\
           \ 'battery_level' in s.entity_id and (s.state | int(0)) < battery_level_treshold\
@@ -47,3 +47,29 @@ zwave_battery_check:
       target: '#battery-level-alerts'
     service: notify.slack
   mode: single
+restart_internet_router:
+  alias: Restart internet router
+  sequence:
+  - data:
+      title: Turning internet router off
+      message: Turning internet router off
+    service: persistent_notification.create
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.fibaro_wall_plug_asus_router_stue_2_switch
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - data:
+      title: Turning internet router on
+      message: Turning internet router on
+    service: persistent_notification.create
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.fibaro_wall_plug_asus_router_stue_2_switch
+  mode: single
+  icon: mdi:router-network

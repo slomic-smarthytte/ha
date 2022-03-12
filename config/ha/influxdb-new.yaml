@@ -1,0 +1,190 @@
+api_version: 2
+  ssl: false
+  host: localhost
+  port: 8086
+  token: !secret influxdb_token
+  organization: !secret influxdb_organization
+  bucket: home_assistant
+  max_retries: 3
+  tags:
+    source: home-assistant
+  include:
+    entities:
+      # === Temperature sensor entities ===
+      - sensor.aeotec_multisensor_bad_1_temperature # Bad 1, °C
+      - sensor.aeotec_multisensor_bad_2_temperature # Bad 2, °C
+      - sensor.airthings_wave_plus_stue_2_temperature # Stue 2, °C
+      - sensor.fibaro_door_sensor_bod_1_temperature # Bod 1, °C
+      - sensor.fibaro_multisensor_gang_1_temperature # Gang 1, °C
+      - sensor.fibaro_multisensor_gang_2_temperature # Gang 2, °C
+      - sensor.fibaro_multisensor_soverom_1_temperature # Soverom 1, °C
+      - sensor.fibaro_multisensor_soverom_2_temperature # Soverom 2, °C
+      - sensor.fibaro_multisensor_soverom_3_temperature # Soverom 3, °C
+      - sensor.fibaro_multisensor_stue_1_1_temperature # Stue 1, °C
+      - sensor.fibaro_multisensor_stue_1_2_temperature # Stue 1, °C
+      - sensor.fibaro_multisensor_stue_2_temperature # Stue 2, °C
+      - sensor.fibaro_smart_implant_gang_1_temperature # Gang 1, °C
+      - sensor.heatit_thermostat_bad_1_temperature # Bad 1, °C
+      - sensor.heatit_thermostat_bad_2_temperature # Bad 2, °C
+      - sensor.heatit_thermostat_gang_1_temperature # Gang 1, °C
+      #- sensor.home_assistant_tablet_battery_temperature # Gang 1, °C
+      - sensor.hue_outdoor_motion_sensor_1_temperature # Parkering, °C
+      #- sensor.hytte_tablet_stue_2_battery_temperature # Stue 2, °C
+      #- sensor.zweather_dew_point # Balkong, °C
+      - sensor.zweather_temperature # Balkong, °C
+
+      # === Illuminance sensor entities ===
+      - sensor.aeotec_multisensor_bad_1_luminance # Bad 1, lx
+      - sensor.aeotec_multisensor_bad_2_luminance # Bad 2, lx
+      - sensor.fibaro_multisensor_gang_1_luminance # Gang 1, lx
+      - sensor.fibaro_multisensor_gang_2_luminance # Gang 2, lx
+      - sensor.fibaro_multisensor_soverom_1_luminance # Soverom 1, lx
+      - sensor.fibaro_multisensor_soverom_2_luminance # Soverom 2, lx
+      - sensor.fibaro_multisensor_soverom_3_luminance # Soverom 3, lx
+      - sensor.fibaro_multisensor_stue_1_1_luminance # Stue 1, lx
+      - sensor.fibaro_multisensor_stue_1_2_luminance # Stue 1, lx
+      - sensor.fibaro_multisensor_stue_2_luminance # Stue 2, lx
+      - sensor.hue_outdoor_motion_sensor_1_light_level # Parkering, lx
+      #- sensor.zweather_luminance # Balkong, %
+
+      # === Battery sensor entities ===
+      - sensor.aarlo_battery_level_balkong # Balkong, %
+      - sensor.aarlo_battery_level_balkong_2 # Balkong, %
+      - sensor.aarlo_battery_level_hovedinngang # Hovedinngang, %
+      - sensor.aarlo_battery_level_stue_1 # Stue 1, %
+      - sensor.aeotec_multisensor_bad_1_battery_level # Bad 1, %
+      - sensor.aeotec_multisensor_bad_2_battery_level # Bad 2, %
+      #- sensor.ags2_w09_batteritilstand # Gang 1,
+      - sensor.fibaro_door_sensor_bod_1_battery_level # Bod 1, %
+      - sensor.fibaro_multisensor_gang_1_battery_level # Gang 1, %
+      - sensor.fibaro_multisensor_gang_2_battery_level # Gang 2, %
+      - sensor.fibaro_multisensor_soverom_1_battery_level # Soverom 1, %
+      - sensor.fibaro_multisensor_soverom_2_battery_level # Soverom 2, %
+      - sensor.fibaro_multisensor_soverom_3_battery_level # Soverom 3, %
+      - sensor.fibaro_multisensor_stue_1_1_battery_level # Stue 1, %
+      - sensor.fibaro_multisensor_stue_1_2_battery_level # Stue 1, %
+      - sensor.fibaro_multisensor_stue_2_battery_level # Stue 2, %
+      - sensor.hue_dimmer_switch_1_battery_level # Stue 2, %
+      - sensor.hue_outdoor_motion_sensor_1_battery # Parkering, %
+      - sensor.hytte_tablet_gang_1_battery_level # Gang 1, %
+      - sensor.hytte_tablet_stue_2_battery_level # Stue 2, %
+      - sensor.id_lock_bod_1_battery_level # Bod 1, %
+      - sensor.id_lock_hovedinngang_battery_level # Hovedinngang, %
+      #- sensor.ismars_iphone_battery_level # None, %
+      #- sensor.ismars_iphone_battery_state # None,
+      - sensor.move_battery_level # Bod 1, %
+      - sensor.namron_button_switch_stue_1_battery_level # Stue 1, %
+      - sensor.namron_button_switch_stue_2_battery_level # Stue 2, %
+      - sensor.sensative_door_sensor_gang_1_battery_level # Hovedinngang, %
+      - sensor.sensative_door_sensor_stue_1_battery_level # Stue 1, %
+      - sensor.sensative_window_sensor_gang_2_battery_level # Gang 2, %
+      - sensor.sensative_window_sensor_soverom_1_battery_level # Soverom 1, %
+      - sensor.sensative_window_sensor_soverom_2_battery_level # Soverom 2, %
+      - sensor.sensative_window_sensor_soverom_3_battery_level # Soverom 3, %
+      - sensor.slomic_jag_battery # Parkering, %
+      - sensor.zweather_battery_level # Balkong, %
+
+      # === Humidity sensor entities ===
+      - sensor.aeotec_multisensor_bad_1_relative_humidity # Bad 1, %
+      - sensor.aeotec_multisensor_bad_2_relative_humidity # Bad 2, %
+      - sensor.airthings_wave_plus_stue_2_humidity # Stue 2, %
+      - sensor.zweather_humidity # Balkong, %
+
+      # === Pressure sensor entities ===
+      - sensor.airthings_wave_plus_stue_2_rel_atm_pressure # Stue 2, mbar, 1mbar / 10 = 0.1 kPa
+      - sensor.zweather_barometric_pressure # Balkong, kPa
+      - sensor.slomic_jag_tyres_front_left_pressure # Parkering, bar, 1 bar * 100 = 100 kPa
+      - sensor.slomic_jag_tyres_front_right_pressure # Parkering, bar, 1 bar * 100 = 100 kPa
+      - sensor.slomic_jag_tyres_rear_left_pressure # Parkering, bar, 1 bar * 100 = 100 kPa
+      - sensor.slomic_jag_tyres_rear_right_pressure # Parkering, bar, 1 bar * 100 = 100 kPa
+
+      # === Seismic intensity sensor entities ===
+      - sensor.fibaro_multisensor_gang_1_seismic_intensity # Gang 1,
+      - sensor.fibaro_multisensor_gang_2_seismic_intensity # Gang 2,
+      - sensor.fibaro_multisensor_soverom_1_seismic_intensity # Soverom 1,
+      - sensor.fibaro_multisensor_soverom_2_seismic_intensity # Soverom 2,
+      - sensor.fibaro_multisensor_soverom_3_seismic_intensity # Soverom 3,
+      - sensor.fibaro_multisensor_stue_1_1_seismic_intensity # Stue 1,
+      - sensor.fibaro_multisensor_stue_1_2_seismic_intensity # Stue 1,
+      - sensor.fibaro_multisensor_stue_2_seismic_intensity # Stue 2,
+
+      # === Ultraviolet sensor entities ===
+      - sensor.aeotec_multisensor_bad_1_ultraviolet # Bad 1,
+      - sensor.aeotec_multisensor_bad_2_ultraviolet # Bad 2,
+
+      # === Energy sensor entities (accumulated consumptions) ===
+      #- sensor.accumulated_consumption_current_hour_slomic_smarthytte # Bod 1, kWh
+      - sensor.accumulated_consumption_slomic_smarthytte # Bod 1, kWh RESETS EVERY DAY
+      #- sensor.accumulated_production_current_hour_slomic_smarthytte # Bod 1, kWh
+      #- sensor.accumulated_production_slomic_smarthytte # Bod 1, kWh
+      - sensor.fibaro_dimmer_bad_1_electric_consumed_kwh # Bad 1, kWh
+      #- sensor.fibaro_dimmer_bad_1_electric_kwh # Bad 1, kWh
+      - sensor.fibaro_dimmer_bad_2_electric_consumed_kwh # Bad 2, kWh
+      #- sensor.fibaro_dimmer_bad_2_electric_kwh # Bad 2, kWh
+      - sensor.fibaro_dimmer_gang_1_electric_consumed_kwh # Gang 1, kWh
+      #- sensor.fibaro_dimmer_gang_1_electric_kwh # Gang 1, kWh
+      - sensor.fibaro_dimmer_gang_2_electric_consumed_kwh # Gang 2, kWh
+      #- sensor.fibaro_dimmer_gang_2_electric_kwh # Gang 2, kWh
+      - sensor.fibaro_dimmer_kjokken_1_electric_consumed_kwh # Kjøkken 1, kWh
+      #- sensor.fibaro_dimmer_kjokken_1_electric_kwh # Kjøkken 1, kWh
+      - sensor.fibaro_dimmer_kjokkenbenk_1_electric_consumed_kwh # Kjøkkenbenk 1, kWh
+      #- sensor.fibaro_dimmer_kjokkenbenk_1_electric_kwh # Kjøkkenbenk 1, kWh
+      - sensor.fibaro_dimmer_soverom_1_electric_consumed_kwh # Soverom 1, kWh
+      - sensor.fibaro_dimmer_soverom_2_electric_consumed_kwh # Soverom 2, kWh
+      #- sensor.fibaro_dimmer_soverom_2_electric_kwh # Soverom 2, kWh
+      - sensor.fibaro_dimmer_soverom_3_electric_consumed_kwh # Soverom 3, kWh
+      #- sensor.fibaro_dimmer_soverom_3_kwh # Soverom 3, kWh
+      - sensor.fibaro_dimmer_spisebord_1_electric_consumed_kwh # Spisebord 1, kWh
+      #- sensor.fibaro_dimmer_spisebord_1_electric_kwh # Spisebord 1, kWh
+      - sensor.fibaro_dimmer_stue_1_electric_consumed_kwh # Stue 1, kWh
+      #- sensor.fibaro_dimmer_stue_1_electric_kwh # Stue 1, kWh
+      - sensor.fibaro_dimmer_stue_2_electric_consumed_kwh # Stue 2, kWh
+      #- sensor.fibaro_dimmer_stue_2_electric_kwh # Stue 2, kWh
+      - sensor.fibaro_dimmer_trapp_1_electric_consumed_kwh # Trapp 1, kWh
+      #- sensor.fibaro_dimmer_trapp_1_electric_kwh # Trapp 1, kWh
+      - sensor.fibaro_roller_shutter_kjokken_1_electric_consumed_kwh # Kjøkken 1, kWh
+      - sensor.fibaro_roller_shutter_soverom_3_electric_consumed_kwh # Soverom 3, kWh
+      - sensor.fibaro_roller_shutter_stue_1_electric_consumed_kwh # Stue 1, kWh
+      - sensor.fibaro_roller_shutter_stue_2_electric_consumed_kwh # Stue 2, kWh
+      - sensor.fibaro_switch_bad_1_electric_consumed_kwh # Bad 1, kWh
+      #- sensor.fibaro_switch_bad_1_electric_kwh # Bad 1, kWh
+      - sensor.fibaro_switch_bad_2_electric_consumed_kwh # Bad 2, kWh
+      #- sensor.fibaro_switch_bad_2_electric_kwh # Bad 2, kWh
+      - sensor.fibaro_switch_bod_1_electric_consumed_kwh # Bod 1, kWh
+      #- sensor.fibaro_switch_bod_1_electric_kwh # Bod 1, kWh
+      - sensor.fibaro_wall_plug_arlo_stue_1_electric_consumed_kwh # Stue 1, kWh
+      - sensor.fibaro_wall_plug_asus_mesh_stue_1_electric_consumption_kwh # Stue 1, kWh
+      - sensor.fibaro_wall_plug_bod_1_electric_consumed_kwh # Bod 1, kWh
+      - sensor.fibaro_wall_plug_soverom_2_electric_consumed_kwh # Soverom 2, kWh
+      - sensor.fibaro_wall_plug_soverom_3_electric_consumed_kwh # Soverom 3, kWh
+      - sensor.last_meter_consumption_slomic_smarthytte # Bod 1, kWh
+      #- sensor.last_meter_production_slomic_smarthytte # Bod 1, kWh
+      #- sensor.zweather_electric_produced_kwh # Balkong, kWh
+
+
+      # Bad 1
+      - climate.heatit_thermostat_bad_1_mode # C
+      # Bad 2
+      - climate.heatit_thermostat_bad_2_mode # C
+      # Bod 1
+      - sensor.fibaro_wall_plug_bod_1_power # W
+      - sensor.fibaro_wall_plug_bod_1_electric_consumed_w # W
+      # Gang 1
+      - climate.heatit_thermostat_gang_1_mode # C
+      # Soverom 2
+      - sensor.fibaro_wall_plug_soverom_2_power
+      - switch.fibaro_wall_plug_soverom_2_switch
+      # Soverom 3
+      - sensor.fibaro_wall_plug_soverom_3_power
+      - switch.fibaro_wall_plug_soverom_3_switch
+      # Stue 2
+      - sensor.airthings_wave_plus_stue_2_co2
+      - sensor.airthings_wave_plus_stue_2_radon_1day_avg
+      - sensor.airthings_wave_plus_stue_2_radon_longterm_avg
+      - sensor.airthings_wave_plus_stue_2_voc
+      # Weather - Met.no integration
+      - weather.hy
+      # Zweather - Værstasjon
+      - sensor.zweather_velocity
+      # Slomic Jaguar
+      - sensor.slomic_jag_odometer # Parkering, km

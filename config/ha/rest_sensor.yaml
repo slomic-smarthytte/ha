@@ -1,3 +1,4 @@
+# Jaguar Release REST API sensors
 - resource: https://www.jaguar.no/api/pages/754/components
   headers:
     # User-Agent must be sent, otherwise Jaguar server will flush the cache after 2 hours
@@ -34,4 +35,22 @@
           {{ value_json[5].field_groups['5'][0].value }}
         {% else %}
           states('sensor.jaguar_wireless_software_release_version')
+        {% endif %}
+
+# ASUS ZenWiFi XT8 Firmware sensors
+- resource: https://www.asus.com/support/api/product.asmx/GetPDBIOS?website=global&model=ASUS+ZenWiFi+AX+%EF%BC%88XT8%EF%BC%89
+  scan_interval: 21600 # 6 hours in seconds
+  sensor:
+    - name: ASUS ZenWiFi XT8 Firmware Version
+      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
+      value_template: >-
+        {% if value_json is defined and 
+              value_json.Result is defined and 
+              value_json.Result.Obj is defined and 
+              value_json.Result.Obj[0] is defined and 
+              value_json.Result.Obj[0].Files[0] is defined and
+              value_json.Result.Obj[0].Files[0].Version is defined%}
+          {{ value_json.Result.Obj[0].Files[0].Version }}
+        {% else %}
+          states('sensor.asus_zenwifi_xt8_firmware_version')
         {% endif %}

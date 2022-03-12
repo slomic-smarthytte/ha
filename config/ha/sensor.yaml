@@ -24,8 +24,8 @@
 
 # Sensor for history statistics of wind speed
 - platform: statistics
-  name: Wind speed last 5 measurements
-  entity_id: sensor.zweather_velocity_kmh
+  name: Wind speed last 5 measurements balkong
+  entity_id: sensor.zweather_balkong_velocity_kmh
   sampling_size: 5
   state_characteristic: mean
 

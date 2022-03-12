@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.core_controls",
     "data": {
         "config": {
@@ -93,7 +94,7 @@
                                                     "decimals": 0,
                                                     "entities": [
                                                         {
-                                                            "entity": "sensor.zweather_temperature",
+                                                            "entity": "sensor.zweather_balkong_temperature",
                                                             "name": "Ute",
                                                             "state_adaptive_color": true
                                                         }
@@ -126,7 +127,7 @@
                                                     "icon": "mdi:weather-windy",
                                                     "entities": [
                                                         {
-                                                            "entity": "sensor.zweather_velocity_kmh",
+                                                            "entity": "sensor.zweather_balkong_velocity_kmh",
                                                             "name": "Vindhastighet",
                                                             "state_adaptive_color": true
                                                         }
@@ -140,7 +141,7 @@
                                                 },
                                                 {
                                                     "type": "weather-forecast",
-                                                    "entity": "weather.hy",
+                                                    "entity": "weather.met_balkong_hourly",
                                                     "secondary_info_attribute": "wind_speed",
                                                     "show_forecast": true
                                                 }
