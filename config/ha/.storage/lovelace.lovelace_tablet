@@ -1,0 +1,1260 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_tablet",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "theme": "Backend-selected",
+          "title": "1. etg",
+          "path": "1-etg",
+          "type": "custom:grid-layout",
+          "badges": [],
+          "cards": [
+            {
+              "square": false,
+              "columns": 2,
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/lys-1-etg"
+                  },
+                  "entity": "light.1_etg_lights",
+                  "name": "Lys",
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/screens-1-etg"
+                  },
+                  "entity": "cover.screens_1_etg",
+                  "name": "Screens",
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/temperatur-1-etg"
+                  },
+                  "entity": "sensor.temperatur_oppholdsrom_1_etg",
+                  "show_state": true,
+                  "name": "Oppholdsrom"
+                },
+                {
+                  "type": "custom:mini-media-player",
+                  "entity": "media_player.sonos_one_stue_1",
+                  "group": true,
+                  "name": "Stue 1",
+                  "icon": "mdi:speaker",
+                  "volume_stateless": false,
+                  "artwork": "cover",
+                  "source": "icon",
+                  "sound_mode": "icon",
+                  "toggle_power": false,
+                  "hide": {
+                    "power": true
+                  },
+                  "speaker_group": {
+                    "platform": "sonos",
+                    "show_group_count": true,
+                    "entities": [
+                      {
+                        "entity_id": "media_player.sonos_one_stue_1",
+                        "name": "Stue 1"
+                      },
+                      {
+                        "entity_id": "media_player.sonos_one_stue_2",
+                        "name": "Stue 2"
+                      },
+                      {
+                        "entity_id": "media_player.sonos_move",
+                        "name": "Move"
+                      }
+                    ]
+                  },
+                  "shortcuts": {
+                    "columns": 3,
+                    "buttons": [
+                      {
+                        "name": "Hits",
+                        "icon": "mdi:spotify",
+                        "type": "playlist",
+                        "id": "spotify://52d5ec7ffeab11ea945b71753b68e0b4/spotify:playlist:37i9dQZF1DWUJF24WXSSyO"
+                      },
+                      {
+                        "name": "Jazz",
+                        "icon": "mdi:spotify",
+                        "type": "playlist",
+                        "id": "spotify://52d5ec7ffeab11ea945b71753b68e0b4/spotify:playlist:37i9dQZF1DWTALrdBtcXjw"
+                      },
+                      {
+                        "name": "NRK P3",
+                        "icon": "mdi:radio",
+                        "type": "audio/mpeg",
+                        "id": "media-source://radio_browser/96106d90-0601-11e8-ae97-52543be04c81"
+                      },
+                      {
+                        "name": "Yoga",
+                        "icon": "mdi:spotify",
+                        "type": "playlist",
+                        "id": "spotify://52d5ec7ffeab11ea945b71753b68e0b4/spotify:playlist:37i9dQZF1E4rtFpGeHvnj2"
+                      }
+                    ]
+                  },
+                  "card_mod": {
+                    "style": "ha-card {\n    height: 100%;\n    background-color: var(--ha-card-background,var(--card-background-color, white)) !important;\n}\n.mmp-player {\n    align-self: center !important;\n}\n"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/dorlas-1-etg"
+                  },
+                  "entity": "lock.dorlas_1_etg",
+                  "show_state": true,
+                  "name": "Inngang & bod",
+                  "hold_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "binary_sensor.vinduer_og_dorer_1_etg",
+                  "icon": "mdi:door-open",
+                  "name": "Vinduer & dører",
+                  "show_state": true
+                },
+                {
+                  "show_current": true,
+                  "show_forecast": true,
+                  "type": "weather-forecast",
+                  "entity": "weather.met_balkong_hourly"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "2. etg",
+          "path": "2-etg",
+          "type": "custom:grid-layout",
+          "badges": [],
+          "cards": [
+            {
+              "square": false,
+              "columns": 2,
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/lys-2-etg"
+                  },
+                  "entity": "light.2_etg_lights",
+                  "name": "Lys",
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/screens-2-etg"
+                  },
+                  "entity": "cover.screens_2_etg",
+                  "name": "Screens",
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace-tablet/temperatur-2-etg"
+                  },
+                  "entity": "sensor.temperatur_oppholdsrom_2_etg",
+                  "show_state": true,
+                  "name": "Oppholdsrom"
+                },
+                {
+                  "type": "custom:mini-media-player",
+                  "entity": "media_player.sonos_one_stue_2",
+                  "group": true,
+                  "name": "Stue 2",
+                  "icon": "mdi:speaker",
+                  "volume_stateless": false,
+                  "artwork": "cover",
+                  "source": "icon",
+                  "sound_mode": "icon",
+                  "toggle_power": false,
+                  "hide": {
+                    "power": true
+                  },
+                  "speaker_group": {
+                    "platform": "sonos",
+                    "show_group_count": true,
+                    "entities": [
+                      {
+                        "entity_id": "media_player.sonos_one_stue_1",
+                        "name": "Stue 1"
+                      },
+                      {
+                        "entity_id": "media_player.sonos_one_stue_2",
+                        "name": "Stue 2"
+                      },
+                      {
+                        "entity_id": "media_player.sonos_move",
+                        "name": "Move"
+                      }
+                    ]
+                  },
+                  "shortcuts": {
+                    "columns": 3,
+                    "buttons": [
+                      {
+                        "name": "Hits",
+                        "icon": "mdi:spotify",
+                        "type": "playlist",
+                        "id": "spotify://52d5ec7ffeab11ea945b71753b68e0b4/spotify:playlist:37i9dQZF1DWUJF24WXSSyO"
+                      },
+                      {
+                        "name": "Jazz",
+                        "icon": "mdi:spotify",
+                        "type": "playlist",
+                        "id": "spotify://52d5ec7ffeab11ea945b71753b68e0b4/spotify:playlist:37i9dQZF1DWTALrdBtcXjw"
+                      },
+                      {
+                        "name": "NRK P3",
+                        "icon": "mdi:radio",
+                        "type": "audio/mpeg",
+                        "id": "media-source://radio_browser/96106d90-0601-11e8-ae97-52543be04c81"
+                      },
+                      {
+                        "name": "Yoga",
+                        "icon": "mdi:spotify",
+                        "type": "playlist",
+                        "id": "spotify://52d5ec7ffeab11ea945b71753b68e0b4/spotify:playlist:37i9dQZF1E4rtFpGeHvnj2"
+                      }
+                    ]
+                  },
+                  "card_mod": {
+                    "style": "ha-card {\n    height: 100%;\n    background-color: var(--ha-card-background,var(--card-background-color, white)) !important;\n}\n.mmp-player {\n    align-self: center !important;\n}\n"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "entity": "binary_sensor.vinduer_2_etg",
+                  "icon": "",
+                  "name": "Vinduer",
+                  "show_state": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Lys 1. etg",
+          "path": "lys-1-etg",
+          "icon": "",
+          "subview": true,
+          "visible": [
+            {
+              "user": "98684f0c45e54ae780063dd52b952e73"
+            },
+            {
+              "user": "28155d89825341e3a2737daaa7d3794e"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "type": "tile",
+              "entity": "light.stue_1_lights",
+              "name": "Stue",
+              "show_entity_picture": false,
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ]
+            },
+            {
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ],
+              "type": "tile",
+              "entity": "light.kjokken_lights",
+              "name": "Kjøkken"
+            },
+            {
+              "type": "tile",
+              "entity": "light.bad_1_lights",
+              "name": "Bad"
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_soverom_1_level",
+              "name": "Soverom",
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ]
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_gang_1_level",
+              "name": "Gang",
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ]
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_trapp_1_level",
+              "name": "Trapp",
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ]
+            },
+            {
+              "type": "tile",
+              "entity": "light.stolpe_ute",
+              "name": "Julelys Tak",
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ]
+            },
+            {
+              "type": "tile",
+              "entity": "light.tak_ute",
+              "name": "Julelys vindu",
+              "features": [
+                {
+                  "type": "light-brightness"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Lys 2. etg",
+          "path": "lys-2-etg",
+          "icon": "",
+          "subview": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "tile",
+              "entity": "light.stue_2_philips_hue_lights",
+              "name": "Stue",
+              "show_entity_picture": false
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_soverom_3_level",
+              "name": "Voksenrom"
+            },
+            {
+              "type": "tile",
+              "entity": "light.philips_hue_lightstrip_soverom_3",
+              "name": "Senglys voksenrom",
+              "icon": ""
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_soverom_2_level",
+              "name": "Barnerom"
+            },
+            {
+              "type": "tile",
+              "entity": "light.bad_2_lights",
+              "name": "Bad"
+            },
+            {
+              "type": "tile",
+              "entity": "sensor.temperatur_oppholdsrom_2_etg",
+              "name": "Oppholdsrom"
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_gang_2_level",
+              "name": "Gang"
+            },
+            {
+              "type": "tile",
+              "entity": "light.fibaro_dimmer_trapp_1_level",
+              "name": "Trapp"
+            },
+            {
+              "type": "tile",
+              "entity": "light.juletre_stue_2",
+              "name": "Juletre",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Screens 1. etg",
+          "path": "screens-1-etg",
+          "subview": true,
+          "type": "sidebar",
+          "badges": [],
+          "cards": [
+            {
+              "cards": [
+                {
+                  "entities": [
+                    {
+                      "entity": "cover.screens_2_etg",
+                      "name": "2. etg"
+                    },
+                    {
+                      "entity": "automation.screen_control_based_on_luminance_sun_and_wind_soverom_3",
+                      "name": "Automatisk kontroll Soverom 3",
+                      "secondary_info": "last-triggered"
+                    },
+                    {
+                      "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_2",
+                      "name": "Automatisk kontroll Stue 2",
+                      "secondary_info": "last-triggered"
+                    }
+                  ],
+                  "title": "Åpne / Lukke",
+                  "type": "entities"
+                },
+                {
+                  "cards": [
+                    {
+                      "color_thresholds": [
+                        {
+                          "color": "#00ff00",
+                          "value": 1
+                        },
+                        {
+                          "color": "#ff9933",
+                          "value": 11
+                        },
+                        {
+                          "color": "#ff0000",
+                          "value": 20
+                        }
+                      ],
+                      "color_thresholds_transition": "hard",
+                      "decimals": 0,
+                      "icon": "mdi:weather-windy",
+                      "entities": [
+                        {
+                          "entity": "sensor.zweather_balkong_velocity",
+                          "name": "Vindhastighet",
+                          "state_adaptive_color": true
+                        }
+                      ],
+                      "font_size": 75,
+                      "show": {
+                        "fill": false,
+                        "graph": false
+                      },
+                      "type": "custom:mini-graph-card"
+                    },
+                    {
+                      "color_thresholds": [
+                        {
+                          "color": "#0000ff",
+                          "value": 1
+                        },
+                        {
+                          "color": "#00ff00",
+                          "value": 18
+                        },
+                        {
+                          "color": "#ff0000",
+                          "value": 25
+                        }
+                      ],
+                      "color_thresholds_transition": "hard",
+                      "decimals": 0,
+                      "entities": [
+                        {
+                          "entity": "sensor.zweather_balkong_temperature",
+                          "name": "Temperatur",
+                          "state_adaptive_color": true
+                        }
+                      ],
+                      "font_size": 75,
+                      "show": {
+                        "fill": false,
+                        "graph": false
+                      },
+                      "type": "custom:mini-graph-card"
+                    }
+                  ],
+                  "title": "Vær utendørs",
+                  "type": "horizontal-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "cards": [
+                        {
+                          "cards": [
+                            {
+                              "color_thresholds": [
+                                {
+                                  "color": "#00ff00",
+                                  "value": 200
+                                },
+                                {
+                                  "color": "#ff0000",
+                                  "value": 600
+                                }
+                              ],
+                              "color_thresholds_transition": "hard",
+                              "decimals": 0,
+                              "entities": [
+                                {
+                                  "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
+                                  "name": "Soverom 3",
+                                  "state_adaptive_color": true
+                                }
+                              ],
+                              "font_size": 75,
+                              "show": {
+                                "fill": false,
+                                "graph": false
+                              },
+                              "type": "custom:mini-graph-card"
+                            },
+                            {
+                              "color_thresholds": [
+                                {
+                                  "color": "#00ff00",
+                                  "value": 200
+                                },
+                                {
+                                  "color": "#ff0000",
+                                  "value": 600
+                                }
+                              ],
+                              "color_thresholds_transition": "hard",
+                              "decimals": 0,
+                              "entities": [
+                                {
+                                  "entity": "sensor.fibaro_multisensor_stue_2_luminance",
+                                  "name": "Stue 2",
+                                  "state_adaptive_color": true
+                                }
+                              ],
+                              "font_size": 75,
+                              "show": {
+                                "fill": false,
+                                "graph": false
+                              },
+                              "type": "custom:mini-graph-card"
+                            }
+                          ],
+                          "type": "horizontal-stack"
+                        },
+                        {
+                          "cards": [
+                            {
+                              "color_thresholds": [
+                                {
+                                  "color": "#0000ff",
+                                  "value": 1
+                                },
+                                {
+                                  "color": "#00ff00",
+                                  "value": 18
+                                },
+                                {
+                                  "color": "#ff0000",
+                                  "value": 25
+                                }
+                              ],
+                              "color_thresholds_transition": "hard",
+                              "decimals": 0,
+                              "entities": [
+                                {
+                                  "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
+                                  "name": "Soverom 3",
+                                  "state_adaptive_color": true
+                                }
+                              ],
+                              "font_size": 75,
+                              "show": {
+                                "fill": false,
+                                "graph": false
+                              },
+                              "type": "custom:mini-graph-card"
+                            },
+                            {
+                              "color_thresholds": [
+                                {
+                                  "color": "#0000ff",
+                                  "value": 1
+                                },
+                                {
+                                  "color": "#00ff00",
+                                  "value": 18
+                                },
+                                {
+                                  "color": "#ff0000",
+                                  "value": 25
+                                }
+                              ],
+                              "color_thresholds_transition": "hard",
+                              "decimals": 0,
+                              "entities": [
+                                {
+                                  "entity": "sensor.fibaro_multisensor_stue_2_temperature",
+                                  "name": "Stue 2",
+                                  "state_adaptive_color": true
+                                }
+                              ],
+                              "font_size": 75,
+                              "show": {
+                                "fill": false,
+                                "graph": false
+                              },
+                              "type": "custom:mini-graph-card"
+                            }
+                          ],
+                          "type": "horizontal-stack"
+                        }
+                      ],
+                      "title": "2. etg",
+                      "type": "vertical-stack"
+                    }
+                  ],
+                  "title": "Innendørs",
+                  "type": "horizontal-stack"
+                },
+                {
+                  "type": "grid",
+                  "columns": 1,
+                  "cards": [
+                    {
+                      "type": "grid",
+                      "title": "Soverom 3",
+                      "columns": 1,
+                      "square": false,
+                      "cards": [
+                        {
+                          "type": "custom:mini-graph-card",
+                          "color_thresholds": [
+                            {
+                              "color": "#00ff00",
+                              "value": 200
+                            },
+                            {
+                              "color": "#ff0000",
+                              "value": 600
+                            }
+                          ],
+                          "color_thresholds_transition": "hard",
+                          "decimals": 0,
+                          "entities": [
+                            {
+                              "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
+                              "name": "Soverom 3",
+                              "state_adaptive_color": true
+                            }
+                          ],
+                          "font_size": 75,
+                          "show": {
+                            "fill": false,
+                            "graph": false
+                          }
+                        },
+                        {
+                          "type": "history-graph",
+                          "entities": [
+                            {
+                              "entity": "cover.fibaro_roller_shutter_soverom_3_level"
+                            }
+                          ],
+                          "hours_to_show": 24,
+                          "refresh_interval": 0
+                        },
+                        {
+                          "type": "entities",
+                          "entities": [
+                            {
+                              "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                              "secondary_info": "position",
+                              "icon": "hass:blinds-open"
+                            }
+                          ],
+                          "show_header_toggle": false,
+                          "state_color": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "grid",
+                      "title": "Stue 2",
+                      "columns": 1,
+                      "square": false,
+                      "cards": [
+                        {
+                          "type": "custom:mini-graph-card",
+                          "color_thresholds": [
+                            {
+                              "color": "#00ff00",
+                              "value": 200
+                            },
+                            {
+                              "color": "#ff0000",
+                              "value": 600
+                            }
+                          ],
+                          "color_thresholds_transition": "hard",
+                          "decimals": 0,
+                          "entities": [
+                            {
+                              "entity": "sensor.fibaro_multisensor_stue_2_luminance",
+                              "name": "Stue 2",
+                              "state_adaptive_color": true
+                            }
+                          ],
+                          "font_size": 75,
+                          "show": {
+                            "fill": false,
+                            "graph": false
+                          }
+                        },
+                        {
+                          "type": "history-graph",
+                          "entities": [
+                            {
+                              "entity": "cover.fibaro_roller_shutter_stue_2_level"
+                            }
+                          ],
+                          "hours_to_show": 24,
+                          "refresh_interval": 0
+                        },
+                        {
+                          "type": "entities",
+                          "entities": [
+                            {
+                              "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                              "secondary_info": "position",
+                              "icon": "hass:blinds-open"
+                            }
+                          ],
+                          "show_header_toggle": false,
+                          "state_color": true
+                        }
+                      ]
+                    }
+                  ],
+                  "square": false
+                }
+              ],
+              "type": "vertical-stack",
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
+              "features": [
+                {
+                  "type": "cover-open-close"
+                }
+              ],
+              "type": "tile",
+              "entity": "cover.screens_2_etg",
+              "show_entity_picture": false,
+              "name": "Screens 2. etg"
+            },
+            {
+              "features": [
+                {
+                  "type": "cover-open-close"
+                }
+              ],
+              "type": "tile",
+              "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+              "show_entity_picture": false,
+              "name": "Screens soverom"
+            },
+            {
+              "features": [
+                {
+                  "type": "cover-open-close"
+                }
+              ],
+              "type": "tile",
+              "entity": "cover.fibaro_roller_shutter_stue_2_level",
+              "show_entity_picture": false,
+              "name": "Screens stue"
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Temperatur - 1. etg",
+          "path": "temperatur-1-etg",
+          "subview": true,
+          "badges": [],
+          "cards": [
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_kjokken_1_temperature",
+                  "name": "Kjøkken",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_stue_1_temperature",
+                  "name": "Stue",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_soverom_1_temperature",
+                  "name": "Soverom",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.aeotec_multisensor_bad_1_temperature",
+                  "name": "Bad",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_gang_1_temperature",
+                  "name": "Gang",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_door_sensor_bod_1_temperature",
+                  "name": "Bod",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Temperatur - 2. etg",
+          "path": "temperatur-2-etg",
+          "subview": true,
+          "badges": [],
+          "cards": [
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_stue_2_temperature",
+                  "name": "Stue",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_soverom_2_temperature",
+                  "name": "Barnerom",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
+                  "name": "Voksenrom",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.aeotec_multisensor_bad_2_temperature",
+                  "name": "Bad",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            },
+            {
+              "color_thresholds": [
+                {
+                  "color": "#0000ff",
+                  "value": 1
+                },
+                {
+                  "color": "#00ff00",
+                  "value": 18
+                },
+                {
+                  "color": "#ff0000",
+                  "value": 25
+                }
+              ],
+              "color_thresholds_transition": "hard",
+              "decimals": 0,
+              "entities": [
+                {
+                  "entity": "sensor.fibaro_multisensor_gang_2_temperature",
+                  "name": "Gang",
+                  "state_adaptive_color": true
+                }
+              ],
+              "font_size": 75,
+              "show": {
+                "fill": true,
+                "graph": true
+              },
+              "type": "custom:mini-graph-card"
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Dørlås - 1. etg",
+          "path": "dorlas-1-etg",
+          "subview": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "lock.easyaccess_hovedinngang"
+                    }
+                  ],
+                  "title": "Inngang",
+                  "hours_to_show": 6
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "lock.easyaccess_hovedinngang",
+                  "show_state": true
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "lock.easyaccess_boddor"
+                    }
+                  ],
+                  "title": "Bod",
+                  "hours_to_show": 6
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "lock.easyaccess_boddor",
+                  "show_state": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "title": "Tablet"
+    }
+  }
+}

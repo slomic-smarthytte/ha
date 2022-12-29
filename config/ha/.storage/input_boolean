@@ -1,19 +1,19 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "input_boolean",
-    "data": {
-        "items": [
-            {
-                "name": "Checked in",
-                "id": "checked_in",
-                "icon": "mdi:calendar-check"
-            },
-            {
-                "name": "Restart internet router automatically",
-                "icon": "mdi:router-network",
-                "id": "restart_internet_router_automatically"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_boolean",
+  "data": {
+    "items": [
+      {
+        "name": "Checked in",
+        "id": "checked_in",
+        "icon": "mdi:calendar-check"
+      },
+      {
+        "id": "restart_internet_router_automatically",
+        "name": "Restart internet router automatically",
+        "icon": "mdi:router-network"
+      }
+    ]
+  }
 }

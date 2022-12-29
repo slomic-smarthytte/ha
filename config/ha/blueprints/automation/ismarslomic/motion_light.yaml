@@ -46,6 +46,7 @@ blueprint:
           domain: input_datetime
 
 mode: single
+max_exceeded: silent
 
 variables:
   light_target: !input light_target

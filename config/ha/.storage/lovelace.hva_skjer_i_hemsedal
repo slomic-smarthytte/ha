@@ -1,99 +1,101 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.hva_skjer_i_hemsedal",
-    "data": {
-        "config": {
-            "views": [
-                {
-                    "title": "Skistar - v\u00e6r og bakker",
-                    "path": "skistar-var-og-bakker",
-                    "type": "panel",
-                    "icon": "mdi:weather-cloudy",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://www.skistar.com/no/vare-skisteder/hemsedal/vinter-i-hemsedal/var-og-bakker/",
-                            "aspect_ratio": "100%",
-                            "title": "V\u00e6r og bakker"
-                        }
-                    ]
-                },
-                {
-                    "title": "Skistar - Web cam",
-                    "path": "skistar-web-cam",
-                    "icon": "mdi:webcam",
-                    "type": "panel",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://www.skistar.com/no/vare-skisteder/hemsedal/vinter-i-hemsedal/var-og-bakker/webcams-hemsedal/",
-                            "aspect_ratio": "100%",
-                            "title": "Webcams"
-                        }
-                    ]
-                },
-                {
-                    "title": "Hemsedal kallender",
-                    "path": "hemsedal-kallender",
-                    "type": "panel",
-                    "icon": "mdi:calendar",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://www.hemsedal.com/no/Kalender/",
-                            "aspect_ratio": "100%",
-                            "title": "Hemsedal kallender"
-                        }
-                    ]
-                },
-                {
-                    "title": "Turforslag",
-                    "path": "turforslag",
-                    "type": "panel",
-                    "icon": "mdi:walk",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://ut.no/utforsker/stedsnavn/630842/hemsedal/turforslag",
-                            "aspect_ratio": "50%",
-                            "title": "Turforslag (ut.no)"
-                        }
-                    ]
-                },
-                {
-                    "title": "Aktiviteter",
-                    "path": "aktiviteter",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://www.hemsedal.com/no/Events/",
-                            "aspect_ratio": "100%",
-                            "title": "Aktiviteter i Hemsedal"
-                        }
-                    ]
-                },
-                {
-                    "title": "Hemsedal.com",
-                    "path": "hemsedalcom",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://www.hemsedal.com/",
-                            "aspect_ratio": "100%"
-                        }
-                    ]
-                }
-            ],
-            "title": "Hva skjer i Hemsedal?"
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.hva_skjer_i_hemsedal",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Skistar - vær og bakker",
+          "path": "skistar-var-og-bakker",
+          "type": "panel",
+          "icon": "mdi:weather-cloudy",
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://www.skistar.com/no/vare-skisteder/hemsedal/vinter-i-hemsedal/var-og-bakker/",
+              "aspect_ratio": "100%",
+              "title": "Vær og bakker"
+            }
+          ]
+        },
+        {
+          "title": "Skistar - Web cam",
+          "path": "skistar-web-cam",
+          "icon": "mdi:webcam",
+          "type": "panel",
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://www.skistar.com/no/vare-skisteder/hemsedal/vinter-i-hemsedal/var-og-bakker/webcams-hemsedal/",
+              "aspect_ratio": "100%",
+              "title": "Webcams"
+            }
+          ]
+        },
+        {
+          "title": "Hemsedal kallender",
+          "path": "hemsedal-kallender",
+          "type": "panel",
+          "icon": "mdi:calendar",
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://www.hemsedal.com/no/Kalender/",
+              "aspect_ratio": "100%",
+              "title": "Hemsedal kallender"
+            }
+          ]
+        },
+        {
+          "title": "Turforslag",
+          "path": "turforslag",
+          "type": "panel",
+          "icon": "mdi:walk",
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://ut.no/utforsker/stedsnavn/630842/hemsedal/turforslag",
+              "aspect_ratio": "50%",
+              "title": "Turforslag (ut.no)"
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Aktiviteter",
+          "path": "aktiviteter",
+          "panel": true,
+          "type": "custom:grid-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://www.hemsedal.com/no/Events/",
+              "aspect_ratio": "100%",
+              "title": "Aktiviteter i Hemsedal"
+            }
+          ]
+        },
+        {
+          "title": "Hemsedal.com",
+          "path": "hemsedalcom",
+          "panel": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://www.hemsedal.com/",
+              "aspect_ratio": "100%"
+            }
+          ]
         }
+      ],
+      "title": "Hva skjer i Hemsedal?"
     }
+  }
 }

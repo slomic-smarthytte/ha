@@ -1,79 +1,84 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace_resources",
-    "data": {
-        "items": [
-            {
-                "id": "3ee0d7fc93264ea2beccec70e1e30bd6",
-                "type": "module",
-                "url": "/hacsfiles/lovelace-hass-aarlo/hass-aarlo.js?hacstag=1972451790205"
-            },
-            {
-                "id": "9e16e6d5866e4d75ba95e73597628dec",
-                "type": "module",
-                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110"
-            },
-            {
-                "id": "db6c4c4ce80d4c4196c487009d5c7961",
-                "type": "module",
-                "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211"
-            },
-            {
-                "id": "36e06d1aa02e4693ba68b4d74abdc6a2",
-                "type": "module",
-                "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js?hacstag=269011342130"
-            },
-            {
-                "url": "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js",
-                "type": "module",
-                "id": "98f23316ccd5406ca0f12e21668c2d73"
-            },
-            {
-                "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
-                "type": "module",
-                "id": "78137f379c9040e79dbc7b30493898db"
-            },
-            {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
-                "type": "module",
-                "id": "312c8155ec4d439ca5108de267be648f"
-            },
-            {
-                "url": "/hacsfiles/decluttering-card/decluttering-card.js",
-                "type": "module",
-                "id": "0ac9afb1367e4d17a00a28cf83068124"
-            },
-            {
-                "url": "/hacsfiles/config-template-card/config-template-card.js?hacstag=172177543136",
-                "type": "module",
-                "id": "6fe25455d4d74d8192dc31259261385a"
-            },
-            {
-                "url": "/hacsfiles/lovelace-hui-element/hui-element.js?hacstag=24994205477482",
-                "type": "module",
-                "id": "c38738f7ca3d4f58b20ce6087baf398b"
-            },
-            {
-                "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325342",
-                "type": "module",
-                "id": "899d780c41e041f796a1be96cb6f569d"
-            },
-            {
-                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=15078199420012",
-                "type": "module",
-                "id": "13235d11a78e464ea039b8934c234881"
-            },
-            {
-                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841110",
-                "type": "module",
-                "id": "5420633922bb4bca8c4cb4841cb8648c"
-            },
-            {
-                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524312",
-                "type": "module",
-                "id": "1f95ad587d5e45dfba6f9d3bff778817"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "id": "3ee0d7fc93264ea2beccec70e1e30bd6",
+        "type": "module",
+        "url": "/hacsfiles/lovelace-hass-aarlo/hass-aarlo.js?hacstag=1972451790261"
+      },
+      {
+        "id": "9e16e6d5866e4d75ba95e73597628dec",
+        "type": "module",
+        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110"
+      },
+      {
+        "id": "db6c4c4ce80d4c4196c487009d5c7961",
+        "type": "module",
+        "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211"
+      },
+      {
+        "id": "36e06d1aa02e4693ba68b4d74abdc6a2",
+        "type": "module",
+        "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js?hacstag=269011342130"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js",
+        "type": "module",
+        "id": "98f23316ccd5406ca0f12e21668c2d73"
+      },
+      {
+        "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
+        "type": "module",
+        "id": "78137f379c9040e79dbc7b30493898db"
+      },
+      {
+        "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866244",
+        "type": "module",
+        "id": "312c8155ec4d439ca5108de267be648f"
+      },
+      {
+        "url": "/hacsfiles/decluttering-card/decluttering-card.js",
+        "type": "module",
+        "id": "0ac9afb1367e4d17a00a28cf83068124"
+      },
+      {
+        "url": "/hacsfiles/config-template-card/config-template-card.js?hacstag=172177543136",
+        "type": "module",
+        "id": "6fe25455d4d74d8192dc31259261385a"
+      },
+      {
+        "url": "/hacsfiles/lovelace-hui-element/hui-element.js?hacstag=249942054180547",
+        "type": "module",
+        "id": "c38738f7ca3d4f58b20ce6087baf398b"
+      },
+      {
+        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325342",
+        "type": "module",
+        "id": "899d780c41e041f796a1be96cb6f569d"
+      },
+      {
+        "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=15078199420012",
+        "type": "module",
+        "id": "13235d11a78e464ea039b8934c234881"
+      },
+      {
+        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841120",
+        "type": "module",
+        "id": "5420633922bb4bca8c4cb4841cb8648c"
+      },
+      {
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524320",
+        "type": "module",
+        "id": "1f95ad587d5e45dfba6f9d3bff778817"
+      },
+      {
+        "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381165",
+        "type": "module",
+        "id": "85549be319d5434490ed94cd3f8961c8"
+      }
+    ]
+  }
 }

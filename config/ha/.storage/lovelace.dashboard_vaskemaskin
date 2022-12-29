@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_vaskemaskin",
+  "data": {
+    "config": {
+      "title": "Vaskemaskin",
+      "views": [
+        {
+          "path": "default_view",
+          "title": "Home",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                "select.beko_vaskemaskin_bad_1_extra_rinse",
+                "select.beko_vaskemaskin_bad_1_fast",
+                "select.beko_vaskemaskin_bad_1_pet_hair_removal",
+                "select.beko_vaskemaskin_bad_1_prewash",
+                "select.beko_vaskemaskin_bad_1_programme",
+                "select.beko_vaskemaskin_bad_1_smart_anti_crease",
+                "select.beko_vaskemaskin_bad_1_spin",
+                "select.beko_vaskemaskin_bad_1_state",
+                "select.beko_vaskemaskin_bad_1_steam",
+                "select.beko_vaskemaskin_bad_1_temperature",
+                "sensor.beko_vaskemaskin_bad_1_duration",
+                "sensor.beko_vaskemaskin_bad_1_programme_end_time",
+                "sensor.beko_vaskemaskin_bad_1_remaining",
+                "sensor.beko_vaskemaskin_bad_1_spin",
+                "sensor.beko_vaskemaskin_bad_1_sub_state",
+                "sensor.beko_vaskemaskin_bad_1_temperature"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

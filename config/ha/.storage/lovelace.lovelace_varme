@@ -1,421 +1,370 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.lovelace_varme",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_varme",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "theme": "Backend-selected",
+          "title": "Panelovn",
+          "path": "panel",
+          "icon": "mdi:radiator",
+          "type": "sidebar",
+          "badges": [],
+          "cards": [
+            {
+              "type": "history-graph",
+              "entities": [
+                "sensor.template_electricity_price_level_smarthytte"
+              ],
+              "hours_to_show": 24,
+              "refresh_interval": 0,
+              "title": "Electricity Price Level",
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
+              "type": "vertical-stack",
+              "title": "Soverom 2",
+              "cards": [
                 {
-                    "title": "Gulv",
-                    "path": "gulv",
-                    "icon": "mdi:floor-plan",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entity": "climate.heatit_thermostat_gang_1_mode",
-                            "name": "Gang 1 gulv",
-                            "type": "thermostat"
-                        },
-                        {
-                            "entity": "climate.heatit_thermostat_bad_2_mode",
-                            "name": "Bad 2 gulv",
-                            "theme": "Backend-selected",
-                            "type": "thermostat"
-                        },
-                        {
-                            "entity": "climate.heatit_thermostat_bad_1_mode",
-                            "name": "Bad 1 Gulv",
-                            "type": "thermostat"
-                        }
-                    ]
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.fibaro_multisensor_soverom_2_temperature",
+                      "name": "Current",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "input_number.soverom_2_temp_daytime",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:sun-clock",
+                      "name": "Daytime"
+                    },
+                    {
+                      "entity": "input_number.soverom_2_temp_night",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:weather-night",
+                      "name": "Night"
+                    },
+                    {
+                      "entity": "input_number.soverom_2_temp_away",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:bag-suitcase-outline",
+                      "name": "Away"
+                    },
+                    {
+                      "entity": "automation.soverom_2_varmestyring",
+                      "secondary_info": "last-triggered",
+                      "name": "Varmestyring"
+                    },
+                    {
+                      "entity": "climate.mill_panelovn_soverom_2_mode",
+                      "name": "Panelovn",
+                      "secondary_info": "last-updated"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "state_color": false
                 },
                 {
-                    "title": "Panelovn",
-                    "path": "panel",
-                    "icon": "mdi:radiator",
-                    "type": "sidebar",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "automation.soverom_3_varmestyring",
-                                "automation.soverom_2_varmestyring",
-                                "automation.varmestyring_bod"
-                            ],
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        },
-                        {
-                            "entity": "switch.fibaro_wall_plug_soverom_2_switch",
-                            "hold_action": {
-                                "action": "more-info"
-                            },
-                            "icon": "mdi:radiator",
-                            "icon_height": "104px",
-                            "name": "Soverom 2 Panelovn",
-                            "show_icon": true,
-                            "show_name": true,
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "type": "entity-button",
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        },
-                        {
-                            "entity": "switch.fibaro_wall_plug_soverom_3_switch",
-                            "hold_action": {
-                                "action": "more-info"
-                            },
-                            "icon": "mdi:radiator",
-                            "icon_height": "104px",
-                            "name": "Soverom 3 Panelovn",
-                            "show_icon": true,
-                            "show_name": true,
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "type": "entity-button",
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        },
-                        {
-                            "entity": "switch.fibaro_wall_plug_bod_1_switch",
-                            "hold_action": {
-                                "action": "more-info"
-                            },
-                            "icon": "mdi:radiator",
-                            "icon_height": "104px",
-                            "name": "Bod 1 Panelovn",
-                            "show_icon": true,
-                            "show_name": true,
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "type": "entity-button",
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.template_electricity_price_level_smarthytte"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "title": "Electricity Price Level"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "type": "history-graph",
-                                    "entities": [
-                                        "switch.fibaro_wall_plug_soverom_2_switch"
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Soverom 2"
-                                },
-                                {
-                                    "type": "history-graph",
-                                    "entities": [
-                                        "switch.fibaro_wall_plug_soverom_3_switch"
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Soverom 3"
-                                },
-                                {
-                                    "type": "history-graph",
-                                    "entities": [
-                                        "switch.fibaro_wall_plug_bod_1_switch"
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Bod"
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "icon": "mdi:weather-sunny",
-                                            "entities": [
-                                                {
-                                                    "entity": "input_number.soverom_2_temp_daytime",
-                                                    "name": "Target daytime",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": false,
-                                                "graph": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        },
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.fibaro_multisensor_soverom_2_temperature",
-                                                    "name": "Current",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": true,
-                                                "graph": true
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        },
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "icon": "mdi:weather-night",
-                                            "entities": [
-                                                {
-                                                    "entity": "input_number.soverom_2_temp_night",
-                                                    "name": "Target night",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": false,
-                                                "graph": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "icon": "mdi:weather-sunny",
-                                            "entities": [
-                                                {
-                                                    "entity": "input_number.soverom_3_temp_daytime",
-                                                    "name": "Target daytime",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": false,
-                                                "graph": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        },
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
-                                                    "name": "Current",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": true,
-                                                "graph": true
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        },
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "icon": "mdi:weather-night",
-                                            "entities": [
-                                                {
-                                                    "entity": "input_number.soverom_3_temp_night",
-                                                    "name": "Target night",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": false,
-                                                "graph": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "icon": "mdi:weather-sunny",
-                                            "entities": [
-                                                {
-                                                    "entity": "input_number.bod_temp",
-                                                    "name": "Target",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": false,
-                                                "graph": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        },
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#0000ff",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#00ff00",
-                                                    "value": 18
-                                                },
-                                                {
-                                                    "color": "#ff0000",
-                                                    "value": 25
-                                                }
-                                            ],
-                                            "color_thresholds_transition": "hard",
-                                            "decimals": 0,
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.fibaro_door_sensor_bod_1_temperature",
-                                                    "name": "Current",
-                                                    "state_adaptive_color": true
-                                                }
-                                            ],
-                                            "font_size": 75,
-                                            "show": {
-                                                "fill": true,
-                                                "graph": true
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "type": "grid",
-                            "columns": 3,
-                            "square": false
-                        }
-                    ]
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.mill_panelovn_soverom_2_control_signal"
+                    }
+                  ],
+                  "hours_to_show": 24,
+                  "refresh_interval": 0
                 }
-            ],
-            "title": "Varme"
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "title": "Soverom 3",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
+                      "name": "Current",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "input_number.soverom_3_temp_daytime",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:sun-clock",
+                      "name": "Daytime"
+                    },
+                    {
+                      "entity": "input_number.soverom_3_temp_night",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:weather-night",
+                      "name": "Night"
+                    },
+                    {
+                      "entity": "input_number.soverom_3_temp_away",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:bag-suitcase-outline",
+                      "name": "Away"
+                    },
+                    {
+                      "entity": "automation.soverom_3_varmestyring",
+                      "secondary_info": "last-triggered",
+                      "name": "Varmestyring"
+                    },
+                    {
+                      "entity": "climate.mill_panelovn_soverom_3_mode",
+                      "name": "Panelovn",
+                      "secondary_info": "last-updated"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "state_color": false
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.mill_panelovn_soverom_3_control_signal"
+                    }
+                  ],
+                  "hours_to_show": 24,
+                  "refresh_interval": 0
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "title": "Bad 1",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.aeotec_multisensor_bad_1_temperature",
+                      "name": "Current",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "input_number.bad_1_temp_daytime",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:sun-clock",
+                      "name": "Daytime"
+                    },
+                    {
+                      "entity": "input_number.bad_1_temp_night",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:weather-night",
+                      "name": "Night"
+                    },
+                    {
+                      "entity": "input_number.bad_1_temp_away",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:bag-suitcase-outline",
+                      "name": "Away"
+                    },
+                    {
+                      "entity": "automation.bad_1_varmestyring",
+                      "secondary_info": "last-triggered",
+                      "name": "Varmestyring"
+                    },
+                    {
+                      "entity": "climate.heatit_thermostat_bad_1_mode",
+                      "name": "Gulv",
+                      "secondary_info": "last-updated"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "state_color": false
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.heatit_thermostat_bad_1_electric_consumption_kwh"
+                    }
+                  ],
+                  "hours_to_show": 24,
+                  "refresh_interval": 0
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "title": "Bad 2",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.aeotec_multisensor_bad_2_temperature",
+                      "name": "Current",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "input_number.bad_2_temp_daytime",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:sun-clock",
+                      "name": "Daytime"
+                    },
+                    {
+                      "entity": "input_number.bad_2_temp_night",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:weather-night",
+                      "name": "Night"
+                    },
+                    {
+                      "entity": "input_number.bad_2_temp_away",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:bag-suitcase-outline",
+                      "name": "Away"
+                    },
+                    {
+                      "entity": "automation.bad_2_varmestyring",
+                      "secondary_info": "last-triggered",
+                      "name": "Varmestyring"
+                    },
+                    {
+                      "entity": "climate.heatit_thermostat_bad_2_mode",
+                      "name": "Gulv",
+                      "secondary_info": "last-updated"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "state_color": false
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.heatit_thermostat_bad_2_electric_consumption_kwh"
+                    }
+                  ],
+                  "hours_to_show": 24,
+                  "refresh_interval": 0
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "title": "Gang 1",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.fibaro_multisensor_gang_1_temperature",
+                      "name": "Current",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "input_number.gang_1_temp_daytime",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:sun-clock",
+                      "name": "Daytime"
+                    },
+                    {
+                      "entity": "input_number.gang_1_temp_night",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:weather-night",
+                      "name": "Night"
+                    },
+                    {
+                      "entity": "input_number.gang_1_temp_away",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:bag-suitcase-outline",
+                      "name": "Away"
+                    },
+                    {
+                      "entity": "automation.gang_1_varmestyring",
+                      "secondary_info": "last-triggered",
+                      "name": "Varmestyring"
+                    },
+                    {
+                      "entity": "climate.heatit_thermostat_gang_1_mode",
+                      "name": "Gulv",
+                      "secondary_info": "last-updated"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "state_color": false
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.heatit_thermostat_gang_1_electric_consumption_kwh"
+                    }
+                  ],
+                  "hours_to_show": 24,
+                  "refresh_interval": 0
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "title": "Bod",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.fibaro_door_sensor_bod_1_temperature",
+                      "name": "Current",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "input_number.bod_temp_daytime",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:sun-clock",
+                      "name": "Daytime"
+                    },
+                    {
+                      "entity": "input_number.bod_temp_night",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:weather-night",
+                      "name": "Night"
+                    },
+                    {
+                      "entity": "input_number.bod_temp_away",
+                      "secondary_info": "last-changed",
+                      "icon": "mdi:bag-suitcase-outline",
+                      "name": "Away"
+                    },
+                    {
+                      "entity": "automation.bod_1_varmestyring",
+                      "secondary_info": "last-triggered",
+                      "name": "Varmestyring"
+                    },
+                    {
+                      "entity": "switch.fibaro_wall_plug_bod_1_switch",
+                      "name": "Panelovn",
+                      "secondary_info": "last-updated"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "state_color": false
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.fibaro_wall_plug_bod_1_electric_consumption_kwh"
+                    }
+                  ],
+                  "hours_to_show": 24,
+                  "refresh_interval": 0
+                }
+              ]
+            }
+          ]
         }
+      ],
+      "title": "Varme"
     }
+  }
 }

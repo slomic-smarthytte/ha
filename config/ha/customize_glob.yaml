@@ -1,0 +1,157 @@
+# Add extra attributes to entities to be used as tags and grouping in influxdb
+
+# electric consumption group: heating
+"sensor.heatit_thermostat_*_electric_consumption_kwh":
+  energy_consumption_group: heating
+"sensor.mill_panelovn_*_electric_consumption_kwh":
+  energy_consumption_group: heating
+"sensor.fibaro_wall_plug_bod_1_electric_consumption_kwh":
+  energy_consumption_group: heating
+"sensor.fibaro_switch_varmekabel_gang_1_electric_consumption_kwh":
+  energy_consumption_group: heating
+
+# electric consumption group: light
+"sensor.fibaro_dimmer_*_electric_consumption_kwh":
+  energy_consumption_group: lighting
+"sensor.fibaro_switch_bad_*_electric_consumption_kwh":
+  energy_consumption_group: lighting
+"sensor.fibaro_switch_bod_1_electric_consumption_kwh":
+  energy_consumption_group: lighting
+
+# electric consumption group: iot
+"sensor.fibaro_switch_tablet_gang_1_electric_consumption_kwh":
+  energy_consumption_group: iot
+"sensor.fibaro_wall_plug_arlo_stue_1_electric_consumption_kwh":
+  energy_consumption_group: iot
+"sensor.fibaro_wall_plug_asus_mesh_stue_1_electric_consumption_kwh":
+  energy_consumption_group: iot
+"sensor.eve_energy_strip_608f_stue_2_electric_consumption_kwh":
+  energy_consumption_group: iot
+"sensor.fibaro_wall_plug_asus_router_stue_2_electric_consumption_kwh":
+  energy_consumption_group: iot
+"sensor.fibaro_switch_tablet_stue_2_electric_consumption_kwh":
+  energy_consumption_group: iot
+
+# electric consumption group: screens
+"sensor.fibaro_roller_shutter_*_electric_consumption_kwh":
+  energy_consumption_group: screens
+
+# electric consumption group: ev-charger
+"sensor.easee_home_charger_parkering_electric_consumption_kwh":
+  energy_consumption_group: ev-charger
+"sensor.easee_home_charger_parkering_lifetime_electric_consumption_kwh":
+  energy_consumption_group: ev-charger
+
+# areas - sensor
+"sensor.*stue_1*":
+  area: stue_1
+"sensor.*stue_2*":
+  area: stue_2
+"sensor.*trapp_1*":
+  area: trapp
+"sensor.*bad_1*":
+  area: bad_1
+"sensor.*bad_2*":
+  area: bad_2
+"sensor.*balkong*":
+  area: balkong
+"sensor.*bod*":
+  area: bod
+"sensor.*gang_1*":
+  area: gang_1
+"sensor.*gang_2*":
+  area: gang_2
+"sensor.*hovedinngang*":
+  area: hovedinngang
+"sensor.*kjokken_1*":
+  area: kjokken
+"sensor.*kjokkenbenk_1*":
+  area: kjokkenbenk
+"sensor.*parkering_*":
+  area: parkering
+"sensor.*soverom_1*":
+  area: soverom_1
+"sensor.*soverom_2*":
+  area: soverom_2
+"sensor.*soverom_3*":
+  area: soverom_3
+"sensor.*spisebord_1*":
+  area: spisebord
+
+# areas - climate
+"climate.*stue_1*":
+  area: stue_1
+"climate.*stue_2*":
+  area: stue_2
+"climate.*trapp_1*":
+  area: trapp
+"climate.*bad_1*":
+  area: bad_1
+"climate.*bad_2*":
+  area: bad_2
+"climate.*balkong*":
+  area: balkong
+"climate.*bod*":
+  area: bod
+"climate.*gang_1*":
+  area: gang_1
+"climate.*gang_2*":
+  area: gang_2
+"climate.*hovedinngang*":
+  area: hovedinngang
+"climate.*kjokken_1*":
+  area: kjokken
+"climate.*kjokkenbenk_1*":
+  area: kjokkenbenk
+"climate.*parkering_*":
+  area: parkering
+"climate.*soverom_1*":
+  area: soverom_1
+"climate.*soverom_2*":
+  area: soverom_2
+"climate.*soverom_3*":
+  area: soverom_3
+"climate.*spisebord_1*":
+  area: spisebord
+
+# areas - input_boolean
+"input_boolean.*stue_1*":
+  area: stue_1
+"input_boolean.*stue_2*":
+  area: stue_2
+"input_boolean.*trapp_1*":
+  area: trapp
+"input_boolean.*bad_1*":
+  area: bad_1
+"input_boolean.*bad_2*":
+  area: bad_2
+"input_boolean.*balkong*":
+  area: balkong
+"input_boolean.*bod*":
+  area: bod
+"input_boolean.*gang_1*":
+  area: gang_1
+"input_boolean.*gang_2*":
+  area: gang_2
+"input_boolean.*hovedinngang*":
+  area: hovedinngang
+"input_boolean.*kjokken_1*":
+  area: kjokken
+"input_boolean.*kjokkenbenk_1*":
+  area: kjokkenbenk
+"input_boolean.*parkering_*":
+  area: parkering
+"input_boolean.*soverom_1*":
+  area: soverom_1
+"input_boolean.*soverom_2*":
+  area: soverom_2
+"input_boolean.*soverom_3*":
+  area: soverom_3
+"input_boolean.*spisebord_1*":
+  area: spisebord
+  
+# areas - binary_sensor 
+"binary_sensor.bad_1_showering":
+  area: bad_1
+"binary_sensor.bad_2_showering":
+  area: bad_2

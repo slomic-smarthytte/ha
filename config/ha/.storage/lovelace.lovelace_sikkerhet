@@ -1,214 +1,196 @@
 {
-    "version": 1,
-    "key": "lovelace.lovelace_sikkerhet",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_sikkerhet",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Vinduer & dører",
+          "path": "vinduer--og-dorer",
+          "icon": "mdi:door",
+          "type": "sidebar",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
                 {
-                    "title": "Vinduer & d\u00f8rer",
-                    "path": "vinduer--og-dorer",
-                    "icon": "mdi:door",
-                    "type": "sidebar",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "automation.set_to_away_when_i_leave_home"
-                                },
-                                {
-                                    "entity": "automation.notify_when_motion_detected",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.turn_on_burglar_alarm",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.turn_off_burglar_alarm",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.turn_all_lights_on",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.turn_all_lights_off",
-                                    "secondary_info": "last-triggered"
-                                }
-                            ]
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.sensative_door_sensor_stue_1_door_open",
-                                            "name": "Balkongd\u00f8r"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.sensative_door_sensor_gang_1_door_open",
-                                            "name": "Hovedd\u00f8r"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.fibaro_door_sensor_bod_1_door_open",
-                                            "name": "Bodd\u00f8r"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.sensative_window_sensor_soverom_1_window_open",
-                                            "name": "Vindu soverom 1"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.sensative_window_sensor_soverom_2_window_open",
-                                            "name": "Vindu soverom 2"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open",
-                                            "name": "Vindu soverom 3"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.sensative_window_sensor_gang_2_window_open",
-                                            "name": "Vindu gang 2"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "entity": "lock.id_lock_bod_1_locked",
-                            "hold_action": {
-                                "action": "more-info"
-                            },
-                            "name": "Bod 1",
-                            "show_icon": true,
-                            "show_name": true,
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "type": "button",
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        },
-                        {
-                            "entity": "lock.id_lock_hovedinngang_locked",
-                            "hold_action": {
-                                "action": "more-info"
-                            },
-                            "name": "Hovedinngang",
-                            "show_icon": true,
-                            "show_name": true,
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "type": "button",
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "entity",
-                                    "entity": "alarm_control_panel.aarlo_slomic_smarthytte",
-                                    "name": "Kamera alarm - mode"
-                                },
-                                {
-                                    "type": "alarm-panel",
-                                    "entity": "alarm_control_panel.aarlo_slomic_smarthytte",
-                                    "name": "Kamera alarm",
-                                    "states": [
-                                        "arm_home",
-                                        "arm_away",
-                                        "arm_night"
-                                    ]
-                                }
-                            ],
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        }
-                    ]
+                  "entity": "automation.set_to_away_when_i_leave_home"
                 },
                 {
-                    "title": "Vann",
-                    "path": "vann",
-                    "icon": "mdi:water",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.flood_stop_gang_1",
-                                    "secondary_info": "last-changed",
-                                    "name": "Hovedkran"
-                                }
-                            ],
-                            "state_color": true,
-                            "title": "Flood Stop - vannlekasjesikring"
-                        }
-                    ]
+                  "entity": "automation.notify_when_motion_detected",
+                  "secondary_info": "last-triggered"
                 },
                 {
-                    "title": "Overv\u00e5kning",
-                    "path": "overvakning",
-                    "icon": "mdi:cctv",
-                    "type": "custom:horizontal-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entity": "camera.aarlo_balkong",
-                            "image_click": "play",
-                            "name": "Balkong",
-                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
-                            "top_date": true,
-                            "top_status": true,
-                            "top_title": true,
-                            "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "entity": "camera.aarlo_balkong_2",
-                            "image_click": "play",
-                            "name": "Balkong 2",
-                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
-                            "top_date": true,
-                            "top_status": true,
-                            "top_title": true,
-                            "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "entity": "camera.aarlo_hovedinngang",
-                            "image_click": "play",
-                            "name": "Hovedinngang",
-                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
-                            "top_date": true,
-                            "top_status": true,
-                            "top_title": true,
-                            "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "entity": "camera.aarlo_stue_1",
-                            "image_click": "play",
-                            "name": "Stue 1",
-                            "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
-                            "top_date": true,
-                            "top_status": true,
-                            "top_title": true,
-                            "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "type": "picture-entity",
-                            "entity": "camera.nest_indoor_cam_stue_2"
-                        }
-                    ]
+                  "entity": "automation.turn_on_burglar_alarm",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.turn_off_burglar_alarm",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.turn_all_lights_on",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.turn_all_lights_off",
+                  "secondary_info": "last-triggered"
                 }
-            ],
-            "title": "Sikkerhet"
+              ]
+            },
+            {
+              "cards": [
+                {
+                  "entities": [
+                    {
+                      "entity": "binary_sensor.sensative_door_sensor_stue_1_door_open",
+                      "name": "Balkongdør"
+                    },
+                    {
+                      "entity": "binary_sensor.sensative_door_sensor_hovedinngang_door_open",
+                      "name": "Hoveddør"
+                    },
+                    {
+                      "entity": "binary_sensor.fibaro_door_sensor_bod_1_door_open",
+                      "name": "Boddør"
+                    },
+                    {
+                      "entity": "binary_sensor.sensative_window_sensor_soverom_1_window_open",
+                      "name": "Vindu soverom 1"
+                    },
+                    {
+                      "entity": "binary_sensor.sensative_window_sensor_soverom_2_window_open",
+                      "name": "Vindu soverom 2"
+                    },
+                    {
+                      "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open",
+                      "name": "Vindu soverom 3"
+                    },
+                    {
+                      "entity": "binary_sensor.sensative_window_sensor_gang_2_window_open",
+                      "name": "Vindu gang 2"
+                    }
+                  ],
+                  "type": "entities"
+                }
+              ],
+              "type": "vertical-stack"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "lock.easyaccess_hovedinngang",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "lock.easyaccess_boddor",
+                  "secondary_info": "last-changed"
+                }
+              ],
+              "state_color": true,
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entity",
+                  "entity": "alarm_control_panel.aarlo_slomic_smarthytte",
+                  "name": "Kamera alarm - mode"
+                },
+                {
+                  "type": "alarm-panel",
+                  "entity": "alarm_control_panel.aarlo_slomic_smarthytte",
+                  "name": "Kamera alarm",
+                  "states": [
+                    "arm_home",
+                    "arm_away",
+                    "arm_night"
+                  ]
+                }
+              ],
+              "view_layout": {
+                "position": "sidebar"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Vann",
+          "path": "vann",
+          "icon": "mdi:water",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.flood_stop_gang_1",
+                  "secondary_info": "last-changed",
+                  "name": "Hovedkran"
+                }
+              ],
+              "state_color": true,
+              "title": "Flood Stop - vannlekasjesikring"
+            }
+          ]
+        },
+        {
+          "title": "Overvåkning",
+          "path": "overvakning",
+          "icon": "mdi:cctv",
+          "type": "custom:horizontal-layout",
+          "badges": [],
+          "cards": [
+            {
+              "entity": "camera.aarlo_balkong",
+              "image_click": "play",
+              "name": "Balkong",
+              "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+              "top_date": true,
+              "top_status": true,
+              "top_title": true,
+              "type": "custom:aarlo-glance"
+            },
+            {
+              "entity": "camera.aarlo_balkong_2",
+              "image_click": "play",
+              "name": "Balkong 2",
+              "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+              "top_date": true,
+              "top_status": true,
+              "top_title": true,
+              "type": "custom:aarlo-glance"
+            },
+            {
+              "entity": "camera.aarlo_hovedinngang",
+              "image_click": "play",
+              "name": "Hovedinngang",
+              "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+              "top_date": true,
+              "top_status": true,
+              "top_title": true,
+              "type": "custom:aarlo-glance"
+            },
+            {
+              "entity": "camera.aarlo_stue_1",
+              "image_click": "play",
+              "name": "Stue 1",
+              "show": "motion, sound, snapshot, battery_level, signal_strength, captured_today, image_date",
+              "top_date": true,
+              "top_status": true,
+              "top_title": true,
+              "type": "custom:aarlo-glance"
+            }
+          ]
         }
+      ],
+      "title": "Sikkerhet"
     }
+  }
 }

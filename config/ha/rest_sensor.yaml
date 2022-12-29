@@ -1,41 +1,41 @@
 # Jaguar Release REST API sensors
-- resource: https://www.jaguar.no/api/pages/754/components
-  headers:
-    # User-Agent must be sent, otherwise Jaguar server will flush the cache after 2 hours
-    User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0"
-  scan_interval: 21600 # 6 hours in seconds
-  sensor:
-    - name: Jaguar Software Release Version
-      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
-      value_template: >-
-        {% if value_json is defined and value_json[5] is defined %}
-          {{ value_json[4].fields[8].compiled | regex_findall('(?<=<span>)PROGRAMVAREVERSJON (.*?)(?=<\/span>)') | last }}
-        {% else %}
-          states('sensor.jaguar_software_release_version')
-        {% endif %}
-    - name: Jaguar Software Release Notes
-      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
-      value_template: >-
-        {% if value_json is defined and value_json[5] is defined %}
-          {{ value_json[4].fields[8].compiled | regex_findall('(?<=<a href=\\\")(.*?)(?=\")') | last }}
-        {% else %}
-          states('sensor.jaguar_software_release_notes')
-        {% endif %}
+#- resource: https://www.jaguar.no/api/pages/754/components
+#  headers:
+#    # User-Agent must be sent, otherwise Jaguar server will flush the cache after 2 hours
+#    User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0"
+#  scan_interval: 21600 # 6 hours in seconds
+#  sensor:
+#    - name: Jaguar Software Release Version
+#      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
+#      value_template: >-
+#        {% if value_json is defined and value_json[5] is defined %}
+#          {{ value_json[4].fields[8].compiled | regex_findall('(?<=<span>)PROGRAMVAREVERSJON (.*?)(?=<\/span>)') | last }}
+#        {% else %}
+#          states('sensor.jaguar_software_release_version')
+#        {% endif %}
+#    - name: Jaguar Software Release Notes
+#      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
+#      value_template: >-
+#        {% if value_json is defined and value_json[5] is defined %}
+#          {{ value_json[4].fields[8].compiled | regex_findall('(?<=<a href=\\\")(.*?)(?=\")') | last }}
+#        {% else %}
+#          states('sensor.jaguar_software_release_notes')
+#        {% endif %}
 
-- resource: https://www.jaguar.no/api/pages/756/components
-  headers:
-    # User-Agent must be sent, otherwise Jaguar server will flush the cache after 2 hours
-    User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0"
-  scan_interval: 21600 # 6 hours in seconds
-  sensor:
-    - name: Jaguar Wireless Software Release Version
-      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
-      value_template: >-
-        {% if value_json is defined and value_json[5] is defined %}
-          {{ value_json[5].field_groups['5'][0].value }}
-        {% else %}
-          states('sensor.jaguar_wireless_software_release_version')
-        {% endif %}
+#- resource: https://www.jaguar.no/api/pages/756/components
+#  headers:
+#    # User-Agent must be sent, otherwise Jaguar server will flush the cache after 2 hours
+#    User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0"
+#  scan_interval: 21600 # 6 hours in seconds
+#  sensor:
+#    - name: Jaguar Wireless Software Release Version
+#      # The REST endpoint can get unavailable, in that case just keep the old state instead of setting unavailable as state
+#      value_template: >-
+#        {% if value_json is defined and value_json[5] is defined %}
+#          {{ value_json[5].field_groups['5'][0].value }}
+#        {% else %}
+#          states('sensor.jaguar_wireless_software_release_version')
+#        {% endif %}
 
 # ASUS ZenWiFi XT8 Firmware sensors
 - resource: https://www.asus.com/support/api/product.asmx/GetPDBIOS?website=global&model=ASUS+ZenWiFi+AX+%EF%BC%88XT8%EF%BC%89

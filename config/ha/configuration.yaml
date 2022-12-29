@@ -9,9 +9,11 @@ homeassistant:
   time_zone: Europe/Oslo
   unit_system: metric
   currency: NOK
+  country: "NO"
   external_url: !secret home_assistant_external_url
   internal_url: !secret home_assistant_internal_url
   customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
   allowlist_external_dirs:
     - /camera-snapshots
   media_dirs:
@@ -21,13 +23,8 @@ alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include automations.yaml
 aarlo: !include aarlo.yaml
 binary_sensor: !include binary_sensor.yaml
-cover: !include groups_cover.yaml
 google_assistant: !include google-assistant.yaml
-google: !include google-calendar-clientId.yaml
-group: !include groups.yaml
 influxdb: !include influxdb.yaml
-light: !include groups_light.yaml
-nest: !include nest.yaml
 notify: !include notify.yaml
 recorder: !include recorder.yaml
 rest: !include rest_sensor.yaml
@@ -35,13 +32,17 @@ scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensor.yaml
 shell_command: !include shell_command.yaml
-spotify: !include spotify.yaml
 switch: !include switch.yaml
 template: !include template.yaml
 
 # Text to speech
 tts:
   - platform: google_translate
+  - platform: google_cloud
+    key_file: googlecloud.json
+    voice: nb-no-Wavenet-E
+    speed: 0.8
+    profiles: medium-bluetooth-speaker-class-device
 
 # HACS Arlo integration - Camera
 camera:

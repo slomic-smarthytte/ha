@@ -1,6 +1,6 @@
 blueprint:
-  name: Heat switch control
-  description: Turn the switch for heat on/off based on presence, time of the day and the electricity price.
+  name: Heat climate control
+  description: Turn the climate/thermostat for heat on/off based on presence, time of the day and the electricity price.
   domain: automation
   input:
     climate_entity:
@@ -9,13 +9,6 @@ blueprint:
       selector:
         entity:
           domain: climate
-    temp_sensor:
-      name: Temperature Sensor
-      description: Temperature Sensor for current temperature.
-      selector:
-        entity:
-          domain: sensor
-          device_class: temperature
     target_temp_daytime:
       name: Target temperature daytime
       description: The target temperature at daytime when present.
@@ -96,40 +89,43 @@ action:
           - condition: time
             after: input_datetime.daytime_start
             before: input_datetime.daytime_end
-          - condition: numeric_state
-            entity_id: !input temp_sensor
-            below: !input target_temp_daytime
           - condition: template
             value_template: "{{ is_price_level_equal_or_below_daytime }}"
         sequence:
-          - service: switch.turn_on
+          - service: climate.turn_on # This sets also the HVAC Mode to HEAT
             entity_id: !input climate_entity
-      # ELIF present (or arriving soon) - night
+          - service: climate.set_temperature
+            data_template:
+              temperature: "{{ states(target_temp_daytime) | float }}"
+            entity_id: !input climate_entity
+      # ELIF resent (or arriving soon) - night
       - conditions:
           - condition: template
             value_template: "{{ is_present_mode == true }}"
           - condition: time
             after: input_datetime.daytime_end
             before: input_datetime.daytime_start
-          - condition: numeric_state
-            entity_id: !input temp_sensor
-            below: !input target_temp_night
           - condition: template
             value_template: "{{ is_price_level_equal_or_below_night }}"
         sequence:
-          - service: switch.turn_on
+          - service: climate.turn_on # This sets also the HVAC Mode to HEAT
+            entity_id: !input climate_entity
+          - service: climate.set_temperature
+            data_template:
+              temperature: "{{ states(target_temp_night) | float }}"
             entity_id: !input climate_entity
       # ELIF away
       - conditions:
           - condition: template
             value_template: "{{ is_present_mode == false }}"
-          - condition: numeric_state
-            entity_id: !input temp_sensor
-            below: !input target_temp_away
           - condition: template
             value_template: "{{ is_price_level_equal_or_below_away }}"
         sequence:
-          - service: switch.turn_on
+          - service: climate.turn_on # This sets also the HVAC Mode to HEAT
+            entity_id: !input climate_entity
+          - service: climate.set_temperature
+            data_template:
+              temperature: "{{ states(target_temp_away) | float }}"
             entity_id: !input climate_entity
     # DEFAULT - turn off, either present or away the price is not acceptable
     default:

@@ -18,9 +18,17 @@
 # Auto discovery (when mac field is empty) does not work, you must first find
 # mac address Airthings Wave device by using Bluetooth Scanner mob app for Android
 # See https://community.home-assistant.io/t/air-quality-monitor-radon-meter-airthings-wave-plus/102836/13
-- platform: airthings_wave
-  mac: !secret airthings_wave_mac
-  scan_interval: 600 # in seconds (10 minutes)
+#- platform: airthings_wave
+#  # The airthings_wave mac address, if not provided will scan for all airthings devices at startup
+#  mac: !secret airthings_wave_mac
+#  # The interval between polls in seconds
+#  scan_interval: 600 # 10 minutes
+#  # The current elevation in meters. Used to correct the pressure sensor to sea level conditions.
+#  elevation: 600
+#  # The voltage for 100% battery, calculated linearly between voltage_0 and voltage_100
+#  voltage_100: 3.2
+#  # The voltage for 0% battery, calculated linearly between voltage_0 and voltage_100
+#  voltage_0: 2.2
 
 # Sensor for history statistics of wind speed
 - platform: statistics

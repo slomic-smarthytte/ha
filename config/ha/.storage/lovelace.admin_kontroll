@@ -1,335 +1,440 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.admin_kontroll",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.admin_kontroll",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "theme": "Backend-selected",
+          "title": "Booking",
+          "path": "booking",
+          "icon": "mdi:calendar-arrow-right",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entities",
+              "title": "Booking status",
+              "entities": [
                 {
-                    "title": "Varslinger",
-                    "path": "varslinger",
-                    "icon": "mdi:bell",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_number.battery_level_treshold"
-                                },
-                                {
-                                    "entity": "input_datetime.check_battery_levels_morning"
-                                },
-                                {
-                                    "entity": "input_datetime.check_battery_levels_evening"
-                                }
-                            ],
-                            "title": "Notify when battery level below",
-                            "type": "entities"
-                        }
-                    ]
+                  "entity": "input_boolean.checked_in"
                 },
                 {
-                    "title": "Snapshots",
-                    "path": "snapshots",
-                    "icon": "mdi:camera-plus",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_datetime.camera_snapshot_morning",
-                                    "name": "Morning"
-                                },
-                                {
-                                    "entity": "input_datetime.camera_snapshot_evening",
-                                    "name": "Evening"
-                                }
-                            ],
-                            "title": "Schedule daily snapshot",
-                            "type": "entities"
-                        }
-                    ]
+                  "entity": "sensor.booking_days_to_next_check_in"
                 },
                 {
-                    "title": "Arrival and Departure",
-                    "path": "arrival-departure",
-                    "icon": "mdi:calendar",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_datetime.check_next_arrival"
-                                        },
-                                        {
-                                            "entity": "input_number.prepare_routines_days_before_arrival"
-                                        },
-                                        {
-                                            "entity": "input_number.arrival_temperature_bad_1"
-                                        },
-                                        {
-                                            "entity": "input_number.arrival_temperature_bad_2"
-                                        },
-                                        {
-                                            "entity": "input_number.arrival_temperature_gang_1"
-                                        }
-                                    ],
-                                    "type": "entities",
-                                    "title": "Run routines before arrival"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_datetime.check_next_departure"
-                                        },
-                                        {
-                                            "entity": "input_number.departure_temperature_bad_1"
-                                        },
-                                        {
-                                            "entity": "input_number.departure_temperature_bad_2"
-                                        },
-                                        {
-                                            "entity": "input_number.departure_temperature_gang_1"
-                                        }
-                                    ],
-                                    "type": "entities",
-                                    "title": "Run routines at departure"
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "sensor.booking_days_to_next_check_out"
                 },
                 {
-                    "title": "Temperature",
-                    "path": "temperature",
-                    "icon": "mdi:home-thermometer-outline",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_number.soverom_2_temp_daytime"
-                                        },
-                                        {
-                                            "entity": "input_number.soverom_3_temp_daytime"
-                                        }
-                                    ],
-                                    "type": "entities",
-                                    "title": "Temperature daytime"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_number.soverom_2_temp_night"
-                                        },
-                                        {
-                                            "entity": "input_number.soverom_3_temp_night"
-                                        }
-                                    ],
-                                    "type": "entities",
-                                    "title": "Temperature night"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_number.bod_temp"
-                                        }
-                                    ],
-                                    "type": "entities",
-                                    "title": "Temperature bod"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "title": "HA Release",
-                    "path": "ha-release",
-                    "panel": false,
-                    "icon": "mdi:home-assistant",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entity",
-                            "entity": "sensor.ha_version"
-                        },
-                        {
-                            "type": "entity",
-                            "entity": "binary_sensor.ha_version_update_available",
-                            "state_color": true
-                        }
-                    ]
-                },
-                {
-                    "title": "Str\u00f8m bryter",
-                    "path": "strom-bryter",
-                    "icon": "mdi:power",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.smartmirror_monitor_gang_1"
-                                }
-                            ],
-                            "type": "entities",
-                            "title": "Smartspeil"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.fibaro_wall_plug_arlo_stue_1_switch",
-                                    "name": "Arlo - Stue 1",
-                                    "icon": "mdi:camera"
-                                },
-                                {
-                                    "entity": "switch.fibaro_wall_plug_asus_mesh_stue_1_switch",
-                                    "name": "Asus Mesh - Stue 1",
-                                    "icon": "mdi:router-network"
-                                }
-                            ],
-                            "type": "entities",
-                            "title": "Str\u00f8mbryter"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.restart_internet_router_automatically",
-                                    "icon": "mdi:restart"
-                                },
-                                {
-                                    "entity": "binary_sensor.internet_connection"
-                                },
-                                {
-                                    "entity": "automation.restart_internet_router_when_lost_connection"
-                                }
-                            ],
-                            "type": "entities",
-                            "title": "Automatikk"
-                        }
-                    ]
-                },
-                {
-                    "title": "Entities",
-                    "path": "entities",
-                    "icon": "mdi:devices",
-                    "type": "custom:grid-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'temperature') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Temperature entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "1. {{ states|map(attribute='domain')|unique|list|join('\\n1. ') }}\n",
-                            "title": "All domains"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "1. {{ states|selectattr('state', 'eq', 'unavailable')|map(attribute='entity_id')|list|join('\\n1. ') }}\n",
-                            "title": "Unavailable entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'illuminance') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Illuminance entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'battery') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Battery entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'humidity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Humidity entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'pressure') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Pressure entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_seismic_intensity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Seismic intensity entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_ultraviolet') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Ultraviolet entities"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "1. {{ states|selectattr('attributes.device_class')|map(attribute='attributes.device_class')|unique|list|sort|join('\\n1. ') }}",
-                            "title": "Unique device classes"
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'energy') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
-                            "title": "Energy entities"
-                        }
-                    ]
-                },
-                {
-                    "title": "Booking",
-                    "path": "booking",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "title": "Booking status",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.checked_in"
-                                },
-                                {
-                                    "entity": "sensor.booking_days_to_next_check_in"
-                                },
-                                {
-                                    "entity": "sensor.booking_days_to_next_check_out"
-                                },
-                                {
-                                    "entity": "sensor.booking_status"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "title": "Booking automatisering",
-                            "entities": [
-                                {
-                                    "entity": "automation.sla_pa_alle_lys_ved_ankomst",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.set_to_away_when_i_leave_home",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.juster_ned_temperatur_pa_avreisedato",
-                                    "secondary_info": "last-triggered"
-                                },
-                                {
-                                    "entity": "automation.gulvvarming_begge_bad_og_gang_sla_pa",
-                                    "secondary_info": "last-triggered"
-                                }
-                            ]
-                        }
-                    ]
+                  "entity": "sensor.booking_status"
                 }
-            ],
-            "title": "Admin kontroll"
+              ]
+            },
+            {
+              "type": "entities",
+              "title": "Booking automatisering",
+              "entities": [
+                {
+                  "entity": "automation.sla_pa_alle_lys_ved_ankomst",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.set_to_away_when_i_leave_home",
+                  "secondary_info": "last-triggered"
+                }
+              ]
+            },
+            {
+              "type": "calendar",
+              "entities": [
+                "calendar.booking"
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Varslinger",
+          "path": "varslinger",
+          "icon": "mdi:battery-charging-wireless-10",
+          "badges": [],
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entity": "input_number.battery_level_treshold"
+                },
+                {
+                  "entity": "input_datetime.check_battery_levels_morning"
+                },
+                {
+                  "entity": "input_datetime.check_battery_levels_evening"
+                }
+              ],
+              "title": "Notify when battery level below",
+              "type": "entities"
+            }
+          ]
+        },
+        {
+          "title": "Snapshots",
+          "path": "snapshots",
+          "icon": "mdi:camera-plus",
+          "badges": [],
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entity": "input_datetime.camera_snapshot_morning",
+                  "name": "Morning"
+                },
+                {
+                  "entity": "input_datetime.camera_snapshot_evening",
+                  "name": "Evening"
+                }
+              ],
+              "title": "Schedule daily snapshot",
+              "type": "entities"
+            }
+          ]
+        },
+        {
+          "title": "Temperature",
+          "path": "temperature",
+          "icon": "mdi:home-thermometer-outline",
+          "panel": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "entities": [
+                    {
+                      "entity": "input_number.soverom_2_temp_daytime"
+                    },
+                    {
+                      "entity": "input_number.soverom_3_temp_daytime"
+                    },
+                    {
+                      "entity": "input_number.bod_temp_daytime"
+                    },
+                    {
+                      "entity": "input_number.gang_1_temp_daytime"
+                    },
+                    {
+                      "entity": "input_number.bad_1_temp_daytime"
+                    },
+                    {
+                      "entity": "input_number.bad_2_temp_daytime"
+                    }
+                  ],
+                  "type": "entities",
+                  "title": "Temperature present - daytime"
+                },
+                {
+                  "entities": [
+                    {
+                      "entity": "input_number.soverom_2_temp_night"
+                    },
+                    {
+                      "entity": "input_number.soverom_3_temp_night"
+                    },
+                    {
+                      "entity": "input_number.bod_temp_night"
+                    },
+                    {
+                      "entity": "input_number.gang_1_temp_night"
+                    },
+                    {
+                      "entity": "input_number.bad_1_temp_night"
+                    },
+                    {
+                      "entity": "input_number.bad_2_temp_night"
+                    }
+                  ],
+                  "type": "entities",
+                  "title": "Temperature present - night"
+                },
+                {
+                  "entities": [
+                    {
+                      "entity": "input_number.soverom_2_temp_away"
+                    },
+                    {
+                      "entity": "input_number.soverom_3_temp_away"
+                    },
+                    {
+                      "entity": "input_number.bod_temp_away"
+                    },
+                    {
+                      "entity": "input_number.gang_1_temp_away"
+                    },
+                    {
+                      "entity": "input_number.bad_1_temp_away"
+                    },
+                    {
+                      "entity": "input_number.bad_2_temp_away"
+                    }
+                  ],
+                  "type": "entities",
+                  "title": "Temperature away"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HA Release",
+          "path": "ha-release",
+          "panel": false,
+          "icon": "mdi:home-assistant",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entity",
+              "entity": "sensor.ha_version"
+            },
+            {
+              "type": "entity",
+              "entity": "binary_sensor.ha_version_update_available",
+              "state_color": true
+            }
+          ]
+        },
+        {
+          "title": "Strøm bryter",
+          "path": "strom-bryter",
+          "icon": "mdi:power",
+          "badges": [],
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entity": "switch.smartmirror_monitor_gang_1"
+                }
+              ],
+              "type": "entities",
+              "title": "Smartspeil"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "switch.fibaro_wall_plug_arlo_stue_1_switch",
+                  "name": "Arlo - Stue 1",
+                  "icon": "mdi:camera",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "switch.fibaro_wall_plug_asus_mesh_stue_1_switch",
+                  "name": "Asus Mesh - Stue 1",
+                  "icon": "mdi:router-network",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "switch.fibaro_switch_tablet_gang_1",
+                  "secondary_info": "last-changed",
+                  "name": "Tablet - Gang 1",
+                  "icon": "mdi:tablet"
+                },
+                {
+                  "entity": "switch.fibaro_switch_tablet_stue_2",
+                  "name": "Tablet - Stue 2",
+                  "icon": "mdi:tablet",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "switch.fibaro_switch_varmekabel_gang_1",
+                  "name": "Varmekabel hytta",
+                  "icon": "mdi:water-pump",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "switch.strom_mirela_nattbord_soverom_3",
+                  "name": "Nattbord Mirela - Soverom 3",
+                  "secondary_info": "last-changed",
+                  "icon": "mdi:bed-king"
+                },
+                {
+                  "entity": "switch.strom_ismar_nattbord_soverom_3",
+                  "secondary_info": "last-changed",
+                  "name": "Nattbord Ismar - Soverom 3",
+                  "icon": "mdi:bed-king"
+                }
+              ],
+              "type": "entities",
+              "title": "Strømbrytere"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "input_boolean.restart_internet_router_automatically",
+                  "icon": "mdi:restart"
+                },
+                {
+                  "entity": "binary_sensor.internet_connection"
+                },
+                {
+                  "entity": "automation.restart_internet_router_when_lost_connection"
+                }
+              ],
+              "type": "entities",
+              "title": "Automatikk"
+            }
+          ]
+        },
+        {
+          "title": "Entities",
+          "path": "entities",
+          "icon": "mdi:devices",
+          "type": "custom:grid-layout",
+          "badges": [],
+          "cards": [
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'temperature') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Temperature entities"
+            },
+            {
+              "type": "markdown",
+              "content": "1. {{ states|map(attribute='domain')|unique|list|join('\\n1. ') }}\n",
+              "title": "All domains"
+            },
+            {
+              "type": "markdown",
+              "content": "1. {{ states|selectattr('state', 'eq', 'unavailable')|map(attribute='entity_id')|list|join('\\n1. ') }}\n",
+              "title": "Unavailable entities"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'illuminance') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Illuminance entities"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'battery') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Battery entities"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'humidity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Humidity entities"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'pressure') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Pressure entities"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_seismic_intensity') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Seismic intensity entities"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('entity_id', 'match', 'sensor.*_ultraviolet') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Ultraviolet entities"
+            },
+            {
+              "type": "markdown",
+              "content": "1. {{ states|selectattr('attributes.device_class')|map(attribute='attributes.device_class')|unique|list|sort|join('\\n1. ') }}",
+              "title": "Unique device classes"
+            },
+            {
+              "type": "markdown",
+              "content": "{% for state in states.sensor | selectattr('attributes.device_class', 'eq', 'energy') | list  %}\n1. {{ state.entity_id }} # {{ area_name(state.entity_id) }}, {{ state_attr(state.entity_id, 'unit_of_measurement') }}\n{%- endfor -%}",
+              "title": "Energy entities"
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Profiling",
+          "path": "profiling",
+          "icon": "mdi:spider",
+          "badges": [],
+          "cards": [
+            {
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:language-python",
+                  "icon_height": "49px",
+                  "name": "Start profiler for 60 sec",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "profiler.start",
+                    "data": {},
+                    "target": {}
+                  },
+                  "type": "button"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:memory",
+                  "icon_height": "49px",
+                  "name": "Start memory profiler for 60 sec",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "profiler.memory",
+                    "data": {},
+                    "target": {}
+                  },
+                  "type": "button"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:format-list-group",
+                  "icon_height": "49px",
+                  "name": "Start log thread frames",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "profiler.log_thread_frames",
+                    "data": {},
+                    "target": {}
+                  },
+                  "type": "button"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "hold_action": {
+                    "action": "more-info"
+                  },
+                  "icon": "mdi:calendar-clock",
+                  "icon_height": "49px",
+                  "name": "Start log event loop scheduled",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "profiler.log_event_loop_scheduled",
+                    "data": {},
+                    "target": {}
+                  },
+                  "type": "button"
+                }
+              ],
+              "type": "vertical-stack"
+            },
+            {
+              "type": "markdown",
+              "content": "# Profiler\n> The Profiler integration provides a profile which is a set of statistics that identifies how much time each part of Home Assistant is taking. It can help track down a performance issue or provide insight about a misbehaving integration.\n\n- [Profiler](https://www.home-assistant.io/integrations/profiler/#service-profilerstart)\n- [Memory profiler](https://www.home-assistant.io/integrations/profiler/#service-profilermemory)\n- [Log thread frames](https://www.home-assistant.io/integrations/profiler/#service-profilerlog_thread_frames)\n- [Log event loop schedules](https://www.home-assistant.io/integrations/profiler/#service-profilerlog_event_loop_scheduled)"
+            }
+          ]
         }
+      ],
+      "title": "Admin kontroll"
     }
+  }
 }

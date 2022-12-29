@@ -1,26 +1,27 @@
 {
-    "version": 1,
-    "key": "lovelace.lovelace_skisporet",
-    "data": {
-        "config": {
-            "title": "Skisporet",
-            "views": [
-                {
-                    "title": "Skisporet",
-                    "path": "skisporet",
-                    "icon": "mdi:ski-cross-country",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://skisporet.no/setView/60.8702309/8.5730171/11/norges_grunnkart",
-                            "aspect_ratio": "50%",
-                            "title": "Hemsedal"
-                        }
-                    ]
-                }
-            ]
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_skisporet",
+  "data": {
+    "config": {
+      "title": "Skisporet",
+      "views": [
+        {
+          "title": "Skisporet",
+          "path": "skisporet",
+          "icon": "mdi:ski-cross-country",
+          "panel": true,
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "https://beta.skisporet.no/map/destination/184",
+              "aspect_ratio": "50%",
+              "title": "Hemsedal"
+            }
+          ]
         }
+      ]
     }
+  }
 }

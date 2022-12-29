@@ -1,5 +1,5 @@
-# Slack notification / integration
-- platform: slack
-  name: slack
-  api_key: !secret slack_api_key
-  default_channel: '#ha'
+# Google Assistant Broadcast - REST Api
+- platform: rest
+  name: ga_broadcast
+  resource: http://localhost:8085/broadcast
+  method: POST_JSON

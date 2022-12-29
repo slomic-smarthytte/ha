@@ -79,6 +79,13 @@ blueprint:
       selector:
         text:
 
+    broadcast_on_speaker_before_closing:
+      name: Broadcast on closing
+      description: Broadcast a message on all speakers before closing the screen
+      default: false
+      selector:
+        boolean:
+
 mode: single
 
 variables:
@@ -89,6 +96,7 @@ variables:
   luminance_entity: !input luminance_entity
   luminance_close_threshold: !input luminance_close_threshold
   sun_elevation_threshold: !input sun_elevation_threshold
+  broadcast_on_speaker_before_closing: !input broadcast_on_speaker_before_closing
 
   is_door_window_closed: '{{ (door_window_entity == none) or (is_state(door_window_entity, "off")) }}'
   is_cover_closed: '{{ is_state(cover_entity, "closed") }}'
@@ -115,9 +123,21 @@ action:
         - condition: template
           value_template: "{{ not is_cover_closed and is_door_window_closed and not is_wind_above_threshold and is_luminance_above_threshold }}"
         sequence:
+          - choose:
+              - alias: 'If enabled, broadcast to speakers and wait 30 sec'
+                conditions: "{{ broadcast_on_speaker_before_closing }}"
+                sequence:
+                  - service: notify.ga_broadcast
+                    data:
+                      message: 'Solskjerming i {{ state_attr(cover_entity, "friendly_name") }} går ned om 30 sekunder.'
+                  - delay:
+                      hours: 0
+                      minutes: 0
+                      seconds: 30
+                      milliseconds: 0
           - service: cover.close_cover
             entity_id: !input cover_entity
-          - service: notify.slack
+          - service: notify.slomic_smarthytte
             data:
               message: 'Closing cover {{ state_attr(cover_entity, "friendly_name") }}'
               target: !input notify_slack_channel
@@ -140,7 +160,7 @@ action:
         sequence:
           - service: cover.open_cover
             entity_id: !input cover_entity
-          - service: notify.slack
+          - service: notify.slomic_smarthytte
             data:
               message: 'Opening cover {{ state_attr(cover_entity, "friendly_name") }}'
               target: !input notify_slack_channel

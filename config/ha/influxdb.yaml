@@ -8,80 +8,126 @@
   max_retries: 3
   tags:
     source: home-assistant
+  # Remember to update customize_glob.yaml when adding new entities to make sure custom attributes are added to entities
+  tags_attributes:
+    - energy_consumption_group
+    - area
+  ignore_attributes:
+    - icon
+    - model
+    - visibility_unit
+    - meter_type
+    - meter_type_name
+    - attribution
+    - brand
+    - app_nickname
+    - hvac_modes
+    - supported_features
+    - hysteresis
+    - lower
+    - position
+    - sensor_value
+    - type
+    - upper
   include:
     entities:
       # Bad 1
-      - sensor.aeotec_multisensor_bad_1_temperature
       - climate.heatit_thermostat_bad_1_mode
+      - sensor.heatit_thermostat_bad_1_electric_consumption_kwh
+      - sensor.aeotec_multisensor_bad_1_temperature
       - sensor.aeotec_multisensor_bad_1_battery_level
       - sensor.aeotec_multisensor_bad_1_luminance
       - sensor.aeotec_multisensor_bad_1_relative_humidity
+      - sensor.fibaro_dimmer_bad_1_electric_consumption_kwh
+      - sensor.fibaro_switch_bad_1_electric_consumption_kwh
+      - binary_sensor.bad_1_showering
+      - sensor.beko_vaskemaskin_bad_1_sub_state
       # Bad 2
-      - sensor.aeotec_multisensor_bad_2_temperature
       - climate.heatit_thermostat_bad_2_mode
+      - sensor.heatit_thermostat_bad_2_electric_consumption_kwh
+      - sensor.aeotec_multisensor_bad_2_temperature
       - sensor.aeotec_multisensor_bad_2_battery_level
       - sensor.aeotec_multisensor_bad_2_luminance
       - sensor.aeotec_multisensor_bad_2_relative_humidity
+      - sensor.fibaro_switch_bad_2_electric_consumption_kwh
+      - sensor.fibaro_dimmer_bad_2_electric_consumption_kwh
+      - binary_sensor.bad_2_showering
       # Bod 1
       - sensor.fibaro_door_sensor_bod_1_temperature
-      - sensor.fibaro_wall_plug_bod_1_energy
-      - sensor.fibaro_wall_plug_bod_1_power
-      - switch.fibaro_wall_plug_bod_1_switch
       - sensor.fibaro_door_sensor_bod_1_battery_level
-      - sensor.id_lock_bod_1_battery_level
+      - sensor.easyaccess_boddor_battery_level
+      - sensor.fibaro_wall_plug_bod_1_electric_consumption_kwh
+      - sensor.fibaro_switch_bod_1_electric_consumption_kwh
       # Gang 1
       - climate.heatit_thermostat_gang_1_mode
-      - sensor.sensative_window_sensor_gang_1_battery_level
+      - sensor.heatit_thermostat_gang_1_electric_consumption_kwh
       - sensor.fibaro_multisensor_gang_1_temperature
       - sensor.fibaro_multisensor_gang_1_battery_level
       - sensor.fibaro_multisensor_gang_1_luminance
       - sensor.fibaro_multisensor_gang_1_seismic_intensity
-      - sensor.aarlo_battery_level_hovedinngang
+      - sensor.aarlo_hovedinngang_battery_level
+      - sensor.fibaro_smart_implant_gang_1_temperature
+      - sensor.fibaro_dimmer_gang_1_electric_consumption_kwh
+      - sensor.fibaro_switch_tablet_gang_1_electric_consumption_kwh
+      - sensor.fibaro_switch_varmekabel_gang_1_electric_consumption_kwh
       # Gang 2
       - sensor.fibaro_multisensor_gang_2_temperature
       - sensor.fibaro_multisensor_gang_2_battery_level
       - sensor.fibaro_multisensor_gang_2_luminance
       - sensor.fibaro_multisensor_gang_2_seismic_intensity
       - sensor.sensative_window_sensor_gang_2_battery_level
+      - sensor.fibaro_dimmer_gang_2_electric_consumption_kwh
+      # Trapp
+      - sensor.fibaro_dimmer_trapp_1_electric_consumption_kwh
       # Soverom 1
-      - sensor.sensative_window_sensor_soverom_1_battery_level
       - sensor.fibaro_multisensor_soverom_1_temperature
       - sensor.fibaro_multisensor_soverom_1_battery_level
       - sensor.fibaro_multisensor_soverom_1_luminance
       - sensor.fibaro_multisensor_soverom_1_seismic_intensity
       - sensor.sensative_window_sensor_soverom_1_battery_level
+      - sensor.fibaro_dimmer_soverom_1_electric_consumption_kwh
       # Soverom 2
+      - climate.mill_panelovn_soverom_2_mode
+      - sensor.mill_panelovn_soverom_2_electric_consumption_kwh
       - sensor.fibaro_multisensor_soverom_2_temperature
-      - sensor.fibaro_wall_plug_soverom_2_energy
-      - sensor.fibaro_wall_plug_soverom_2_power
-      - switch.fibaro_wall_plug_soverom_2_switch
       - sensor.fibaro_multisensor_soverom_2_battery_level
       - sensor.fibaro_multisensor_soverom_2_luminance
       - sensor.fibaro_multisensor_soverom_2_seismic_intensity
+      - sensor.fibaro_dimmer_soverom_2_electric_consumption_kwh
       - sensor.sensative_window_sensor_soverom_2_battery_level
       # Soverom 3
+      - climate.mill_panelovn_soverom_3_mode
+      - sensor.mill_panelovn_soverom_3_electric_consumption_kwh
       - sensor.fibaro_multisensor_soverom_3_temperature
-      - sensor.fibaro_wall_plug_soverom_3_energy
-      - sensor.fibaro_wall_plug_soverom_3_power
-      - switch.fibaro_wall_plug_soverom_3_switch
       - sensor.fibaro_multisensor_soverom_3_battery_level
       - sensor.fibaro_multisensor_soverom_3_luminance
       - sensor.fibaro_multisensor_soverom_3_seismic_intensity
       - sensor.sensative_window_sensor_soverom_3_battery_level
+      - sensor.fibaro_roller_shutter_soverom_3_electric_consumption_kwh
+      - sensor.fibaro_dimmer_soverom_3_electric_consumption_kwh
       # Kjøkken
       - sensor.fibaro_multisensor_kjokken_1_temperature
       - sensor.fibaro_multisensor_kjokken_1_battery_level
       - sensor.fibaro_multisensor_kjokken_1_luminance
       - sensor.fibaro_multisensor_kjokken_1_seismic_intensity
-      - sensor.sensative_window_sensor_stue_1_battery_level
-      - sensor.aarlo_battery_level_stue_1
+      - sensor.fibaro_dimmer_kjokken_1_electric_consumption_kwh
+      - sensor.fibaro_roller_shutter_kjokken_1_electric_consumption_kwh
+      # Kjøkkenbenk
+      - sensor.fibaro_dimmer_kjokkenbenk_1_electric_consumption_kwh
+      # Spisebord
+      - sensor.fibaro_dimmer_spisebord_1_electric_consumption_kwh
       # Stue 1
       - sensor.fibaro_multisensor_stue_1_temperature
       - sensor.fibaro_multisensor_stue_1_battery_level
       - sensor.fibaro_multisensor_stue_1_luminance
       - sensor.fibaro_multisensor_stue_1_seismic_intensity
       - sensor.namron_button_switch_stue_1_battery_level
-      - sensor.philips_hue_stue_1_dimmer_switch_battery_level
+      - sensor.aarlo_stue_1_battery_level
+      - sensor.sensative_door_sensor_stue_1_battery_level
+      - sensor.fibaro_dimmer_stue_1_electric_consumption_kwh
+      - sensor.fibaro_roller_shutter_stue_1_electric_consumption_kwh
+      - sensor.fibaro_wall_plug_arlo_stue_1_electric_consumption_kwh
+      - sensor.fibaro_wall_plug_asus_mesh_stue_1_electric_consumption_kwh
       # Stue 2
       - sensor.fibaro_multisensor_stue_2_temperature
       - sensor.fibaro_multisensor_stue_2_battery_level
@@ -92,18 +138,22 @@
       - sensor.airthings_wave_plus_stue_2_co2
       - sensor.airthings_wave_plus_stue_2_humidity
       - sensor.airthings_wave_plus_stue_2_radon_1day_avg
-      - sensor.airthings_wave_plus_stue_2_radon_longterm_avg
       - sensor.airthings_wave_plus_stue_2_temperature
       - sensor.airthings_wave_plus_stue_2_voc
       - sensor.airthings_wave_plus_stue_2_battery_level
       - sensor.airthings_wave_plus_stue_2_luminance
+      - sensor.philips_hue_dimmer_switch_stue_2_battery_level
+      - sensor.fibaro_roller_shutter_stue_2_electric_consumption_kwh
+      - sensor.fibaro_dimmer_stue_2_electric_consumption_kwh
+      - sensor.eve_energy_strip_608f_stue_2_electric_consumption_kwh
+      - sensor.fibaro_wall_plug_asus_router_stue_2_electric_consumption_kwh
+      - sensor.fibaro_switch_tablet_stue_2_electric_consumption_kwh
       # Balkong
-      - sensor.aarlo_battery_level_balkong
-      - sensor.aarlo_battery_level_balkong_2
+      - sensor.aarlo_balkong_battery_level
+      - sensor.aarlo_balkong_2_battery_level
       # Hovedinngang
-      - sensor.id_lock_hovedinngang_battery_level
-      # Weather - Met.no integration
-      - weather.met_balkong_hourly
+      - sensor.easyaccess_hovedinngang_battery_level
+      - sensor.sensative_door_sensor_hovedinngang_battery_level
       # Zweather - Værstasjon
       - sensor.zweather_balkong_temperature
       - sensor.zweather_balkong_velocity
@@ -111,15 +161,20 @@
       - sensor.zweather_balkong_humidity
       - sensor.zweather_balkong_barometric_pressure
       - sensor.zweather_balkong_luminance
-      # Slomic Jaguar
-      - sensor.slomic_jag_odometer
-      - sensor.slomic_jag_tyres_front_left_pressure
-      - sensor.slomic_jag_tyres_front_right_pressure
-      - sensor.slomic_jag_tyres_rear_left_pressure
-      - sensor.slomic_jag_tyres_rear_right_pressure
       # Parkering
+      - sensor.slomic_jaguar_parkering_odometer
+      - sensor.slomic_jaguar_parkering_tyres_front_left_pressure
+      - sensor.slomic_jaguar_parkering_tyres_front_right_pressure
+      - sensor.slomic_jaguar_parkering_tyres_rear_left_pressure
+      - sensor.slomic_jaguar_parkering_tyres_rear_right_pressure
       - sensor.philips_hue_motion_sensor_parkering_temperature
       - sensor.philips_hue_motion_sensor_parkering_battery_level
       - sensor.philips_hue_motion_sensor_parkering_luminance
+      - sensor.easee_home_charger_parkering_electric_consumption_kwh # usikker på hvilken av disse to vi trenger
+      - sensor.easee_home_charger_parkering_lifetime_electric_consumption_kwh # usikker på hvilken av disse to vi trenger
       # Booking
       - input_boolean.checked_in
+      # Tibber electricity
+      - sensor.electricity_price_slomic_smarthytte
+      - sensor.accumulated_consumption_slomic_smarthytte
+      - sensor.accumulated_cost_slomic_smarthytte

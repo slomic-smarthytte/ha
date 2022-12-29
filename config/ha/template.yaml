@@ -125,44 +125,48 @@
       friendly_name: "Sun azimuth"
 
     # Sensor for Slomic Jaguar integration
-  - unique_id: slomic_jag_odometer
-    state: "{{ state_attr('sensor.slomic_jag_info', 'Odometer') | int(0) }}"
+  - unique_id: slomic_jaguar_parkering_odometer
+    state: "{{ state_attr('sensor.slomic_jaguar_parkering_info', 'Odometer') | int(0) }}"
     icon: mdi:counter
     unit_of_measurement: "km"
     attributes:
       friendly_name: "Odometer"
 
-  - unique_id: slomic_jag_tyres_front_left_pressure
-    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Front Left Pressure (bar)') | float(0) }}"
+  - unique_id: slomic_jaguar_parkering_tyres_front_left_pressure
+    state: "{{ state_attr('sensor.slomic_jaguar_parkering_tyres', 'Front Left Pressure (bar)') | float(0) }}"
     icon: mdi:car-tire-alert
     unit_of_measurement: "bar"
+    device_class: "pressure"
     attributes:
       friendly_name: "Front Left Pressure"
 
-  - unique_id: slomic_jag_tyres_front_right_pressure
-    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Front Right Pressure (bar)') | float(0) }}"
+  - unique_id: slomic_jaguar_parkering_tyres_front_right_pressure
+    state: "{{ state_attr('sensor.slomic_jaguar_parkering_tyres', 'Front Right Pressure (bar)') | float(0) }}"
     icon: mdi:car-tire-alert
     unit_of_measurement: "bar"
+    device_class: "pressure"
     attributes:
       friendly_name: "Front Right Pressure"
 
-  - unique_id: slomic_jag_tyres_rear_left_pressure
-    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Rear Left Pressure (bar)') | float(0) }}"
+  - unique_id: slomic_jaguar_parkering_tyres_rear_left_pressure
+    state: "{{ state_attr('sensor.slomic_jaguar_parkering_tyres', 'Rear Left Pressure (bar)') | float(0) }}"
     icon: mdi:car-tire-alert
     unit_of_measurement: "bar"
+    device_class: "pressure"
     attributes:
       friendly_name: "Rear Left Pressure"
 
-  - unique_id: slomic_jag_tyres_rear_right_pressure
-    state: "{{ state_attr('sensor.slomic_jag_tyres', 'Rear Right Pressure (bar)') | float(0) }}"
+  - unique_id: slomic_jaguar_parkering_tyres_rear_right_pressure
+    state: "{{ state_attr('sensor.slomic_jaguar_parkering_tyres', 'Rear Right Pressure (bar)') | float(0) }}"
     icon: mdi:car-tire-alert
     unit_of_measurement: "bar"
+    device_class: "pressure"
     attributes:
       friendly_name: "Rear Right Pressure"
 
-  - unique_id: slomic_jag_software_tcu_hw_version
+  - unique_id: slomic_jaguar_parkering_software_tcu_hw_version
     state: >-
-      {% set coreStatus = state_attr('sensor.slomic_jag_all_info', 'core status') %}
+      {% set coreStatus = state_attr('sensor.slomic_jaguar_parkering_all_info', 'core status') %}
 
       {% if coreStatus == None or coreStatus == 'unknown' %}
         unknown
@@ -173,9 +177,9 @@
     attributes:
       friendly_name: "TCU HW Version"
 
-  - unique_id: slomic_jag_software_tcu_sw_version_main
+  - unique_id: slomic_jaguar_parkering_software_tcu_sw_version_main
     state: >-
-      {% set coreStatus = state_attr('sensor.slomic_jag_all_info', 'core status') %}
+      {% set coreStatus = state_attr('sensor.slomic_jaguar_parkering_all_info', 'core status') %}
 
       {% if coreStatus == None or coreStatus == 'unknown' %}
         unknown
@@ -186,9 +190,9 @@
     attributes:
       friendly_name: "TCU SW Version Main"
 
-  - unique_id: slomic_jag_software_latest_complete_config_update
+  - unique_id: slomic_jaguar_parkering_software_latest_complete_config_update
     state: >-
-      {% set coreStatus = state_attr('sensor.slomic_jag_all_info', 'core status') %}
+      {% set coreStatus = state_attr('sensor.slomic_jaguar_parkering_all_info', 'core status') %}
 
       {% if coreStatus == None or coreStatus == 'unknown' %}
       unknown
@@ -233,15 +237,3 @@
       {% elif priceLevel == 'VERY_EXPENSIVE' %}
         5
       {% endif %}
-- binary_sensor:
-  # Binary sensors if someone is showering in bad 1 and bad 2
-  - unique_id: bad_1_is_showering
-    state: "{{ states('sensor.aeotec_multisensor_bad_1_relative_humidity') | int(0) >= 60 }}"
-    attributes:
-      friendly_name: "Showering at Bad 1"
-    icon: mdi:shower-head
-  - unique_id: bad_2_is_showering
-    state: "{{ states('sensor.aeotec_multisensor_bad_2_relative_humidity') | int(0) >= 60 }}"
-    attributes:
-      friendly_name: "Showering at Bad 2"
-    icon: mdi:shower-head

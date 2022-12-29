@@ -1,106 +1,125 @@
 {
-    "version": 1,
-    "key": "lovelace_dashboards",
-    "data": {
-        "items": [
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:lightbulb-on",
-                "title": "Lys",
-                "url_path": "lovelace-lys",
-                "mode": "storage",
-                "id": "lovelace_lys"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:window-shutter",
-                "title": "Solskjerming",
-                "url_path": "lovelace-solskjerming",
-                "mode": "storage",
-                "id": "lovelace_solskjerming"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:shield-home",
-                "title": "Sikkerhet",
-                "url_path": "lovelace-sikkerhet",
-                "mode": "storage",
-                "id": "lovelace_sikkerhet"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:radiator",
-                "title": "Varme",
-                "url_path": "lovelace-varme",
-                "mode": "storage",
-                "id": "lovelace_varme"
-            },
-            {
-                "require_admin": true,
-                "show_in_sidebar": true,
-                "icon": "mdi:tune",
-                "title": "Admin kontroll",
-                "url_path": "admin-kontroll",
-                "mode": "storage",
-                "id": "admin_kontroll"
-            },
-            {
-                "require_admin": true,
-                "show_in_sidebar": true,
-                "icon": "mdi:speaker",
-                "title": "H\u00f8yttalere",
-                "url_path": "lovelace-hoyttalere",
-                "mode": "storage",
-                "id": "lovelace_hoyttalere"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "title": "Hva skjer i Hemsedal",
-                "url_path": "hva-skjer-i-hemsedal",
-                "mode": "storage",
-                "id": "hva_skjer_i_hemsedal",
-                "icon": "mdi:calendar"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:ski-cross-country",
-                "title": "Skisporet",
-                "url_path": "lovelace-skisporet",
-                "mode": "storage",
-                "id": "lovelace_skisporet"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "title": "Core controls",
-                "url_path": "core-controls",
-                "mode": "storage",
-                "id": "core_controls"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:mirror",
-                "title": "Smart speil",
-                "url_path": "smart-speil",
-                "mode": "storage",
-                "id": "smart_speil"
-            },
-            {
-                "require_admin": false,
-                "show_in_sidebar": true,
-                "icon": "mdi:car-electric",
-                "title": "Jaguar",
-                "url_path": "lovelace-jaguar",
-                "mode": "storage",
-                "id": "lovelace_jaguar"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_dashboards",
+  "data": {
+    "items": [
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:lightbulb-on",
+        "title": "Lys",
+        "url_path": "lovelace-lys",
+        "mode": "storage",
+        "id": "lovelace_lys"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:window-shutter",
+        "title": "Solskjerming",
+        "url_path": "lovelace-solskjerming",
+        "mode": "storage",
+        "id": "lovelace_solskjerming"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:shield-home",
+        "title": "Sikkerhet",
+        "url_path": "lovelace-sikkerhet",
+        "mode": "storage",
+        "id": "lovelace_sikkerhet"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:radiator",
+        "title": "Varme",
+        "url_path": "lovelace-varme",
+        "mode": "storage",
+        "id": "lovelace_varme"
+      },
+      {
+        "require_admin": true,
+        "show_in_sidebar": true,
+        "icon": "mdi:tune",
+        "title": "Admin kontroll",
+        "url_path": "admin-kontroll",
+        "mode": "storage",
+        "id": "admin_kontroll"
+      },
+      {
+        "require_admin": true,
+        "show_in_sidebar": true,
+        "icon": "mdi:speaker",
+        "title": "Høyttalere",
+        "url_path": "lovelace-hoyttalere",
+        "mode": "storage",
+        "id": "lovelace_hoyttalere"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "title": "Hva skjer i Hemsedal",
+        "url_path": "hva-skjer-i-hemsedal",
+        "mode": "storage",
+        "id": "hva_skjer_i_hemsedal",
+        "icon": "mdi:calendar"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:ski-cross-country",
+        "title": "Skisporet",
+        "url_path": "lovelace-skisporet",
+        "mode": "storage",
+        "id": "lovelace_skisporet"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "title": "Core controls",
+        "url_path": "core-controls",
+        "mode": "storage",
+        "id": "core_controls"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:mirror",
+        "title": "Smart speil",
+        "url_path": "smart-speil",
+        "mode": "storage",
+        "id": "smart_speil"
+      },
+      {
+        "require_admin": false,
+        "show_in_sidebar": true,
+        "icon": "mdi:car-electric",
+        "title": "Jaguar",
+        "url_path": "lovelace-jaguar",
+        "mode": "storage",
+        "id": "lovelace_jaguar"
+      },
+      {
+        "show_in_sidebar": true,
+        "icon": "mdi:tablet",
+        "title": "Tablet",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "lovelace-tablet",
+        "id": "lovelace_tablet"
+      },
+      {
+        "show_in_sidebar": true,
+        "icon": "mdi:washing-machine",
+        "title": "Vaskemaskin",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-vaskemaskin",
+        "id": "dashboard_vaskemaskin"
+      }
+    ]
+  }
 }
