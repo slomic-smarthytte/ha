@@ -907,11 +907,6 @@
                   "type": "custom:mini-graph-card"
                 },
                 {
-                  "type": "custom:sun-card",
-                  "showAzimuth": true,
-                  "showElevation": true
-                },
-                {
                   "color_thresholds": [
                     {
                       "color": "#00ff00",
@@ -1409,50 +1404,45 @@
               "type": "sensor"
             },
             {
-              "decimals": 2,
+              "type": "entities",
               "entities": [
                 {
                   "entity": "sensor.accumulated_consumption_slomic_smarthytte",
                   "name": "Forbruk i dag",
-                  "state_adaptive_color": false
-                }
-              ],
-              "show": {
-                "fill": false,
-                "graph": false
-              },
-              "icon": "mdi:flash",
-              "type": "custom:mini-graph-card",
-              "view_layout": {
-                "position": "sidebar"
-              }
-            },
-            {
-              "decimals": 0,
-              "entities": [
+                  "secondary_info": "last-changed"
+                },
                 {
                   "entity": "sensor.accumulated_cost_slomic_smarthytte",
                   "name": "Kostnad i dag",
-                  "state_adaptive_color": false
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.average_power_slomic_smarthytte",
+                  "name": "Gj.snitt forbruk i dag",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.max_power_slomic_smarthytte",
+                  "name": "Høyest forbruk i dag",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.min_power_slomic_smarthytte",
+                  "name": "Lavest forbruk i dag",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.monthly_net_consumption_slomic_smarthytte",
+                  "name": "Forbruk denne måned",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.monthly_cost_slomic_smarthytte",
+                  "name": "Kostnad denne måned",
+                  "secondary_info": "last-changed"
                 }
               ],
-              "show": {
-                "fill": false,
-                "graph": false
-              },
-              "type": "custom:mini-graph-card",
-              "view_layout": {
-                "position": "sidebar"
-              }
-            },
-            {
-              "hours_to_show": 24,
-              "graph": "none",
-              "detail": 2,
-              "entity": "sensor.average_power_slomic_smarthytte",
-              "icon": "mdi:flash",
-              "name": "Dagens gjennomsnitt",
-              "type": "sensor",
+              "title": "Forbruk og kostnad",
               "view_layout": {
                 "position": "sidebar"
               }
@@ -1508,30 +1498,6 @@
               },
               "icon": "mdi:flash",
               "type": "custom:mini-graph-card"
-            },
-            {
-              "hours_to_show": 24,
-              "graph": "none",
-              "detail": 2,
-              "entity": "sensor.max_power_slomic_smarthytte",
-              "icon": "mdi:flash",
-              "name": "Høyest forbruk i dag",
-              "type": "sensor",
-              "view_layout": {
-                "position": "sidebar"
-              }
-            },
-            {
-              "hours_to_show": 24,
-              "graph": "none",
-              "detail": 2,
-              "entity": "sensor.min_power_slomic_smarthytte",
-              "icon": "mdi:flash",
-              "name": "Lavest forbruk i dag",
-              "type": "sensor",
-              "view_layout": {
-                "position": "sidebar"
-              }
             }
           ]
         },
@@ -1691,7 +1657,7 @@
                   }
                 ]
               },
-              "secondary_info": "last_updated",
+              "secondary_info": "{last_changed}",
               "sort_by_level": "asc",
               "tap_action": {
                 "action": "more-info"

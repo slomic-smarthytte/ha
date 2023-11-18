@@ -41,6 +41,11 @@
                 {
                   "entity": "automation.set_to_away_when_i_leave_home",
                   "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "input_number.prepare_routines_days_before_arrival",
+                  "icon": "mdi:calendar",
+                  "secondary_info": "last-changed"
                 }
               ]
             },

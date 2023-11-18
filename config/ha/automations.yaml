@@ -3,33 +3,30 @@
   description: Slå på alle lys i Trapp / Gang 1 / Gang 2 ved bevegelse på dagtid
   trigger:
   - entity_id: binary_sensor.fibaro_multisensor_gang_2_motion_detected
-    from: 'off'
     platform: state
+    from: 'off'
     to: 'on'
   - entity_id: binary_sensor.fibaro_multisensor_gang_1_motion_detected
     platform: state
     to: 'on'
     from: 'off'
   condition:
-  - above: '-1'
-    below: '10'
-    condition: numeric_state
-    entity_id: sensor.fibaro_multisensor_gang_2_luminance
-  - condition: or
-    conditions:
-    - above: '-1'
-      below: '10'
-      condition: numeric_state
-      entity_id: sensor.fibaro_multisensor_gang_1_luminance
-  - condition: time
-    before: input_datetime.daytime_end
-    after: input_datetime.daytime_start
+  - condition: state
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.daytime
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.daylight_indoor
+    state: 'off'
   action:
   - parallel:
     - data:
         brightness_pct: 50
-      entity_id: light.fibaro_dimmer_trapp_1_level
       service: light.turn_on
+      target:
+        entity_id: light.fibaro_dimmer_trapp_1_level
     - data:
         brightness_pct: 50
       service: light.turn_on
@@ -56,31 +53,43 @@
     from: 'on'
     platform: state
     to: 'off'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    state: 'on'
   action:
   - parallel:
-    - entity_id: light.fibaro_dimmer_trapp_1_level
-      service: light.turn_off
-    - entity_id: light.fibaro_dimmer_gang_1_level
-      service: light.turn_off
-    - entity_id: light.fibaro_dimmer_gang_2_level
-      service: light.turn_off
+    - service: light.turn_off
+      target:
+        entity_id: light.fibaro_dimmer_trapp_1_level
+      data: {}
+    - service: light.turn_off
+      target:
+        entity_id: light.fibaro_dimmer_gang_1_level
+      data: {}
+    - service: light.turn_off
+      target:
+        entity_id: light.fibaro_dimmer_gang_2_level
+      data: {}
   mode: single
   max_exceeded: silent
 - id: '1577908294007'
   alias: Bod 1 - slå av lys
   description: Slå av lys i Bod 1 etter 5 minutter når døren er lukket
   trigger:
-  - entity_id: binary_sensor.fibaro_door_sensor_bod_1_door_open
+  - entity_id:
+    - binary_sensor.fibaro_door_sensor_bod_1_door_open
     for:
       hours: 0
-      minutes: 2
+      minutes: 1
       seconds: 0
-      milliseconds: 0
     from: 'on'
     platform: state
     to: 'off'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: switch.fibaro_switch_bod_1_switch
+    state: 'on'
   action:
   - entity_id: switch.fibaro_switch_bod_1_switch
     service: switch.turn_off
@@ -93,7 +102,10 @@
     platform: state
     to: 'on'
     from: 'off'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: switch.fibaro_switch_bod_1_switch
+    state: 'off'
   action:
   - entity_id: switch.fibaro_switch_bod_1_switch
     service: switch.turn_on
@@ -371,7 +383,8 @@
   - service: automation.turn_off
     target:
       entity_id: automation.notify_when_motion_detected
-    data: {}
+    data:
+      stop_actions: true
   - service: switch.turn_on
     target:
       entity_id: switch.flood_stop_gang_1
@@ -379,7 +392,8 @@
   - service: automation.turn_off
     target:
       entity_id: automation.set_to_away_when_i_leave_home
-    data: {}
+    data:
+      stop_actions: true
   - type: turn_on
     device_id: c595c65ee63459cf122f605943a0e985
     entity_id: light.hue_lightstrip_outdoor_1
@@ -389,63 +403,79 @@
     device_id: 2c6a0900ac34d6225da4cee99e610ba7
     entity_id: light.stolpe_ute
     domain: light
+    enabled: true
   - type: turn_on
     device_id: 966b44a3f50b396e899332cd07091b8d
     entity_id: light.tak_ute
     domain: light
-  - service: switch.turn_on
-    target:
-      entity_id: switch.philips_hue_outdoor_motion_sensor_switch_parkering
-    data: {}
+    enabled: true
+  - type: turn_on
+    device_id: e436837ed019e8996c20954fc5746d3c
+    entity_id: e3c42dd62ed8a351d42703b8cf74cd1c
+    domain: switch
+  - type: turn_on
+    device_id: e436837ed019e8996c20954fc5746d3c
+    entity_id: b07acc675a34bdc587399a784df3fed1
+    domain: switch
   - type: turn_on
     device_id: 17f834b84191cdc2b36cdf63e00f8f18
     entity_id: light.juletre_stue_2
     domain: light
+    enabled: false
   - type: turn_on
     device_id: 2ab09eda7ce54b38a26c7c5101cc4419
     entity_id: light.philips_hue_lightstrip_sofa_stue_1
     domain: light
     brightness_pct: 50
     flash: long
+    enabled: true
   - type: turn_on
     device_id: 6f1ae281dc7445d38b9a2c20bee6911b
     entity_id: light.philips_hue_lightstrip_sofa_stue_2
     domain: light
+    enabled: true
   - type: turn_on
     device_id: 7d18052f9a17739ef7ae3838a290f082
     entity_id: light.fibaro_dimmer_gang_1_level
     domain: light
     brightness_pct: 100
+    enabled: true
   - type: turn_on
     device_id: c40464ff561a5c7587e849b53d40a1da
     entity_id: light.fibaro_dimmer_trapp_1_level
     domain: light
     brightness_pct: 100
+    enabled: true
   - type: turn_on
     device_id: cf3d864eef49a7d014fbb0bd1d3ef7b1
     entity_id: light.fibaro_dimmer_kjokkenbenk_1_level
     domain: light
     brightness_pct: 100
+    enabled: true
   - type: turn_on
     device_id: 2e1dad971261a75edb850e45481ff187
     entity_id: light.fibaro_dimmer_stue_1_level
     domain: light
     brightness_pct: 100
+    enabled: true
   - type: turn_on
     device_id: b6d56745c07baeacb0c7a9ce76babdb7
     entity_id: light.fibaro_dimmer_spisebord_1_level
     domain: light
     brightness_pct: 100
+    enabled: true
   - type: turn_on
     device_id: 81d38c570a19d0bce7a223dd6f9691e1
     entity_id: light.fibaro_dimmer_soverom_2_level
     domain: light
     brightness_pct: 100
+    enabled: false
   - type: turn_on
     device_id: 389a772a8ba5f4c99acaecec0782ca0b
     entity_id: light.philips_hue_lightstrip_soverom_3
     domain: light
     brightness_pct: 50
+    enabled: true
   - service: media_player.volume_set
     data:
       volume_level: 0.15
@@ -480,12 +510,26 @@
     device_id: 8e2d1f38342868ea9c1cecc3b08995f1
     entity_id: switch.strom_ismar_nattbord_soverom_3
     domain: switch
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id:
+      - switch.smartmirror_monitor_gang_1
+      - switch.smartmirror_mm_gang_1
   - service: notify.mobile_app_ismars_iphone
     data:
       title: Ankomst trigget av '{{trigger.id}}'
       message: Du har ankommet hytta. Lys, vann, lader og varme er skrudd på.
       data:
         subtitle: Velkommen til hytta!
+  - service: automation.turn_on
+    data: {}
+    target:
+      entity_id: automation.set_smartmirror_brightness_to_day_time
+  - service: automation.turn_on
+    data: {}
+    target:
+      entity_id: automation.set_smartmirror_brightness_to_night_time
   mode: single
 - id: '1601328648862'
   alias: Tag NFC kort 1 is scanned
@@ -605,7 +649,7 @@
     input:
       motion_entity: binary_sensor.aeotec_multisensor_bad_1_sensor
       is_showering_entity: binary_sensor.bad_1_showering
-      no_motion_wait: 5
+      no_motion_wait: 2
       light_target:
         entity_id:
         - light.fibaro_dimmer_bad_1_level
@@ -620,7 +664,7 @@
     input:
       motion_entity: binary_sensor.aeotec_multisensor_bad_2_sensor
       is_showering_entity: binary_sensor.bad_2_showering
-      no_motion_wait: 5
+      no_motion_wait: 2
       light_target:
         entity_id:
         - light.fibaro_dimmer_bad_2_level
@@ -671,8 +715,8 @@
       target_temp_daytime: input_number.bod_temp_daytime
       target_temp_night: input_number.bod_temp_night
       target_temp_away: input_number.bod_temp_away
-      condition_price_level_daytime: 3
-      condition_price_level_night: 3
+      condition_price_level_daytime: 4
+      condition_price_level_night: 4
       condition_price_level_away: 3
 - id: '1614335432882'
   alias: Screen control with Namron buttons - Kjøkken 1
@@ -966,10 +1010,14 @@
       - 78d3354d0997432f834b201df1c1755f
       entity_id:
       - light.stue_2_philips_hue_lights
-      - light.juletre_stue_2
       - light.stolpe_ute
       - light.tak_ute
     data: {}
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.juletre_stue_2
+    enabled: false
   mode: single
 - id: '1631485205413'
   alias: Avreise fra hytta
@@ -989,7 +1037,8 @@
       entity_id: alarm_control_panel.aarlo_slomic_smarthytte
       mode: armed
   - service: automation.trigger
-    data: {}
+    data:
+      skip_condition: true
     target:
       entity_id: automation.turn_all_lights_off
   - service: switch.turn_off
@@ -1004,10 +1053,14 @@
     device_id: c595c65ee63459cf122f605943a0e985
     entity_id: light.hue_lightstrip_outdoor_1
     domain: light
-  - service: switch.turn_off
-    target:
-      entity_id: switch.philips_hue_outdoor_motion_sensor_switch_parkering
-    data: {}
+  - type: turn_off
+    device_id: e436837ed019e8996c20954fc5746d3c
+    entity_id: e3c42dd62ed8a351d42703b8cf74cd1c
+    domain: switch
+  - type: turn_off
+    device_id: e436837ed019e8996c20954fc5746d3c
+    entity_id: b07acc675a34bdc587399a784df3fed1
+    domain: switch
   - type: turn_off
     device_id: 6973f6493a70dad34fcb4e5011b67ca5
     entity_id: switch.easee_home_charger_parkering_is_enabled
@@ -1020,12 +1073,28 @@
     device_id: 36484056726a405618ca3bce5c5758bb
     entity_id: switch.strom_mirela_nattbord_soverom_3
     domain: switch
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id:
+      - switch.smartmirror_monitor_gang_1
+      - switch.smartmirror_mm_gang_1
   - service: notify.mobile_app_ismars_iphone
     data:
       title: Avreise trigget
       message: Du har forlatt hytta. Lys, vann, lader og varme er skrudd av.
       data:
         subtitle: God tur hjem!
+  - service: automation.turn_off
+    data:
+      stop_actions: true
+    target:
+      entity_id: automation.set_smartmirror_brightness_to_day_time
+  - service: automation.turn_off
+    data:
+      stop_actions: true
+    target:
+      entity_id: automation.set_smartmirror_brightness_to_night_time
   mode: single
 - id: '1634468960094'
   alias: 'Action: toggle avreise hytta automation'
@@ -1093,9 +1162,11 @@
   alias: Julelys utendørs - lys på når mørkt
   description: ''
   trigger:
-  - platform: template
-    value_template: '{{ states(''sensor.philips_hue_motion_sensor_parkering_luminance'')|int(100)
-      < 20 }}'
+  - platform: state
+    entity_id:
+    - binary_sensor.daylight_outdoor
+    to: 'off'
+    from: 'on'
   condition:
   - condition: state
     entity_id: input_boolean.checked_in
@@ -1157,19 +1228,15 @@
     to: 'on'
     from: 'off'
   condition:
-  - above: '-1'
-    below: '10'
-    condition: numeric_state
-    entity_id: sensor.fibaro_multisensor_gang_2_luminance
-  - condition: or
-    conditions:
-    - above: '-1'
-      below: '10'
-      condition: numeric_state
-      entity_id: sensor.fibaro_multisensor_gang_1_luminance
-  - condition: time
-    before: input_datetime.daytime_start
-    after: input_datetime.daytime_end
+  - condition: state
+    entity_id: light.fibaro_dimmer_trapp_1_level
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.daytime
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.daylight_indoor
+    state: 'off'
   action:
   - data:
       brightness_pct: 25
@@ -1222,9 +1289,15 @@
       - light.philips_hue_play_stue_2_2
       - light.philips_hue_go_stue_2
       - light.philips_hue_lightstrip_sofa_stue_2
-      - light.juletre_stue_2
-      device_id: 389a772a8ba5f4c99acaecec0782ca0b
+      device_id:
+      - 389a772a8ba5f4c99acaecec0782ca0b
+      - 7469553e3c2128b8e5c28c96edaa293e
     data: {}
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.juletre_stue_2
+    enabled: true
   - service: media_player.turn_off
     target:
       entity_id: media_player.samsung_the_frame_55
@@ -1247,7 +1320,7 @@
   description: Disarm every morning cameras if night mode
   trigger:
   - platform: time
-    at: 06:00
+    at: 08:00:00
   condition:
   - condition: state
     entity_id: alarm_control_panel.aarlo_slomic_smarthytte
@@ -1281,15 +1354,16 @@
   mode: single
 - id: '1643660240258'
   alias: Restart internet router when lost connection
-  description: Restarts internet router when lost connection for 10 minutes
+  description: Restarts internet router when lost connection for 20 minutes
   trigger:
   - platform: state
-    entity_id: binary_sensor.internet_connection
+    entity_id:
+    - binary_sensor.internet_connection
     from: 'on'
     to: 'off'
     for:
       hours: 0
-      minutes: 10
+      minutes: 20
       seconds: 0
   condition:
   - condition: state
@@ -1404,7 +1478,9 @@
       target_temp_daytime: input_number.soverom_2_temp_daytime
       target_temp_night: input_number.soverom_2_temp_night
       target_temp_away: input_number.soverom_2_temp_away
-      condition_price_level_daytime: 4
+      condition_price_level_daytime: 5
+      condition_price_level_night: 5
+      condition_price_level_away: 5
 - id: '1670368517878'
   alias: Soverom 3 - varmestyring
   description: 'Automatisert varmestyring basert på tilstedeværelse, tidspunkt på
@@ -1417,6 +1493,8 @@
       target_temp_night: input_number.soverom_3_temp_night
       target_temp_away: input_number.soverom_3_temp_away
       condition_price_level_daytime: 4
+      condition_price_level_night: 5
+      condition_price_level_away: 5
 - id: '1670373761916'
   alias: Bad 1 - varmestyring
   description: 'Automatisert varmestyring basert på tilstedeværelse, tidspunkt på
@@ -1428,8 +1506,9 @@
       target_temp_daytime: input_number.bad_1_temp_daytime
       target_temp_night: input_number.bad_1_temp_night
       target_temp_away: input_number.bad_1_temp_away
-      condition_price_level_daytime: 4
+      condition_price_level_daytime: 5
       condition_price_level_night: 4
+      condition_price_level_away: 5
 - id: '1670374337150'
   alias: Bad 2 - varmestyring
   description: 'Automatisert varmestyring basert på tilstedeværelse, tidspunkt på
@@ -1441,8 +1520,9 @@
       target_temp_daytime: input_number.bad_2_temp_daytime
       target_temp_night: input_number.bad_2_temp_night
       target_temp_away: input_number.bad_2_temp_away
-      condition_price_level_daytime: 4
-      condition_price_level_night: 4
+      condition_price_level_daytime: 5
+      condition_price_level_night: 5
+      condition_price_level_away: 5
 - id: '1670374718422'
   alias: Gang 1 - varmestyring
   description: 'Automatisert varmestyring basert på tilstedeværelse, tidspunkt på
@@ -1454,8 +1534,9 @@
       target_temp_daytime: input_number.gang_1_temp_daytime
       target_temp_night: input_number.gang_1_temp_night
       target_temp_away: input_number.gang_1_temp_away
-      condition_price_level_daytime: 4
+      condition_price_level_daytime: 5
       condition_price_level_night: 4
+      condition_price_level_away: 5
 - id: '1671309846450'
   alias: Lys Stue 2 - Hue Tap Dial
   description: ''
@@ -1537,3 +1618,125 @@
         data: {}
         target:
           entity_id: light.juletre_stue_2
+        enabled: false
+- id: '1674107421999'
+  alias: Jaguar Preconditioning
+  description: Start preconditioning Jag based on calendar events
+  trigger:
+  - platform: calendar
+    event: start
+    offset: -0:1:0
+    entity_id: calendar.ha_smarthytte_calendar
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.template_slomic_jaguar_parkering_precondition_operating_status
+      state: 'on'
+  action:
+  - service: jlrincontrol.start_preconditioning
+    data:
+      entity_id: sensor.slomic_jaguar_parkering_info
+      target_temp: 21
+  - service: notify.mobile_app_ismars_iphone
+    data:
+      title: Started heating Jag
+      message: Jag is heating now
+  mode: single
+- id: '1682724008816'
+  alias: Set Smartmirror brightness to day time
+  description: When sun rises set brightness for Smartmirror monitor to day time
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+  condition:
+  - condition: state
+    entity_id: switch.smartmirror_monitor_gang_1
+    state: 'on'
+  action:
+  - service: shell_command.smartmirror_monitor_brightness_day
+    data: {}
+  mode: single
+- id: '1682724098509'
+  alias: Set Smartmirror brightness to night time
+  description: When sun sets set brightness for Smartmirror monitor to night time
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition:
+  - condition: state
+    entity_id: switch.smartmirror_monitor_gang_1
+    state: 'on'
+  action:
+  - service: shell_command.smartmirror_monitor_brightness_night
+    data: {}
+  mode: single
+- id: '1684910112460'
+  alias: Notify when high temperature in seconds floor
+  description: Notification when rising temperature in second floor in order to detect
+    when screens are not correctly closed
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.fibaro_multisensor_soverom_3_temperature
+    above: 32
+  - platform: numeric_state
+    entity_id: sensor.fibaro_multisensor_stue_2_temperature
+    above: 32
+  condition: []
+  action:
+  - data:
+      data:
+        blocks_template:
+        - fields:
+          - text: Temperature above `28C` in second floor
+            type: mrkdwn
+          type: section
+      message: Temperature above 28C in second floor
+      target: '#temperature'
+    service: notify.slomic_smarthytte
+  - service: notify.mobile_app_ismars_iphone
+    data:
+      message: Temperature above 28C in second floor
+  mode: single
+- id: '1700241237167'
+  alias: Parkering - lys på når mørkt og bevegelse
+  description: Slå på lysstripen når det er mørkt og bevegelse
+  trigger:
+  - type: motion
+    platform: device
+    device_id: e436837ed019e8996c20954fc5746d3c
+    entity_id: ccb8680ea3b4af0fd1f216c109ccc8fe
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: binary_sensor.daylight_outdoor
+    state: 'off'
+  action:
+  - type: turn_on
+    device_id: c595c65ee63459cf122f605943a0e985
+    entity_id: 76f188bfab600455c0970d8bfdae4d44
+    domain: light
+    brightness_pct: 80
+  mode: single
+- id: '1700241351864'
+  alias: Parkering - slå av lys når ingen bevegelse
+  description: Slå av lysstripen når det ikke har vært bevegelse i 5 minutt
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: e436837ed019e8996c20954fc5746d3c
+    entity_id: ccb8680ea3b4af0fd1f216c109ccc8fe
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  condition: []
+  action:
+  - type: turn_off
+    device_id: c595c65ee63459cf122f605943a0e985
+    entity_id: 76f188bfab600455c0970d8bfdae4d44
+    domain: light
+  mode: single

@@ -300,6 +300,23 @@
               }
             },
             {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "binary_sensor.template_slomic_jaguar_parkering_precondition_operating_status",
+                  "secondary_info": "last-updated"
+                },
+                {
+                  "entity": "sensor.template_slomic_jaguar_parkering_precondition_remaining_runtime_minutes",
+                  "secondary_info": "last-updated"
+                }
+              ],
+              "state_color": true,
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
               "type": "button",
               "tap_action": {
                 "action": "call-service",

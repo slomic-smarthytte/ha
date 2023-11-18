@@ -408,6 +408,40 @@
                       "name": "Gang 2 - motion"
                     }
                   ]
+                },
+                {
+                  "type": "custom:fold-entity-row",
+                  "padding": 0,
+                  "group_config": {
+                    "toggle": false,
+                    "secondary_info": "last-changed"
+                  },
+                  "head": {
+                    "label": "Luminance sensors",
+                    "type": "section"
+                  },
+                  "items": [
+                    {
+                      "entity": "sensor.fibaro_multisensor_gang_1_luminance",
+                      "secondary_info": "last-changed",
+                      "name": "Gang 1"
+                    },
+                    {
+                      "entity": "sensor.fibaro_multisensor_gang_2_luminance",
+                      "secondary_info": "last-changed",
+                      "name": "Gang 2"
+                    },
+                    {
+                      "entity": "binary_sensor.daylight_indoor",
+                      "secondary_info": "last-changed",
+                      "name": "Daylight indoor"
+                    },
+                    {
+                      "entity": "sensor.philips_hue_motion_sensor_parkering_luminance",
+                      "secondary_info": "last-changed",
+                      "name": "Parkering"
+                    }
+                  ]
                 }
               ],
               "show_header_toggle": false,
@@ -541,6 +575,13 @@
                       "type": "custom:button-card"
                     },
                     {
+                      "entity": "light.philips_hue_lightstrip_hylle_stue_2",
+                      "name": "Hylle2",
+                      "template": "light_button",
+                      "icon": "mdi:bookshelf",
+                      "type": "custom:button-card"
+                    },
+                    {
                       "entity": "light.philips_hue_lightstrip_sofa_stue_2",
                       "name": "Sofa",
                       "template": "light_button",
@@ -597,18 +638,21 @@
                       "secondary_info": "last-triggered"
                     },
                     {
-                      "entity": "switch.philips_hue_outdoor_motion_sensor_switch_parkering",
+                      "entity": "switch.philips_hue_motion_sensor_parkering_motion",
+                      "secondary_info": "last-updated",
                       "name": "Enable motion sensor parkering"
                     },
                     {
-                      "entity": "sensor.philips_hue_motion_sensor_parkering_luminance"
+                      "entity": "switch.philips_hue_motion_sensor_parkering_illuminance",
+                      "secondary_info": "last-updated",
+                      "name": "Enable luminance sensor parkering"
                     },
                     {
-                      "entity": "automation.julelys_utendors_lys_pa_kveldstid",
+                      "entity": "automation.parkering_lys_pa_nar_morkt_og_bevegelse",
                       "secondary_info": "last-triggered"
                     },
                     {
-                      "entity": "automation.julelys_utendors_sla_av_lys_ved_leggetid",
+                      "entity": "automation.parkering_sla_av_lys_nar_ingen_bevegelse",
                       "secondary_info": "last-triggered"
                     }
                   ]
@@ -628,6 +672,19 @@
                     {
                       "entity": "binary_sensor.fibaro_door_sensor_bod_1_door_open",
                       "name": "Bod dør"
+                    },
+                    {
+                      "entity": "binary_sensor.philips_hue_motion_sensor_parkering_motion",
+                      "name": "Parkering bevegelse"
+                    },
+                    {
+                      "entity": "sensor.philips_hue_motion_sensor_parkering_luminance",
+                      "name": "Parkering luminance",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "binary_sensor.daylight_outdoor",
+                      "secondary_info": "last-updated"
                     }
                   ]
                 }
@@ -699,17 +756,63 @@
                   ]
                 },
                 {
-                  "entity": "light.juletre_stue_2"
-                },
-                {
                   "entity": "light.tak_ute"
                 },
                 {
                   "entity": "light.stolpe_ute"
+                },
+                {
+                  "type": "custom:fold-entity-row",
+                  "padding": 0,
+                  "group_config": {
+                    "toggle": false
+                  },
+                  "head": {
+                    "label": "Light Settings",
+                    "type": "section"
+                  },
+                  "items": [
+                    {
+                      "entity": "switch.philips_hue_motion_sensor_parkering_illuminance",
+                      "secondary_info": "last-updated",
+                      "name": "Enable luminance sensor parkering"
+                    },
+                    {
+                      "entity": "automation.julelys_utendors_lys_pa_kveldstid",
+                      "secondary_info": "last-triggered"
+                    },
+                    {
+                      "entity": "automation.julelys_utendors_sla_av_lys_ved_leggetid",
+                      "secondary_info": "last-triggered"
+                    }
+                  ]
+                },
+                {
+                  "type": "custom:fold-entity-row",
+                  "padding": 0,
+                  "group_config": {
+                    "toggle": false,
+                    "secondary_info": "last-changed"
+                  },
+                  "head": {
+                    "label": "Sensors",
+                    "type": "section"
+                  },
+                  "items": [
+                    {
+                      "entity": "sensor.philips_hue_motion_sensor_parkering_luminance",
+                      "name": "Parkering luminance",
+                      "secondary_info": "last-updated"
+                    },
+                    {
+                      "entity": "binary_sensor.daylight_outdoor",
+                      "secondary_info": "last-updated"
+                    }
+                  ]
                 }
               ],
               "show_header_toggle": false,
-              "title": "Juletre",
+              "title": "Julelys",
               "type": "entities",
               "state_color": true
             }

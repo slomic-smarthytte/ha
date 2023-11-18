@@ -9,726 +9,467 @@
           "title": "Screens",
           "path": "screens",
           "icon": "mdi:window-shutter",
-          "panel": true,
+          "type": "sidebar",
           "badges": [],
           "cards": [
             {
-              "cards": [
+              "features": [
                 {
-                  "entities": [
-                    {
-                      "entity": "cover.screens_1_etg",
-                      "name": "1. etg"
-                    },
-                    {
-                      "entity": "cover.screens_2_etg",
-                      "name": "2. etg"
-                    },
-                    {
-                      "entity": "automation.automatic_screens_kjokken",
-                      "name": "Automatisk kontroll Kjøkken",
-                      "secondary_info": "last-triggered"
-                    },
-                    {
-                      "entity": "automation.screen_control_based_on_luminance_sun_and_wind_soverom_3",
-                      "name": "Automatisk kontroll Soverom 3",
-                      "secondary_info": "last-triggered"
-                    },
-                    {
-                      "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_1",
-                      "name": "Automatisk kontroll Stue 1",
-                      "secondary_info": "last-triggered"
-                    },
-                    {
-                      "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_2",
-                      "name": "Automatisk kontroll Stue 2",
-                      "secondary_info": "last-triggered"
-                    }
-                  ],
-                  "title": "Åpne / Lukke",
-                  "type": "entities"
-                },
-                {
-                  "cards": [
-                    {
-                      "color_thresholds": [
-                        {
-                          "color": "#00ff00",
-                          "value": 1
-                        },
-                        {
-                          "color": "#ff9933",
-                          "value": 11
-                        },
-                        {
-                          "color": "#ff0000",
-                          "value": 20
-                        }
-                      ],
-                      "color_thresholds_transition": "hard",
-                      "decimals": 0,
-                      "icon": "mdi:weather-windy",
-                      "entities": [
-                        {
-                          "entity": "sensor.zweather_balkong_velocity",
-                          "name": "Vindhastighet",
-                          "state_adaptive_color": true
-                        }
-                      ],
-                      "font_size": 75,
-                      "show": {
-                        "fill": false,
-                        "graph": false
-                      },
-                      "type": "custom:mini-graph-card"
-                    },
-                    {
-                      "color_thresholds": [
-                        {
-                          "color": "#0000ff",
-                          "value": 1
-                        },
-                        {
-                          "color": "#00ff00",
-                          "value": 18
-                        },
-                        {
-                          "color": "#ff0000",
-                          "value": 25
-                        }
-                      ],
-                      "color_thresholds_transition": "hard",
-                      "decimals": 0,
-                      "entities": [
-                        {
-                          "entity": "sensor.zweather_balkong_temperature",
-                          "name": "Temperatur",
-                          "state_adaptive_color": true
-                        }
-                      ],
-                      "font_size": 75,
-                      "show": {
-                        "fill": false,
-                        "graph": false
-                      },
-                      "type": "custom:mini-graph-card"
-                    }
-                  ],
-                  "title": "Vær utendørs",
-                  "type": "horizontal-stack"
-                },
-                {
-                  "cards": [
-                    {
-                      "cards": [
-                        {
-                          "cards": [
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#00ff00",
-                                  "value": 200
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 600
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_kjokken_1_luminance",
-                                  "name": "Kjøkken 1",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            },
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#00ff00",
-                                  "value": 200
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 600
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_stue_1_luminance",
-                                  "name": "Stue 1",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            }
-                          ],
-                          "type": "horizontal-stack"
-                        },
-                        {
-                          "cards": [
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#0000ff",
-                                  "value": 1
-                                },
-                                {
-                                  "color": "#00ff00",
-                                  "value": 18
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 25
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_kjokken_1_temperature",
-                                  "name": "Kjøkken 1",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            },
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#0000ff",
-                                  "value": 1
-                                },
-                                {
-                                  "color": "#00ff00",
-                                  "value": 18
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 25
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_stue_1_temperature",
-                                  "name": "Stue 1",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            }
-                          ],
-                          "type": "horizontal-stack"
-                        },
-                        {
-                          "entities": [
-                            {
-                              "buttons_position": "right",
-                              "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
-                              "name": "Kjøkken 1",
-                              "title_position": "top"
-                            },
-                            {
-                              "buttons_position": "right",
-                              "entity": "cover.fibaro_roller_shutter_stue_1_level",
-                              "name": "Stue 1",
-                              "title_position": "top"
-                            }
-                          ],
-                          "title": "Screens 1.etg",
-                          "type": "custom:shutter-card"
-                        }
-                      ],
-                      "title": "1. etg",
-                      "type": "vertical-stack"
-                    },
-                    {
-                      "cards": [
-                        {
-                          "cards": [
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#00ff00",
-                                  "value": 200
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 600
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
-                                  "name": "Soverom 3",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            },
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#00ff00",
-                                  "value": 200
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 600
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_stue_2_luminance",
-                                  "name": "Stue 2",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            }
-                          ],
-                          "type": "horizontal-stack"
-                        },
-                        {
-                          "cards": [
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#0000ff",
-                                  "value": 1
-                                },
-                                {
-                                  "color": "#00ff00",
-                                  "value": 18
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 25
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
-                                  "name": "Soverom 3",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            },
-                            {
-                              "color_thresholds": [
-                                {
-                                  "color": "#0000ff",
-                                  "value": 1
-                                },
-                                {
-                                  "color": "#00ff00",
-                                  "value": 18
-                                },
-                                {
-                                  "color": "#ff0000",
-                                  "value": 25
-                                }
-                              ],
-                              "color_thresholds_transition": "hard",
-                              "decimals": 0,
-                              "entities": [
-                                {
-                                  "entity": "sensor.fibaro_multisensor_stue_2_temperature",
-                                  "name": "Stue 2",
-                                  "state_adaptive_color": true
-                                }
-                              ],
-                              "font_size": 75,
-                              "show": {
-                                "fill": false,
-                                "graph": false
-                              },
-                              "type": "custom:mini-graph-card"
-                            }
-                          ],
-                          "type": "horizontal-stack"
-                        },
-                        {
-                          "entities": [
-                            {
-                              "buttons_position": "right",
-                              "entity": "cover.fibaro_roller_shutter_soverom_3_level",
-                              "name": "Soverom 3",
-                              "title_position": "top"
-                            },
-                            {
-                              "buttons_position": "right",
-                              "entity": "cover.fibaro_roller_shutter_stue_2_level",
-                              "name": "Stue 2",
-                              "title_position": "top"
-                            }
-                          ],
-                          "title": "Screens 2.etg",
-                          "type": "custom:shutter-card"
-                        }
-                      ],
-                      "title": "2. etg",
-                      "type": "vertical-stack"
-                    }
-                  ],
-                  "title": "Innendørs",
-                  "type": "horizontal-stack"
-                },
-                {
-                  "type": "grid",
-                  "columns": 1,
-                  "cards": [
-                    {
-                      "type": "grid",
-                      "title": "Kjøkken",
-                      "columns": 1,
-                      "square": false,
-                      "cards": [
-                        {
-                          "type": "custom:mini-graph-card",
-                          "color_thresholds": [
-                            {
-                              "color": "#00ff00",
-                              "value": 200
-                            },
-                            {
-                              "color": "#ff0000",
-                              "value": 600
-                            }
-                          ],
-                          "color_thresholds_transition": "hard",
-                          "decimals": 0,
-                          "entities": [
-                            {
-                              "entity": "sensor.fibaro_multisensor_kjokken_1_luminance",
-                              "name": "Kjøkken 1",
-                              "state_adaptive_color": true
-                            }
-                          ],
-                          "font_size": 75,
-                          "show": {
-                            "fill": false,
-                            "graph": false
-                          }
-                        },
-                        {
-                          "type": "history-graph",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_kjokken_1_level"
-                            }
-                          ],
-                          "hours_to_show": 24,
-                          "refresh_interval": 0
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
-                              "secondary_info": "position",
-                              "icon": "hass:blinds-open"
-                            }
-                          ],
-                          "show_header_toggle": false,
-                          "state_color": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "grid",
-                      "title": "Stue 1",
-                      "columns": 1,
-                      "square": false,
-                      "cards": [
-                        {
-                          "type": "custom:mini-graph-card",
-                          "color_thresholds": [
-                            {
-                              "color": "#00ff00",
-                              "value": 200
-                            },
-                            {
-                              "color": "#ff0000",
-                              "value": 600
-                            }
-                          ],
-                          "color_thresholds_transition": "hard",
-                          "decimals": 0,
-                          "entities": [
-                            {
-                              "entity": "sensor.fibaro_multisensor_stue_1_luminance",
-                              "name": "Stue 1",
-                              "state_adaptive_color": true
-                            }
-                          ],
-                          "font_size": 75,
-                          "show": {
-                            "fill": false,
-                            "graph": false
-                          }
-                        },
-                        {
-                          "type": "history-graph",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_stue_1_level"
-                            }
-                          ],
-                          "hours_to_show": 24,
-                          "refresh_interval": 0
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_stue_1_level",
-                              "secondary_info": "position",
-                              "icon": "hass:blinds-open"
-                            }
-                          ],
-                          "show_header_toggle": false,
-                          "state_color": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "grid",
-                      "title": "Soverom 3",
-                      "columns": 1,
-                      "square": false,
-                      "cards": [
-                        {
-                          "type": "custom:mini-graph-card",
-                          "color_thresholds": [
-                            {
-                              "color": "#00ff00",
-                              "value": 200
-                            },
-                            {
-                              "color": "#ff0000",
-                              "value": 600
-                            }
-                          ],
-                          "color_thresholds_transition": "hard",
-                          "decimals": 0,
-                          "entities": [
-                            {
-                              "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
-                              "name": "Soverom 3",
-                              "state_adaptive_color": true
-                            }
-                          ],
-                          "font_size": 75,
-                          "show": {
-                            "fill": false,
-                            "graph": false
-                          }
-                        },
-                        {
-                          "type": "history-graph",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_soverom_3_level"
-                            }
-                          ],
-                          "hours_to_show": 24,
-                          "refresh_interval": 0
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_soverom_3_level",
-                              "secondary_info": "position",
-                              "icon": "hass:blinds-open"
-                            }
-                          ],
-                          "show_header_toggle": false,
-                          "state_color": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "grid",
-                      "title": "Stue 2",
-                      "columns": 1,
-                      "square": false,
-                      "cards": [
-                        {
-                          "type": "custom:mini-graph-card",
-                          "color_thresholds": [
-                            {
-                              "color": "#00ff00",
-                              "value": 200
-                            },
-                            {
-                              "color": "#ff0000",
-                              "value": 600
-                            }
-                          ],
-                          "color_thresholds_transition": "hard",
-                          "decimals": 0,
-                          "entities": [
-                            {
-                              "entity": "sensor.fibaro_multisensor_stue_2_luminance",
-                              "name": "Stue 2",
-                              "state_adaptive_color": true
-                            }
-                          ],
-                          "font_size": 75,
-                          "show": {
-                            "fill": false,
-                            "graph": false
-                          }
-                        },
-                        {
-                          "type": "history-graph",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_stue_2_level"
-                            }
-                          ],
-                          "hours_to_show": 24,
-                          "refresh_interval": 0
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "cover.fibaro_roller_shutter_stue_2_level",
-                              "secondary_info": "position",
-                              "icon": "hass:blinds-open"
-                            }
-                          ],
-                          "show_header_toggle": false,
-                          "state_color": true
-                        }
-                      ]
-                    }
-                  ],
-                  "square": false
+                  "type": "cover-open-close"
                 }
               ],
-              "type": "vertical-stack"
-            }
-          ]
-        },
-        {
-          "theme": "Backend-selected",
-          "title": "test",
-          "path": "test",
-          "type": "custom:horizontal-layout",
-          "badges": [],
-          "cards": [
-            {
-              "type": "grid",
-              "title": "Kjøkken",
-              "columns": 1,
-              "square": false,
-              "cards": [
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "cover.fibaro_roller_shutter_kjokken_1_level"
-                    }
-                  ],
-                  "hours_to_show": 24,
-                  "refresh_interval": 0
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
-                      "secondary_info": "position",
-                      "icon": "hass:blinds-open"
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "state_color": true
-                }
-              ]
+              "type": "tile",
+              "entity": "cover.screens_2_etg",
+              "show_entity_picture": false,
+              "name": "Screens 2. etg"
             },
             {
-              "type": "grid",
-              "title": "Stue",
-              "columns": 1,
-              "square": false,
-              "cards": [
+              "features": [
                 {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "cover.fibaro_roller_shutter_stue_2_level"
-                    }
-                  ],
-                  "hours_to_show": 24,
-                  "refresh_interval": 0
+                  "type": "cover-open-close"
+                }
+              ],
+              "type": "tile",
+              "entity": "cover.screens_1_etg",
+              "show_entity_picture": false,
+              "name": "Screens 1. etg"
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "cover.fibaro_roller_shutter_kjokken_1_level"
                 },
                 {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "cover.fibaro_roller_shutter_stue_2_level",
-                      "secondary_info": "position",
-                      "icon": "hass:blinds-open"
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "state_color": true
+                  "entity": "cover.fibaro_roller_shutter_stue_1_level"
+                },
+                {
+                  "entity": "cover.fibaro_roller_shutter_soverom_3_level"
+                },
+                {
+                  "entity": "cover.fibaro_roller_shutter_stue_2_level"
                 }
-              ]
+              ],
+              "hours_to_show": 24,
+              "refresh_interval": 0,
+              "title": "Historikk"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "type": "section",
+                  "label": "Vinduer og dører"
+                },
+                {
+                  "entity": "binary_sensor.sensative_door_sensor_stue_1_door_open",
+                  "name": "Balkong",
+                  "secondary_info": "last-updated",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if is_state(config.entity, 'off') %} \n      var(--green-color)\n    {% else %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open",
+                  "name": "Vindu soverom",
+                  "secondary_info": "last-updated",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if is_state(config.entity, 'off') %} \n      var(--green-color)\n    {% else %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "section",
+                  "label": "Vær"
+                },
+                {
+                  "entity": "weather.met_balkong_daily",
+                  "name": "Vær",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.zweather_balkong_velocity",
+                  "secondary_info": "last-updated",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 11 %} \n      var(--green-color)\n    {% elif states(config.entity) | int <= 20 %} \n      var(--orange-color)\n    {% elif states(config.entity) | int > 20 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "sensor.zweather_balkong_temperature",
+                  "secondary_info": "last-updated",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 18 %} \n      var(--blue-color)\n    {% elif states(config.entity) | int <= 25 %}\n      var(--green-color)\n    {% elif states(config.entity) | int > 25 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "section",
+                  "label": "Automatisering"
+                },
+                {
+                  "entity": "automation.automatic_screens_kjokken",
+                  "name": "Kjøkken",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.screen_control_based_on_luminance_sun_and_wind_soverom_3",
+                  "name": "Soverom 3",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_1",
+                  "name": "Stue 1",
+                  "secondary_info": "last-triggered"
+                },
+                {
+                  "entity": "automation.screen_control_based_on_luminance_sun_and_wind_stue_2",
+                  "name": "Stue 2",
+                  "secondary_info": "last-triggered"
+                }
+              ],
+              "show_header_toggle": false,
+              "state_color": true,
+              "title": "Omgivelser"
+            },
+            {
+              "type": "entities",
+              "title": "Stue 1",
+              "show_header_toggle": false,
+              "entities": [
+                {
+                  "entity": "cover.fibaro_roller_shutter_stue_1_level",
+                  "secondary_info": "position"
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_stue_1_luminance",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 600 %} \n      var(--green-color)\n    {% elif states(config.entity) | int > 600 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_stue_1_temperature",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 18 %} \n      var(--blue-color)\n    {% elif states(config.entity) | int <= 25 %}\n      var(--green-color)\n    {% elif states(config.entity) | int > 25 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "binary_sensor.sensative_door_sensor_stue_1_door_open",
+                  "name": "Balkong",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if is_state(config.entity, 'off') %} \n      var(--green-color)\n    {% else %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                }
+              ],
+              "footer": {
+                "type": "buttons",
+                "entities": [
+                  {
+                    "entity": "cover.fibaro_roller_shutter_stue_1_level",
+                    "name": "25%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_stue_1_level",
+                        "position": 75
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_stue_1_level",
+                    "name": "50%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_stue_1_level",
+                        "position": 50
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_stue_1_level",
+                    "name": "100%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_stue_1_level",
+                        "position": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "state_color": true,
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
+              "type": "entities",
+              "title": "Kjøkken",
+              "show_header_toggle": false,
+              "entities": [
+                {
+                  "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                  "secondary_info": "position"
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_kjokken_1_luminance",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 600 %} \n      var(--green-color)\n    {% elif states(config.entity) | int > 600 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_kjokken_1_temperature",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 18 %} \n      var(--blue-color)\n    {% elif states(config.entity) | int <= 25 %}\n      var(--green-color)\n    {% elif states(config.entity) | int > 25 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                }
+              ],
+              "footer": {
+                "type": "buttons",
+                "entities": [
+                  {
+                    "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                    "name": "25%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_kjokken_1_level",
+                        "position": 75
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                    "name": "50%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_kjokken_1_level",
+                        "position": 50
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_kjokken_1_level",
+                    "name": "100%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_kjokken_1_level",
+                        "position": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "state_color": true,
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
+              "type": "entities",
+              "title": "Soverom 3",
+              "show_header_toggle": false,
+              "entities": [
+                {
+                  "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                  "secondary_info": "position"
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_soverom_3_luminance",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 600 %} \n      var(--green-color)\n    {% elif states(config.entity) | int > 600 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_soverom_3_temperature",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 18 %} \n      var(--blue-color)\n    {% elif states(config.entity) | int <= 25 %}\n      var(--green-color)\n    {% elif states(config.entity) | int > 25 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "binary_sensor.sensative_window_sensor_soverom_3_window_open",
+                  "name": "Vindu",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if is_state(config.entity, 'off') %} \n      var(--green-color)\n    {% else %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                }
+              ],
+              "footer": {
+                "type": "buttons",
+                "entities": [
+                  {
+                    "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                    "name": "25%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_soverom_3_level",
+                        "position": 75
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                    "name": "50%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_soverom_3_level",
+                        "position": 50
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_soverom_3_level",
+                    "name": "100%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_soverom_3_level",
+                        "position": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "state_color": true,
+              "view_layout": {
+                "position": "sidebar"
+              }
+            },
+            {
+              "type": "entities",
+              "title": "Stue 2",
+              "show_header_toggle": false,
+              "entities": [
+                {
+                  "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                  "secondary_info": "position"
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_stue_2_luminance",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 600 %} \n      var(--green-color)\n    {% elif states(config.entity) | int > 600 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "entity": "sensor.fibaro_multisensor_stue_2_temperature",
+                  "card_mod": {
+                    "style": {
+                      "hui-generic-entity-row": {
+                        "$": ".text-content:not(.info) {\n  color:\n    {% if states(config.entity) | int <= 18 %} \n      var(--blue-color)\n    {% elif states(config.entity) | int <= 25 %}\n      var(--green-color)\n    {% elif states(config.entity) | int > 25 %}\n      var(--red-color)\n    {% endif %}\n    ;\n}\n"
+                      }
+                    }
+                  }
+                }
+              ],
+              "footer": {
+                "type": "buttons",
+                "entities": [
+                  {
+                    "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                    "name": "25%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_stue_2_level",
+                        "position": 75
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                    "name": "50%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_stue_2_level",
+                        "position": 50
+                      }
+                    }
+                  },
+                  {
+                    "entity": "cover.fibaro_roller_shutter_stue_2_level",
+                    "name": "100%",
+                    "tap_action": {
+                      "action": "call-service",
+                      "service": "cover.set_cover_position",
+                      "service_data": {
+                        "entity_id": "cover.fibaro_roller_shutter_stue_2_level",
+                        "position": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "state_color": true,
+              "view_layout": {
+                "position": "sidebar"
+              }
             }
           ]
         }

@@ -1,7 +1,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/intel-nuc-homeassistant:2022.12.8
+    image: homeassistant/home-assistant:2023.11.2
     #ports: # ports ignored when network mode is host
     #  - 8123:8123 # port for web interface and rest api
     volumes:
@@ -14,16 +14,22 @@ services:
     network_mode: "host"
     privileged: true
     depends_on:
-      - zwavejs2mqtt
+      - zwave-js-ui
+    labels:
+      - "diun.enable=true"
+      - "diun.watch_repo=true"
+      - "diun.include_tags=^(\\d+\\.\\d+\\.\\d+)$$"
+      - "diun.sort_tags=semver"
+      - "diun.max_tags=10"
 
-  zwavejs2mqtt:
-    container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:8.6.2
+  zwave-js-ui:
+    container_name: zwave-js-ui
+    image: zwavejs/zwave-js-ui:9.3.2
     #ports: # ports ignored when network mode is host
     #  - '8091:8091' # port for web interface
     #  - '4000:4000' # port for zwave-js websocket server used by HA, default set to 3000, but changed in web interface to 4000 since Grafana runs at 3000
     volumes:
-      - ./data/zwavejs2mqtt:/usr/src/app/store
+      - ./data/zwave-js-ui:/usr/src/app/store
     environment:
       - TZ=Europe/Oslo
     restart: unless-stopped
@@ -32,3 +38,9 @@ services:
       - "/dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_82946f4e7794eb11b5353a703d98b6d1-if00-port0:/dev/ttyACM0"
     tty: true
     stop_signal: SIGINT
+    labels:
+      - "diun.enable=true"
+      - "diun.watch_repo=true"
+      - "diun.include_tags=^(\\d+\\.\\d+\\.\\d+)$$"
+      - "diun.sort_tags=semver"
+      - "diun.max_tags=10"

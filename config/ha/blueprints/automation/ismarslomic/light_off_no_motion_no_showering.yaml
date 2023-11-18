@@ -62,19 +62,19 @@ trigger:
     to: "off"
 
 condition:
-  alias: "No motion detected for past X minutes and none is showering"
-  condition: and
-  conditions:
-    - condition: state
-      alias: "No motion detected for pas X minutes"
-      entity_id: !input motion_entity
-      state: "off"
-      for:
-        minutes: !input no_motion_wait
-    - condition: state
-      alias: "None is showering"
-      entity_id: !input is_showering_entity
-      state: "off"
+  - condition: and
+    alias: "No motion detected for past X minutes and none is showering"
+    conditions:
+      - condition: state
+        alias: "No motion detected for pas X minutes"
+        entity_id: !input motion_entity
+        state: "off"
+        for:
+          minutes: !input no_motion_wait
+      - condition: state
+        alias: "None is showering"
+        entity_id: !input is_showering_entity
+        state: "off"
 
 action:
   - choose:

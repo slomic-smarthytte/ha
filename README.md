@@ -1,7 +1,7 @@
 # Smarthytte - Home Assistant installation
 > This repo contains installation and configuration files for Home Assistant used at Slomic Smarthytte and 
 > is based on the official [docker-compose](https://www.home-assistant.io/installation/linux#docker-compose)
-> installation creating two containers: 1) `homeassistant` and 2) [`zwavejs2mqtt`](https://github.com/zwave-js/zwavejs2mqtt)
+> installation creating two containers: 1) `homeassistant` and 2) [`zwave-js-ui`](https://github.com/zwave-js/zwave-js-ui)
 > (more details at [HA Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/)).
 > 
 > Note! Since I'm running HA on Intel NUC, I have chosen to use the [intel-nuc-homeassistant](https://hub.docker.com/r/homeassistant/intel-nuc-homeassistant),

@@ -1,2 +1,4 @@
 smartmirror_rpi_reboot: !secret smartmirror_rpi_reboot
 smartmirror_rpi_shutdown: !secret smartmirror_rpi_shutdown
+smartmirror_monitor_brightness_night: !secret smartmirror_monitor_brightness_night
+smartmirror_monitor_brightness_day: !secret smartmirror_monitor_brightness_day

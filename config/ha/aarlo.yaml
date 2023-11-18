@@ -3,3 +3,4 @@
  refresh_devices_every: 2 # Used to force a device refresh every 2 hours
  refresh_modes_every: 120 # Used to force a mode refresh every 120 minutes
  stream_timeout: 120 # Tells the event stream to restart after 120 sec / 2 min of inactivity
+ backend: sse

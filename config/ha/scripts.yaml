@@ -57,7 +57,7 @@ restart_internet_router:
   - service: switch.turn_off
     data: {}
     target:
-      entity_id: switch.fibaro_wall_plug_asus_router_stue_2_switch
+      entity_id: switch.ikea_switch_asus_router_stue_2
   - delay:
       hours: 0
       minutes: 1
@@ -70,7 +70,7 @@ restart_internet_router:
   - service: switch.turn_on
     data: {}
     target:
-      entity_id: switch.fibaro_wall_plug_asus_router_stue_2_switch
+      entity_id: switch.ikea_switch_asus_router_stue_2
   mode: single
   icon: mdi:router-network
 tts_and_resume:

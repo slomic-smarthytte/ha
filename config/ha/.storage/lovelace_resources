@@ -17,12 +17,12 @@
       {
         "id": "db6c4c4ce80d4c4196c487009d5c7961",
         "type": "module",
-        "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682211"
+        "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682301"
       },
       {
         "id": "36e06d1aa02e4693ba68b4d74abdc6a2",
         "type": "module",
-        "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js?hacstag=269011342130"
+        "url": "/hacsfiles/hass-shutter-card/hass-shutter-card.js?hacstag=269011342140"
       },
       {
         "url": "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js",
@@ -30,17 +30,12 @@
         "id": "98f23316ccd5406ca0f12e21668c2d73"
       },
       {
-        "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
-        "type": "module",
-        "id": "78137f379c9040e79dbc7b30493898db"
-      },
-      {
         "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866244",
         "type": "module",
         "id": "312c8155ec4d439ca5108de267be648f"
       },
       {
-        "url": "/hacsfiles/decluttering-card/decluttering-card.js",
+        "url": "/hacsfiles/decluttering-card/decluttering-card.js?hacstag=188686483100",
         "type": "module",
         "id": "0ac9afb1367e4d17a00a28cf83068124"
       },
@@ -55,7 +50,7 @@
         "id": "c38738f7ca3d4f58b20ce6087baf398b"
       },
       {
-        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325342",
+        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325411",
         "type": "module",
         "id": "899d780c41e041f796a1be96cb6f569d"
       },
@@ -65,12 +60,12 @@
         "id": "13235d11a78e464ea039b8934c234881"
       },
       {
-        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841120",
+        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841121",
         "type": "module",
         "id": "5420633922bb4bca8c4cb4841cb8648c"
       },
       {
-        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524320",
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524324",
         "type": "module",
         "id": "1f95ad587d5e45dfba6f9d3bff778817"
       },

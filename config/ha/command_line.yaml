@@ -1,0 +1,23 @@
+- switch:
+    unique_id: smartmirror_monitor_gang_1
+    command_on: !secret smartmirror_monitor_on
+    command_off: !secret smartmirror_monitor_off
+    command_state: !secret smartmirror_monitor_status
+    value_template: '{{ value == "0" }}'
+    name: SmartMirror Monitor - Gang 1
+
+- switch:
+    unique_id: smartmirror_mm_gang_1
+    command_on: !secret smartmirror_pm2_mm_start
+    command_off: !secret smartmirror_pm2_mm_stop
+    command_state: !secret smartmirror_pm2_mm_status
+    value_template: '{{ value == "0" }}'
+    name: SmartMirror MagicMirror - Gang 1
+
+- sensor:
+    unique_id: smartmirror_rpi_temperature_gang_1
+    name: SmartMirror Rpi Temperature - Gang 1
+    command: !secret smartmirror_rpi_temperature
+    unit_of_measurement: "°C"
+    value_template: "{{ value }}"
+    scan_interval: 60 # 1 min

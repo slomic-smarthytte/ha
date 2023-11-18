@@ -58,6 +58,9 @@ trigger:
   to: "on"
 
 condition:
+  - condition: state
+    entity_id: !input switch_target
+    state: "off"
   - condition: time
     after: !input time_limit_after
     before: !input time_limit_before

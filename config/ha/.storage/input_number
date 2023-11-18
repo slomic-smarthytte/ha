@@ -211,6 +211,14 @@
         "icon": "mdi:pine-tree",
         "mode": "box",
         "step": 1.0
+      },
+      {
+        "min": 0.0,
+        "max": 4.0,
+        "name": "Prepare routines days before arrival",
+        "step": 1.0,
+        "mode": "slider",
+        "id": "prepare_routines_days_before_arrival"
       }
     ]
   }

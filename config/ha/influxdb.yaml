@@ -105,6 +105,7 @@
       - sensor.sensative_window_sensor_soverom_3_battery_level
       - sensor.fibaro_roller_shutter_soverom_3_electric_consumption_kwh
       - sensor.fibaro_dimmer_soverom_3_electric_consumption_kwh
+      - sensor.philips_hue_dimmer_switch_soverom_3_seng_battery_level
       # Kjøkken
       - sensor.fibaro_multisensor_kjokken_1_temperature
       - sensor.fibaro_multisensor_kjokken_1_battery_level
@@ -128,6 +129,7 @@
       - sensor.fibaro_roller_shutter_stue_1_electric_consumption_kwh
       - sensor.fibaro_wall_plug_arlo_stue_1_electric_consumption_kwh
       - sensor.fibaro_wall_plug_asus_mesh_stue_1_electric_consumption_kwh
+      - sensor.philips_hue_dimmer_switch_stue_1_sofa_battery_level
       # Stue 2
       - sensor.fibaro_multisensor_stue_2_temperature
       - sensor.fibaro_multisensor_stue_2_battery_level
@@ -142,11 +144,8 @@
       - sensor.airthings_wave_plus_stue_2_voc
       - sensor.airthings_wave_plus_stue_2_battery_level
       - sensor.airthings_wave_plus_stue_2_luminance
-      - sensor.philips_hue_dimmer_switch_stue_2_battery_level
       - sensor.fibaro_roller_shutter_stue_2_electric_consumption_kwh
       - sensor.fibaro_dimmer_stue_2_electric_consumption_kwh
-      - sensor.eve_energy_strip_608f_stue_2_electric_consumption_kwh
-      - sensor.fibaro_wall_plug_asus_router_stue_2_electric_consumption_kwh
       - sensor.fibaro_switch_tablet_stue_2_electric_consumption_kwh
       # Balkong
       - sensor.aarlo_balkong_battery_level

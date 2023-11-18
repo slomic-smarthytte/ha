@@ -32,14 +32,8 @@
 
 # Sensor for history statistics of wind speed
 - platform: statistics
+  unique_id: wind_speed_last_5_measurements_balkong
   name: Wind speed last 5 measurements balkong
   entity_id: sensor.zweather_balkong_velocity_kmh
   sampling_size: 5
   state_characteristic: mean
-
-- platform: command_line
-  name: SmartMirror Rpi Temperature - Gang 1
-  command: !secret smartmirror_rpi_temperature
-  unit_of_measurement: "°C"
-  value_template: "{{ value }}"
-  scan_interval: 60 # 1 min

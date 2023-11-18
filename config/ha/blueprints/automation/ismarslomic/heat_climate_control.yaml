@@ -129,5 +129,5 @@ action:
             entity_id: !input climate_entity
     # DEFAULT - turn off, either present or away the price is not acceptable
     default:
-      - service: switch.turn_off
+      - service: climate.turn_off
         entity_id: !input climate_entity

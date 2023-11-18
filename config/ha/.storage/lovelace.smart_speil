@@ -1,99 +1,144 @@
 {
-    "version": 1,
-    "key": "lovelace.smart_speil",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.smart_speil",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "type": "sidebar",
+          "badges": [],
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
                 {
-                    "title": "Home",
-                    "type": "sidebar",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "custom:mini-graph-card",
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#0000ff",
-                                            "value": 1
-                                        },
-                                        {
-                                            "color": "#00ff00",
-                                            "value": 30
-                                        },
-                                        {
-                                            "color": "#ff0000",
-                                            "value": 65
-                                        }
-                                    ],
-                                    "color_thresholds_transition": "hard",
-                                    "decimals": 0,
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.smartmirror_rpi_temperature_gang_1",
-                                            "name": "Rpi temperature",
-                                            "state_adaptive_color": true
-                                        }
-                                    ],
-                                    "font_size": 75,
-                                    "show": {
-                                        "fill": true,
-                                        "graph": true
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "entities",
-                                    "entities": [
-                                        {
-                                            "entity": "switch.smartmirror_monitor_gang_1",
-                                            "name": "Monitor"
-                                        },
-                                        {
-                                            "entity": "switch.smartmirror_mm_gang_1",
-                                            "name": "Magic mirror"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "shell_command.smartmirror_rpi_reboot",
-                                        "service_data": {},
-                                        "target": {}
-                                    },
-                                    "name": "Reboot Rpi",
-                                    "icon": "mdi:restart",
-                                    "icon_height": "60px"
-                                },
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "shell_command.smartmirror_rpi_shutdown",
-                                        "service_data": {},
-                                        "target": {}
-                                    },
-                                    "name": "Shutdown Rpi",
-                                    "icon": "mdi:power",
-                                    "icon_height": "60px"
-                                }
-                            ],
-                            "view_layout": {
-                                "position": "sidebar"
-                            }
-                        }
-                    ]
+                  "type": "custom:mini-graph-card",
+                  "color_thresholds": [
+                    {
+                      "color": "#0000ff",
+                      "value": 1
+                    },
+                    {
+                      "color": "#00ff00",
+                      "value": 30
+                    },
+                    {
+                      "color": "#ff0000",
+                      "value": 65
+                    }
+                  ],
+                  "color_thresholds_transition": "hard",
+                  "decimals": 0,
+                  "entities": [
+                    {
+                      "entity": "sensor.smartmirror_rpi_temperature_gang_1",
+                      "name": "Rpi temperature",
+                      "state_adaptive_color": true
+                    }
+                  ],
+                  "font_size": 75,
+                  "show": {
+                    "fill": true,
+                    "graph": true
+                  }
                 }
-            ],
-            "title": "Smart mirror"
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "switch.smartmirror_monitor_gang_1",
+                      "name": "Monitor"
+                    },
+                    {
+                      "entity": "switch.smartmirror_mm_gang_1",
+                      "name": "Magic mirror"
+                    },
+                    {
+                      "entity": "automation.set_smartmirror_brightness_to_day_time",
+                      "secondary_info": "last-triggered",
+                      "icon": "mdi:brightness-7",
+                      "name": "Monitor brightness to day time"
+                    },
+                    {
+                      "entity": "automation.set_smartmirror_brightness_to_night_time",
+                      "icon": "mdi:brightness-3",
+                      "secondary_info": "last-triggered",
+                      "name": "Monitor brightness to night time"
+                    }
+                  ]
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "shell_command.smartmirror_monitor_brightness_night",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "name": "Monitor Brightness Night",
+                  "icon": "mdi:brightness-3",
+                  "icon_height": "30px"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "shell_command.smartmirror_monitor_brightness_day",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "name": "Monitor Brightness Day",
+                  "icon": "mdi:brightness-7",
+                  "icon_height": "30px"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "shell_command.smartmirror_rpi_reboot",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "name": "Reboot Rpi",
+                  "icon": "mdi:restart",
+                  "icon_height": "30px"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "shell_command.smartmirror_rpi_shutdown",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "name": "Shutdown Rpi",
+                  "icon": "mdi:power",
+                  "icon_height": "30px"
+                }
+              ],
+              "view_layout": {
+                "position": "sidebar"
+              }
+            }
+          ]
         }
+      ],
+      "title": "Smart mirror"
     }
+  }
 }

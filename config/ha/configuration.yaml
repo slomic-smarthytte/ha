@@ -34,6 +34,7 @@ sensor: !include sensor.yaml
 shell_command: !include shell_command.yaml
 switch: !include switch.yaml
 template: !include template.yaml
+command_line: !include command_line.yaml
 
 # Text to speech
 tts:

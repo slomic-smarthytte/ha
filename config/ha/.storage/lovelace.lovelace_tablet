@@ -301,14 +301,19 @@
           "badges": [],
           "cards": [
             {
-              "type": "tile",
-              "entity": "light.stue_1_lights",
-              "name": "Stue",
-              "show_entity_picture": false,
               "features": [
                 {
                   "type": "light-brightness"
                 }
+              ],
+              "type": "tile",
+              "entity": "light.stue_1_lights",
+              "name": "Stue",
+              "show_entity_picture": false,
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
               ]
             },
             {
@@ -319,12 +324,24 @@
               ],
               "type": "tile",
               "entity": "light.kjokken_lights",
-              "name": "Kjøkken"
+              "name": "Kjøkken",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.bad_1_lights",
-              "name": "Bad"
+              "name": "Bad",
+              "vertical": false,
+              "hide_state": false,
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
@@ -334,6 +351,11 @@
                 {
                   "type": "light-brightness"
                 }
+              ],
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
               ]
             },
             {
@@ -344,6 +366,11 @@
                 {
                   "type": "light-brightness"
                 }
+              ],
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
               ]
             },
             {
@@ -354,6 +381,11 @@
                 {
                   "type": "light-brightness"
                 }
+              ],
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
               ]
             },
             {
@@ -364,6 +396,11 @@
                 {
                   "type": "light-brightness"
                 }
+              ],
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
               ]
             },
             {
@@ -374,6 +411,11 @@
                 {
                   "type": "light-brightness"
                 }
+              ],
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
               ]
             }
           ]
@@ -390,49 +432,93 @@
               "type": "tile",
               "entity": "light.stue_2_philips_hue_lights",
               "name": "Stue",
-              "show_entity_picture": false
+              "show_entity_picture": false,
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.fibaro_dimmer_soverom_3_level",
-              "name": "Voksenrom"
+              "name": "Voksenrom",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.philips_hue_lightstrip_soverom_3",
               "name": "Senglys voksenrom",
-              "icon": ""
+              "icon": "",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.fibaro_dimmer_soverom_2_level",
-              "name": "Barnerom"
+              "name": "Barnerom",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.bad_2_lights",
-              "name": "Bad"
+              "name": "Bad",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "sensor.temperatur_oppholdsrom_2_etg",
-              "name": "Oppholdsrom"
+              "name": "Oppholdsrom",
+              "state_content": [
+                "state",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.fibaro_dimmer_gang_2_level",
-              "name": "Gang"
+              "name": "Gang",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.fibaro_dimmer_trapp_1_level",
-              "name": "Trapp"
+              "name": "Trapp",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             },
             {
               "type": "tile",
               "entity": "light.juletre_stue_2",
               "name": "Juletre",
-              "icon": ""
+              "icon": "",
+              "state_content": [
+                "state",
+                "brightness",
+                "last-changed"
+              ]
             }
           ]
         },
@@ -809,7 +895,12 @@
               "type": "tile",
               "entity": "cover.screens_2_etg",
               "show_entity_picture": false,
-              "name": "Screens 2. etg"
+              "name": "Screens 2. etg",
+              "state_content": [
+                "state",
+                "current_position",
+                "last-changed"
+              ]
             },
             {
               "features": [
@@ -820,7 +911,12 @@
               "type": "tile",
               "entity": "cover.fibaro_roller_shutter_soverom_3_level",
               "show_entity_picture": false,
-              "name": "Screens soverom"
+              "name": "Screens soverom",
+              "state_content": [
+                "state",
+                "current_position",
+                "last-changed"
+              ]
             },
             {
               "features": [
@@ -831,7 +927,12 @@
               "type": "tile",
               "entity": "cover.fibaro_roller_shutter_stue_2_level",
               "show_entity_picture": false,
-              "name": "Screens stue"
+              "name": "Screens stue",
+              "state_content": [
+                "state",
+                "current_position",
+                "last-changed"
+              ]
             }
           ]
         },

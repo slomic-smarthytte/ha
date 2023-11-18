@@ -26,29 +26,3 @@
         {% else %}
           mdi:water-off
         {% endif %}
-
-- platform: command_line
-  switches:
-    smartmirror_monitor_gang_1:
-      command_on: !secret smartmirror_monitor_on
-      command_off: !secret smartmirror_monitor_off
-      command_state: !secret smartmirror_monitor_status
-      value_template: '{{ value == "0" }}'
-      friendly_name: SmartMirror Monitor - Gang 1
-    smartmirror_mm_gang_1:
-      command_on: !secret smartmirror_pm2_mm_start
-      command_off: !secret smartmirror_pm2_mm_stop
-      command_state: !secret smartmirror_pm2_mm_status
-      value_template: '{{ value == "0" }}'
-      friendly_name: SmartMirror MagicMirror - Gang 1
-    philips_hue_outdoor_motion_sensor_switch_parkering:
-      command_on: !secret phm_motion_sensor_enable
-      command_off: !secret phm_motion_sensor_disable
-      command_state: !secret phm_motion_sensor_status
-      value_template: >-
-        {% if value_json is defined and value_json.config and value_json.config.on is defined %}
-          {{ value_json.config.on }}
-        {% else %}
-          states('switch.philips_hue_outdoor_motion_sensor_switch_parkering')
-        {% endif %}
-      friendly_name: Philips Hue Motion Sensor Switch
